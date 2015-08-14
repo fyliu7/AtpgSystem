@@ -8,13 +8,14 @@ AND	core/src/gate.h	/^            AND, OR,  NAND, NOR,$/;"	e	enum:CoreNs::Type
 AND_Gate	core/src/gate.h	/^		AND_Gate(): Gate(){}$/;"	f	class:CoreNs::AND_Gate
 AND_Gate	core/src/gate.h	/^class AND_Gate: public Gate$/;"	c	namespace:CoreNs
 AND_map	core/src/logic.h	/^const Value AND_map[5][5] = {$/;"	v
-AddEvent	core/src/simulator.cpp	/^void Simulator::AddEvent(Gate* g)$/;"	f	class:Simulator
+AddEvent	core/src/simulator.cpp	/^void Simulator::AddEvent(Gate* g) {$/;"	f	class:Simulator
 AddFault	core/src/fault.cpp	/^void FaultMgr::AddFault(Circuit *cir) {$/;"	f	class:FaultMgr
 AddFaultCmd	atpg/src/setup_cmd.cpp	/^AddFaultCmd::AddFaultCmd(const string &name, $/;"	f	class:AddFaultCmd
 AddFaultCmd	atpg/src/setup_cmd.h	/^class AddFaultCmd : public CmdNs::Cmd { $/;"	c	namespace:AtpgNs
 ArgMap	cmd/src/opt_mgr.h	/^typedef std::map<std::string, TCLAP::ValueArg<std::string>*>    ArgMap; $/;"	t	namespace:CmdNs
 ArgMapIter	cmd/src/opt_mgr.h	/^typedef ArgMap::iterator                            ArgMapIter; $/;"	t	namespace:CmdNs
-Atpg	core/src/atpg.h	/^class Atpg {$/;"	c
+Atpg	core/src/atpg.h	/^class Atpg {$/;"	c	namespace:CoreNs
+Atpg	core/src/atpg.h	/^inline Atpg::Atpg(Circuit *cir, Fault* f) : $/;"	f	class:CoreNs::Atpg
 AtpgMgr	core/src/atpg_mgr.h	/^class AtpgMgr {$/;"	c	namespace:CoreNs
 AtpgMgr	core/src/atpg_mgr.h	/^inline AtpgMgr::AtpgMgr() {$/;"	f	class:CoreNs::AtpgMgr
 AtpgNs	atpg/src/setup_cmd.h	/^namespace AtpgNs { $/;"	n
@@ -24,6 +25,17 @@ BUF	core/src/gate.h	/^            NOT, BUF, XOR,  XNOR$/;"	e	enum:CoreNs::Type
 BUF_Gate	core/src/gate.h	/^		BUF_Gate(): Gate(){}$/;"	f	class:CoreNs::BUF_Gate
 BUF_Gate	core/src/gate.h	/^class BUF_Gate: public Gate$/;"	c	namespace:CoreNs
 BYTE_SIZE	core/src/logic.h	/^const size_t BYTE_SIZE = 8;$/;"	v
+CELL_AND	interface/src/module.h	/^                CELL_AND, CELL_NAND, CELL_OR, CELL_NOR, $/;"	e	enum:IntfNs::CellType
+CELL_DFF	interface/src/module.h	/^                CELL_DFF, $/;"	e	enum:IntfNs::CellType
+CELL_MODINST	interface/src/module.h	/^enum CellType { CELL_MODINST = 0, $/;"	e	enum:IntfNs::CellType
+CELL_NAND	interface/src/module.h	/^                CELL_AND, CELL_NAND, CELL_OR, CELL_NOR, $/;"	e	enum:IntfNs::CellType
+CELL_NOR	interface/src/module.h	/^                CELL_AND, CELL_NAND, CELL_OR, CELL_NOR, $/;"	e	enum:IntfNs::CellType
+CELL_NOT	interface/src/module.h	/^                CELL_NOT, $/;"	e	enum:IntfNs::CellType
+CELL_OR	interface/src/module.h	/^                CELL_AND, CELL_NAND, CELL_OR, CELL_NOR, $/;"	e	enum:IntfNs::CellType
+CELL_PI	interface/src/module.h	/^                CELL_PI, CELL_PO, $/;"	e	enum:IntfNs::CellType
+CELL_PO	interface/src/module.h	/^                CELL_PI, CELL_PO, $/;"	e	enum:IntfNs::CellType
+CELL_XNOR	interface/src/module.h	/^                CELL_XOR, CELL_XNOR }; $/;"	e	enum:IntfNs::CellType
+CELL_XOR	interface/src/module.h	/^                CELL_XOR, CELL_XNOR }; $/;"	e	enum:IntfNs::CellType
 CalcControllability	core/src/gate.cpp	/^void AND_Gate::CalcControllability()$/;"	f	class:AND_Gate
 CalcControllability	core/src/gate.cpp	/^void BUF_Gate::CalcControllability()$/;"	f	class:BUF_Gate
 CalcControllability	core/src/gate.cpp	/^void NAND_Gate::CalcControllability()$/;"	f	class:NAND_Gate
@@ -47,6 +59,10 @@ CalcObservability	core/src/gate.cpp	/^void XOR_Gate::CalcObservability()$/;"	f	c
 CalcTestability	core/src/circuit.cpp	/^void Circuit::CalcTestability()$/;"	f	class:Circuit
 CatMap	cmd/src/cmd.h	/^typedef std::map<std::string, std::set<std::string> >   CatMap; $/;"	t	namespace:CmdNs
 CatMapIter	cmd/src/cmd.h	/^typedef CatMap::iterator                                CatMapIter; $/;"	t	namespace:CmdNs
+Cell	interface/src/module.h	/^class Cell {$/;"	c	namespace:IntfNs
+CellMap	interface/src/module.h	/^typedef std::map<std::string, Cell *> CellMap;  $/;"	t	namespace:IntfNs
+CellType	interface/src/module.h	/^enum CellType { CELL_MODINST = 0, $/;"	g	namespace:IntfNs
+CellVec	interface/src/module.h	/^typedef std::vector<Cell *> CellVec; $/;"	t	namespace:IntfNs
 Circuit	core/src/circuit.h	/^class Circuit {$/;"	c	namespace:CoreNs
 Circuit	core/src/circuit.h	/^inline Circuit::Circuit() {$/;"	f	class:CoreNs::Circuit
 Cmd	cmd/src/cmd.h	/^class Cmd { $/;"	c	namespace:CmdNs
@@ -57,6 +73,7 @@ CmdMgr	cmd/src/cmd.h	/^class CmdMgr { $/;"	c	namespace:CmdNs
 CmdNs	cmd/src/cmd.h	/^namespace CmdNs { $/;"	n
 CmdNs	cmd/src/opt_mgr.h	/^namespace CmdNs { $/;"	n
 ConnectGates	core/src/circuit.cpp	/^void Circuit::ConnectGates()$/;"	f	class:Circuit
+CoreNs	core/src/atpg.h	/^namespace CoreNs { $/;"	n
 CoreNs	core/src/atpg_mgr.h	/^namespace CoreNs { $/;"	n
 CoreNs	core/src/circuit.h	/^namespace CoreNs { $/;"	n
 CoreNs	core/src/fault.h	/^namespace CoreNs { $/;"	n
@@ -81,7 +98,7 @@ EvalXNOR2	core/src/logic.h	/^inline Value EvalXNOR2(Value v1, Value v2) {$/;"	f
 EvalXNOR3	core/src/logic.h	/^inline Value EvalXNOR3(Value v1, Value v2, Value v3) {$/;"	f
 EvalXOR2	core/src/logic.h	/^inline Value EvalXOR2(Value v1, Value v2) {$/;"	f
 EvalXOR3	core/src/logic.h	/^inline Value EvalXOR3(Value v1, Value v2, Value v3) {$/;"	f
-EventDrivenSim	core/src/simulator.cpp	/^void Simulator::EventDrivenSim()$/;"	f	class:Simulator
+EventDrivenSim	core/src/simulator.cpp	/^void Simulator::EventDrivenSim() {$/;"	f	class:Simulator
 FAIL	cmd/src/cmd.h	/^    enum    Result { EXIT = -1, SUCCESS, FAIL, NOT_EXIST, NOP };$/;"	e	enum:CmdNs::CmdMgr::Result
 Fault	core/src/fault.h	/^class Fault { $/;"	c	namespace:CoreNs
 Fault	core/src/fault.h	/^inline Fault::Fault(CoreNs::Gate* g, $/;"	f	class:CoreNs::Fault
@@ -113,10 +130,17 @@ GoodEval	core/src/gate.cpp	/^Value POPPO_Gate::GoodEval()$/;"	f	class:POPPO_Gate
 GoodEval	core/src/gate.cpp	/^Value XNOR_Gate::GoodEval()$/;"	f	class:XNOR_Gate
 GoodEval	core/src/gate.cpp	/^Value XOR_Gate::GoodEval()$/;"	f	class:XOR_Gate
 H	core/src/logic.h	/^const Value H =	1;$/;"	v
+IntfNs	interface/src/module.h	/^namespace IntfNs {$/;"	n
+IntfNs	interface/src/netlist.h	/^namespace IntfNs { $/;"	n
+IntfNs	interface/src/netlist.y	/^IntfNs::Netlist *nl; $/;"	l
 L	core/src/logic.h	/^const Value L = 0;$/;"	v
 Levelize	core/src/circuit.cpp	/^void Circuit::Levelize()$/;"	f	class:Circuit
+Module	interface/src/module.h	/^class Module { $/;"	c	namespace:IntfNs
+Module	interface/src/module.h	/^inline Module::Module(const std::string& name) {$/;"	f	class:IntfNs::Module
+ModuleMap	interface/src/netlist.h	/^typedef std::map<std::string, Module *> ModuleMap; $/;"	t	namespace:IntfNs
 MultiMap	cmd/src/opt_mgr.h	/^typedef std::map<std::string, TCLAP::MultiArg<std::string>*>    MultiMap; $/;"	t	namespace:CmdNs
 MultiMapIter	cmd/src/opt_mgr.h	/^typedef MultiMap::iterator                          MultiMapIter; $/;"	t	namespace:CmdNs
+NAME_LEN_MAX	interface/src/netlist.h	/^const int NAME_LEN_MAX = 256; $/;"	v
 NAND	core/src/gate.h	/^            AND, OR,  NAND, NOR,$/;"	e	enum:CoreNs::Type
 NAND_Gate	core/src/gate.h	/^		NAND_Gate(): Gate(){}$/;"	f	class:CoreNs::NAND_Gate
 NAND_Gate	core/src/gate.h	/^class NAND_Gate: public Gate$/;"	c	namespace:CoreNs
@@ -131,7 +155,13 @@ NOT_EXIST	cmd/src/cmd.h	/^    enum    Result { EXIT = -1, SUCCESS, FAIL, NOT_EXI
 NOT_Gate	core/src/gate.h	/^		NOT_Gate(): Gate(){}$/;"	f	class:CoreNs::NOT_Gate
 NOT_Gate	core/src/gate.h	/^class NOT_Gate: public Gate$/;"	c	namespace:CoreNs
 NOT_map	core/src/logic.h	/^const Value NOT_map[5] ={H,L,X,B,D};$/;"	v
+NameList	interface/src/netlist.h	/^struct NameList { $/;"	s	namespace:IntfNs
 NameSet	cmd/src/opt_mgr.h	/^typedef std::set<std::string>                       NameSet; $/;"	t	namespace:CmdNs
+Net	interface/src/module.h	/^class Net { $/;"	c	namespace:IntfNs
+NetMap	interface/src/module.h	/^typedef std::map<std::string, Net *> NetMap;   $/;"	t	namespace:IntfNs
+NetVec	interface/src/module.h	/^typedef std::vector<Net *> NetVec; $/;"	t	namespace:IntfNs
+Netlist	interface/src/netlist.h	/^class Netlist { $/;"	c	namespace:IntfNs
+Netlist	interface/src/netlist.h	/^inline Netlist::Netlist() {}$/;"	f	class:IntfNs::Netlist
 OR	core/src/gate.h	/^            AND, OR,  NAND, NOR,$/;"	e	enum:CoreNs::Type
 OR_Gate	core/src/gate.h	/^		OR_Gate(): Gate(){}$/;"	f	class:CoreNs::OR_Gate
 OR_Gate	core/src/gate.h	/^class OR_Gate: public Gate$/;"	c	namespace:CoreNs
@@ -148,12 +178,19 @@ PIPPI_Gate	core/src/gate.h	/^class PIPPI_Gate: public Gate$/;"	c	namespace:CoreN
 PO	core/src/gate.h	/^            PPI, PO,  PPO,$/;"	e	enum:CoreNs::Type
 POPPO_Gate	core/src/gate.h	/^		POPPO_Gate(): Gate(){}$/;"	f	class:CoreNs::POPPO_Gate
 POPPO_Gate	core/src/gate.h	/^class POPPO_Gate: public Gate$/;"	c	namespace:CoreNs
+PORT_INPUT	interface/src/module.h	/^                PORT_INPUT, PORT_OUTPUT}; $/;"	e	enum:IntfNs::PortType
+PORT_NA	interface/src/module.h	/^enum PortType { PORT_NA = -1, $/;"	e	enum:IntfNs::PortType
+PORT_OUTPUT	interface/src/module.h	/^                PORT_INPUT, PORT_OUTPUT}; $/;"	e	enum:IntfNs::PortType
 PPI	core/src/gate.h	/^            PPI, PO,  PPO,$/;"	e	enum:CoreNs::Type
 PPO	core/src/gate.h	/^            PPI, PO,  PPO,$/;"	e	enum:CoreNs::Type
 ParaValPair	core/src/logic.h	/^typedef std::pair<ParaValue, ParaValue> ParaValPair;$/;"	t
 ParaValue	core/src/logic.h	/^typedef unsigned long  ParaValue;$/;"	t
 Parse	core/src/circuit.cpp	/^void Circuit:: Parse(string cir_fname)$/;"	f	class:Circuit
 PatternMgr	core/src/pattern.h	/^class PatternMgr$/;"	c
+Port	interface/src/module.h	/^class Port { $/;"	c	namespace:IntfNs
+Port	interface/src/module.h	/^inline Port::Port(const std::string& name) {$/;"	f	class:IntfNs::Port
+PortType	interface/src/module.h	/^enum PortType { PORT_NA = -1, $/;"	g	namespace:IntfNs
+PortVec	interface/src/module.h	/^typedef std::vector<Port *> PortVec; $/;"	t	namespace:IntfNs
 ReadNetlistCmd	atpg/src/setup_cmd.cpp	/^ReadNetlistCmd::ReadNetlistCmd(const string &name, $/;"	f	class:ReadNetlistCmd
 ReadNetlistCmd	atpg/src/setup_cmd.h	/^class ReadNetlistCmd : public CmdNs::Cmd { $/;"	c	namespace:AtpgNs
 ReportCircuitCmd	atpg/src/setup_cmd.h	/^class ReportCircuitCmd : public CmdNs::Cmd { $/;"	c	namespace:AtpgNs
@@ -163,9 +200,10 @@ Result	cmd/src/cmd.h	/^    enum    Result { EXIT = -1, SUCCESS, FAIL, NOT_EXIST,
 SUCCESS	cmd/src/cmd.h	/^    enum    Result { EXIT = -1, SUCCESS, FAIL, NOT_EXIST, NOP };$/;"	e	enum:CmdNs::CmdMgr::Result
 SetBitVal	core/src/logic.h	/^inline void SetBitVal(ParaValue& pv, bool value ,int pos)$/;"	f
 SetInputsFromPattern	core/src/circuit.cpp	/^void Circuit::SetInputsFromPattern(TestPattern* pat)$/;"	f	class:Circuit
+SetType	interface/src/module.h	/^inline void Port::SetType(PortType type) {$/;"	f	class:IntfNs::Port
 SetVal	core/src/pattern.cpp	/^void TestPattern::SetVal(int frame_id, int idx, Value val)$/;"	f	class:TestPattern
-Simulator	core/src/simulator.h	/^            Simulator(Circuit *cir) {$/;"	f	class:CoreNs::Simulator
 Simulator	core/src/simulator.h	/^class Simulator {$/;"	c	namespace:CoreNs
+Simulator	core/src/simulator.h	/^inline Simulator::Simulator(Circuit *cir) { $/;"	f	class:CoreNs::Simulator
 TestPattern	core/src/pattern.h	/^		TestPattern(int pat_size)$/;"	f	class:TestPattern
 TestPattern	core/src/pattern.h	/^class TestPattern$/;"	c
 Type	core/src/gate.h	/^enum Type { PI = 0,  $/;"	g	namespace:CoreNs
@@ -192,19 +230,32 @@ _CORE_FAULT_H_	core/src/fault.h	2;"	d
 _CORE_GATE_H_	core/src/gate.h	2;"	d
 _CORE_PATTERN_H_	core/src/pattern.h	2;"	d
 _CORE_SIMULATOR_H_	core/src/simulator.h	2;"	d
+_INTF_MODULE_H_	interface/src/module.h	2;"	d
+_INTF_NETLIST_H_	interface/src/netlist.h	2;"	d
 _LOGIC_H_	core/src/logic.h	2;"	d
+_MAX_BACK_TRACK_LIMIT_	core/src/atpg.h	4;"	d
+addCell	interface/src/module.h	/^inline void addCell(Cell * const c) {$/;"	f	namespace:IntfNs
+addModule	interface/src/netlist.cpp	/^void Netlist::addModule(const char * const name) {$/;"	f	class:Netlist
+addPort	interface/src/module.h	/^inline void Module::addPort(Port * const p) {$/;"	f	class:IntfNs::Module
+addPorts	interface/src/netlist.cpp	/^void Netlist::addPorts(NameList * const ports) {$/;"	f	class:Netlist
 arg_map_	cmd/src/opt_mgr.h	/^    ArgMap          arg_map_; $/;"	m	class:CmdNs::OptMgr
 atpg_mgr_	atpg/src/setup_cmd.h	/^    CoreNs::AtpgMgr *atpg_mgr_; $/;"	m	class:AtpgNs::AddFaultCmd
 atpg_mgr_	atpg/src/setup_cmd.h	/^    CoreNs::AtpgMgr *atpg_mgr_; $/;"	m	class:AtpgNs::ReadNetlistCmd
 atpg_mgr_	atpg/src/setup_cmd.h	/^    CoreNs::AtpgMgr *atpg_mgr_; $/;"	m	class:AtpgNs::ReportCircuitCmd
 atpg_mgr_	atpg/src/setup_cmd.h	/^    CoreNs::AtpgMgr *atpg_mgr_; $/;"	m	class:AtpgNs::ReportGateCmd
 atpgs_	core/src/atpg_mgr.h	/^    AtpgVec     atpgs_; $/;"	m	class:CoreNs::AtpgMgr
+back_track_count	core/src/atpg.h	/^    size_t          back_track_count; $/;"	m	class:CoreNs::Atpg
+back_track_limit	core/src/atpg.h	/^    const size_t    back_track_limit; $/;"	m	class:CoreNs::Atpg
 cat_map_	cmd/src/cmd.h	/^    CatMap  cat_map_; $/;"	m	class:CmdNs::CmdMgr
-cir_	core/src/atpg.h	/^	Circuit             *cir_;$/;"	m	class:Atpg
+cell_map_	interface/src/module.h	/^    CellMap cell_map_; $/;"	m	class:IntfNs::Module
+cir_	core/src/atpg.h	/^	Circuit         *cir_;$/;"	m	class:CoreNs::Atpg
 cir_	core/src/atpg_mgr.h	/^    Circuit     *cir_; $/;"	m	class:CoreNs::AtpgMgr
 cir_	core/src/simulator.h	/^    Circuit             *cir_;$/;"	m	class:CoreNs::Simulator
+clearPorts	interface/src/module.h	/^inline void Module::clearPorts() {$/;"	f	class:IntfNs::Module
 cmd_map_	cmd/src/cmd.h	/^    CmdMap  cmd_map_; $/;"	m	class:CmdNs::CmdMgr
 cmp_gate_lvl	core/src/circuit.cpp	/^int cmp_gate_lvl(Gate* gate_a, Gate* gate_b)$/;"	f
+current_	interface/src/netlist.h	/^    Module *current_; $/;"	m	class:IntfNs::Netlist
+current_fault	core/src/atpg.h	/^    Fault           *current_fault; $/;"	m	class:CoreNs::Atpg
 event_queue_	core/src/simulator.h	/^    std::queue<Gate*>   event_queue_;$/;"	m	class:CoreNs::Simulator
 exec	cmd/src/cmd.cpp	/^bool Cmd::exec(vector<string> &args) { $/;"	f	class:Cmd
 f_	core/src/gate.h	/^	Fault       *f_;$/;"	m	class:CoreNs::Gate
@@ -219,28 +270,54 @@ fl_	core/src/gate.h	/^    ParaValue   fl_;  $/;"	m	class:CoreNs::Gate
 flag_set_	cmd/src/opt_mgr.h	/^    NameSet         flag_set_;  $/;"	m	class:CmdNs::OptMgr
 fos_	core/src/gate.h	/^    Gate        **fos_;$/;"	m	class:CoreNs::Gate
 gate_list_	core/src/circuit.h	/^    Gate**                       gate_list_;$/;"	m	class:CoreNs::Circuit
+getCell	interface/src/module.h	/^inline Cell *Module::getCell(const size_t& n) const {$/;"	f	class:IntfNs::Module
+getCell	interface/src/module.h	/^inline Cell *Module::getCell(const std::string& name) const { $/;"	f	class:IntfNs::Module
+getCellNum	interface/src/module.h	/^inline size_t Module::getCellNum() const {$/;"	f	class:IntfNs::Module
+getModule	interface/src/netlist.h	/^inline Module *Netlist::getModule(const std::string& name) { $/;"	f	class:IntfNs::Netlist
 getMsg	cmd/src/opt_mgr.h	/^inline std::string OptMgr::getMsg() const { $/;"	f	class:CmdNs::OptMgr
 getMultiVal	cmd/src/opt_mgr.cpp	/^const vector<string>* OptMgr::getMultiVal(const string &name) const {  $/;"	f	class:OptMgr
 getName	cmd/src/cmd.h	/^inline std::string Cmd::getName() const { $/;"	f	class:CmdNs::Cmd
 getName	cmd/src/opt_mgr.h	/^inline std::string OptMgr::getName() const { $/;"	f	class:CmdNs::OptMgr
+getName	interface/src/module.h	/^inline void Module::getName(std::string& ret) const {$/;"	f	class:IntfNs::Module
+getName	interface/src/module.h	/^inline void Port::getName(std::string& ret) const { $/;"	f	class:IntfNs::Port
 getOptVal	cmd/src/opt_mgr.cpp	/^bool OptMgr::getOptVal(const string &name) const {$/;"	f	class:OptMgr
+getPort	interface/src/module.h	/^inline Port *Module::getPort(const size_t& n) const {$/;"	f	class:IntfNs::Module
+getPort	interface/src/module.h	/^inline Port *Module::getPort(const std::string& name) const {$/;"	f	class:IntfNs::Module
+getPortNum	interface/src/module.h	/^inline size_t getPortNum() const {$/;"	f	namespace:IntfNs
 getVal	cmd/src/opt_mgr.cpp	/^string OptMgr::getVal(const string &name) const { $/;"	f	class:OptMgr
 gh_	core/src/gate.h	/^    ParaValue   gh_; $/;"	m	class:CoreNs::Gate
 gl_	core/src/gate.h	/^    ParaValue   gl_; $/;"	m	class:CoreNs::Gate
+head	interface/src/netlist.h	/^    NameList *head; $/;"	m	struct:IntfNs::NameList
+id_	interface/src/module.h	/^    int id_; $/;"	m	class:IntfNs::Cell
+id_	interface/src/module.h	/^    int id_; $/;"	m	class:IntfNs::Net
+in_cell_	interface/src/module.h	/^    Cell *in_cell_; $/;"	m	class:IntfNs::Net
 in_gate_	core/src/gate.h	/^		Gate* in_gate_;$/;"	m	class:CoreNs::Wire
+in_net_	interface/src/module.h	/^    Net *in_net_; $/;"	m	class:IntfNs::Port
+in_nets_	interface/src/module.h	/^    NetVec in_nets_; $/;"	m	class:IntfNs::Cell
+in_port_	interface/src/module.h	/^    Port *in_port_; $/;"	m	class:IntfNs::Net
 in_wire_list_	core/src/gate.h	/^	WireVec     in_wire_list_;$/;"	m	class:CoreNs::Gate
 is_dropped_	core/src/fault.h	/^    bool            is_dropped_;$/;"	m	class:CoreNs::Fault
 is_faulted_	core/src/gate.h	/^	bool        is_faulted_;$/;"	m	class:CoreNs::Gate
 logic_list_	core/src/circuit.h	/^    std::vector<Gate*>           logic_list_;$/;"	m	class:CoreNs::Circuit
 lvl_	core/src/gate.h	/^	int         lvl_;$/;"	m	class:CoreNs::Gate
+lvl_	interface/src/module.h	/^    size_t lvl_;$/;"	m	class:IntfNs::Cell
 main	atpg/src/main.cpp	/^int main(int argc, char **argv) { $/;"	f
-main	core/src/main.cpp	/^int main()$/;"	f
+main	interface/src/netlist_test.cpp	/^int main(int argc, char **argv) {$/;"	f
+module_map_	interface/src/netlist.h	/^    ModuleMap module_map_; $/;"	m	class:IntfNs::Netlist
 multi_map_	cmd/src/opt_mgr.h	/^    MultiMap        multi_map_; $/;"	m	class:CmdNs::OptMgr
+name	interface/src/netlist.h	/^    char name[NAME_LEN_MAX]; $/;"	m	struct:IntfNs::NameList
 name_	cmd/src/opt_mgr.h	/^    std::string     name_; $/;"	m	class:CmdNs::OptMgr
 name_	core/src/circuit.h	/^	std::string name_;$/;"	m	class:CoreNs::Circuit
 name_	core/src/gate.h	/^		string name_;$/;"	m	class:CoreNs::Wire
 name_	core/src/gate.h	/^    string      name_;$/;"	m	class:CoreNs::Gate
+name_	interface/src/module.h	/^    std::string name_; $/;"	m	class:IntfNs::Cell
+name_	interface/src/module.h	/^    std::string name_; $/;"	m	class:IntfNs::Module
+name_	interface/src/module.h	/^    std::string name_; $/;"	m	class:IntfNs::Net
+name_	interface/src/module.h	/^    std::string name_; $/;"	m	class:IntfNs::Port
+name_	interface/src/netlist.h	/^    std::string name_; $/;"	m	class:IntfNs::Netlist
 name_set_	cmd/src/opt_mgr.h	/^    NameSet         name_set_; $/;"	m	class:CmdNs::OptMgr
+net_map_	interface/src/module.h	/^    NetMap net_map_; $/;"	m	class:IntfNs::Module
+next	interface/src/netlist.h	/^    NameList *next; $/;"	m	struct:IntfNs::NameList
 nfi_	core/src/gate.h	/^	int         nfi_; $/;"	m	class:CoreNs::Gate
 nfo_	core/src/gate.h	/^    int         nfo_;$/;"	m	class:CoreNs::Gate
 nlogic_gate_	core/src/circuit.h	/^    int  nlogic_gate_; $/;"	m	class:CoreNs::Circuit
@@ -253,16 +330,23 @@ one_controllability_	core/src/gate.h	/^    int         one_controllability_;$/;"
 opt_	cmd/src/opt_mgr.h	/^    TCLAP::CmdLine  *opt_; $/;"	m	class:CmdNs::OptMgr
 opt_map_	cmd/src/opt_mgr.h	/^    OptMap          opt_map_; $/;"	m	class:CmdNs::OptMgr
 opt_mgr_	cmd/src/cmd.h	/^    OptMgr              *opt_mgr_; $/;"	m	class:CmdNs::Cmd
+out_cells_	interface/src/module.h	/^    CellVec out_cells_; $/;"	m	class:IntfNs::Net
 out_gate_list_	core/src/gate.h	/^		vector<Gate*> out_gate_list_;$/;"	m	class:CoreNs::Wire
+out_net_	interface/src/module.h	/^    Net *out_net_; $/;"	m	class:IntfNs::Port
+out_nets_	interface/src/module.h	/^    NetVec out_nets_; $/;"	m	class:IntfNs::Cell
+out_ports_	interface/src/module.h	/^    PortVec out_ports_; $/;"	m	class:IntfNs::Net
 out_wire_	core/src/gate.h	/^	Wire        *out_wire_;$/;"	m	class:CoreNs::Gate
 p0_	core/src/pattern.h	/^		ParaValue* p0_, *p1_;$/;"	m	class:TestPattern
 p1_	core/src/pattern.h	/^		ParaValue* p0_, *p1_;$/;"	m	class:TestPattern
 parse	cmd/src/opt_mgr.cpp	/^void OptMgr::parse(vector<string> &args) {$/;"	f	class:OptMgr
+parse	interface/src/netlist.cpp	/^bool Netlist::parse(const string& filename, const string& top) {$/;"	f	class:Netlist
 pat_mgr_	core/src/atpg_mgr.h	/^    PatternMgr  *pat_mgr_; $/;"	m	class:CoreNs::AtpgMgr
 pat_size_	core/src/pattern.h	/^		int pat_size_;$/;"	m	class:TestPattern
 pattern_list_	core/src/pattern.h	/^		vector<TestPattern*> pattern_list_;$/;"	m	class:PatternMgr
 pi_list_	core/src/circuit.h	/^    std::vector<Gate*>           pi_list_;$/;"	m	class:CoreNs::Circuit
 po_list_	core/src/circuit.h	/^    std::vector<Gate*>           po_list_;$/;"	m	class:CoreNs::Circuit
+port_vec_	interface/src/module.h	/^    PortVec port_vec_; $/;"	m	class:IntfNs::Cell
+port_vec_	interface/src/module.h	/^    PortVec port_vec_; $/;"	m	class:IntfNs::Module
 ppi_list_	core/src/circuit.h	/^    std::vector<Gate*>           ppi_list_;$/;"	m	class:CoreNs::Circuit
 ppo_list_	core/src/circuit.h	/^    std::vector<Gate*>           ppo_list_;$/;"	m	class:CoreNs::Circuit
 regArg	cmd/src/opt_mgr.cpp	/^bool OptMgr::regArg(const string    &name, $/;"	f	class:OptMgr
@@ -272,16 +356,25 @@ run	atpg/src/setup_cmd.cpp	/^bool AddFaultCmd::run() {$/;"	f	class:AddFaultCmd
 run	atpg/src/setup_cmd.cpp	/^bool ReadNetlistCmd::run() { $/;"	f	class:ReadNetlistCmd
 run	atpg/src/setup_cmd.cpp	/^bool ReportGateCmd::run() { $/;"	f	class:ReportGateCmd
 setName	cmd/src/opt_mgr.h	/^inline void OptMgr::setName(const std::string &name) { $/;"	f	class:CmdNs::OptMgr
-sim_	core/src/atpg.h	/^	Simulator           *sim_;$/;"	m	class:Atpg
+sim_	core/src/atpg.h	/^	Simulator       *sim_;$/;"	m	class:CoreNs::Atpg
+success_	interface/src/netlist.h	/^    bool success_; $/;"	m	class:IntfNs::Netlist
+top_	interface/src/module.h	/^    Cell *top_; $/;"	m	class:IntfNs::Cell
+top_	interface/src/netlist.h	/^    Module *top_; $/;"	m	class:IntfNs::Netlist
 type_	core/src/gate.h	/^    Type        type_;$/;"	m	class:CoreNs::Gate
+type_	interface/src/module.h	/^    CellType type_; $/;"	m	class:IntfNs::Cell
+type_	interface/src/module.h	/^    PortType type_; $/;"	m	class:IntfNs::Port
+type_name_	interface/src/module.h	/^    std::string type_name_; $/;"	m	class:IntfNs::Cell
 val_	core/src/gate.h	/^    Value       val_;$/;"	m	class:CoreNs::Gate
 wire_map_	core/src/circuit.h	/^    std::map<std::string, Wire*> wire_map_; $/;"	m	class:CoreNs::Circuit
 zero_controllability_	core/src/gate.h	/^    int         zero_controllability_;$/;"	m	class:CoreNs::Gate
 ~AddFaultCmd	atpg/src/setup_cmd.cpp	/^AddFaultCmd::~AddFaultCmd() {}  $/;"	f	class:AddFaultCmd
+~Atpg	core/src/atpg.h	/^inline Atpg::~Atpg() {$/;"	f	class:CoreNs::Atpg
 ~AtpgMgr	core/src/atpg_mgr.h	/^inline AtpgMgr::~AtpgMgr() {$/;"	f	class:CoreNs::AtpgMgr
 ~Circuit	core/src/circuit.h	/^        ~Circuit(){}; $/;"	f	class:CoreNs::Circuit
 ~Cmd	cmd/src/cmd.h	/^inline Cmd::~Cmd() { $/;"	f	class:CmdNs::Cmd
 ~FaultMgr	core/src/fault.h	/^inline FaultMgr::~FaultMgr() { $/;"	f	class:CoreNs::FaultMgr
+~Module	interface/src/module.h	/^inline Module::~Module() {$/;"	f	class:IntfNs::Module
+~Netlist	interface/src/netlist.h	/^inline Netlist::~Netlist() {$/;"	f	class:IntfNs::Netlist
 ~OptMgr	cmd/src/opt_mgr.h	/^inline OptMgr::~OptMgr() { $/;"	f	class:CmdNs::OptMgr
 ~ReadNetlistCmd	atpg/src/setup_cmd.cpp	/^ReadNetlistCmd::~ReadNetlistCmd() {}$/;"	f	class:ReadNetlistCmd
 ~ReportGateCmd	atpg/src/setup_cmd.cpp	/^ReportGateCmd::~ReportGateCmd() {} $/;"	f	class:ReportGateCmd

@@ -10,15 +10,18 @@ namespace CoreNs {
 
 class Simulator {
 public:
-            Simulator(Circuit *cir) {
-		        cir_ = cir;
-            }
+            Simulator(Circuit *cir); 
+
     void    EventDrivenSim();
     void    AddEvent(Gate* g);
 private:
     Circuit             *cir_;
     std::queue<Gate*>   event_queue_;
 }; //Simulator
+
+inline Simulator::Simulator(Circuit *cir) { 
+    cir_ = cir; 
+}
 
 } //CoreNs
 

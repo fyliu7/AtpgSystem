@@ -1,4 +1,4 @@
-cscope 15 $HOME/atpg/pkg -q 0000001557 0000158218
+cscope 15 $HOME/atpg/pkg -q 0000001670 0000166073
 	@atpg/src/main.cpp
 
 1 
@@ -139,7 +139,7 @@ i
 	`push_back
 (
 	`°rög
-("--add_all"));
+("--all"));
 
 25 
 cmdRdNl
@@ -634,20 +634,26 @@ msg
 ) {
 
 100 
+©pg_mgr_
+ = 
+©pg_mgr
+;
+
+101 
 åy
  {
 
-101 
+102 
 ›t_mgr_
 ->
 	`ªgO±
-("add_all",
+("all",
 
-103 
+104 
 Ál£
 ,
 
-107 
+108 
 	`ˇtch
  (
 ArgEx˚±i⁄
@@ -655,15 +661,15 @@ ArgEx˚±i⁄
 e
 ) {
 
-109 
+110 
 	`exô
 (1);
 
-111 
+112 
 	}
 }
 
-113 
+114 
 	gAddFau…Cmd
 ::~
 	$AddFau…Cmd
@@ -671,7 +677,7 @@ e
 	}
 }
 
-114 
+115 
 boﬁ
  
 AddFau…Cmd
@@ -679,23 +685,23 @@ AddFau…Cmd
 	$run
 () {
 
-115 if(!
+116 if(!
 ©pg_mgr_
 ->
 cú_
 ) {
 
-117  
+118  
 Ál£
 ;
 
-120 if(!
+121 if(!
 ©pg_mgr_
 ->
 f_mgr_
 )
 
-121 
+122 
 ©pg_mgr_
 ->
 f_mgr_
@@ -705,13 +711,13 @@ f_mgr_
 Fau…Mgr
 ;
 
-123 if(
+124 if(
 ›t_mgr_
 ->
 	`gëO±VÆ
-("add_all")) {
+("all")) {
 
-124 
+125 
 ©pg_mgr_
 ->
 f_mgr_
@@ -721,15 +727,15 @@ f_mgr_
 cú_
 );
 
-125  
+126  
 åue
 ;
 
-130  
+131  
 Ál£
 ;
 
-131 
+132 
 	}
 }
 
@@ -2531,37 +2537,171 @@ _CORE_ATPG_H_
 
 	)
 
-4 
+4 
+	#_MAX_BACK_TRACK_LIMIT_
+ 256
+
+	)
+
+6 
 	~"simuœt‹.h
 "
 
-6 
-usög
- 
+8 
 «me•a˚
  
 	gC‹eNs
-;
+ {
 
-8 ˛as†
+10 ˛as†
 	cAçg
  {
 
-9 
-	mpublic
+11 
+	gpublic
 :
 
-10 
+12 
+Açg
+(
+Cúcuô
+ *
+cú
+, 
+Fau…
+* 
+f
+);
+
+13 ~
+Açg
+();
+
+15 
+boﬁ
+ 
+Tpg
+(
+Te°P©ã∫
+& 
+p
+);
+
+17 
+Inôülize
+();
+
+18 
+boﬁ
+ 
+Fau…A˘iv©e
+();
+
+19 
+boﬁ
+ 
+Im∂y
+();
+
+22 
+	g¥Ÿe˘ed
+:
+
+23 
 Cúcuô
  *
 cú_
 ;
 
-11 
+24 
 Simuœt‹
  *
-	msim_
+	gsim_
 ;
+
+26 c⁄° 
+size_t
+ 
+	gback_åack_limô
+;
+
+27 
+size_t
+ 
+	gback_åack_cou¡
+;
+
+29 
+Fau…
+ *
+	gcuºít_Áu…
+;
+
+32 
+ölöe
+ 
+	gAçg
+::
+	$Açg
+(
+Cúcuô
+ *
+cú
+, 
+Fau…
+* 
+f
+) :
+
+33 
+	$back_åack_limô
+(
+_MAX_BACK_TRACK_LIMIT_
+) {
+
+35 
+cú_
+ = 
+cú
+;
+
+36 
+sim_
+ = 
+√w
+ 
+	`Simuœt‹
+(
+cú_
+);
+
+38 
+cuºít_Áu…
+ = 
+f
+;
+
+39 
+	}
+}
+
+41 
+ölöe
+ 
+	gAçg
+::~
+	$Açg
+() {
+
+42 
+dñëe
+ 
+sim_
+;
+
+43 
+	}
+}
 
 	@core/src/atpg_mgr.h
 
@@ -8045,100 +8185,6 @@ v3
 	}
 }
 
-	@core/src/main.cpp
-
-1 
-	~<io°ªam
->
-
-2 
-	~"g©e.h
-"
-
-3 
-	~"cúcuô.h
-"
-
-4 
-	~"∑âîn.h
-"
-
-5 
-	~"simuœt‹.h
-"
-
-6 
-	~"©pg.h
-"
-
-7 
-	~<time.h
->
-
-8 
-usög
- 
-«me•a˚
- 
-	g°d
-;
-
-10 
-maö
-()
-
-12 
-P©ã∫Mgr
- 
-	gpmgr
-;
-
-13 
-Cúcuô
- 
-	gcú
-;
-
-14 
-Simuœt‹
- 
-sim
-(&
-cú
-);
-
-15 
-	gcú
-.
-P¨£
-("../testcases/s27.v");
-
-16 
-	gcú
-.
-C⁄√˘G©es
-();
-
-17 
-	gcú
-.
-Levñize
-();
-
-18 
-Açg
- 
-	g©pg
-;
-
-19 
-	g©pg
-.
-	gcú_
- = &
-cú
-;
-
 	@core/src/pattern.cpp
 
 1 
@@ -8560,116 +8606,82 @@ usög
 7 
 	gSimuœt‹
 ::
-EvítDrivíSim
-()
+	$EvítDrivíSim
+() {
 
-9 ! 
+8 ! 
 evít_queue_
 .
-em±y
-())
+	`em±y
+()) {
+
+9 
+G©e
+* 
+g
+ = 
+evít_queue_
+.
+	`‰⁄t
+();
+
+10 
+evít_queue_
+.
+	`p›
+();
 
 11 
-G©e
-* 
-g
- = 
-evít_queue_
-.
-‰⁄t
-();
-
-12 
-	gevít_queue_
-.
-p›
-();
-
-13 
 VÆue
  
-	gv
+v
 ;
 
-14 if(
-	gg
+12 
+v
+ = (
+g
 -> 
-	gis_Áu…ed_
+is_Áu…ed_
  && g-> 
-	gf_
+f_
 -> 
-	gf_pid_
-)
+f_pid_
+)?
 
-16 
-	gv
- = 
+13 
 g
 -> 
-Fau…yEvÆ
+	`Fau…yEvÆ
+():g-> 
+	`GoodEvÆ
 ();
 
-20 
-	gv
- = 
-g
--> 
-GoodEvÆ
-();
+22 
+	}
+}
 
-22 if(
-	gg
--> 
-	gvÆ_
- !
-v
-)
-
-24 
-g
--> 
-vÆ_
- = 
-v
-;
-
-25 
-	gi
- = 0;ò< 
-	gg
--> 
-	gnfo_
-;++ i)
-
-27 
-	gevít_queue_
-.
-push
-(
-g
--> 
-fos_
-[
-i
-]);
-
-32 
+23 
 	gSimuœt‹
 ::
-AddEvít
+	$AddEvít
 (
 G©e
 * 
 g
-)
+) {
 
-34 
+24 
 evít_queue_
 .
-push
+	`push
 (
 g
 );
+
+25 
+	}
+}
 
 	@core/src/simulator.h
 
@@ -8715,19 +8727,13 @@ Simuœt‹
 Cúcuô
  *
 cú
-) {
+);
 
-14 
-cú_
- = 
-cú
-;
-
-16 
+15 
 EvítDrivíSim
 ();
 
-17 
+16 
 AddEvít
 (
 G©e
@@ -8735,17 +8741,17 @@ G©e
 g
 );
 
-18 
+17 
 	g¥iv©e
 :
 
-19 
+18 
 Cúcuô
  *
 cú_
 ;
 
-20 
+19 
 	g°d
 ::
 queue
@@ -8754,6 +8760,1782 @@ G©e
 *> 
 evít_queue_
 ;
+
+22 
+ölöe
+ 
+	gSimuœt‹
+::
+	$Simuœt‹
+(
+Cúcuô
+ *
+cú
+) {
+
+23 
+cú_
+ = 
+cú
+;
+
+24 
+	}
+}
+
+	@interface/src/module.h
+
+1 #i‚de‡
+_INTF_MODULE_H_
+
+
+2 
+	#_INTF_MODULE_H_
+
+
+	)
+
+4 
+	~<io°ªam
+>
+
+5 
+	~<°rög
+>
+
+6 
+	~<ve˘‹
+>
+
+7 
+	~<m≠
+>
+
+9 
+«me•a˚
+ 
+	gI¡fNs
+ {
+
+11 
+˛ass
+ 
+	gModuÀ
+;
+
+12 
+˛ass
+ 
+	gCñl
+;
+
+13 
+˛ass
+ 
+	gNë
+;
+
+14 
+˛ass
+ 
+	gP‹t
+;
+
+16 
+	g°d
+::
+	tve˘‹
+<
+	tCñl
+ *> 
+	tCñlVec
+;
+
+17 
+	g°d
+::
+	tve˘‹
+<
+	tNë
+ *> 
+	tNëVec
+;
+
+18 
+	g°d
+::
+	tve˘‹
+<
+	tP‹t
+ *> 
+	tP‹tVec
+;
+
+20 
+	g°d
+::
+	tm≠
+<
+	t°d
+::
+	t°rög
+, 
+	tCñl
+ *> 
+	tCñlM≠
+;
+
+21 
+	g°d
+::
+	tm≠
+<
+	t°d
+::
+	t°rög
+, 
+	tNë
+ *> 
+	tNëM≠
+;
+
+23 
+	eCñlTy≥
+ { 
+	gCELL_MODINST
+ = 0,
+
+24 
+	gCELL_PI
+, 
+	gCELL_PO
+,
+
+25 
+	gCELL_DFF
+,
+
+26 
+	gCELL_NOT
+,
+
+27 
+	gCELL_AND
+, 
+	gCELL_NAND
+, 
+	gCELL_OR
+, 
+	gCELL_NOR
+,
+
+28 
+	gCELL_XOR
+, 
+	gCELL_XNOR
+ };
+
+30 
+	eP‹tTy≥
+ { 
+	gPORT_NA
+ = -1,
+
+31 
+	gPORT_INPUT
+, 
+	gPORT_OUTPUT
+};
+
+33 ˛as†
+	cModuÀ
+ {
+
+34 
+	gpublic
+:
+
+35 
+ModuÀ
+(c⁄° 
+°d
+::
+°rög
+& 
+«me
+);
+
+37 
+gëName
+(
+°d
+::
+°rög
+& 
+ªt
+) const;
+
+39 
+size_t
+ 
+gëP‹tNum
+() const;
+
+40 
+P‹t
+ *
+gëP‹t
+(c⁄° 
+size_t
+& 
+n
+) const;
+
+41 
+P‹t
+ *
+gëP‹t
+(c⁄° 
+°d
+::
+°rög
+& 
+«me
+) const;
+
+42 
+addP‹t
+(
+P‹t
+ * c⁄° 
+p
+);
+
+43 
+˛órP‹ts
+();
+
+45 
+size_t
+ 
+gëCñlNum
+() const;
+
+46 
+Cñl
+ *
+gëCñl
+(c⁄° 
+size_t
+& 
+n
+) const;
+
+47 
+Cñl
+ *
+gëCñl
+(c⁄° 
+°d
+::
+°rög
+& 
+«me
+) const;
+
+48 
+addCñl
+(
+Cñl
+ * c⁄° 
+c
+);
+
+49 
+˛órCñl
+();
+
+51 
+size_t
+ 
+gëNëNum
+() const;
+
+52 
+Në
+ *
+gëNë
+(c⁄° 
+size_t
+& 
+n
+) const;
+
+53 
+Në
+ *
+gëNë
+(c⁄° 
+°d
+::
+°rög
+& 
+«me
+) const;
+
+54 
+boﬁ
+ 
+addNë
+(
+Në
+ * c⁄° 
+n
+);
+
+55 
+˛órNë
+();
+
+57 
+	g¥Ÿe˘ed
+:
+
+59 
+°d
+::
+°rög
+ 
+«me_
+;
+
+61 
+P‹tVec
+ 
+	gp‹t_vec_
+;
+
+63 
+CñlM≠
+ 
+	g˚Œ_m≠_
+;
+
+64 
+NëM≠
+ 
+	g√t_m≠_
+;
+
+68 ˛as†
+	cCñl
+ {
+
+69 
+	gpublic
+:
+
+70 
+Cñl
+(
+CñlTy≥
+ 
+ty≥
+);
+
+71 
+Cñl
+(c⁄° 
+°d
+::
+°rög
+& 
+«me
+, 
+CñlTy≥
+ 
+ty≥
+);
+
+72 
+Cñl
+(c⁄° 
+°d
+::
+°rög
+& 
+ty≥_«me
+);
+
+73 
+Cñl
+(c⁄° 
+°d
+::
+°rög
+& 
+«me
+, c⁄° std::°rög& 
+ty≥_«me
+);
+
+74 ~
+Cñl
+();
+
+78 
+P‹t
+ *
+GëP‹t
+(c⁄° 
+°d
+::
+°rög
+& 
+«me
+) const;
+
+79 
+CÀ¨P‹ts
+();
+
+81 
+boﬁ
+ 
+AddInNë
+(
+Në
+ *
+n
+);
+
+82 
+boﬁ
+ 
+AddOutNë
+(
+Në
+ *
+n
+);
+
+84 
+size_t
+ 
+GëInNëNum
+() const;
+
+85 
+Në
+ *
+GëInNë
+(c⁄° 
+size_t
+& 
+n
+) const;
+
+86 
+size_t
+ 
+GëOutNëNum
+() const;
+
+87 
+Në
+ *
+GëOutNë
+(c⁄° 
+size_t
+& 
+n
+) const;
+
+89 
+	g¥Ÿe˘ed
+:
+
+90 
+id_
+;
+
+91 
+	g°d
+::
+°rög
+ 
+«me_
+;
+
+92 
+	g°d
+::
+°rög
+ 
+ty≥_«me_
+;
+
+94 
+Cñl
+ *
+	gt›_
+;
+
+95 
+size_t
+ 
+	glvl_
+;
+
+97 
+CñlTy≥
+ 
+	gty≥_
+;
+
+99 
+NëVec
+ 
+	gö_√ts_
+;
+
+100 
+NëVec
+ 
+	gout_√ts_
+;
+
+102 
+P‹tVec
+ 
+	gp‹t_vec_
+;
+
+106 ˛as†
+	cNë
+ {
+
+107 
+Në
+(c⁄° 
+°d
+::
+°rög
+& 
+«me
+);
+
+109 
+addInCñl
+(
+Cñl
+ *
+c
+);
+
+110 
+addOutCñl
+(
+Cñl
+ *
+c
+);
+
+115 
+	g¥Ÿe˘ed
+:
+
+116 
+id_
+;
+
+117 
+	g°d
+::
+°rög
+ 
+«me_
+;
+
+119 
+P‹t
+ *
+	gö_p‹t_
+;
+
+120 
+P‹tVec
+ 
+	gout_p‹ts_
+;
+
+122 
+Cñl
+ *
+	gö_˚Œ_
+;
+
+123 
+CñlVec
+ 
+	gout_˚Œs_
+;
+
+126 ˛as†
+	cP‹t
+ {
+
+127 
+	gpublic
+:
+
+130 
+P‹t
+(c⁄° 
+°d
+::
+°rög
+& 
+«me
+);
+
+131 
+P‹t
+(c⁄° 
+°d
+::
+°rög
+& 
+«me
+, 
+P‹tTy≥
+ 
+ty≥
+);
+
+133 
+SëTy≥
+(
+P‹tTy≥
+ 
+ty≥
+);
+
+135 
+gëName
+(
+°d
+::
+°rög
+& 
+ªt
+) const;
+
+137 
+boﬁ
+ 
+SëInNë
+(
+Në
+ *
+n
+);
+
+138 
+boﬁ
+ 
+SëOutNë
+(
+Në
+ *
+n
+);
+
+140 
+	g¥Ÿe˘ed
+:
+
+141 
+°d
+::
+°rög
+ 
+«me_
+;
+
+143 
+P‹tTy≥
+ 
+	gty≥_
+;
+
+145 
+Në
+ *
+	gö_√t_
+;
+
+146 
+Në
+ *
+	gout_√t_
+;
+
+149 
+ölöe
+ 
+	gModuÀ
+::
+ModuÀ
+(c⁄° 
+°d
+::
+°rög
+& 
+«me
+) {
+
+150 
+«me_
+ = 
+«me
+;
+
+153 
+ölöe
+ 
+	gModuÀ
+::~
+	$ModuÀ
+() {
+
+154 
+	`˛órP‹ts
+();
+
+155 
+	}
+}
+
+157 
+ölöe
+ 
+	gModuÀ
+::
+gëName
+(
+°d
+::
+°rög
+& 
+ªt
+) const {
+
+158 
+ªt
+ = 
+«me_
+;
+
+161 
+ölöe
+ 
+size_t
+ 
+	$gëP‹tNum
+() const {
+
+162  
+p‹t_vec_
+.
+	`size
+();
+
+163 
+	}
+}
+
+165 
+ölöe
+ 
+P‹t
+ *
+	gModuÀ
+::
+	$gëP‹t
+(c⁄° 
+size_t
+& 
+n
+) const {
+
+166  
+p‹t_vec_
+[
+n
+];
+
+167 
+	}
+}
+
+169 
+ölöe
+ 
+P‹t
+ *
+	gModuÀ
+::
+gëP‹t
+(c⁄° 
+°d
+::
+°rög
+& 
+«me
+) const {
+
+170 
+P‹t
+ *
+ªt
+ = 
+NULL
+;
+
+171 
+size_t
+ 
+	gn
+=0;Ç<
+	gp‹t_vec_
+.
+size
+();Ç++) {
+
+172 
+	g°d
+::
+°rög
+ 
+p‹äame
+;
+
+173 
+	gp‹t_vec_
+[
+n
+]->
+gëName
+(
+p‹äame
+);
+
+174 if(
+	gp‹äame
+==
+«me
+)
+
+175 
+ªt
+ = 
+p‹t_vec_
+[
+n
+];
+
+177  
+	gªt
+;
+
+180 
+ölöe
+ 
+	gModuÀ
+::
+	$addP‹t
+(
+P‹t
+ * c⁄° 
+p
+) {
+
+181 
+p‹t_vec_
+.
+	`push_back
+(
+p
+);
+
+182 
+	}
+}
+
+184 
+ölöe
+ 
+	gModuÀ
+::
+	$˛órP‹ts
+() {
+
+185 
+size_t
+ 
+n
+=0;Ç<
+p‹t_vec_
+.
+	`size
+();Ç++)
+
+186 
+dñëe
+ 
+p‹t_vec_
+[
+n
+];
+
+187 
+p‹t_vec_
+.
+	`˛ór
+();
+
+188 
+	}
+}
+
+190 
+ölöe
+ 
+size_t
+ 
+	gModuÀ
+::
+	$gëCñlNum
+() const {
+
+191  
+˚Œ_m≠_
+.
+	`size
+();
+
+192 
+	}
+}
+
+194 
+ölöe
+ 
+Cñl
+ *
+	gModuÀ
+::
+	$gëCñl
+(c⁄° 
+size_t
+& 
+n
+) const {
+
+196 
+	}
+}
+
+198 
+ölöe
+ 
+Cñl
+ *
+ModuÀ
+::
+gëCñl
+(c⁄° 
+°d
+::
+°rög
+& 
+«me
+) const {
+
+199 
+CñlM≠
+::
+c⁄°_ôî©‹
+ 
+ô
+ = 
+˚Œ_m≠_
+.
+föd
+(
+«me
+)
+
+200  (
+ô
+==
+˚Œ_m≠_
+.
+íd
+())?
+NULL
+:ô->
+£c⁄d
+;
+
+203 
+ölöe
+ 
+	$addCñl
+(
+Cñl
+ * c⁄° 
+c
+) {
+
+205 
+	}
+}
+
+207 
+ölöe
+ 
+	gP‹t
+::
+P‹t
+(c⁄° 
+°d
+::
+°rög
+& 
+«me
+) {
+
+208 
+«me_
+ = 
+«me
+;
+
+211 
+ölöe
+ 
+	gP‹t
+::
+	$SëTy≥
+(
+P‹tTy≥
+ 
+ty≥
+) {
+
+212 
+ty≥_
+ = 
+ty≥
+;
+
+213 
+	}
+}
+
+215 
+ölöe
+ 
+	gP‹t
+::
+gëName
+(
+°d
+::
+°rög
+& 
+ªt
+) const {
+
+216 
+ªt
+ = 
+«me_
+;
+
+	@interface/src/netlist.cpp
+
+1 
+	~<c°dio
+>
+
+3 
+	~"√éi°.h
+"
+
+5 
+usög
+ 
+«me•a˚
+ 
+	g°d
+;
+
+7 
+usög
+ 
+«me•a˚
+ 
+	gI¡fNs
+;
+
+9 
+boﬁ
+ 
+	gNëli°
+::
+	$∑r£
+(c⁄° 
+°rög
+& 
+fûíame
+, c⁄° såög& 
+t›
+) {
+
+10 
+	`√éi°∑r£
+(*);
+
+11 
+FILE
+ *
+√éi°ö
+;
+
+13 
+√éi°ö
+ = 
+	`f›í
+(
+fûíame
+.
+	`c_°r
+(), "r");
+
+14 i‡(!
+√éi°ö
+) {
+
+16  
+Ál£
+;
+
+19 
+suc˚ss_
+ = 
+åue
+;
+
+20 
+ªs
+ = 
+	`√éi°∑r£
+(
+this
+);
+
+21 i‡(
+ªs
+ != 0) {
+
+22 
+	`Ârötf
+(
+°dîr
+, "**ERROR Netlist::parse(): wrong input format\n");
+
+24 
+	`f˛o£
+(
+√éi°ö
+);
+
+26  
+suc˚ss_
+;
+
+27 
+	}
+}
+
+29 
+	gNëli°
+::
+	$addModuÀ
+(c⁄° * c⁄° 
+«me
+) {
+
+30 if(!
+suc˚ss_
+) ;
+
+31 if(
+	`gëModuÀ
+(
+	`°rög
+(
+«me
+))) {
+
+32 
+	`Ârötf
+(
+°dîr
+, "**ERROR Netlist::addModule(): ");
+
+33 
+	`Ârötf
+(
+°dîr
+, "moduÀ `%s'áÃódyÉxi°s\n", 
+«me
+);
+
+35 
+suc˚ss_
+ = 
+Ál£
+;
+
+39 
+cuºít_
+ = 
+√w
+ 
+	`ModuÀ
+(
+	`°rög
+(
+«me
+));
+
+40 
+moduÀ_m≠_
+[
+	`°rög
+(
+«me
+)] = 
+cuºít_
+;
+
+41 
+t›_
+ = 
+cuºít_
+;
+
+42 
+	}
+}
+
+44 
+	gNëli°
+::
+	$addP‹ts
+(
+NameLi°
+ * c⁄° 
+p‹ts
+) {
+
+45 if(!
+suc˚ss_
+) ;
+
+46 if(!
+p‹ts
+) ;
+
+48 
+NameLi°
+ *
+p‹t
+ = 
+p‹ts
+->
+hód
+;
+
+49 
+p‹t
+) {
+
+50 if(
+cuºít_
+->
+	`gëP‹t
+(
+	`°rög
+(
+p‹t
+->
+«me
+))) {
+
+51 
+°rög
+ 
+moduÀ«me
+;
+
+52 
+cuºít_
+->
+	`gëName
+(
+moduÀ«me
+);
+
+53 
+	`Ârötf
+(
+°dîr
+, "**ERROR Netlist::addPorts():Öort ");
+
+54 
+	`Ârötf
+(
+°dîr
+, "`%s/%s' ", 
+moduÀ«me
+.
+	`c_°r
+(), 
+p‹t
+->
+«me
+);
+
+55 
+	`Ârötf
+(
+°dîr
+, "alreadyÉxists\n");
+
+57 
+suc˚ss_
+ = 
+Ál£
+;
+
+60 
+P‹t
+ *
+p
+ = 
+√w
+ 
+	`P‹t
+(
+	`°rög
+(
+p‹t
+->
+«me
+));
+
+61 
+cuºít_
+->
+	`addP‹t
+(
+p
+);
+
+62 
+p‹t
+ =Ö‹t->
+√xt
+;
+
+64 
+	}
+}
+
+	@interface/src/netlist.h
+
+1 #i‚de‡
+_INTF_NETLIST_H_
+
+
+2 
+	#_INTF_NETLIST_H_
+
+
+	)
+
+4 
+	~"moduÀ.h
+"
+
+6 
+«me•a˚
+ 
+	gI¡fNs
+ {
+
+8 c⁄° 
+	gNAME_LEN_MAX
+ = 256;
+
+11 
+	g°d
+::
+	tm≠
+<
+	t°d
+::
+	t°rög
+, 
+	tModuÀ
+ *> 
+	tModuÀM≠
+;
+
+13 
+	sNameLi°
+ {
+
+14 
+	g«me
+[
+NAME_LEN_MAX
+];
+
+15 
+NameLi°
+ *
+	g√xt
+;
+
+16 
+NameLi°
+ *
+	ghód
+;
+
+19 ˛as†
+	cNëli°
+ {
+
+20 
+	gpublic
+:
+
+21 
+Nëli°
+();
+
+22 ~
+Nëli°
+();
+
+24 
+boﬁ
+ 
+∑r£
+(c⁄° 
+°d
+::
+°rög
+& 
+fûíame
+, c⁄° std::°rög& 
+t›
+);
+
+27 
+ModuÀ
+* 
+gëModuÀ
+(c⁄° 
+°d
+::
+°rög
+& 
+«me
+);
+
+29 
+addModuÀ
+(c⁄° * c⁄° 
+«me
+);
+
+30 
+addP‹ts
+(
+NameLi°
+ * c⁄° 
+p‹ts
+);
+
+31 
+addI≈uts
+(
+NameLi°
+ * c⁄° 
+ös
+);
+
+32 
+addOuçuts
+(
+NameLi°
+ * c⁄° 
+outs
+);
+
+33 
+addNës
+(
+NameLi°
+ * c⁄° 
+√ts
+);
+
+34 
+addCñl
+(c⁄° * c⁄° 
+ty≥
+,
+
+35 c⁄° * c⁄° 
+«me
+,
+
+36 
+NameLi°
+ * c⁄° 
+√ts
+);
+
+38 
+	g¥Ÿe˘ed
+:
+
+39 
+°d
+::
+°rög
+ 
+«me_
+;
+
+41 
+ModuÀ
+ *
+	gt›_
+;
+
+42 
+ModuÀ
+ *
+	gcuºít_
+;
+
+44 
+boﬁ
+ 
+	gsuc˚ss_
+;
+
+46 
+ModuÀM≠
+ 
+	gmoduÀ_m≠_
+;
+
+49 
+ölöe
+ 
+	gNëli°
+::
+	$Nëli°
+(Ë{
+	}
+}
+
+51 
+ölöe
+ 
+Nëli°
+::~
+	$Nëli°
+() {
+
+52 
+ModuÀM≠
+::
+ôî©‹
+ 
+ô
+ = 
+moduÀ_m≠_
+.
+	`begö
+();
+
+53 ; 
+ô
+!=
+moduÀ_m≠_
+.
+	`íd
+(); ++it)
+
+54 
+dñëe
+ 
+ô
+->
+£c⁄d
+;
+
+55 
+	}
+}
+
+57 
+ölöe
+ 
+ModuÀ
+ *
+	gNëli°
+::
+gëModuÀ
+(c⁄° 
+°d
+::
+°rög
+& 
+«me
+) {
+
+58 
+ModuÀM≠
+::
+c⁄°_ôî©‹
+ 
+ô
+ = 
+moduÀ_m≠_
+.
+föd
+(
+«me
+);
+
+59  (
+	gô
+ =
+moduÀ_m≠_
+.
+íd
+())?
+NULL
+:
+ô
+->
+£c⁄d
+;
+
+	@interface/src/netlist_test.cpp
+
+1 
+	~<c°dio
+>
+
+2 
+	~<c°dlib
+>
+
+4 
+	~"√éi°.h
+"
+
+6 
+usög
+ 
+«me•a˚
+ 
+	g°d
+;
+
+8 
+usög
+ 
+«me•a˚
+ 
+	gI¡fNs
+;
+
+10 
+	$maö
+(
+¨gc
+, **
+¨gv
+) {
+
+11 i‡(
+¨gc
+ < 2) {
+
+12 
+	`Ârötf
+(
+°dîr
+, "**ERROR main():ÖleaseÖrovide input verilog\n");
+
+13 
+	`exô
+(-1);
+
+16 
+Nëli°
+ 
+∆
+;
+
+17 i‡(!
+∆
+.
+	`∑r£
+(
+	`°rög
+(
+¨gv
+[1]), string())) {
+
+18 
+	`Ârötf
+(
+°dîr
+, "**ERROR main(): verilogÖarser failed\n");
+
+19 
+	`exô
+(-1);
+
+22 
+	}
+}
 
 	@/usr/include/memory.h
 
@@ -27209,7 +28991,7 @@ f˘
 __nŸhrow__
 )Ë
 	)
-fct
+f˘
 
 50 #i‡
 deföed
@@ -27249,7 +29031,7 @@ f˘
 f˘
 Ë
 	)
-fct
+f˘
 
 61 
 	#__ölöe
@@ -27269,7 +29051,7 @@ fct
 f˘
 Ë
 	)
-fct
+f˘
 
 66 
 	#__c⁄°
@@ -27295,7 +29077,7 @@ fct
 ¨gs
 Ë
 	)
-args
+¨gs
 
 75 
 	#__PMT
@@ -27303,7 +29085,7 @@ args
 ¨gs
 Ë
 	)
-args
+¨gs
 
 80 
 	#__CONCAT
@@ -27657,7 +29439,7 @@ __USER_LABEL_PREFIX__
 	`__STRING
  (¥efixË
 	)
-cname
+˙ame
 
 189 #i‡!
 deföed
@@ -28137,7 +29919,7 @@ __REDIRECT
 Æüs
 Ë«mê
 	)
-proto
+¥Ÿo
 
 332 
 	#__LDBL_REDIR
@@ -28147,7 +29929,7 @@ proto
 ¥Ÿo
 Ë«mê
 	)
-proto
+¥Ÿo
 
 333 
 	#__LDBL_REDIR1_NTH
@@ -29548,8 +31330,8 @@ _LIBC
 .
 1
 /usr/include
-53
-1222
+56
+1308
 atpg/src/main.cpp
 atpg/src/setup_cmd.cpp
 atpg/src/setup_cmd.h
@@ -29568,11 +31350,14 @@ core/src/gate.cpp
 core/src/gate.h
 core/src/logic.cpp
 core/src/logic.h
-core/src/main.cpp
 core/src/pattern.cpp
 core/src/pattern.h
 core/src/simulator.cpp
 core/src/simulator.h
+interface/src/module.h
+interface/src/netlist.cpp
+interface/src/netlist.h
+interface/src/netlist_test.cpp
 /usr/include/memory.h
 /usr/include/stdlib.h
 /usr/include/time.h

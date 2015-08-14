@@ -33,14 +33,15 @@ MODE_$(MODE)_LD_PATHS = $(LIB_TOP)/$(MODE)
 # PKG_<PKG>_MODE_<MODE>_LD_LIBS  - package link libraries for MODE
 # PKG_<PKG>_MODE_<MODE>_<FLAGS>  - package compiler flags for MODE
 #############################################################################
-PKGS = atpg core cmd
+PKGS = atpg cmd interface core 
+
 PKG_atpg_MAINS = main.cpp
+PKG_interface_MAINS = netlist_test.cpp
 
 PKG_atpg_DEP = cmd
 PKG_atpg_LD_LIBS = core cmd
 
 PKG_cmd_DEP = core
-PKG_cmd_INCS = 3rd_party
 PKG_cmd_LD_LIBS = core
 
 ### main functions ##########################################################
@@ -53,6 +54,7 @@ PKG_cmd_LD_LIBS = core
 # MAIN_<PKG>/<MAIN>_MODE_<MODE>_LD_FLAGS - link flags for MODE
 #############################################################################
 MAIN_atpg/main.cpp_BIN = atpg
+MAIN_interface/netlist_test.cpp = nl_test
 
 ### libraries ###############################################################
 # STA_LIBS        - static archived libraries
@@ -60,6 +62,7 @@ MAIN_atpg/main.cpp_BIN = atpg
 # LIB_$(LIB)_PKGS - library packages
 #############################################################################
 
-STA_LIBS = core cmd
+STA_LIBS = core cmd interface
 LIB_core_PKGS = core 
 LIB_cmd_PKGS = cmd
+LIB_interface_PKGS = interface

@@ -13,11 +13,14 @@
 ./core/src/logic.cpp
 ./core/src/pattern.cpp
 ./core/src/fault.h
-./core/src/main.cpp
 ./cmd/src/cmd.h
 ./cmd/src/opt_mgr.cpp
 ./cmd/src/opt_mgr.h
 ./cmd/src/cmd.cpp
+./interface/src/netlist_test.cpp
+./interface/src/netlist.cpp
+./interface/src/netlist.h
+./interface/src/module.h
 ./atpg/src/setup_cmd.h
 ./atpg/src/setup_cmd.cpp
 ./atpg/src/main.cpp
