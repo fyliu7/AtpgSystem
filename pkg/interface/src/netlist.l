@@ -29,6 +29,10 @@ COMMENT "//"[^\n]*\n
 "nor"       { return NOR;       }
 "dff"       { return DFF;       } 
 
+"GND,"      ; 
+"VDD,"      ;
+"CK,"       ;
+
 {NAME}      { 
     strcpy(netlistlval.ychar, netlisttext); 
     return NAME; 

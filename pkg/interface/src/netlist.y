@@ -85,8 +85,8 @@ assign
     ;
 
 cell 
-    : cell_type NAME '(' list ')' ';'   {} 
-    | cell_type '(' list ')' ';'        {}
+    : cell_type NAME '(' list ')' ';'   { nl->addCell(NULL, $2, $4, $1);  
+                                          netlistfreeNameList($4); } 
     ;
 
 cell_type 

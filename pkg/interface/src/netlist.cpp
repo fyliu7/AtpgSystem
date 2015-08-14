@@ -127,19 +127,75 @@ void Netlist::addCell(const char * const typenm,
 
     Net *n; 
     Cell *c; 
-    c = new Cell(string(name), type); 
     switch(type) { 
-        case CELL_PI: 
+        case CELL_PI: {  
+            c = new Cell(string(name), type); 
             n = current_->getNet(string(name)); 
             n->setInCell(c); 
-            c->addOutNet(n); 
+            c->addOutNet(n); }
         break; 
-        case CELL_PO: 
+        case CELL_PO: {  
+            c = new Cell(string(name), type); 
             n = current_->getNet(string(name)); 
             n->addOutCell(c); 
-            c->addInNet(n); 
+            c->addInNet(n); }
         break; 
-        default: 
+        case CELL_DFF: {
+            if(!nets) { 
+                //TODO 
+                success_ = false; 
+                return; 
+            }
+            NameList *net = nets->head; //PPI net 
+            n = current_->getNet(string(net->name)); 
+            if(!n) { 
+                //TODO
+                success_ = false; 
+                return; 
+            }
+            c = new Cell(string(name), CELL_PPI); 
+            n->setInCell(c); 
+            c->addOutNet(n); 
+            current_->addCell(c); 
+            net = net->next; //PPO net
+            n = current_->getNet(string(net->name)); 
+            if(!n) { 
+                //TODO
+                success_ = false; 
+                return; 
+            }
+            c = new Cell(string(name)+string("_O"), CELL_PPO); 
+            n->addOutCell(c); 
+            c->addInNet(n); }
+        break; 
+        default: {
+            if(!nets) { 
+                //TODO
+                success_ = false; 
+                return; 
+            }
+            c = new Cell(string(name), type); 
+            NameList *net = nets->head; //output net 
+            n = current_->getNet(string(net->name)); 
+            if(!n) { 
+                //TODO
+                success_ = false; 
+                return; 
+            }
+            n->setInCell(c); 
+            c->addOutNet(n); 
+            net = net->next; //input nets
+            while(net) { 
+                n = current_->getNet(string(net->name)); 
+                if(!n) { 
+                    //TODO
+                    success_ = false; 
+                    return; 
+                }
+                n->addOutCell(c); 
+                c->addInNet(n); 
+                net = net->next; 
+            } }
         break; 
     }    
     current_->addCell(c); 

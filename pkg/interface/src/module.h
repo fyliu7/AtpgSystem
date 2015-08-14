@@ -22,6 +22,7 @@ typedef std::map<std::string, Net *> NetMap;
 
 enum CellType { CELL_MODINST = 0, 
                 CELL_PI, CELL_PO, 
+                CELL_PPI, CELL_PPO, 
                 CELL_DFF, 
                 CELL_NOT, 
                 CELL_AND, CELL_NAND, CELL_OR, CELL_NOR, 
