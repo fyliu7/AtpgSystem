@@ -1,52 +1,36 @@
-#ifndef _CORE_CIRCUIT_H_
-#define _CORE_CIRCUIT_H_
+#ifndef _CORE_CIRCUIT_H_ 
+#define _CORE_CIRCUIT_H_ 
 
-#include <map>
-
-#include "gate.h"
-#include "pattern.h"
+#include "gate.h" 
 
 namespace CoreNs { 
 
-class Circuit {
-public:
-		Circuit(); 
-        ~Circuit(){}; 
+typedef std::vector<int> IdVec;  
 
-    void Parse(string cir_fname);
-    void ConnectGates();
-    void Levelize();
-    void CalcTestability();
-		
-    void SetInputsFromPattern(TestPattern* pat);
+class Circuit { 
+public: 
+        ~Circuit(); 
 
-    int  npi_; 
-    int  nppi_; 
-    int  npo_; 
-    int  nlogic_gate_; 
-    int  ntotgate_;
+    size_t  npi; 
+    size_t  nppi; 
+    size_t  npo; 
+    size_t  nlogic; 
+    
+    size_t  ntotgate; 
+    size_t  ntotlvl; 
 
-    //vector<Wire*> Wire_List;
-    //vector<Gate*> Gate_List;
-    Gate**                       gate_list_;
+    IdVec   pis; 
+    IdVec   ppis; 
+    IdVec   pos; 
+    IdVec   ppos;  
 
-    std::vector<Gate*>           logic_list_;
-    std::vector<Gate*>           pi_list_;
-    std::vector<Gate*>           po_list_;
-    std::vector<Gate*>           ppi_list_;
-    std::vector<Gate*>           ppo_list_;
-    std::map<std::string, Wire*> wire_map_; 
-		
-private:
-	std::string name_;
+    GateVec gates; 
+
 }; //Circuit
 
-inline Circuit::Circuit() {
-    npi_            = 0;
-    nppi_           = 0;
-    npo_            = 0;
-    nlogic_gate_    = 0;
-    ntotgate_       = 0;			
+inline Circuit::~Circuit() { 
+//  for (size_t i=0; i<gates.size(); i++) 
+//      delete gates[i]; 
 }
 
 }; //CoreNs

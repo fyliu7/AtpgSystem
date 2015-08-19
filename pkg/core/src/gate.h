@@ -1,195 +1,116 @@
-#ifndef _CORE_GATE_H_
-#define _CORE_GATE_H_
+#ifndef _CORE_GATE_H_ 
+#define _CORE_GATE_H_ 
 
-#include <vector>
-#include <string>
 #include "logic.h"
-using namespace std;
 
-namespace CoreNs {   
+namespace CoreNs { 
 
-class Wire;
-class Fault;
+class Gate; 
 
-typedef vector<Wire*>   WireVec;  
+typedef std::vector<Gate *> GateVec;  
 
-enum Type { PI = 0,  
-            PPI, PO,  PPO,
-            AND, OR,  NAND, NOR,
-            NOT, BUF, XOR,  XNOR
-};
+enum GateType { NA = -1,  
+                GATE_PI, GATE_PO, 
+                GATE_PPI, GATE_PPO, 
+                GATE_NOT, 
+                GATE_AND, GATE_NAND, GATE_OR, GATE_NOR }; 
 
-class Gate {
-public:
-	            Gate();  
+class Gate { 
+public: 
 
-    string      name_;
-    Type        type_;
+                  Gate(GateType typ); 
+    virtual       ~Gate(); 
 
-	int         lvl_;
-		
-	int         nfi_; 
-    int         nfo_;
-    Gate        **fis_;  
-    Gate        **fos_;
+    int           id; 
+    int           lvl; 
+    GateType      type; 
+    
+    size_t        nfi; 
+    size_t        nfo; 
+    GateVec       fis; 
+    GateVec       fos; 
 
-    ParaValue   gl_; 
-    ParaValue   gh_; 
-    ParaValue   fl_;  
-    ParaValue   fh_;
-    Value       val_;
-		
-	Wire        *out_wire_;
-	WireVec     in_wire_list_;
+    ParaValue     gl; 
+    ParaValue     gh; 
+    ParaValue     fl; 
+    ParaValue     fh; 
+    Value         val; 
 
-	bool        is_faulted_;
-	Fault       *f_;
-		
-    int         zero_controllability_;
-    int         one_controllability_;
-    int         obsevability_;
+    virtual Value GoodEval() const = 0; 
+    
+}; //Gate
 
-	virtual void CalcControllability()=0;
-	virtual void CalcObservability()=0;
-	virtual Value GoodEval()=0;
-	virtual Value FaultyEval()=0;
-		
-};
+class AndGate : public Gate { 
+public: 
+          AndGate(): Gate(GATE_AND) {} 
+          ~AndGate() {}
+    Value GoodEval() const; 
+};  
 
-class AND_Gate: public Gate
-{
-	public:
-		AND_Gate(): Gate(){}
-		void CalcControllability();
-		void CalcObservability();		
-		Value GoodEval();
-		Value FaultyEval();
+class OrGate : public Gate { 
+public: 
+          OrGate(): Gate(GATE_OR) {}  
+          ~OrGate() {} 
+    Value GoodEval() const; 
+}; 
 
-};
+class NandGate : public Gate { 
+public: 
+          NandGate(): Gate(GATE_NAND) {} 
+          ~NandGate() {}
+    Value GoodEval() const; 
+}; 
 
-class OR_Gate: public Gate
-{
-	public:
-		OR_Gate(): Gate(){}
-		void CalcControllability();
-		void CalcObservability();
-		Value GoodEval();
-		Value FaultyEval();
-};
+class NorGate : public Gate { 
+public: 
+          NorGate(): Gate(GATE_NOR) {} 
+          ~NorGate() {} 
+    Value GoodEval() const; 
+}; 
 
-class NAND_Gate: public Gate
-{
-	public:
-		NAND_Gate(): Gate(){}
-		void CalcControllability();
-		void CalcObservability();
-		Value GoodEval();
-		Value FaultyEval();
-};
+class NotGate : public Gate { 
+public: 
+          NotGate(): Gate(GATE_NOT) {}  
+          ~NotGate() {}
+    Value GoodEval() const; 
+}; 
 
-class NOR_Gate: public Gate
-{
-	public:
-		NOR_Gate(): Gate(){}
-		void CalcControllability();
-		void CalcObservability();
-		Value GoodEval();
-		Value FaultyEval();
-};
+class PiGate : public Gate { 
+public: 
+          PiGate(): Gate(GATE_PI) {}  
+          ~PiGate() {}
+    Value GoodEval() const; 
+}; 
 
-class NOT_Gate: public Gate
-{
-	public:
-		NOT_Gate(): Gate(){}
-		void CalcControllability();
-		void CalcObservability();
-		Value GoodEval();
-		Value FaultyEval();
-};
+class PoGate : public Gate { 
+public: 
+          PoGate(): Gate(GATE_PO) {}  
+          ~PoGate() {} 
+    Value GoodEval() const; 
+}; 
 
-class BUF_Gate: public Gate
-{
-	public:
-		BUF_Gate(): Gate(){}
-		void CalcControllability();
-		void CalcObservability();
-		Value GoodEval();
-		Value FaultyEval();
-};
+class PpiGate : public Gate { 
+public: 
+          PpiGate(): Gate(GATE_PPI) {}  
+          ~PpiGate() {}
+    Value GoodEval() const; 
+}; 
 
-class XOR_Gate: public Gate
-{
-	public:
-		XOR_Gate(): Gate(){}
-		void CalcControllability();
-		void CalcObservability();
-		Value GoodEval();
-		Value FaultyEval();
-};
+class PpoGate : public Gate { 
+public: 
+          PpoGate(): Gate(GATE_PPO) {}  
+          ~PpoGate() {} 
+    Value GoodEval() const; 
+}; 
 
-class XNOR_Gate: public Gate
-{
-	public:
-		XNOR_Gate(): Gate(){}
-		void CalcControllability();
-		void CalcObservability();
-		Value GoodEval();
-		Value FaultyEval();
-};
+inline Gate::Gate(GateType typ) { 
+    type = typ; 
+    val  = X; 
+}
 
-class PIPPI_Gate: public Gate
-{
-	public:
-		PIPPI_Gate(): Gate(){}
-		void CalcControllability();
-		void CalcObservability();
-		Value GoodEval();
-		Value FaultyEval();
-};
-
-class POPPO_Gate: public Gate
-{
-	public:
-		POPPO_Gate(): Gate(){}
-		void CalcControllability();
-		void CalcObservability();
-		Value GoodEval();
-		Value FaultyEval();		
-};
-
-/***************Wire***************/
-class Wire
-{
-	public:
-		string name_;
-		Gate* in_gate_;
-		vector<Gate*> out_gate_list_;
-};
-
-inline Gate::Gate() {
-    name_   = "";
-    lvl_    = -1;
-
-    gl_     = 0; 
-    gh_     = 0; 
-    fl_     = 0; 
-    fh_     = 0;
-    val_    = 0;
-
-    nfi_    = 0;
-    nfo_    = 0;
-    fis_    = NULL;
-    fos_    = NULL;
-
-    out_wire_               = NULL;
-
-    zero_controllability_   = -1;
-    one_controllability_    = -1;
-    obsevability_           = -1;
-
-    is_faulted_             = false;
+inline Gate::~Gate() { 
 }
 
 }; //CoreNs
 
-#endif // _CORE_GATE_H_
+#endif //_CORE_GATE_H_ 

@@ -1,28 +1,41 @@
-#ifndef _CORE_SIMULATOR_H_
-#define _CORE_SIMULATOR_H_
+#ifndef _CORE_SIMULATOR_H_ 
+#define _CORE_SIMULATOR_H_ 
 
-#include <queue>
+#include <queue> 
 
 #include "fault.h"
-#include "circuit.h"
+#include "circuit.h" 
 
 namespace CoreNs { 
 
-class Simulator {
-public:
-            Simulator(Circuit *cir); 
+class Simulator { 
+public: 
+         Simulator(Circuit *cir, Fault *ftarget); 
+         ~Simulator(); 
 
-    void    EventDrivenSim();
-    void    AddEvent(Gate* g);
-private:
-    Circuit             *cir_;
-    std::queue<Gate*>   event_queue_;
+    bool EventDrivenSim(); 
+    void PushEvent(int gid); 
+
+private: 
+    Value           FaultEval(Gate* g) const; 
+
+    Circuit         *cir_; 
+    Fault           *target_fault; 
+
+    std::queue<int> *events_; 
 }; //Simulator
 
-inline Simulator::Simulator(Circuit *cir) { 
+inline Simulator::Simulator(Circuit *cir, Fault *ftarget) { 
     cir_ = cir; 
+    target_fault = ftarget; 
+
+    events_ = new std::queue<int> [cir_->ntotlvl]; 
 }
 
-} //CoreNs
+inline Simulator::~Simulator() { 
+    delete [] events_;
+}
 
-#endif // _CORE_SIMULATOR_H_
+}; //CoreNs
+
+#endif //_CORE_SIMULATOR_H_

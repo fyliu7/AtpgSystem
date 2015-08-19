@@ -22,7 +22,7 @@ public:
         ~Netlist(); 
 
     bool parse(const std::string& filename, const std::string& top); 
-    //bool build(Circuit* cir); 
+    bool build(CoreNs::Circuit* cir); 
 
     Module* getModule(const std::string& name) const; 
     Module* getTop() const; 
@@ -38,6 +38,8 @@ public:
                  CellType type = CELL_MODINST);  
     
 protected:  
+    void levelize(CellVec& cells);  
+
     std::string name_; 
 
     Module *top_; 
@@ -48,7 +50,8 @@ protected:
     ModuleMap module_map_; 
 }; //Netlist 
 
-inline Netlist::Netlist() {}
+inline Netlist::Netlist() {
+}
 
 inline Netlist::~Netlist() {
     ModuleMap::iterator it = module_map_.begin(); 

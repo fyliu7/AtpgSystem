@@ -19,9 +19,15 @@ int main(int argc, char **argv) {
         exit(-1); 
     }
 
+    cout << "  netlist info. \n"; 
+    cout << "    #ports:\t\t"; 
     cout << nl_->getTop()->getPortNum() << endl; 
+    cout << "    #cells:\t\t"; 
     cout << nl_->getTop()->getCellNum() << endl; 
+    cout << "    #nets:\t\t"; 
     cout << nl_->getTop()->getNetNum() << endl; 
+    
+    //nl_->build(); 
 
     delete nl_; 
     return 0; 

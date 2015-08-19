@@ -6,6 +6,8 @@
 #include <vector>
 #include <map>
 
+#include "core/src/circuit.h"
+
 namespace IntfNs {
 
 class Module; 
@@ -76,6 +78,12 @@ public:
         ~Cell(); 
 
     void getName(std::string& ret) const; 
+    int getLevel() const; 
+    CellType getType() const; 
+    CoreNs::Gate *getGate() const; 
+
+    void setLevel(int lvl); 
+    void setGate(CoreNs::Gate* g); 
 
     size_t getPortNum() const; 
     Port *getPort(const size_t& n) const; 
@@ -91,13 +99,17 @@ public:
     size_t getOutNetNum() const; 
     Net *getOutNet(const size_t& n) const; 
 
+    void getFaninCell(CellVec& ret) const; 
+    bool getFanoutCell(const size_t& n, CellVec& ret) const; 
+
 protected: 
-    int id_; 
+    //int id_; 
     std::string name_; 
     std::string type_name_; 
+    CoreNs::Gate *gate_;
 
-    Cell *top_; 
-    size_t lvl_;
+    //Cell *top_; 
+    int lvl_;
 
     CellType type_; 
 
@@ -111,9 +123,13 @@ protected:
 class Net { 
 public: 
         Net(const std::string& name);  
+        ~Net(); 
 
     void getName(std::string& ret) const; 
     
+    Cell *getInCell() const; 
+    void getOutCells(CellVec& ret) const; 
+
     void setInCell(Cell *c); 
     void addOutCell(Cell *c); 
 
@@ -121,7 +137,7 @@ public:
     //void addOutPort(Port *p); 
 
 protected: 
-    int id_; 
+    //int id_; 
     std::string name_; 
 
     Port *in_port_; 
@@ -138,7 +154,7 @@ public:
         Port(const std::string& name); 
         Port(const std::string& name, PortType type); 
 
-    void SetType(PortType type); 
+    void setType(PortType type); 
     
     void getName(std::string& ret) const; 
 
@@ -202,8 +218,11 @@ inline size_t Module::getCellNum() const {
 }
 
 inline Cell *Module::getCell(const size_t& n) const {
-    //TODO
-    return NULL; 
+    if (n>=getCellNum()) return NULL; 
+
+    CellMap::const_iterator it = cell_map_.begin(); 
+    std::advance(it, n); 
+    return it->second; 
 }
 
 inline Cell *Module::getCell(const std::string& name) const { 
@@ -214,12 +233,15 @@ inline Cell *Module::getCell(const std::string& name) const {
 inline void Module::addCell(Cell * const c) {
     std::string cname; 
     c->getName(cname); 
-    //TODO: set id; 
     cell_map_[cname] = c; 
 }
 
 inline void Module::clearCells() {
-    //TODO
+    for(size_t n=0; n<getCellNum(); n++) { 
+        Cell *c = getCell(n);
+        delete c; 
+    }    
+    cell_map_.clear(); 
 }
 
 inline size_t Module::getNetNum() const { 
@@ -227,8 +249,11 @@ inline size_t Module::getNetNum() const {
 }
 
 inline Net *Module::getNet(const size_t& n) const {
-    //TODO 
-    return NULL; 
+    if(n>=getNetNum()) return NULL; 
+
+    NetMap::const_iterator it = net_map_.begin(); 
+    std::advance(it, n); 
+    return it->second; 
 }
 
 inline Net *Module::getNet(const std::string& name) const {
@@ -239,21 +264,48 @@ inline Net *Module::getNet(const std::string& name) const {
 inline void Module::addNet(Net * const n) {
     std::string nname; 
     n->getName(nname);  
-    //TODO: set id; 
     net_map_[nname] = n; 
 }
 
 inline void Module::clearNets() {
-    //TODO
+    for(size_t i=0; i<getNetNum(); i++) { 
+        Net* n = getNet(i); 
+        delete n; 
+    }
+    net_map_.clear(); 
 }
 
 inline Cell::Cell(const std::string& name, CellType type) { 
     name_ = name; 
     type_ = type; 
+    lvl_ = -1; 
+}
+
+inline Cell::~Cell(){
 }
 
 inline void Cell::getName(std::string& ret) const {
     ret = name_; 
+}
+
+inline int Cell::getLevel() const {
+    return lvl_; 
+}
+
+inline CoreNs::Gate *Cell::getGate() const { 
+    return gate_;  
+}
+
+inline CellType Cell::getType() const { 
+    return type_; 
+}
+
+inline void Cell::setLevel(int lvl) {
+    lvl_ = lvl; 
+}
+
+inline void Cell::setGate(CoreNs::Gate* g) { 
+    gate_ = g;
 }
 
 inline void Cell::addInNet(Net *n) {
@@ -264,13 +316,55 @@ inline void Cell::addOutNet(Net *n) {
     out_nets_.push_back(n); 
 }
 
+inline size_t Cell::getInNetNum() const {
+    return in_nets_.size(); 
+} 
+ 
+inline Net *Cell::getInNet(const size_t& n) const { 
+    return (n<getInNetNum())?in_nets_[n]:NULL; 
+}
+ 
+inline size_t Cell::getOutNetNum() const { 
+    return out_nets_.size(); 
+} 
+
+inline Net *Cell::getOutNet(const size_t& n) const { 
+    return (n<getOutNetNum())?out_nets_[n]:NULL;
+} 
+
+inline void Cell::getFaninCell(CellVec& ret) const { 
+    for(size_t i=0; i<getInNetNum(); i++) { 
+        Net *n = getInNet(i); 
+        ret.push_back(n->getInCell()); 
+    }
+}
+ 
+inline bool Cell::getFanoutCell(const size_t& n, CellVec& ret) const { 
+    Net *net = getOutNet(n); 
+    if(!net) return false; 
+
+    net->getOutCells(ret); 
+    return true; 
+} 
+
 inline Net::Net(const std::string& name) {
     name_ = name; 
+}
+
+inline Net::~Net() { 
 }
 
 inline void Net::getName(std::string& ret) const { 
     ret = name_; 
 }
+
+inline Cell *Net::getInCell() const {
+    return in_cell_; 
+}
+ 
+inline void Net::getOutCells(CellVec& ret) const { 
+    ret = out_cells_; 
+} 
 
 inline void Net::setInCell(Cell *c) {
     in_cell_ = c; 
@@ -284,7 +378,7 @@ inline Port::Port(const std::string& name) {
     name_ = name;  
 }
 
-inline void Port::SetType(PortType type) {
+inline void Port::setType(PortType type) {
     type_ = type; 
 }
 

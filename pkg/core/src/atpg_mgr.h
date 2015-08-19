@@ -12,23 +12,25 @@ public:
                 AtpgMgr(); 
                 ~AtpgMgr(); 
 
-    Circuit     *cir_; 
+    Circuit     *cir; 
 
-    FaultMgr    *f_mgr_; 
-    PatternMgr  *pat_mgr_; 
+    FaultMgr    *f_mgr; 
+    //PatternMgr  *pat_mgr; 
 private: 
     AtpgVec     atpgs_; 
 }; //AtpgMgr
  
 inline AtpgMgr::AtpgMgr() {
-    cir_        = NULL; 
+    cir        = NULL; 
 
-    f_mgr_      = NULL; 
-    pat_mgr_    = NULL; 
+    f_mgr      = NULL; 
+    //pat_mgr    = NULL; 
 }
 
 inline AtpgMgr::~AtpgMgr() {
     //TODO
+    if(cir) delete cir; 
+    if(f_mgr) delete f_mgr; 
 }
 
 };  //CoreNs

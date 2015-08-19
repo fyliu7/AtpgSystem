@@ -1,46 +1,55 @@
-#ifndef _CORE_ATPG_H_
-#define _CORE_ATPG_H_
+/*
+ * =====================================================================================
+ *
+ *       Filename:  atpg.h
+ *
+ *    Description:  header file for main ATPG process 
+ *
+ *        Version:  1.0
+ *        Created:  08/19/2015 08:45:58 PM
+ *       Revision:  none
+ *       Compiler:  gcc
+ *
+ *         Author:  xenia-cjen (xc), jonah0604@gmail.com
+ *        Company:  LaDS(I), GIEE, NTU
+ *
+ * =====================================================================================
+ */
 
-#define _MAX_BACK_TRACK_LIMIT_   256
+#ifndef _CORE_ATPG_H_ 
+#define _CORE_ATPG_H_ 
 
 #include "simulator.h" 
 
 namespace CoreNs { 
 
-class Atpg {
-public:
-            Atpg(Circuit *cir, Fault* f);     
-            ~Atpg();  
+class Atpg { 
+public: 
+        Atpg(Circuit *cir, Fault* f); 
+        ~Atpg(); 
 
-    bool    Tpg(TestPattern& p); 
-    
-    void    Initialize(); 
-    bool    FaultActivate(); 
-    bool    Imply(); 
-    
+    void init(); 
+    bool FaultActivate(); 
+    bool Imply; 
 
 protected: 
-	Circuit         *cir_;
-	Simulator       *sim_;
+    Circuit *cir_; 
+    Simulator *sim_; 
 
-    const size_t    back_track_limit; 
-    size_t          back_track_count; 
-
-    Fault           *current_fault; 
+    Fault *target_fault_; 
 }; //Atpg
 
-inline Atpg::Atpg(Circuit *cir, Fault* f) : 
-    back_track_limit(_MAX_BACK_TRACK_LIMIT_) { 
-    
-    cir_            = cir; 
-    sim_            = new Simulator(cir_); 
+inline Atpg::Atpg(Circuit *cir, Fault *f) { 
+    cir_ = cir; 
+    target_fault_ = f; 
 
-    current_fault   = f; 
+    sim_ = new Simulator(cir_, target_fault_); 
 }
 
-inline Atpg::~Atpg() {
+inline Atpg::~Atpg() { 
     delete sim_; 
 }
 
 }; //CoreNs 
-#endif // _CORE_ATPG_H_
+
+#endif //_CORE_ATPG_H_
