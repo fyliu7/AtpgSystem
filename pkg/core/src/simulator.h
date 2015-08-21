@@ -3,8 +3,9 @@
 
 #include <queue> 
 
-#include "fault.h"
-#include "circuit.h" 
+//#include "fault.h"
+//#include "circuit.h" 
+#include "pattern.h"
 
 namespace CoreNs { 
 
@@ -13,8 +14,14 @@ public:
          Simulator(Circuit *cir, Fault *ftarget); 
          ~Simulator(); 
 
+    void Init(); 
+
     bool EventDrivenSim(); 
+    void PushFanoutEvent(int gid); 
     void PushEvent(int gid); 
+
+    void GetPiPattern(Pattern& p); 
+    void SetPatternToPi(Pattern& p); 
 
 private: 
     Value           FaultEval(Gate* g) const; 
@@ -34,6 +41,11 @@ inline Simulator::Simulator(Circuit *cir, Fault *ftarget) {
 
 inline Simulator::~Simulator() { 
     delete [] events_;
+}
+
+inline void Simulator::Init() { 
+    for(size_t n=0; n<cir_->ntotgate; n++) 
+        cir_->gates[n]->val = X; 
 }
 
 }; //CoreNs

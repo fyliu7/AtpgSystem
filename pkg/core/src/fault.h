@@ -16,7 +16,7 @@ public:
     enum    Status { UD = 0, DT, AU, RE, AB }; 
 
             Fault(); 
-            Fault(int fgid, Value fv, size_t fp); 
+            Fault(int fgid, size_t fp, Value fv); 
             ~Fault(); 
 
     int     fgate_id; 
@@ -47,10 +47,10 @@ inline Fault::Fault() {
 inline Fault::~Fault() { 
 }
 
-inline Fault::Fault(int fgid, Value fv, size_t fp) { 
+inline Fault::Fault(int fgid, size_t fp, Value fv) { 
     fgate_id = fgid;     
-    fval = fv; 
     fpid = fp; 
+    fval = fv; 
 
     status = UD; 
 } 

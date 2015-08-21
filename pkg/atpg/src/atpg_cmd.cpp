@@ -121,7 +121,7 @@ bool AddFaultCmd::run() {
         atpg_mgr_->f_mgr->AddAllFaults(atpg_mgr_->cir); 
 
         cout << "currently has " << atpg_mgr_->f_mgr->getFaultNum(); 
-        cout << " fault(s)...\n"; 
+        cout << " fault(s)...\n\n"; 
 
         return true; 
     }
@@ -129,3 +129,28 @@ bool AddFaultCmd::run() {
     //TODO
     return false; 
 }  
+
+RunAtpgCmd::RunAtpgCmd(const string &name, 
+                       const string &msg, 
+                       Netlist *nl, 
+                       AtpgMgr *atpg_mgr) : Cmd(name, msg) { 
+
+    nl_ = nl; 
+    atpg_mgr_ = atpg_mgr; 
+}
+
+RunAtpgCmd::~RunAtpgCmd() { 
+}
+
+bool RunAtpgCmd::run() { 
+    if(!atpg_mgr_->cir) { 
+        //TODO 
+        return false; 
+    }
+    
+    if(!atpg_mgr_->f_mgr) { 
+        atpg_mgr_->f_mgr = new FaultMgr; 
+        atpg_mgr_->f_mgr->AddAllFaults(atpg_mgr_->cir); 
+    }
+    atpg_mgr_->Run(); 
+}

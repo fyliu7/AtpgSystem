@@ -17,7 +17,7 @@ void FaultMgr::AddFault(Gate *g, Value v) {
 void FaultMgr::AddAllFaults(Circuit *cir) { 
     for (size_t i=0; i<cir->gates.size(); i++) { 
         Gate *g = cir->gates[i]; 
-        for(int j=0; j<=g->fis.size(); j++) { 
+        for(int j=0; j<=g->nfi; j++) { 
             AddFault(g, j, D); 
             AddFault(g, j, B); 
         }

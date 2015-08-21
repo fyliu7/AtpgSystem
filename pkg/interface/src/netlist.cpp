@@ -33,7 +33,7 @@ bool Netlist::parse(const string& filename, const string& top) {
 bool Netlist::build(Circuit* cir) {
     CellVec cells; 
     levelize(cells); 
-    cir->ntotlvl = cells[cells.size()-1]->getLevel(); 
+    cir->ntotlvl = cells[cells.size()-1]->getLevel() + 1; 
     
     size_t pi_cnt       = 0, 
            ppi_cnt      = 0, 
@@ -45,6 +45,10 @@ bool Netlist::build(Circuit* cir) {
         
         Gate *g; 
         switch(c->getType()) { 
+        case CELL_NOT: 
+            g = new NotGate; 
+            logic_cnt++; 
+            break; 
         case CELL_AND:  
             g = new AndGate; 
             logic_cnt++; 

@@ -6,17 +6,29 @@
 !_TAG_PROGRAM_VERSION	5.6	//
 AB	core/src/fault.h	/^    enum    Status { UD = 0, DT, AU, RE, AB }; $/;"	e	enum:CoreNs::Fault::Status
 AU	core/src/fault.h	/^    enum    Status { UD = 0, DT, AU, RE, AB }; $/;"	e	enum:CoreNs::Fault::Status
-AndGate	core/src/gate.h	/^          AndGate(): Gate(GATE_AND) {} $/;"	f	class:CoreNs::AndGate
+AddAllFaults	core/src/fault.cpp	/^void FaultMgr::AddAllFaults(Circuit *cir) { $/;"	f	class:FaultMgr
+AddFault	core/src/fault.cpp	/^void FaultMgr::AddFault(Gate *g, Value v) { $/;"	f	class:FaultMgr
+AddFault	core/src/fault.cpp	/^void FaultMgr::AddFault(Gate *g, size_t p, Value v) { $/;"	f	class:FaultMgr
+AddFaultCmd	atpg/src/atpg_cmd.cpp	/^AddFaultCmd::AddFaultCmd(const string &name, $/;"	f	class:AddFaultCmd
+AddFaultCmd	atpg/src/atpg_cmd.h	/^class AddFaultCmd : public CmdNs::Cmd { $/;"	c	namespace:AtpgNs
+AndGate	core/src/gate.h	/^          AndGate(): Gate(GATE_AND) {$/;"	f	class:CoreNs::AndGate
 AndGate	core/src/gate.h	/^class AndGate : public Gate { $/;"	c	namespace:CoreNs
 AndMap	core/src/logic.h	/^const Value AndMap[5][5] = { $/;"	v
 ArgMap	cmd/src/opt_mgr.h	/^typedef std::map<std::string, TCLAP::ValueArg<std::string>*>    ArgMap; $/;"	t	namespace:CmdNs
 ArgMapIter	cmd/src/opt_mgr.h	/^typedef ArgMap::iterator                            ArgMapIter; $/;"	t	namespace:CmdNs
+Atpg	core/src/atpg.h	/^class Atpg { $/;"	c	namespace:CoreNs
+Atpg	core/src/atpg.h	/^inline Atpg::Atpg(Circuit *cir, Fault *f) { $/;"	f	class:CoreNs::Atpg
 AtpgMgr	core/src/atpg_mgr.h	/^class AtpgMgr {$/;"	c	namespace:CoreNs
 AtpgMgr	core/src/atpg_mgr.h	/^inline AtpgMgr::AtpgMgr() {$/;"	f	class:CoreNs::AtpgMgr
 AtpgNs	atpg/src/atpg_cmd.h	/^namespace AtpgNs { $/;"	n
 AtpgNs	atpg/src/setup_cmd.h	/^namespace AtpgNs { $/;"	n
+AtpgStatus	core/src/atpg.h	/^    enum AtpgStatus { IMPLY_AND_CHECK = 0, $/;"	g	class:CoreNs::Atpg
+AtpgVec	core/src/atpg_mgr.h	/^typedef std::vector<Atpg*>  AtpgVec; $/;"	t	namespace:CoreNs
 B	core/src/logic.h	/^const Value     B       = 4;$/;"	v
+BACKTRACE	core/src/atpg.h	/^                      BACKTRACE, $/;"	e	enum:CoreNs::Atpg::AtpgStatus
+BACKTRACK	core/src/atpg.h	/^                      BACKTRACK,  $/;"	e	enum:CoreNs::Atpg::AtpgStatus
 BYTE_SIZE	core/src/logic.h	/^const size_t BYTE_SIZE  = 8;$/;"	v
+Backtrace	core/src/atpg.cpp	/^bool Atpg::Backtrace() { $/;"	f	class:Atpg
 BuildCircuitCmd	atpg/src/atpg_cmd.cpp	/^BuildCircuitCmd::BuildCircuitCmd(const string &name, $/;"	f	class:BuildCircuitCmd
 BuildCircuitCmd	atpg/src/atpg_cmd.h	/^class BuildCircuitCmd : public CmdNs::Cmd { $/;"	c	namespace:AtpgNs
 CELL_AND	interface/src/module.h	/^                CELL_AND, CELL_NAND, CELL_OR, CELL_NOR, $/;"	e	enum:IntfNs::CellType
@@ -47,14 +59,19 @@ CmdMapIter	cmd/src/cmd.h	/^typedef CmdMap::iterator                             
 CmdMgr	cmd/src/cmd.h	/^class CmdMgr { $/;"	c	namespace:CmdNs
 CmdNs	cmd/src/cmd.h	/^namespace CmdNs { $/;"	n
 CmdNs	cmd/src/opt_mgr.h	/^namespace CmdNs { $/;"	n
+CoreNs	core/src/atpg.h	/^namespace CoreNs { $/;"	n
 CoreNs	core/src/atpg_mgr.h	/^namespace CoreNs { $/;"	n
 CoreNs	core/src/circuit.h	/^namespace CoreNs { $/;"	n
+CoreNs	core/src/decision_tree.h	/^namespace CoreNs { $/;"	n
 CoreNs	core/src/fault.h	/^namespace CoreNs { $/;"	n
 CoreNs	core/src/gate.h	/^namespace CoreNs { $/;"	n
 CoreNs	core/src/logic.h	/^namespace CoreNs { $/;"	n
+CoreNs	core/src/simulator.h	/^namespace CoreNs { $/;"	n
 D	core/src/logic.h	/^const Value     D       = 3;$/;"	v
+DECISION	core/src/atpg.h	/^                      DECISION, $/;"	e	enum:CoreNs::Atpg::AtpgStatus
 DT	core/src/fault.h	/^    enum    Status { UD = 0, DT, AU, RE, AB }; $/;"	e	enum:CoreNs::Fault::Status
 EXIT	cmd/src/cmd.h	/^    enum    Result { EXIT = -1, SUCCESS, FAIL, NOT_EXIST, NOP };$/;"	e	enum:CmdNs::CmdMgr::Result
+EXIT	core/src/atpg.h	/^                      EXIT }; $/;"	e	enum:CoreNs::Atpg::AtpgStatus
 EvalAndN	core/src/logic.h	/^inline Value EvalAndN(size_t n...) {$/;"	f	namespace:CoreNs
 EvalAndN	core/src/logic.h	/^inline Value EvalAndN(std::vector<Value>& vals) {$/;"	f	namespace:CoreNs
 EvalNandN	core/src/logic.h	/^inline Value EvalNandN(size_t n...) {$/;"	f	namespace:CoreNs
@@ -64,10 +81,13 @@ EvalNorN	core/src/logic.h	/^inline Value EvalNorN(std::vector<Value>& vals) {$/;
 EvalNot	core/src/logic.h	/^inline Value EvalNot(Value v){$/;"	f	namespace:CoreNs
 EvalOrN	core/src/logic.h	/^inline Value EvalOrN(size_t n...) {$/;"	f	namespace:CoreNs
 EvalOrN	core/src/logic.h	/^inline Value EvalOrN(std::vector<Value>& vals) {$/;"	f	namespace:CoreNs
+EventDrivenSim	core/src/simulator.cpp	/^bool Simulator::EventDrivenSim() {$/;"	f	class:Simulator
 FAIL	cmd/src/cmd.h	/^    enum    Result { EXIT = -1, SUCCESS, FAIL, NOT_EXIST, NOP };$/;"	e	enum:CmdNs::CmdMgr::Result
 Fault	core/src/fault.h	/^class Fault { $/;"	c	namespace:CoreNs
 Fault	core/src/fault.h	/^inline Fault::Fault() { $/;"	f	class:CoreNs::Fault
 Fault	core/src/fault.h	/^inline Fault::Fault(int fgid, Value fv, size_t fp) { $/;"	f	class:CoreNs::Fault
+FaultActivate	core/src/atpg.cpp	/^bool Atpg::FaultActivate() { $/;"	f	class:Atpg
+FaultEval	core/src/simulator.cpp	/^Value Simulator::FaultEval(Gate* g) const { $/;"	f	class:Simulator
 FaultMgr	core/src/fault.h	/^class FaultMgr { $/;"	c	namespace:CoreNs
 FaultVec	core/src/fault.h	/^typedef std::vector<Fault *> FaultVec; $/;"	t	namespace:CoreNs
 GATE_AND	core/src/gate.h	/^                GATE_AND, GATE_NAND, GATE_OR, GATE_NOR }; $/;"	e	enum:CoreNs::GateType
@@ -94,7 +114,9 @@ GoodEval	core/src/gate.cpp	/^Value PoGate::GoodEval() const { $/;"	f	class:PoGat
 GoodEval	core/src/gate.cpp	/^Value PpiGate::GoodEval() const { $/;"	f	class:PpiGate
 GoodEval	core/src/gate.cpp	/^Value PpoGate::GoodEval() const { $/;"	f	class:PpoGate
 H	core/src/logic.h	/^const Value     H       = 1;$/;"	v
+IMPLY_AND_CHECK	core/src/atpg.h	/^    enum AtpgStatus { IMPLY_AND_CHECK = 0, $/;"	e	enum:CoreNs::Atpg::AtpgStatus
 IdVec	core/src/circuit.h	/^typedef std::vector<int> IdVec;  $/;"	t	namespace:CoreNs
+Imply	core/src/atpg.cpp	/^bool Atpg::Imply() { $/;"	f	class:Atpg
 IntfNs	interface/src/module.h	/^namespace IntfNs {$/;"	n
 IntfNs	interface/src/netlist.h	/^namespace IntfNs { $/;"	n
 IntfNs	interface/src/netlist.y	/^IntfNs::Netlist *nl; $/;"	l
@@ -110,7 +132,7 @@ NOP	cmd/src/cmd.h	/^    enum    Result { EXIT = -1, SUCCESS, FAIL, NOT_EXIST, NO
 NOT_EXIST	cmd/src/cmd.h	/^    enum    Result { EXIT = -1, SUCCESS, FAIL, NOT_EXIST, NOP };$/;"	e	enum:CmdNs::CmdMgr::Result
 NameList	interface/src/netlist.h	/^struct NameList { $/;"	s	namespace:IntfNs
 NameSet	cmd/src/opt_mgr.h	/^typedef std::set<std::string>                       NameSet; $/;"	t	namespace:CmdNs
-NandGate	core/src/gate.h	/^          NandGate(): Gate(GATE_NAND) {} $/;"	f	class:CoreNs::NandGate
+NandGate	core/src/gate.h	/^          NandGate(): Gate(GATE_NAND) {$/;"	f	class:CoreNs::NandGate
 NandGate	core/src/gate.h	/^class NandGate : public Gate { $/;"	c	namespace:CoreNs
 NandMap	core/src/logic.h	/^const Value NandMap[5][5] = { $/;"	v
 Net	interface/src/module.h	/^class Net { $/;"	c	namespace:IntfNs
@@ -119,17 +141,18 @@ NetMap	interface/src/module.h	/^typedef std::map<std::string, Net *> NetMap;   $
 NetVec	interface/src/module.h	/^typedef std::vector<Net *> NetVec; $/;"	t	namespace:IntfNs
 Netlist	interface/src/netlist.h	/^class Netlist { $/;"	c	namespace:IntfNs
 Netlist	interface/src/netlist.h	/^inline Netlist::Netlist() {$/;"	f	class:IntfNs::Netlist
-NorGate	core/src/gate.h	/^          NorGate(): Gate(GATE_NOR) {} $/;"	f	class:CoreNs::NorGate
+NorGate	core/src/gate.h	/^          NorGate(): Gate(GATE_NOR) {$/;"	f	class:CoreNs::NorGate
 NorGate	core/src/gate.h	/^class NorGate : public Gate { $/;"	c	namespace:CoreNs
 NorMap	core/src/logic.h	/^const Value NorMap[5][5] = { $/;"	v
 NotGate	core/src/gate.h	/^          NotGate(): Gate(GATE_NOT) {}  $/;"	f	class:CoreNs::NotGate
 NotGate	core/src/gate.h	/^class NotGate : public Gate { $/;"	c	namespace:CoreNs
 NotMap	core/src/logic.h	/^const Value NotMap[5] = { H, L, X, B, D };$/;"	v
+Objective	core/src/atpg.h	/^typedef std::pair<int, Value> Objective; $/;"	t	namespace:CoreNs
 OptMap	cmd/src/opt_mgr.h	/^typedef std::map<std::string, TCLAP::SwitchArg*>                OptMap; $/;"	t	namespace:CmdNs
 OptMapIter	cmd/src/opt_mgr.h	/^typedef OptMap::iterator                            OptMapIter; $/;"	t	namespace:CmdNs
 OptMgr	cmd/src/opt_mgr.h	/^class OptMgr {$/;"	c	namespace:CmdNs
 OptMgr	cmd/src/opt_mgr.h	/^inline OptMgr::OptMgr(const std::string &name, $/;"	f	class:CmdNs::OptMgr
-OrGate	core/src/gate.h	/^          OrGate(): Gate(GATE_OR) {}  $/;"	f	class:CoreNs::OrGate
+OrGate	core/src/gate.h	/^          OrGate(): Gate(GATE_OR) { $/;"	f	class:CoreNs::OrGate
 OrGate	core/src/gate.h	/^class OrGate : public Gate { $/;"	c	namespace:CoreNs
 OrMap	core/src/logic.h	/^const Value OrMap[5][5] = { $/;"	v
 PARA_H	core/src/logic.h	/^const ParaValue PARA_H  = ~PARA_L;$/;"	v
@@ -150,6 +173,7 @@ PpiGate	core/src/gate.h	/^          PpiGate(): Gate(GATE_PPI) {}  $/;"	f	class:C
 PpiGate	core/src/gate.h	/^class PpiGate : public Gate { $/;"	c	namespace:CoreNs
 PpoGate	core/src/gate.h	/^          PpoGate(): Gate(GATE_PPO) {}  $/;"	f	class:CoreNs::PpoGate
 PpoGate	core/src/gate.h	/^class PpoGate : public Gate { $/;"	c	namespace:CoreNs
+PushEvent	core/src/simulator.cpp	/^void Simulator::PushEvent(int gid) { $/;"	f	class:Simulator
 RE	core/src/fault.h	/^    enum    Status { UD = 0, DT, AU, RE, AB }; $/;"	e	enum:CoreNs::Fault::Status
 ReadNetlistCmd	atpg/src/setup_cmd.cpp	/^ReadNetlistCmd::ReadNetlistCmd(const string &name, $/;"	f	class:ReadNetlistCmd
 ReadNetlistCmd	atpg/src/setup_cmd.h	/^class ReadNetlistCmd : public CmdNs::Cmd { $/;"	c	namespace:AtpgNs
@@ -161,7 +185,10 @@ ReportGateCmd	atpg/src/atpg_cmd.h	/^class ReportGateCmd : public CmdNs::Cmd { $/
 Result	cmd/src/cmd.h	/^    enum    Result { EXIT = -1, SUCCESS, FAIL, NOT_EXIST, NOP };$/;"	g	class:CmdNs::CmdMgr
 SUCCESS	cmd/src/cmd.h	/^    enum    Result { EXIT = -1, SUCCESS, FAIL, NOT_EXIST, NOP };$/;"	e	enum:CmdNs::CmdMgr::Result
 SetBitVal	core/src/logic.h	/^inline void SetBitVal(ParaValue &pv, bool value ,int pos) {$/;"	f	namespace:CoreNs
+Simulator	core/src/simulator.h	/^class Simulator { $/;"	c	namespace:CoreNs
+Simulator	core/src/simulator.h	/^inline Simulator::Simulator(Circuit *cir, Fault *ftarget) { $/;"	f	class:CoreNs::Simulator
 Status	core/src/fault.h	/^    enum    Status { UD = 0, DT, AU, RE, AB }; $/;"	g	class:CoreNs::Fault
+Tpg	core/src/atpg.cpp	/^bool Atpg::Tpg() { $/;"	f	class:Atpg
 UD	core/src/fault.h	/^    enum    Status { UD = 0, DT, AU, RE, AB }; $/;"	e	enum:CoreNs::Fault::Status
 Value	core/src/logic.h	/^typedef unsigned char  Value;$/;"	t	namespace:CoreNs
 WORD_SIZE	core/src/logic.h	/^const size_t WORD_SIZE  = sizeof(ParaValue) * BYTE_SIZE;$/;"	v
@@ -170,13 +197,17 @@ _ATPG_ATPG_CMD_H_	atpg/src/atpg_cmd.h	2;"	d
 _ATPG_SETUP_CMD_H_	atpg/src/setup_cmd.h	2;"	d
 _CMD_CMD_H_	cmd/src/cmd.h	2;"	d
 _CMD_OPT_MGR_H_	cmd/src/opt_mgr.h	2;"	d
+_CORE_ATPG_H_	core/src/atpg.h	20;"	d
 _CORE_ATPG_MGR_H_	core/src/atpg_mgr.h	2;"	d
 _CORE_CIRCUIT_H_	core/src/circuit.h	2;"	d
+_CORE_DECISION_TREE_	core/src/decision_tree.h	20;"	d
 _CORE_FAULT_H_	core/src/fault.h	2;"	d
 _CORE_GATE_H_	core/src/gate.h	2;"	d
 _CORE_LOGIC_H_	core/src/logic.h	2;"	d
+_CORE_SIMULATOR_H_	core/src/simulator.h	2;"	d
 _INTF_MODULE_H_	interface/src/module.h	2;"	d
 _INTF_NETLIST_H_	interface/src/netlist.h	2;"	d
+_MAX_BACK_TRACK_LIMIT_	core/src/atpg.h	22;"	d
 addCell	interface/src/module.h	/^inline void Module::addCell(Cell * const c) {$/;"	f	class:IntfNs::Module
 addCell	interface/src/netlist.cpp	/^void Netlist::addCell(const char * const typenm, $/;"	f	class:Netlist
 addInNet	interface/src/module.h	/^inline void Cell::addInNet(Net *n) {$/;"	f	class:IntfNs::Cell
@@ -190,18 +221,26 @@ addOutputs	interface/src/netlist.cpp	/^void Netlist::addOutputs(NameList * const
 addPort	interface/src/module.h	/^inline void Module::addPort(Port * const p) {$/;"	f	class:IntfNs::Module
 addPorts	interface/src/netlist.cpp	/^void Netlist::addPorts(NameList * const ports) {$/;"	f	class:Netlist
 arg_map_	cmd/src/opt_mgr.h	/^    ArgMap          arg_map_; $/;"	m	class:CmdNs::OptMgr
+atpg_mgr_	atpg/src/atpg_cmd.h	/^    CoreNs::AtpgMgr *atpg_mgr_; $/;"	m	class:AtpgNs::AddFaultCmd
 atpg_mgr_	atpg/src/atpg_cmd.h	/^    CoreNs::AtpgMgr *atpg_mgr_; $/;"	m	class:AtpgNs::BuildCircuitCmd
 atpg_mgr_	atpg/src/atpg_cmd.h	/^    CoreNs::AtpgMgr *atpg_mgr_; $/;"	m	class:AtpgNs::ReportCircuitCmd
 atpg_mgr_	atpg/src/atpg_cmd.h	/^    CoreNs::AtpgMgr *atpg_mgr_; $/;"	m	class:AtpgNs::ReportGateCmd
+atpgs_	core/src/atpg_mgr.h	/^    AtpgVec     atpgs_; $/;"	m	class:CoreNs::AtpgMgr
+back_track_count	core/src/atpg.h	/^    size_t    back_track_count;$/;"	m	class:CoreNs::Atpg
+back_track_limit	core/src/atpg.h	/^    size_t    back_track_limit;$/;"	m	class:CoreNs::Atpg
 build	interface/src/netlist.cpp	/^bool Netlist::build(Circuit* cir) {$/;"	f	class:Netlist
 cat_map_	cmd/src/cmd.h	/^    CatMap  cat_map_; $/;"	m	class:CmdNs::CmdMgr
 cell_map_	interface/src/module.h	/^    CellMap cell_map_; $/;"	m	class:IntfNs::Module
 cir	core/src/atpg_mgr.h	/^    Circuit     *cir; $/;"	m	class:CoreNs::AtpgMgr
+cir_	core/src/atpg.h	/^    Circuit   *cir_; $/;"	m	class:CoreNs::Atpg
+cir_	core/src/simulator.h	/^    Circuit         *cir_; $/;"	m	class:CoreNs::Simulator
 clearCells	interface/src/module.h	/^inline void Module::clearCells() {$/;"	f	class:IntfNs::Module
 clearNets	interface/src/module.h	/^inline void Module::clearNets() {$/;"	f	class:IntfNs::Module
 clearPorts	interface/src/module.h	/^inline void Module::clearPorts() {$/;"	f	class:IntfNs::Module
 cmd_map_	cmd/src/cmd.h	/^    CmdMap  cmd_map_; $/;"	m	class:CmdNs::CmdMgr
 current_	interface/src/netlist.h	/^    Module *current_; $/;"	m	class:IntfNs::Netlist
+current_obj_	core/src/atpg.h	/^    Objective current_obj_; $/;"	m	class:CoreNs::Atpg
+events_	core/src/simulator.h	/^    std::queue<int> *events_; $/;"	m	class:CoreNs::Simulator
 exec	cmd/src/cmd.cpp	/^bool Cmd::exec(vector<string> &args) { $/;"	f	class:Cmd
 f_mgr	core/src/atpg_mgr.h	/^    FaultMgr    *f_mgr; $/;"	m	class:CoreNs::AtpgMgr
 faults_	core/src/fault.h	/^    FaultVec faults_; $/;"	m	class:CoreNs::FaultMgr
@@ -220,6 +259,8 @@ getCell	interface/src/module.h	/^inline Cell *Module::getCell(const std::string&
 getCellNum	interface/src/module.h	/^inline size_t Module::getCellNum() const {$/;"	f	class:IntfNs::Module
 getFaninCell	interface/src/module.h	/^inline void Cell::getFaninCell(CellVec& ret) const { $/;"	f	class:IntfNs::Cell
 getFanoutCell	interface/src/module.h	/^inline bool Cell::getFanoutCell(const size_t& n, CellVec& ret) const { $/;"	f	class:IntfNs::Cell
+getFault	core/src/fault.h	/^inline Fault *FaultMgr::getFault(size_t n) const { $/;"	f	class:CoreNs::FaultMgr
+getFaultNum	core/src/fault.h	/^inline size_t FaultMgr::getFaultNum() const { $/;"	f	class:CoreNs::FaultMgr
 getGate	interface/src/module.h	/^inline CoreNs::Gate *Cell::getGate() const { $/;"	f	class:IntfNs::Cell
 getInCell	interface/src/module.h	/^inline Cell *Net::getInCell() const {$/;"	f	class:IntfNs::Net
 getInNet	interface/src/module.h	/^inline Net *Cell::getInNet(const size_t& n) const { $/;"	f	class:IntfNs::Cell
@@ -255,6 +296,7 @@ in_cell_	interface/src/module.h	/^    Cell *in_cell_; $/;"	m	class:IntfNs::Net
 in_net_	interface/src/module.h	/^    Net *in_net_; $/;"	m	class:IntfNs::Port
 in_nets_	interface/src/module.h	/^    NetVec in_nets_; $/;"	m	class:IntfNs::Cell
 in_port_	interface/src/module.h	/^    Port *in_port_; $/;"	m	class:IntfNs::Net
+init	core/src/atpg.cpp	/^void Atpg::init() { $/;"	f	class:Atpg
 levelize	interface/src/netlist.cpp	/^void Netlist::levelize(CellVec& cells) {$/;"	f	class:Netlist
 lvl	core/src/gate.h	/^    int           lvl; $/;"	m	class:CoreNs::Gate
 lvl_	interface/src/module.h	/^    int lvl_;$/;"	m	class:IntfNs::Cell
@@ -276,6 +318,7 @@ net_map_	interface/src/module.h	/^    NetMap net_map_; $/;"	m	class:IntfNs::Modu
 next	interface/src/netlist.h	/^    NameList *next; $/;"	m	struct:IntfNs::NameList
 nfi	core/src/gate.h	/^    size_t        nfi; $/;"	m	class:CoreNs::Gate
 nfo	core/src/gate.h	/^    size_t        nfo; $/;"	m	class:CoreNs::Gate
+nl_	atpg/src/atpg_cmd.h	/^    IntfNs::Netlist *nl_; $/;"	m	class:AtpgNs::AddFaultCmd
 nl_	atpg/src/atpg_cmd.h	/^    IntfNs::Netlist *nl_; $/;"	m	class:AtpgNs::BuildCircuitCmd
 nl_	atpg/src/atpg_cmd.h	/^    IntfNs::Netlist *nl_; $/;"	m	class:AtpgNs::ReportCircuitCmd
 nl_	atpg/src/atpg_cmd.h	/^    IntfNs::Netlist *nl_; $/;"	m	class:AtpgNs::ReportGateCmd
@@ -286,6 +329,7 @@ npi	core/src/circuit.h	/^    size_t  npi; $/;"	m	class:CoreNs::Circuit
 npo	core/src/circuit.h	/^    size_t  npo; $/;"	m	class:CoreNs::Circuit
 nppi	core/src/circuit.h	/^    size_t  nppi; $/;"	m	class:CoreNs::Circuit
 ntotgate	core/src/circuit.h	/^    size_t  ntotgate; $/;"	m	class:CoreNs::Circuit
+ntotlvl	core/src/circuit.h	/^    size_t  ntotlvl; $/;"	m	class:CoreNs::Circuit
 opt_	cmd/src/opt_mgr.h	/^    TCLAP::CmdLine  *opt_; $/;"	m	class:CmdNs::OptMgr
 opt_map_	cmd/src/opt_mgr.h	/^    OptMap          opt_map_; $/;"	m	class:CmdNs::OptMgr
 opt_mgr_	cmd/src/cmd.h	/^    OptMgr              *opt_mgr_; $/;"	m	class:CmdNs::Cmd
@@ -293,6 +337,7 @@ out_cells_	interface/src/module.h	/^    CellVec out_cells_; $/;"	m	class:IntfNs:
 out_net_	interface/src/module.h	/^    Net *out_net_; $/;"	m	class:IntfNs::Port
 out_nets_	interface/src/module.h	/^    NetVec out_nets_; $/;"	m	class:IntfNs::Cell
 out_ports_	interface/src/module.h	/^    PortVec out_ports_; $/;"	m	class:IntfNs::Net
+output_ctr_value	core/src/gate.h	/^    Value         output_ctr_value; $/;"	m	class:CoreNs::Gate
 parse	cmd/src/opt_mgr.cpp	/^void OptMgr::parse(vector<string> &args) {$/;"	f	class:OptMgr
 parse	interface/src/netlist.cpp	/^bool Netlist::parse(const string& filename, const string& top) {$/;"	f	class:Netlist
 pis	core/src/circuit.h	/^    IdVec   pis; $/;"	m	class:CoreNs::Circuit
@@ -304,6 +349,7 @@ ppos	core/src/circuit.h	/^    IdVec   ppos;  $/;"	m	class:CoreNs::Circuit
 regArg	cmd/src/opt_mgr.cpp	/^bool OptMgr::regArg(const string    &name, $/;"	f	class:OptMgr
 regOpt	cmd/src/opt_mgr.cpp	/^bool OptMgr::regOpt(const string    &name, $/;"	f	class:OptMgr
 reportGate	atpg/src/atpg_cmd.cpp	/^void ReportGateCmd::reportGate() const { $/;"	f	class:ReportGateCmd
+run	atpg/src/atpg_cmd.cpp	/^bool AddFaultCmd::run() {$/;"	f	class:AddFaultCmd
 run	atpg/src/atpg_cmd.cpp	/^bool BuildCircuitCmd::run() { $/;"	f	class:BuildCircuitCmd
 run	atpg/src/atpg_cmd.cpp	/^bool ReportGateCmd::run() { $/;"	f	class:ReportGateCmd
 run	atpg/src/setup_cmd.cpp	/^bool ReadNetlistCmd::run() { $/;"	f	class:ReadNetlistCmd
@@ -313,25 +359,41 @@ setInCell	interface/src/module.h	/^inline void Net::setInCell(Cell *c) {$/;"	f	c
 setLevel	interface/src/module.h	/^inline void Cell::setLevel(int lvl) {$/;"	f	class:IntfNs::Cell
 setName	cmd/src/opt_mgr.h	/^inline void OptMgr::setName(const std::string &name) { $/;"	f	class:CmdNs::OptMgr
 setType	interface/src/module.h	/^inline void Port::setType(PortType type) {$/;"	f	class:IntfNs::Port
+sim_	core/src/atpg.h	/^    Simulator *sim_; $/;"	m	class:CoreNs::Atpg
 status	core/src/fault.h	/^    Status  status; $/;"	m	class:CoreNs::Fault
 success_	interface/src/netlist.h	/^    bool success_; $/;"	m	class:IntfNs::Netlist
+target_fault	core/src/simulator.h	/^    Fault           *target_fault; $/;"	m	class:CoreNs::Simulator
+target_fault_	core/src/atpg.h	/^    Fault     *target_fault_; $/;"	m	class:CoreNs::Atpg
 top_	interface/src/netlist.h	/^    Module *top_; $/;"	m	class:IntfNs::Netlist
 type	core/src/gate.h	/^    GateType      type; $/;"	m	class:CoreNs::Gate
 type_	interface/src/module.h	/^    CellType type_; $/;"	m	class:IntfNs::Cell
 type_	interface/src/module.h	/^    PortType type_; $/;"	m	class:IntfNs::Port
 type_name_	interface/src/module.h	/^    std::string type_name_; $/;"	m	class:IntfNs::Cell
 val	core/src/gate.h	/^    Value         val; $/;"	m	class:CoreNs::Gate
+~AddFaultCmd	atpg/src/atpg_cmd.cpp	/^AddFaultCmd::~AddFaultCmd() {}  $/;"	f	class:AddFaultCmd
+~AndGate	core/src/gate.h	/^          ~AndGate() {}$/;"	f	class:CoreNs::AndGate
+~Atpg	core/src/atpg.h	/^inline Atpg::~Atpg() { $/;"	f	class:CoreNs::Atpg
 ~AtpgMgr	core/src/atpg_mgr.h	/^inline AtpgMgr::~AtpgMgr() {$/;"	f	class:CoreNs::AtpgMgr
 ~BuildCircuitCmd	atpg/src/atpg_cmd.cpp	/^BuildCircuitCmd::~BuildCircuitCmd() { $/;"	f	class:BuildCircuitCmd
 ~Cell	interface/src/module.h	/^inline Cell::~Cell(){$/;"	f	class:IntfNs::Cell
 ~Circuit	core/src/circuit.h	/^inline Circuit::~Circuit() { $/;"	f	class:CoreNs::Circuit
 ~Cmd	cmd/src/cmd.h	/^inline Cmd::~Cmd() { $/;"	f	class:CmdNs::Cmd
+~Fault	core/src/fault.h	/^inline Fault::~Fault() { $/;"	f	class:CoreNs::Fault
 ~FaultMgr	core/src/fault.h	/^inline FaultMgr::~FaultMgr() { $/;"	f	class:CoreNs::FaultMgr
 ~Gate	core/src/gate.h	/^inline Gate::~Gate() { $/;"	f	class:CoreNs::Gate
 ~Module	interface/src/module.h	/^inline Module::~Module() {$/;"	f	class:IntfNs::Module
+~NandGate	core/src/gate.h	/^          ~NandGate() {}$/;"	f	class:CoreNs::NandGate
 ~Net	interface/src/module.h	/^inline Net::~Net() { $/;"	f	class:IntfNs::Net
 ~Netlist	interface/src/netlist.h	/^inline Netlist::~Netlist() {$/;"	f	class:IntfNs::Netlist
+~NorGate	core/src/gate.h	/^          ~NorGate() {} $/;"	f	class:CoreNs::NorGate
+~NotGate	core/src/gate.h	/^          ~NotGate() {}$/;"	f	class:CoreNs::NotGate
 ~OptMgr	cmd/src/opt_mgr.h	/^inline OptMgr::~OptMgr() { $/;"	f	class:CmdNs::OptMgr
+~OrGate	core/src/gate.h	/^          ~OrGate() {} $/;"	f	class:CoreNs::OrGate
+~PiGate	core/src/gate.h	/^          ~PiGate() {}$/;"	f	class:CoreNs::PiGate
+~PoGate	core/src/gate.h	/^          ~PoGate() {} $/;"	f	class:CoreNs::PoGate
+~PpiGate	core/src/gate.h	/^          ~PpiGate() {}$/;"	f	class:CoreNs::PpiGate
+~PpoGate	core/src/gate.h	/^          ~PpoGate() {} $/;"	f	class:CoreNs::PpoGate
 ~ReadNetlistCmd	atpg/src/setup_cmd.cpp	/^ReadNetlistCmd::~ReadNetlistCmd() {}$/;"	f	class:ReadNetlistCmd
 ~ReportCellCmd	atpg/src/setup_cmd.cpp	/^ReportCellCmd::~ReportCellCmd() {} $/;"	f	class:ReportCellCmd
 ~ReportGateCmd	atpg/src/atpg_cmd.cpp	/^ReportGateCmd::~ReportGateCmd() {$/;"	f	class:ReportGateCmd
+~Simulator	core/src/simulator.h	/^inline Simulator::~Simulator() { $/;"	f	class:CoreNs::Simulator

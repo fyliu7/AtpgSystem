@@ -1,4 +1,4 @@
-cscope 15 $HOME/atpg/pkg -q 0000000414 0000042510
+cscope 15 $HOME/Documents/atpg/pkg -q 0000000470 0000051061
 	@atpg/src/atpg_cmd.cpp
 
 1 
@@ -409,6 +409,170 @@ cout
 	}
 }
 
+89 
+	gAddFau…Cmd
+::
+	$AddFau…Cmd
+(c⁄° 
+°rög
+ &
+«me
+,
+
+90 c⁄° 
+°rög
+ &
+msg
+,
+
+91 
+Nëli°
+ *
+∆
+,
+
+92 
+AçgMgr
+ *
+©pg_mgr
+Ë: 
+	$Cmd
+(
+«me
+, 
+msg
+) {
+
+94 
+∆_
+ = 
+∆
+;
+
+95 
+©pg_mgr_
+ = 
+©pg_mgr
+;
+
+96 
+åy
+ {
+
+97 
+›t_mgr_
+->
+	`ªgO±
+("all",
+
+99 
+Ál£
+,
+
+103 
+	`ˇtch
+ (
+ArgEx˚±i⁄
+ &
+e
+) {
+
+105 
+	`exô
+(1);
+
+107 
+	}
+}
+
+109 
+	gAddFau…Cmd
+::~
+	$AddFau…Cmd
+(Ë{
+	}
+}
+
+110 
+boﬁ
+ 
+AddFau…Cmd
+::
+	$run
+() {
+
+111 if(!
+©pg_mgr_
+->
+cú
+) {
+
+113  
+Ál£
+;
+
+116 if(!
+©pg_mgr_
+->
+f_mgr
+)
+
+117 
+©pg_mgr_
+->
+f_mgr
+ = 
+√w
+ 
+Fau…Mgr
+;
+
+119 
+cout
+ << "Adding fualt(s)...\n\n";
+
+120 if(
+›t_mgr_
+->
+	`gëO±VÆ
+("all")) {
+
+121 
+©pg_mgr_
+->
+f_mgr
+->
+	`AddAŒFau…s
+◊çg_mgr_->
+cú
+);
+
+123 
+cout
+ << "cuºíéy ha†" << 
+©pg_mgr_
+->
+f_mgr
+->
+	`gëFau…Num
+();
+
+124 
+cout
+ << " fault(s)...\n";
+
+126  
+åue
+;
+
+130  
+Ál£
+;
+
+131 
+	}
+}
+
 	@atpg/src/atpg_cmd.h
 
 1 #i‚de‡
@@ -677,6 +841,88 @@ AçgMgr
 ©pg_mgr_
 ;
 
+54 ˛as†
+	cAddFau…Cmd
+ : 
+public
+ 
+CmdNs
+::
+Cmd
+ {
+
+55 
+public
+:
+
+56 
+AddFau…Cmd
+(c⁄° 
+°d
+::
+°rög
+ &
+«me
+,
+
+57 c⁄° 
+°d
+::
+°rög
+ &
+msg
+,
+
+58 
+I¡fNs
+::
+Nëli°
+ *
+∆
+,
+
+59 
+C‹eNs
+::
+AçgMgr
+ *
+©pg_mgr
+);
+
+60 ~
+AddFau…Cmd
+();
+
+61 
+	g¥iv©e
+:
+
+62 
+boﬁ
+ 
+run
+();
+
+64 
+addFau…
+();
+
+66 
+	gI¡fNs
+::
+Nëli°
+ *
+∆_
+;
+
+67 
+	gC‹eNs
+::
+AçgMgr
+ *
+©pg_mgr_
+;
+
 	@atpg/src/main.cpp
 
 1 
@@ -783,6 +1029,16 @@ Rï‹tG©eCmd
 mgr
 );
 
+19 
+AddFau…Cmd
+ 
+	`cmdAddF
+("add_Áu…", "addÅ¨gë fau…(s)", &
+∆
+, &
+mgr
+);
+
 21 
 ve˘‹
 <
@@ -813,6 +1069,14 @@ ve˘‹
 °rög
 > 
 ¨gsR±G
+;
+
+25 
+ve˘‹
+<
+°rög
+> 
+¨gsAddF
 ;
 
 27 
@@ -857,6 +1121,22 @@ i
 	`°rög
 ("report_gate"));
 
+32 
+¨gsAddF
+.
+	`push_back
+(
+	`°rög
+("add_fault"));
+
+33 
+¨gsAddF
+.
+	`push_back
+(
+	`°rög
+("--all"));
+
 35 
 cmdRdNl
 .
@@ -887,6 +1167,14 @@ cmdR±G
 	`exec
 (
 ¨gsR±G
+);
+
+39 
+cmdAddF
+.
+	`exec
+(
+¨gsAddF
 );
 
 42 
@@ -3013,6 +3301,832 @@ O±Mgr
 	}
 }
 
+	@core/src/atpg.cpp
+
+18 
+	~<˛imôs
+>
+
+20 
+	~"©pg.h
+"
+
+22 
+usög
+ 
+«me•a˚
+ 
+	g°d
+;
+
+24 
+usög
+ 
+«me•a˚
+ 
+	gC‹eNs
+;
+
+26 
+boﬁ
+ 
+	gAçg
+::
+	$Tpg
+() {
+
+27 
+	`öô
+();
+
+29 
+AçgSètus
+ 
+°©us
+ = 
+DECISION
+;
+
+30 
+°©us
+!=
+EXIT
+) {
+
+31 
+°©us
+) {
+
+32 
+IMPLY_AND_CHECK
+:
+
+33 if(
+	`Im∂y
+())
+
+34 
+°©us
+ = 
+DECISION
+;
+
+36 
+DECISION
+:
+
+37 if(
+cú_
+->
+g©es
+[
+èrgë_Áu…_
+->
+fg©e_id
+]->
+vÆ
+==
+X
+) {
+
+38 
+	`Fau…A˘iv©e
+();
+
+39 
+°©us
+ = 
+BACKTRACE
+;
+
+42 
+cout
+ << 
+cú_
+->
+g©es
+[
+èrgë_Áu…_
+->
+fg©e_id
+]->
+vÆ
+ << 
+ídl
+;
+
+43 
+°©us
+ = 
+EXIT
+;
+
+46 
+BACKTRACE
+:
+
+47 if(
+	`Backåa˚
+())
+
+48 
+°©us
+ = 
+IMPLY_AND_CHECK
+;
+
+50 
+BACKTRACK
+:
+
+55 
+	}
+}
+
+57 
+	gAçg
+::
+	$öô
+() {
+
+58 
+back_åack_cou¡
+ = 0;
+
+59 
+	}
+}
+
+61 
+boﬁ
+ 
+	gAçg
+::
+	$Fau…A˘iv©e
+() {
+
+62 
+G©e
+ *
+fg
+ = 
+cú_
+->
+g©es
+[
+èrgë_Áu…_
+->
+fg©e_id
+];
+
+63 
+size_t
+ 
+Â
+ = 
+èrgë_Áu…_
+->
+Âid
+;
+
+64 
+VÆue
+ 
+fv
+ = 
+èrgë_Áu…_
+->
+fvÆ
+;
+
+66 if(
+Â
+) {
+
+67 
+VÆue
+ 
+v
+ = 
+fg
+->
+fis
+[
+Â
+-1]->
+vÆ
+;
+
+68 if(
+v
+==
+X
+) {
+
+69 
+VÆue
+ 
+objv
+ = (
+fv
+==
+D
+)?
+H
+:
+L
+;
+
+70 
+cuºít_obj_
+.
+fú°
+ = 
+fg
+->
+fis
+[
+Â
+-1]->
+id
+;
+
+71 
+cuºít_obj_
+.
+£c⁄d
+ = 
+objv
+;
+
+72  
+åue
+;
+
+76 
+VÆue
+ 
+objv
+ = 
+	`EvÆNŸ
+(
+fg
+->
+ouçut_˘r_vÆue
+);
+
+79 if(
+objv
+==
+X
+Ë 
+åue
+;
+
+80 
+cuºít_obj_
+.
+fú°
+ = 
+fg
+->
+id
+;
+
+81 
+cuºít_obj_
+.
+£c⁄d
+ = 
+objv
+;
+
+82  
+åue
+;
+
+87 
+VÆue
+ 
+objv
+ = (
+fv
+==
+D
+)?
+H
+:
+L
+;
+
+88 
+cuºít_obj_
+.
+fú°
+ = 
+fg
+->
+id
+;
+
+89 
+cuºít_obj_
+.
+£c⁄d
+ = 
+objv
+;
+
+90  
+åue
+;
+
+92 
+	}
+}
+
+94 
+boﬁ
+ 
+	gAçg
+::
+	$Backåa˚
+() {
+
+95 
+G©e
+ *
+g
+ = 
+cú_
+->
+g©es
+[
+cuºít_obj_
+.
+fú°
+];
+
+96 
+VÆue
+ 
+objv
+ = 
+cuºít_obj_
+.
+£c⁄d
+;
+
+97 !(
+g
+->
+ty≥
+==
+GATE_PI
+ || g->ty≥==
+GATE_PPI
+)) {
+
+98 if(
+g
+->
+ouçut_˘r_vÆue
+==
+X
+) {
+
+99 
+g
+ = g->
+fis
+[0];
+
+101 
+objv
+ = 
+	`EvÆNŸ
+(objv);
+
+105 
+G©e
+ *
+g√xt
+ = 
+NULL
+;
+
+106 i‡(
+objv
+==
+g
+->
+ouçut_˘r_vÆue
+) {
+
+110 
+˘r_ablûôy
+ = 
+INT_MAX
+;
+
+111 
+size_t
+ 
+n
+=0;Ç<
+g
+->
+nfi
+;Ç++) {
+
+112 if(
+g
+->
+fis
+[
+n
+]->
+vÆ
+==
+X
+ && g->fis[n]->
+lvl
+<
+˘r_ablûôy
+) {
+
+113 
+g√xt
+ = 
+g
+->
+fis
+[
+n
+];
+
+114 
+˘r_ablûôy
+ = 
+g
+->
+fis
+[
+n
+]->
+lvl
+;
+
+118 i‡(
+objv
+==
+	`EvÆNŸ
+(
+g
+->
+ouçut_˘r_vÆue
+)) {
+
+122 
+˘r_öablûôy
+ = 
+INT_MIN
+;
+
+123 
+size_t
+ 
+n
+=0;Ç<
+g
+->
+nfi
+;Ç++) {
+
+124 if(
+g
+->
+fis
+[
+n
+]->
+vÆ
+==
+X
+ && g->fis[n]->
+lvl
+>
+˘r_öablûôy
+) {
+
+125 
+g√xt
+ = 
+g
+->
+fis
+[
+n
+];
+
+126 
+˘r_öablûôy
+ = 
+g
+->
+fis
+[
+n
+]->
+lvl
+;
+
+130 
+g
+ = 
+g√xt
+;
+
+132 if(
+g
+->
+ty≥
+==
+GATE_NAND
+ || g->ty≥==
+GATE_NOR
+)
+
+133 
+objv
+ = 
+	`EvÆNŸ
+(objv);
+
+137 
+g
+->
+vÆ
+ = 
+objv
+;
+
+138 
+sim_
+->
+	`PushEvít
+(
+g
+->
+id
+);
+
+140  
+åue
+;
+
+141 
+	}
+}
+
+143 
+boﬁ
+ 
+	gAçg
+::
+	$Im∂y
+() {
+
+144  
+sim_
+->
+	`EvítDrivíSim
+();
+
+145 
+	}
+}
+
+	@core/src/atpg.h
+
+19 #i‚de‡
+_CORE_ATPG_H_
+
+
+20 
+	#_CORE_ATPG_H_
+
+
+	)
+
+22 
+	#_MAX_BACK_TRACK_LIMIT_
+ 256
+
+	)
+
+24 
+	~"simuœt‹.h
+"
+
+26 
+«me•a˚
+ 
+	gC‹eNs
+ {
+
+28 
+	g°d
+::
+	t∑ú
+<, 
+	tVÆue
+> 
+	tObje˘ive
+;
+
+30 ˛as†
+	cAçg
+ {
+
+31 
+	gpublic
+:
+
+32 
+	eAçgSètus
+ { 
+IMPLY_AND_CHECK
+ = 0,
+
+33 
+	gDECISION
+,
+
+34 
+	gBACKTRACE
+,
+
+35 
+	gBACKTRACK
+,
+
+36 
+	gEXIT
+ };
+
+38 
+Açg
+(
+Cúcuô
+ *
+cú
+, 
+Fau…
+* 
+f
+);
+
+39 ~
+Açg
+();
+
+41 
+boﬁ
+ 
+Tpg
+();
+
+44 
+	g¥Ÿe˘ed
+:
+
+45 
+öô
+();
+
+46 
+boﬁ
+ 
+Fau…A˘iv©e
+();
+
+47 
+boﬁ
+ 
+Backåa˚
+();
+
+48 
+boﬁ
+ 
+Im∂y
+();
+
+50 
+Cúcuô
+ *
+	gcú_
+;
+
+51 
+Simuœt‹
+ *
+	gsim_
+;
+
+53 
+size_t
+ 
+	gback_åack_limô
+;
+
+54 
+size_t
+ 
+	gback_åack_cou¡
+;
+
+56 
+Fau…
+ *
+	gèrgë_Áu…_
+;
+
+58 
+Obje˘ive
+ 
+	gcuºít_obj_
+;
+
+61 
+ölöe
+ 
+	gAçg
+::
+	$Açg
+(
+Cúcuô
+ *
+cú
+, 
+Fau…
+ *
+f
+) {
+
+62 
+cú_
+ = 
+cú
+;
+
+63 
+èrgë_Áu…_
+ = 
+f
+;
+
+64 
+back_åack_limô
+ = 
+_MAX_BACK_TRACK_LIMIT_
+;
+
+66 
+sim_
+ = 
+√w
+ 
+	`Simuœt‹
+(
+cú_
+, 
+èrgë_Áu…_
+);
+
+67 
+	}
+}
+
+69 
+ölöe
+ 
+	gAçg
+::~
+	$Açg
+() {
+
+70 
+dñëe
+ 
+sim_
+;
+
+71 
+	}
+}
+
 	@core/src/atpg_mgr.h
 
 1 #i‚de‡
@@ -3025,49 +4139,65 @@ _CORE_ATPG_MGR_H_
 
 	)
 
-5 
-	~"Áu….h
+4 
+	~"©pg.h
 "
 
-7 
+6 
 «me•a˚
  
 	gC‹eNs
  {
 
-11 ˛as†
+8 
+	g°d
+::
+	tve˘‹
+<
+	tAçg
+*> 
+	tAçgVec
+;
+
+10 ˛as†
 	cAçgMgr
  {
 
-12 
+11 
 	gpublic
 :
 
-13 
+12 
 AçgMgr
 ();
 
-14 ~
+13 ~
 AçgMgr
 ();
 
-16 
+15 
 Cúcuô
  *
 	gcú
 ;
 
-18 
+17 
 Fau…Mgr
  *
 	gf_mgr
 ;
 
-20 
+19 
 	g¥iv©e
 :
 
-24 
+20 
+AçgVec
+ 
+©pgs_
+;
+
+23 
 ölöe
  
 	gAçgMgr
@@ -3075,17 +4205,23 @@ Fau…Mgr
 	$AçgMgr
 () {
 
-25 
+24 
 cú
  = 
 NULL
 ;
 
-29 
+26 
+f_mgr
+ = 
+NULL
+;
+
+28 
 	}
 }
 
-31 
+30 
 ölöe
  
 	gAçgMgr
@@ -3093,11 +4229,17 @@ NULL
 	$AçgMgr
 () {
 
-33 if(
+32 if(
 cú
 Ë
 dñëe
  cir;
+
+33 if(
+f_mgr
+Ë
+dñëe
+ f_mgr;
 
 34 
 	}
@@ -3175,37 +4317,43 @@ size_t
 	g¡Ÿg©e
 ;
 
-21 
-IdVec
+20 
+size_t
  
-	gpis
+	g¡Ÿlvl
 ;
 
 22 
 IdVec
  
-	gµis
+	gpis
 ;
 
 23 
 IdVec
  
-	gpos
+	gµis
 ;
 
 24 
 IdVec
  
+	gpos
+;
+
+25 
+IdVec
+ 
 	gµos
 ;
 
-26 
+27 
 G©eVec
  
 	gg©es
 ;
 
-30 
+31 
 ölöe
  
 	gCúcuô
@@ -3213,25 +4361,193 @@ G©eVec
 	$Cúcuô
 () {
 
-31 
+34 
+	}
+}
+
+	@core/src/decision_tree.h
+
+19 #i‚de‡
+_CORE_DECISION_TREE_
+
+
+20 
+	#_CORE_DECISION_TREE_
+
+
+	)
+
+22 
+	~<°ack
+>
+
+24 
+«me•a˚
+ 
+	gC‹eNs
+ {
+
+	@core/src/fault.cpp
+
+1 
+	~"Áu….h
+"
+
+3 
+usög
+ 
+«me•a˚
+ 
+	g°d
+;
+
+5 
+usög
+ 
+«me•a˚
+ 
+	gC‹eNs
+;
+
+7 
+	gFau…Mgr
+::
+	$AddFau…
+(
+G©e
+ *
+g
+, 
+size_t
+ 
+p
+, 
+VÆue
+ 
+v
+) {
+
+9 
+Áu…s_
+.
+	`push_back
+(
+√w
+ 
+	`Fau…
+(
+g
+->
+id
+, 
+p
+, 
+v
+));
+
+10 
+	}
+}
+
+12 
+	gFau…Mgr
+::
+	$AddFau…
+(
+G©e
+ *
+g
+, 
+VÆue
+ 
+v
+) {
+
+14 
+Áu…s_
+.
+	`push_back
+(
+√w
+ 
+	`Fau…
+(
+g
+->
+id
+, 0, 
+v
+));
+
+15 
+	}
+}
+
+17 
+	gFau…Mgr
+::
+	$AddAŒFau…s
+(
+Cúcuô
+ *
+cú
+) {
+
+18 
 size_t
  
 i
 =0; i<
+cú
+->
 g©es
 .
 	`size
-(); i++)
+(); i++) {
 
-32 
-dñëe
- 
+19 
+G©e
+ *
+g
+ = 
+cú
+->
 g©es
 [
 i
 ];
 
-33 
+20 
+j
+=0; j<=
+g
+->
+fis
+.
+	`size
+(); j++) {
+
+21 
+	`AddFau…
+(
+g
+, 
+j
+, 
+D
+);
+
+22 
+	`AddFau…
+(
+g
+, 
+j
+, 
+B
+);
+
+25 
 	}
 }
 
@@ -3351,7 +4667,39 @@ Sètus
 Fau…Mgr
 ();
 
-33 
+33 
+size_t
+ 
+gëFau…Num
+() const;
+
+34 
+Fau…
+* 
+gëFau…
+(
+size_t
+ 
+n
+) const;
+
+36 
+AddFau…
+(
+G©e
+ *
+g
+, 
+size_t
+ 
+p
+, 
+VÆue
+ 
+v
+);
+
+37 
 AddFau…
 (
 G©e
@@ -3363,7 +4711,7 @@ VÆue
 v
 );
 
-34 
+38 
 AddAŒFau…s
 (
 Cúcuô
@@ -3371,17 +4719,17 @@ Cúcuô
 cú
 );
 
-35 
+39 
 	g¥iv©e
 :
 
-36 
+40 
 Fau…Vec
  
 Áu…s_
 ;
 
-39 
+43 
 ölöe
  
 	gFau…
@@ -3389,20 +4737,32 @@ Fau…Vec
 	$Fau…
 () {
 
-40 
+44 
 °©us
  = 
 UD
 ;
 
-41 
+45 
 	}
 }
 
-43 
+47 
 ölöe
  
 	gFau…
+::~
+	$Fau…
+() {
+
+48 
+	}
+}
+
+50 
+ölöe
+ 
+Fau…
 ::
 	$Fau…
 (
@@ -3417,35 +4777,35 @@ size_t
 Â
 ) {
 
-44 
+51 
 fg©e_id
  = 
 fgid
 ;
 
-45 
+52 
 fvÆ
  = 
 fv
 ;
 
-46 
+53 
 Âid
  = 
 Â
 ;
 
-48 
+55 
 °©us
  = 
 UD
 ;
 
-49 
+56 
 	}
 }
 
-51 
+58 
 ölöe
  
 	gFau…Mgr
@@ -3453,7 +4813,7 @@ UD
 	$Fau…Mgr
 () {
 
-52 
+59 
 size_t
  
 i
@@ -3463,7 +4823,7 @@ i
 	`size
 (); i++)
 
-53 
+60 
 dñëe
  
 Áu…s_
@@ -3471,7 +4831,55 @@ dñëe
 i
 ];
 
-54 
+61 
+	}
+}
+
+63 
+ölöe
+ 
+size_t
+ 
+	gFau…Mgr
+::
+	$gëFau…Num
+() const {
+
+64  
+Áu…s_
+.
+	`size
+();
+
+65 
+	}
+}
+
+67 
+ölöe
+ 
+Fau…
+ *
+	gFau…Mgr
+::
+	$gëFau…
+(
+size_t
+ 
+n
+) const {
+
+68  (
+n
+<
+	`gëFau…Num
+())?
+Áu…s_
+[n]:
+NULL
+;
+
+69 
 	}
 }
 
@@ -3938,6 +5346,12 @@ VÆue
 ;
 
 39 
+VÆue
+ 
+	gouçut_˘r_vÆue
+;
+
+41 
 vútuÆ
  
 VÆue
@@ -3945,7 +5359,7 @@ VÆue
 GoodEvÆ
 () const = 0;
 
-43 ˛as†
+45 ˛as†
 	cAndG©e
  : 
 public
@@ -3953,25 +5367,35 @@ public
 G©e
  {
 
-44 
+46 
 public
 :
 
-45 
+47 
 AndG©e
 (): 
 G©e
 (
 GATE_AND
-) {}
+) {
 
-46 
+48 
+ouçut_˘r_vÆue
+ = 
+L
+;
+
+50 ~
+AndG©e
+() {}
+
+51 
 VÆue
  
 GoodEvÆ
 () const;
 
-49 ˛as†
+54 ˛as†
 	cOrG©e
  : 
 public
@@ -3979,25 +5403,35 @@ public
 G©e
  {
 
-50 
+55 
 public
 :
 
-51 
+56 
 OrG©e
 (): 
 G©e
 (
 GATE_OR
-) {}
+) {
 
-52 
+57 
+ouçut_˘r_vÆue
+ = 
+H
+;
+
+59 ~
+OrG©e
+() {}
+
+60 
 VÆue
  
 GoodEvÆ
 () const;
 
-55 ˛as†
+63 ˛as†
 	cN™dG©e
  : 
 public
@@ -4005,25 +5439,35 @@ public
 G©e
  {
 
-56 
+64 
 public
 :
 
-57 
+65 
 N™dG©e
 (): 
 G©e
 (
 GATE_NAND
-) {}
+) {
 
-58 
+66 
+ouçut_˘r_vÆue
+ = 
+H
+;
+
+68 ~
+N™dG©e
+() {}
+
+69 
 VÆue
  
 GoodEvÆ
 () const;
 
-61 ˛as†
+72 ˛as†
 	cN‹G©e
  : 
 public
@@ -4031,25 +5475,35 @@ public
 G©e
  {
 
-62 
+73 
 public
 :
 
-63 
+74 
 N‹G©e
 (): 
 G©e
 (
 GATE_NOR
-) {}
+) {
 
-64 
+75 
+ouçut_˘r_vÆue
+ = 
+L
+;
+
+77 ~
+N‹G©e
+() {}
+
+78 
 VÆue
  
 GoodEvÆ
 () const;
 
-67 ˛as†
+81 ˛as†
 	cNŸG©e
  : 
 public
@@ -4057,11 +5511,11 @@ public
 G©e
  {
 
-68 
+82 
 public
 :
 
-69 
+83 
 NŸG©e
 (): 
 G©e
@@ -4069,13 +5523,17 @@ G©e
 GATE_NOT
 ) {}
 
-70 
+84 ~
+NŸG©e
+() {}
+
+85 
 VÆue
  
 GoodEvÆ
 () const;
 
-73 ˛as†
+88 ˛as†
 	cPiG©e
  : 
 public
@@ -4083,11 +5541,11 @@ public
 G©e
  {
 
-74 
+89 
 public
 :
 
-75 
+90 
 PiG©e
 (): 
 G©e
@@ -4095,13 +5553,17 @@ G©e
 GATE_PI
 ) {}
 
-76 
+91 ~
+PiG©e
+() {}
+
+92 
 VÆue
  
 GoodEvÆ
 () const;
 
-79 ˛as†
+95 ˛as†
 	cPoG©e
  : 
 public
@@ -4109,11 +5571,11 @@ public
 G©e
  {
 
-80 
+96 
 public
 :
 
-81 
+97 
 PoG©e
 (): 
 G©e
@@ -4121,13 +5583,17 @@ G©e
 GATE_PO
 ) {}
 
-82 
+98 ~
+PoG©e
+() {}
+
+99 
 VÆue
  
 GoodEvÆ
 () const;
 
-85 ˛as†
+102 ˛as†
 	cPpiG©e
  : 
 public
@@ -4135,11 +5601,11 @@ public
 G©e
  {
 
-86 
+103 
 public
 :
 
-87 
+104 
 PpiG©e
 (): 
 G©e
@@ -4147,13 +5613,17 @@ G©e
 GATE_PPI
 ) {}
 
-88 
+105 ~
+PpiG©e
+() {}
+
+106 
 VÆue
  
 GoodEvÆ
 () const;
 
-91 ˛as†
+109 ˛as†
 	cPpoG©e
  : 
 public
@@ -4161,11 +5631,11 @@ public
 G©e
  {
 
-92 
+110 
 public
 :
 
-93 
+111 
 PpoG©e
 (): 
 G©e
@@ -4173,13 +5643,17 @@ G©e
 GATE_PPO
 ) {}
 
-94 
+112 ~
+PpoG©e
+() {}
+
+113 
 VÆue
  
 GoodEvÆ
 () const;
 
-97 
+116 
 ölöe
  
 	gG©e
@@ -4191,23 +5665,29 @@ G©eTy≥
 typ
 ) {
 
-98 
+117 
 ty≥
  = 
 typ
 ;
 
-99 
+118 
 vÆ
  = 
 X
 ;
 
-100 
+120 
+ouçut_˘r_vÆue
+ = 
+X
+;
+
+121 
 	}
 }
 
-102 
+123 
 ölöe
  
 	gG©e
@@ -4215,7 +5695,7 @@ X
 	$G©e
 () {
 
-103 
+124 
 	}
 }
 
@@ -5312,6 +6792,542 @@ X
 )<<"\t\tAns: 1/H\n";
 
 13 
+	}
+}
+
+	@core/src/simulator.cpp
+
+1 
+	~"simuœt‹.h
+"
+
+3 
+usög
+ 
+«me•a˚
+ 
+	g°d
+;
+
+5 
+usög
+ 
+«me•a˚
+ 
+	gC‹eNs
+;
+
+7 
+boﬁ
+ 
+	gSimuœt‹
+::
+	$EvítDrivíSim
+() {
+
+8 
+size_t
+ 
+l
+=0;Ü<
+cú_
+->
+¡Ÿlvl
+;Ü++) {
+
+9 !
+evíts_
+[
+l
+].
+	`em±y
+()) {
+
+10 
+G©e
+ *
+g
+ = 
+cú_
+->
+g©es
+[
+evíts_
+[
+l
+].
+	`‰⁄t
+()];
+
+11 
+evíts_
+[
+l
+].
+	`p›
+();
+
+13 
+VÆue
+ 
+v
+;
+
+14 
+v
+ = 
+g
+->
+	`GoodEvÆ
+();
+
+16 if(
+g
+->
+vÆ
+!=
+v
+) {
+
+17 
+g
+->
+vÆ
+ = 
+v
+;
+
+18 
+size_t
+ 
+n
+=0;Ç<
+g
+->
+nfo
+;Ç++)
+
+19 
+	`PushEvít
+(
+g
+->
+fos
+[
+n
+]->
+id
+);
+
+23  
+åue
+;
+
+24 
+	}
+}
+
+26 
+	gSimuœt‹
+::
+	$PushEvít
+(
+gid
+) {
+
+27 
+evíts_
+[
+cú_
+->
+g©es
+[
+gid
+]->
+lvl
+].
+	`push
+(gid);
+
+28 
+	}
+}
+
+30 
+VÆue
+ 
+	gSimuœt‹
+::
+	$Fau…EvÆ
+(
+G©e
+* 
+g
+) const {
+
+31 i‡(
+èrgë_Áu…
+->
+Âid
+==0) {
+
+32 
+VÆue
+ 
+v
+ = 
+g
+->
+	`GoodEvÆ
+();
+
+33 if(
+v
+==
+L
+&&
+èrgë_Áu…
+->
+fvÆ
+==
+B
+) v = B;
+
+34 if(
+v
+==
+H
+&&
+èrgë_Áu…
+->
+fvÆ
+==
+D
+) v = D;
+
+35  
+v
+;
+
+38 
+size_t
+ 
+Â
+ = 
+èrgë_Áu…
+->
+Âid
+;
+
+39 
+VÆue
+ 
+v
+ = 
+g
+->
+fis
+[
+Â
+]->
+vÆ
+;
+
+40 if(
+v
+==
+L
+&&
+èrgë_Áu…
+->
+fvÆ
+==
+B
+) v = B;
+
+41 if(
+v
+==
+H
+&&
+èrgë_Áu…
+->
+fvÆ
+==
+D
+) v = D;
+
+43 
+ve˘‹
+<
+VÆue
+> 
+vs
+; vs.
+	`push_back
+(
+v
+);
+
+44 
+size_t
+ 
+n
+=0;Ç<
+g
+->
+nfi
+;Ç++)
+
+45 if(
+n
+!=
+Â
+-1)
+
+46 
+vs
+.
+	`push_back
+(
+g
+->
+vÆ
+);
+
+48 
+g
+->
+ty≥
+) {
+
+49 
+GATE_NOT
+:
+
+50  
+	`EvÆNŸ
+(
+v
+);
+
+52 
+GATE_AND
+:
+
+53  
+	`EvÆAndN
+(
+vs
+);
+
+55 
+GATE_OR
+:
+
+56  
+	`EvÆOrN
+(
+vs
+);
+
+58 
+GATE_NAND
+:
+
+59  
+	`EvÆN™dN
+(
+vs
+);
+
+61 
+GATE_NOR
+:
+
+62  
+	`EvÆN‹N
+(
+vs
+);
+
+64 
+GATE_PO
+:
+
+65 
+GATE_PPO
+:
+
+66  
+v
+;
+
+70 
+	}
+}
+
+	@core/src/simulator.h
+
+1 #i‚de‡
+_CORE_SIMULATOR_H_
+
+
+2 
+	#_CORE_SIMULATOR_H_
+
+
+	)
+
+4 
+	~<queue
+>
+
+6 
+	~"Áu….h
+"
+
+7 
+	~"cúcuô.h
+"
+
+9 
+«me•a˚
+ 
+	gC‹eNs
+ {
+
+11 ˛as†
+	cSimuœt‹
+ {
+
+12 
+	gpublic
+:
+
+13 
+Simuœt‹
+(
+Cúcuô
+ *
+cú
+, 
+Fau…
+ *
+·¨gë
+);
+
+14 ~
+Simuœt‹
+();
+
+16 
+boﬁ
+ 
+EvítDrivíSim
+();
+
+17 
+PushEvít
+(
+gid
+);
+
+19 
+	g¥iv©e
+:
+
+20 
+VÆue
+ 
+Fau…EvÆ
+(
+G©e
+* 
+g
+) const;
+
+22 
+Cúcuô
+ *
+	gcú_
+;
+
+23 
+Fau…
+ *
+	gèrgë_Áu…
+;
+
+25 
+	g°d
+::
+queue
+<> *
+evíts_
+;
+
+28 
+ölöe
+ 
+	gSimuœt‹
+::
+	$Simuœt‹
+(
+Cúcuô
+ *
+cú
+, 
+Fau…
+ *
+·¨gë
+) {
+
+29 
+cú_
+ = 
+cú
+;
+
+30 
+èrgë_Áu…
+ = 
+·¨gë
+;
+
+32 
+evíts_
+ = 
+√w
+ 
+°d
+::
+queue
+<> [
+cú_
+->
+¡Ÿlvl
+];
+
+33 
+	}
+}
+
+35 
+ölöe
+ 
+	gSimuœt‹
+::~
+	$Simuœt‹
+() {
+
+36 
+dñëe
+ [] 
+evíts_
+;
+
+37 
 	}
 }
 
@@ -7511,17 +9527,29 @@ Cúcuô
 cú
 ) {
 
-35 
+34 
 CñlVec
  
 ˚Œs
 ;
 
-36 
+35 
 	`Àvñize
 (
 ˚Œs
 );
+
+36 
+cú
+->
+¡Ÿlvl
+ = 
+˚Œs
+[˚Œs.
+	`size
+()-1]->
+	`gëLevñ
+();
 
 38 
 size_t
@@ -9870,8 +11898,8 @@ dñëe
 .
 1
 /usr/include
-20
-407
+26
+529
 atpg/src/atpg_cmd.cpp
 atpg/src/atpg_cmd.h
 atpg/src/main.cpp
@@ -9881,13 +11909,19 @@ cmd/src/cmd.cpp
 cmd/src/cmd.h
 cmd/src/opt_mgr.cpp
 cmd/src/opt_mgr.h
+core/src/atpg.cpp
+core/src/atpg.h
 core/src/atpg_mgr.h
 core/src/circuit.h
+core/src/decision_tree.h
+core/src/fault.cpp
 core/src/fault.h
 core/src/gate.cpp
 core/src/gate.h
 core/src/logic.h
 core/src/logic_test.cpp
+core/src/simulator.cpp
+core/src/simulator.h
 interface/src/module.h
 interface/src/netlist.cpp
 interface/src/netlist.h

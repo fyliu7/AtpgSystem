@@ -1,8 +1,14 @@
+./core/src/simulator.h
 ./core/src/logic_test.cpp
 ./core/src/atpg_mgr.h
+./core/src/atpg.cpp
+./core/src/simulator.cpp
+./core/src/decision_tree.h
 ./core/src/gate.h
 ./core/src/circuit.h
+./core/src/fault.cpp
 ./core/src/logic.h
+./core/src/atpg.h
 ./core/src/gate.cpp
 ./core/src/fault.h
 ./cmd/src/cmd.h

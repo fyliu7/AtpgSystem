@@ -12,6 +12,8 @@ public:
                 AtpgMgr(); 
                 ~AtpgMgr(); 
 
+    bool        Run(); 
+
     Circuit     *cir; 
 
     FaultMgr    *f_mgr; 
@@ -31,6 +33,8 @@ inline AtpgMgr::~AtpgMgr() {
     //TODO
     if(cir) delete cir; 
     if(f_mgr) delete f_mgr; 
+    for(size_t i=0; i<atpgs_.size(); i++) 
+        delete atpgs_[i]; 
 }
 
 };  //CoreNs

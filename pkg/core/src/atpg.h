@@ -19,29 +19,49 @@
 #ifndef _CORE_ATPG_H_ 
 #define _CORE_ATPG_H_ 
 
+#define _MAX_BACK_TRACK_LIMIT_   256
+
 #include "simulator.h" 
 
 namespace CoreNs { 
 
+typedef std::pair<int, Value> Objective; 
+
 class Atpg { 
 public: 
+    enum AtpgStatus { IMPLY_AND_CHECK = 0, 
+                      DECISION, 
+                      BACKTRACE, 
+                      BACKTRACK,  
+                      EXIT }; 
+
         Atpg(Circuit *cir, Fault* f); 
         ~Atpg(); 
 
-    void init(); 
-    bool FaultActivate(); 
-    bool Imply; 
+        bool Tpg(); 
+        //bool Tpg(Pattern* p); 
 
 protected: 
-    Circuit *cir_; 
+    void init(); 
+    bool FaultActivate(); 
+    bool Backtrace(); 
+    bool Imply(); 
+
+    Circuit   *cir_; 
     Simulator *sim_; 
 
-    Fault *target_fault_; 
+    size_t    back_track_limit;
+    size_t    back_track_count;
+
+    Fault     *target_fault_; 
+
+    Objective current_obj_; 
 }; //Atpg
 
 inline Atpg::Atpg(Circuit *cir, Fault *f) { 
     cir_ = cir; 
     target_fault_ = f; 
+    back_track_limit = _MAX_BACK_TRACK_LIMIT_; 
 
     sim_ = new Simulator(cir_, target_fault_); 
 }

@@ -30,13 +30,13 @@ bool ReadNetlistCmd::run() {
     string nl_fname = opt_mgr_->getVal("nl_file"); 
     
     nl_->parse(nl_fname, string()); //TODO
-    cout << "  netlist info. \n"; 
-    cout << "    #ports:\t\t"; 
-    cout << nl_->getTop()->getPortNum() << endl; 
-    cout << "    #cells:\t\t"; 
-    cout << nl_->getTop()->getCellNum() << endl; 
-    cout << "    #nets:\t\t"; 
-    cout << nl_->getTop()->getNetNum() << endl; 
+    //cout << "  netlist info. \n"; 
+    //cout << "    #ports:\t\t"; 
+    //cout << nl_->getTop()->getPortNum() << endl; 
+    //cout << "    #cells:\t\t"; 
+    //cout << nl_->getTop()->getCellNum() << endl; 
+    //cout << "    #nets:\t\t"; 
+    //cout << nl_->getTop()->getNetNum() << endl; 
 
     return true; 
 }

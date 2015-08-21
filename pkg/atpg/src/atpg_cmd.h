@@ -67,6 +67,20 @@ private:
     CoreNs::AtpgMgr *atpg_mgr_; 
 }; //AddFaultCmd
 
+class RunAtpgCmd : public CmdNs::Cmd { 
+public: 
+            RunAtpgCmd(const std::string &name, 
+                       const std::string &msg, 
+                       IntfNs::Netlist *nl, 
+                       CoreNs::AtpgMgr *atpg_mgr); 
+            ~RunAtpgCmd(); 
+private: 
+    bool    run(); 
+    
+    IntfNs::Netlist *nl_; 
+    CoreNs::AtpgMgr *atpg_mgr_; 
+}; 
+
 }; //AtpgNs
 
 #endif //_ATPG_ATPG_CMD_H_

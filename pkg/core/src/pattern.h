@@ -1,32 +1,44 @@
-#ifndef _CORE_PATTERN_H_
-#define _CORE_PATTERN_H_
+/*
+ * =====================================================================================
+ *
+ *       Filename:  pattern.h
+ *
+ *    Description:  
+ *
+ *        Version:  1.0
+ *        Created:  08/21/2015 11:45:46 PM
+ *       Revision:  none
+ *       Compiler:  g++
+ *
+ *         Author:  xenia-cjen (xc), jonah0604@gmail.com
+ *        Company:  LaDS(I), GIEE, NTU
+ *
+ * =====================================================================================
+ */
 
-#include "logic.h"
-#include <vector>
-#include <memory.h>
-#include <iostream>
-using namespace std;
-class TestPattern
-{
-	public:
-		TestPattern(int pat_size)
-		{
-			pat_size_ = pat_size;
-			p0_ = new ParaValue[sizeof(ParaValue)*pat_size];
-			p1_ = new ParaValue[sizeof(ParaValue)*pat_size];
-			memset (p0_, 0, sizeof(ParaValue)*pat_size);
-		}
-		int pat_size_;
-		ParaValue* p0_, *p1_;
-		void SetVal(int frame_id, int idx, Value val);
-		Value GetVal(int frame_id, int idx);
-};
+#ifndef _CORE_PATTERN_H_ 
+#define _CORE_PATTERN_H_ 
 
-class PatternMgr
-{
-	public:
-		vector<TestPattern*> pattern_list_;
-		void GenRandomPattern(int patternSize, int patternCount);
-};
+#include "fault.h"
+#include "circuit.h" 
 
-#endif // _CORE_PATTERN_H_
+namespace CoreNs { 
+
+typedef std::vector<Value> ValueVec; 
+
+class Pattern { 
+public: 
+
+        Pattern(); 
+        ~Pattern(); 
+
+    ValueVec pi; 
+    ValueVec ppi; 
+    ValueVec po; 
+    ValueVec ppo; 
+
+}; //Pattern
+
+}; //CoreNs
+
+#endif //_CORE_PATTERN_H_
