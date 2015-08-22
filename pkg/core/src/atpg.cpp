@@ -29,36 +29,41 @@ bool Atpg::Tpg(Pattern& p) {
     AtpgStatus status = DECISION; 
     while(status!=EXIT) { 
         switch(status) { 
-        case IMPLY_AND_CHECK: 
-            if(Imply()) 
-                status = DECISION; 
+        case IMPLY_AND_CHECK: { 
+            status = DECISION; 
+            if(!Imply()) { 
+                status = BACKTRACK; 
+            }
+                
+            if(sim_->IsFaultAtPo()) return true; 
+
+            if(sim_->IsGutOutputAtX()) break; 
+
+            Value fv = sim_->GetGutVal(); 
+            if(fv!=D && fv!=B) { 
+                status = BACKTRACK; 
+            }
+            
             break; 
-        case DECISION: { 
-            Value fv  = cir_->gates[target_fault_->fgate_id]->val;   
-            if(fv==X) {  
+        }
+        case DECISION:  
+            if(sim_->IsGutOutputAtX()) {  
                 FaultActivate(); 
                 status = BACKTRACE; 
             }
-            else if(fv==D || fv==B) return true; 
             else {
-                cout << "***Fault Activation Failed: #GID= "; 
-                cout << target_fault_->fgate_id; 
-                cout << ", #PID= " << target_fault_->fpid; 
-                string sa = (target_fault_->fval==D)?"SA0":"SA1";
-                cout << ", #SA=  " << sa;  
-                cout << ", #OUT= " << (unsigned) fv << endl; 
-
-                sim_->GetPiPattern(p); 
-                return false; 
+                if(!DDrive()) status = BACKTRACK; 
+                else status = BACKTRACE; 
             }
             break; 
-        }
         case BACKTRACE: 
-            if(Backtrace()) 
-                status = IMPLY_AND_CHECK; 
+            status = IMPLY_AND_CHECK; 
+            if(!Backtrace()) 
+                status = BACKTRACK; 
             break; 
         case BACKTRACK: 
-
+            if(!BackTrack()) return false; 
+            status = IMPLY_AND_CHECK; 
             break; 
         }
     }
@@ -70,6 +75,10 @@ void Atpg::init() {
     back_track_count = 0; 
 
     sim_->Init(); 
+}
+
+bool Atpg::Imply() { 
+   return sim_->EventDrivenSim(); 
 }
 
 bool Atpg::FaultActivate() { 
@@ -104,6 +113,26 @@ bool Atpg::FaultActivate() {
         return true; 
     }
 } 
+
+bool Atpg::DDrive() {
+    GateVec dfront; 
+    sim_->GetDFrontier(dfront); 
+
+    if(dfront.size()==0) return false; 
+                
+    Gate *gtoprop = NULL; 
+    int observ = INT_MIN; 
+    for(size_t i=0; i<dfront.size(); i++)  
+        if(dfront[i]->lvl>observ) { 
+            gtoprop = dfront[i]; 
+            observ = dfront[i]->lvl; 
+        }
+
+    current_obj_.first = gtoprop->id; 
+    current_obj_.second = EvalNot(gtoprop->output_ctr_value); 
+
+    return true; 
+}
 
 bool Atpg::Backtrace() { 
     Gate *g = cir_->gates[current_obj_.first]; 
@@ -158,6 +187,8 @@ bool Atpg::Backtrace() {
     return true; 
 }
 
-bool Atpg::Imply() { 
-   return sim_->EventDrivenSim(); 
+bool Atpg::BackTrack() { 
+    //TODO    
+
+    return false; 
 }

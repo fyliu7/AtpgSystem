@@ -28,13 +28,8 @@ bool AtpgMgr::Run() {
         Pattern p; 
         if(!atpg->Tpg(p)) { 
             //TODO 
-            for (size_t n=0; n<p.ppi.size(); n++) 
-                cout << (unsigned) p.ppi[n] << " "; 
-            for (size_t n=0; n<p.pi.size(); n++) 
-                cout << (unsigned) p.pi[n] << " "; 
-            cout << "\n\n"; 
+            cout << "*** BACKTRACK NEEDED!! \n";  
         }
-
         atpgs_.push_back(atpg); 
     }
 } 

@@ -42,9 +42,11 @@ public:
 
 protected: 
     void init(); 
-    bool FaultActivate(); 
-    bool Backtrace(); 
     bool Imply(); 
+    bool FaultActivate(); 
+    bool DDrive(); 
+    bool Backtrace(); 
+    bool BackTrack(); 
 
     Circuit   *cir_; 
     Simulator *sim_; 
