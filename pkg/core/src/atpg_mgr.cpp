@@ -25,8 +25,14 @@ using namespace CoreNs;
 bool AtpgMgr::Run() { 
     for(size_t n=0; n<f_mgr->getFaultNum(); n++) { 
         Atpg *atpg = new Atpg(cir, f_mgr->getFault(n)); 
-        if(!atpg->Tpg()) { 
+        Pattern p; 
+        if(!atpg->Tpg(p)) { 
             //TODO 
+            for (size_t n=0; n<p.ppi.size(); n++) 
+                cout << (unsigned) p.ppi[n] << " "; 
+            for (size_t n=0; n<p.pi.size(); n++) 
+                cout << (unsigned) p.pi[n] << " "; 
+            cout << "\n\n"; 
         }
 
         atpgs_.push_back(atpg); 

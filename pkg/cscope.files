@@ -1,9 +1,11 @@
 ./core/src/simulator.h
 ./core/src/logic_test.cpp
 ./core/src/atpg_mgr.h
+./core/src/atpg_mgr.cpp
 ./core/src/atpg.cpp
 ./core/src/simulator.cpp
 ./core/src/decision_tree.h
+./core/src/pattern.h
 ./core/src/gate.h
 ./core/src/circuit.h
 ./core/src/fault.cpp

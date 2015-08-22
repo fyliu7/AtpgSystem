@@ -36,6 +36,7 @@ public:
     ParaValue     fh; 
     Value         val; 
 
+    Value         ctr_value; 
     Value         output_ctr_value; 
 
     virtual Value GoodEval() const = 0; 
@@ -45,6 +46,7 @@ public:
 class AndGate : public Gate { 
 public: 
           AndGate(): Gate(GATE_AND) {
+              ctr_value = L; 
               output_ctr_value = L; 
           } 
           ~AndGate() {}
@@ -54,6 +56,7 @@ public:
 class OrGate : public Gate { 
 public: 
           OrGate(): Gate(GATE_OR) { 
+              ctr_value = H; 
               output_ctr_value = H; 
           }  
           ~OrGate() {} 
@@ -63,6 +66,7 @@ public:
 class NandGate : public Gate { 
 public: 
           NandGate(): Gate(GATE_NAND) {
+              ctr_value = L; 
               output_ctr_value = H; 
           } 
           ~NandGate() {}
@@ -72,6 +76,7 @@ public:
 class NorGate : public Gate { 
 public: 
           NorGate(): Gate(GATE_NOR) {
+              ctr_value = H; 
               output_ctr_value = L; 
           } 
           ~NorGate() {} 
@@ -117,6 +122,7 @@ inline Gate::Gate(GateType typ) {
     type = typ; 
     val  = X; 
 
+    ctr_value = X; 
     output_ctr_value = X; 
 }
 

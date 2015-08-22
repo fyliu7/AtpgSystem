@@ -74,3 +74,10 @@ Value Simulator::FaultEval(Gate* g) const {
         }
     }
 }
+
+void Simulator::GetPiPattern(Pattern& p) { 
+    for (size_t n=0; n<cir_->npi; n++) 
+       p.pi.push_back(cir_->gates[cir_->pis[n]]->val); 
+    for (size_t n=0; n<cir_->nppi; n++) 
+       p.ppi.push_back(cir_->gates[cir_->ppis[n]]->val); 
+}

@@ -29,8 +29,8 @@ typedef std::vector<Value> ValueVec;
 class Pattern { 
 public: 
 
-        Pattern(); 
-        ~Pattern(); 
+        //Pattern(); 
+        //~Pattern(); 
 
     ValueVec pi; 
     ValueVec ppi; 

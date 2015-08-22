@@ -1,4 +1,4 @@
-cscope 15 $HOME/Documents/atpg/pkg -q 0000000470 0000051061
+cscope 15 $HOME/Documents/atpg/pkg -q 0000000488 0000053898
 	@atpg/src/atpg_cmd.cpp
 
 1 
@@ -559,7 +559,7 @@ f_mgr
 
 124 
 cout
- << " fault(s)...\n";
+ << " fault(s)...\n\n";
 
 126  
 åue
@@ -570,6 +570,120 @@ cout
 ;
 
 131 
+	}
+}
+
+133 
+	gRunAçgCmd
+::
+	$RunAçgCmd
+(c⁄° 
+°rög
+ &
+«me
+,
+
+134 c⁄° 
+°rög
+ &
+msg
+,
+
+135 
+Nëli°
+ *
+∆
+,
+
+136 
+AçgMgr
+ *
+©pg_mgr
+Ë: 
+	$Cmd
+(
+«me
+, 
+msg
+) {
+
+138 
+∆_
+ = 
+∆
+;
+
+139 
+©pg_mgr_
+ = 
+©pg_mgr
+;
+
+140 
+	}
+}
+
+142 
+	gRunAçgCmd
+::~
+	$RunAçgCmd
+() {
+
+143 
+	}
+}
+
+145 
+boﬁ
+ 
+RunAçgCmd
+::
+	$run
+() {
+
+146 if(!
+©pg_mgr_
+->
+cú
+) {
+
+148  
+Ál£
+;
+
+151 if(!
+©pg_mgr_
+->
+f_mgr
+) {
+
+152 
+©pg_mgr_
+->
+f_mgr
+ = 
+√w
+ 
+Fau…Mgr
+;
+
+153 
+©pg_mgr_
+->
+f_mgr
+->
+	`AddAŒFau…s
+◊çg_mgr_->
+cú
+);
+
+155 
+©pg_mgr_
+->
+	`Run
+();
+
+156 
 	}
 }
 
@@ -923,6 +1037,84 @@ AçgMgr
 ©pg_mgr_
 ;
 
+70 ˛as†
+	cRunAçgCmd
+ : 
+public
+ 
+CmdNs
+::
+Cmd
+ {
+
+71 
+public
+:
+
+72 
+RunAçgCmd
+(c⁄° 
+°d
+::
+°rög
+ &
+«me
+,
+
+73 c⁄° 
+°d
+::
+°rög
+ &
+msg
+,
+
+74 
+I¡fNs
+::
+Nëli°
+ *
+∆
+,
+
+75 
+C‹eNs
+::
+AçgMgr
+ *
+©pg_mgr
+);
+
+76 ~
+RunAçgCmd
+();
+
+77 
+	g¥iv©e
+:
+
+78 
+boﬁ
+ 
+run
+();
+
+80 
+	gI¡fNs
+::
+Nëli°
+ *
+∆_
+;
+
+81 
+	gC‹eNs
+::
+AçgMgr
+ *
+©pg_mgr_
+;
+
 	@atpg/src/main.cpp
 
 1 
@@ -1011,14 +1203,6 @@ BuûdCúcuôCmd
 mgr
 );
 
-17 
-Rï‹tCñlCmd
- 
-	`cmdR±C
-("ªp‹t_˚Œ", "ªp‹à˚Œ(sËöf‹m©i⁄", &
-∆
-);
-
 18 
 Rï‹tG©eCmd
  
@@ -1039,7 +1223,17 @@ AddFau…Cmd
 mgr
 );
 
-21 
+20 
+RunAçgCmd
+ 
+	`cmdRunA
+("run_©pg", "ru¿©pgÖro˚ss", &
+∆
+, &
+mgr
+);
+
+22 
 ve˘‹
 <
 °rög
@@ -1047,15 +1241,7 @@ ve˘‹
 ¨gsRdNl
 ;
 
-22 
-ve˘‹
-<
-°rög
-> 
-¨gsR±C
-;
-
-23 
+24 
 ve˘‹
 <
 °rög
@@ -1063,7 +1249,7 @@ ve˘‹
 ¨gsBC
 ;
 
-24 
+25 
 ve˘‹
 <
 °rög
@@ -1071,7 +1257,7 @@ ve˘‹
 ¨gsR±G
 ;
 
-25 
+26 
 ve˘‹
 <
 °rög
@@ -1079,13 +1265,21 @@ ve˘‹
 ¨gsAddF
 ;
 
-27 
+27 
+ve˘‹
+<
+°rög
+> 
+¨gsRunA
+;
+
+29 
 i
 =0; i<
 ¨gc
 ; i++)
 
-28 
+30 
 ¨gsRdNl
 .
 	`push_back
@@ -1097,7 +1291,7 @@ i
 i
 ]));
 
-29 
+31 
 ¨gsBC
 .
 	`push_back
@@ -1105,15 +1299,7 @@ i
 	`°rög
 ("build_cir"));
 
-30 
-¨gsR±C
-.
-	`push_back
-(
-	`°rög
-("report_cell"));
-
-31 
+33 
 ¨gsR±G
 .
 	`push_back
@@ -1121,7 +1307,7 @@ i
 	`°rög
 ("report_gate"));
 
-32 
+34 
 ¨gsAddF
 .
 	`push_back
@@ -1129,7 +1315,7 @@ i
 	`°rög
 ("add_fault"));
 
-33 
+35 
 ¨gsAddF
 .
 	`push_back
@@ -1137,7 +1323,15 @@ i
 	`°rög
 ("--all"));
 
-35 
+36 
+¨gsRunA
+.
+	`push_back
+(
+	`°rög
+("run_atpg"));
+
+38 
 cmdRdNl
 .
 	`exec
@@ -1145,15 +1339,7 @@ cmdRdNl
 ¨gsRdNl
 );
 
-36 
-cmdR±C
-.
-	`exec
-(
-¨gsR±C
-);
-
-37 
+40 
 cmdBC
 .
 	`exec
@@ -1161,7 +1347,7 @@ cmdBC
 ¨gsBC
 );
 
-38 
+41 
 cmdR±G
 .
 	`exec
@@ -1169,7 +1355,7 @@ cmdR±G
 ¨gsR±G
 );
 
-39 
+42 
 cmdAddF
 .
 	`exec
@@ -1177,7 +1363,15 @@ cmdAddF
 ¨gsAddF
 );
 
-42 
+43 
+cmdRunA
+.
+	`exec
+(
+¨gsRunA
+);
+
+46 
 	}
 }
 
@@ -1326,58 +1520,6 @@ RódNëli°Cmd
 , 
 	`°rög
 ());
-
-33 
-cout
- << "Çetlist info. \n";
-
-34 
-cout
- << " #ports:\t\t";
-
-35 
-cout
- << 
-∆_
-->
-	`gëT›
-()->
-	`gëP‹tNum
-(Ë<< 
-ídl
-;
-
-36 
-cout
- << " #cells:\t\t";
-
-37 
-cout
- << 
-∆_
-->
-	`gëT›
-()->
-	`gëCñlNum
-(Ë<< 
-ídl
-;
-
-38 
-cout
- << " #nets:\t\t";
-
-39 
-cout
- << 
-∆_
-->
-	`gëT›
-()->
-	`gëNëNum
-(Ë<< 
-ídl
-;
 
 41  
 åue
@@ -3333,7 +3475,11 @@ boﬁ
 	gAçg
 ::
 	$Tpg
-() {
+(
+P©ã∫
+& 
+p
+) {
 
 27 
 	`öô
@@ -3373,9 +3519,13 @@ DECISION
 
 36 
 DECISION
-:
+: {
 
-37 if(
+37 
+VÆue
+ 
+fv
+ = 
 cú_
 ->
 g©es
@@ -3385,79 +3535,139 @@ g©es
 fg©e_id
 ]->
 vÆ
+;
+
+38 if(
+fv
 ==
 X
 ) {
 
-38 
+39 
 	`Fau…A˘iv©e
 ();
 
-39 
+40 
 °©us
  = 
 BACKTRACE
 ;
 
-42 
+42 if(
+fv
+==
+D
+ || fv==
+B
+Ë 
+åue
+;
+
+44 
+cout
+ << "***Fault Activation Failed: #GID= ";
+
+45 
 cout
  << 
-cú_
-->
-g©es
-[
 èrgë_Áu…_
 ->
 fg©e_id
-]->
-vÆ
+;
+
+46 
+cout
+ << ", #PID" << 
+èrgë_Áu…_
+->
+Âid
+;
+
+47 
+°rög
+ 
+ß
+ = (
+èrgë_Áu…_
+->
+fvÆ
+==
+D
+)?"SA0":"SA1";
+
+48 
+cout
+ << ", #SA " << 
+ß
+;
+
+49 
+cout
+ << ", #OUT" << (Ë
+fv
  << 
 ídl
 ;
 
-43 
-°©us
- = 
-EXIT
+51 
+sim_
+->
+	`GëPiP©ã∫
+(
+p
+);
+
+52  
+Ál£
 ;
 
-46 
+56 
 BACKTRACE
 :
 
-47 if(
+57 if(
 	`Backåa˚
 ())
 
-48 
+58 
 °©us
  = 
 IMPLY_AND_CHECK
 ;
 
-50 
+60 
 BACKTRACK
 :
 
-55 
+66  
+åue
+;
+
+67 
 	}
 }
 
-57 
+69 
 	gAçg
 ::
 	$öô
 () {
 
-58 
+70 
 back_åack_cou¡
  = 0;
 
-59 
+72 
+sim_
+->
+	`Inô
+();
+
+73 
 	}
 }
 
-61 
+75 
 boﬁ
  
 	gAçg
@@ -3465,7 +3675,7 @@ boﬁ
 	$Fau…A˘iv©e
 () {
 
-62 
+76 
 G©e
  *
 fg
@@ -3479,7 +3689,7 @@ g©es
 fg©e_id
 ];
 
-63 
+77 
 size_t
  
 Â
@@ -3489,7 +3699,7 @@ size_t
 Âid
 ;
 
-64 
+78 
 VÆue
  
 fv
@@ -3499,11 +3709,11 @@ fv
 fvÆ
 ;
 
-66 if(
+80 if(()
 Â
 ) {
 
-67 
+81 
 VÆue
  
 v
@@ -3517,13 +3727,13 @@ fis
 vÆ
 ;
 
-68 if(
+82 if(
 v
 ==
 X
 ) {
 
-69 
+83 
 VÆue
  
 objv
@@ -3537,7 +3747,7 @@ H
 L
 ;
 
-70 
+84 
 cuºít_obj_
 .
 fú°
@@ -3551,7 +3761,7 @@ fis
 id
 ;
 
-71 
+85 
 cuºít_obj_
 .
 £c⁄d
@@ -3559,11 +3769,11 @@ cuºít_obj_
 objv
 ;
 
-72  
+86  
 åue
 ;
 
-76 
+90 
 VÆue
  
 objv
@@ -3572,10 +3782,10 @@ objv
 (
 fg
 ->
-ouçut_˘r_vÆue
+˘r_vÆue
 );
 
-79 if(
+93 if(
 objv
 ==
 X
@@ -3583,7 +3793,7 @@ X
 åue
 ;
 
-80 
+94 
 cuºít_obj_
 .
 fú°
@@ -3593,7 +3803,7 @@ fg
 id
 ;
 
-81 
+95 
 cuºít_obj_
 .
 £c⁄d
@@ -3601,11 +3811,11 @@ cuºít_obj_
 objv
 ;
 
-82  
+96  
 åue
 ;
 
-87 
+101 
 VÆue
  
 objv
@@ -3619,7 +3829,7 @@ H
 L
 ;
 
-88 
+102 
 cuºít_obj_
 .
 fú°
@@ -3629,7 +3839,7 @@ fg
 id
 ;
 
-89 
+103 
 cuºít_obj_
 .
 £c⁄d
@@ -3637,15 +3847,15 @@ cuºít_obj_
 objv
 ;
 
-90  
+104  
 åue
 ;
 
-92 
+106 
 	}
 }
 
-94 
+108 
 boﬁ
  
 	gAçg
@@ -3653,7 +3863,7 @@ boﬁ
 	$Backåa˚
 () {
 
-95 
+109 
 G©e
  *
 g
@@ -3667,7 +3877,7 @@ cuºít_obj_
 fú°
 ];
 
-96 
+110 
 VÆue
  
 objv
@@ -3677,7 +3887,7 @@ cuºít_obj_
 £c⁄d
 ;
 
-97 !(
+111 !(
 g
 ->
 ty≥
@@ -3687,7 +3897,7 @@ GATE_PI
 GATE_PPI
 )) {
 
-98 if(
+112 if(
 g
 ->
 ouçut_˘r_vÆue
@@ -3695,19 +3905,19 @@ ouçut_˘r_vÆue
 X
 ) {
 
-99 
+113 
 g
  = g->
 fis
 [0];
 
-101 
+115 
 objv
  = 
 	`EvÆNŸ
 (objv);
 
-105 
+119 
 G©e
  *
 g√xt
@@ -3715,7 +3925,7 @@ g√xt
 NULL
 ;
 
-106 i‡(
+120 i‡(
 objv
 ==
 g
@@ -3723,13 +3933,13 @@ g
 ouçut_˘r_vÆue
 ) {
 
-110 
+124 
 ˘r_ablûôy
  = 
 INT_MAX
 ;
 
-111 
+125 
 size_t
  
 n
@@ -3739,7 +3949,7 @@ g
 nfi
 ;Ç++) {
 
-112 if(
+126 if(
 g
 ->
 fis
@@ -3755,7 +3965,7 @@ lvl
 ˘r_ablûôy
 ) {
 
-113 
+127 
 g√xt
  = 
 g
@@ -3765,7 +3975,7 @@ fis
 n
 ];
 
-114 
+128 
 ˘r_ablûôy
  = 
 g
@@ -3777,7 +3987,7 @@ n
 lvl
 ;
 
-118 i‡(
+132 i‡(
 objv
 ==
 	`EvÆNŸ
@@ -3787,13 +3997,13 @@ g
 ouçut_˘r_vÆue
 )) {
 
-122 
+136 
 ˘r_öablûôy
  = 
 INT_MIN
 ;
 
-123 
+137 
 size_t
  
 n
@@ -3803,7 +4013,7 @@ g
 nfi
 ;Ç++) {
 
-124 if(
+138 if(
 g
 ->
 fis
@@ -3819,7 +4029,7 @@ lvl
 ˘r_öablûôy
 ) {
 
-125 
+139 
 g√xt
  = 
 g
@@ -3829,7 +4039,7 @@ fis
 n
 ];
 
-126 
+140 
 ˘r_öablûôy
  = 
 g
@@ -3841,13 +4051,13 @@ n
 lvl
 ;
 
-130 
+144 
 g
  = 
 g√xt
 ;
 
-132 if(
+146 if(
 g
 ->
 ty≥
@@ -3857,13 +4067,13 @@ GATE_NAND
 GATE_NOR
 )
 
-133 
+147 
 objv
  = 
 	`EvÆNŸ
 (objv);
 
-137 
+151 
 g
 ->
 vÆ
@@ -3871,7 +4081,17 @@ vÆ
 objv
 ;
 
-138 
+152 if(
+èrgë_Áu…_
+->
+fg©e_id
+=
+g
+->
+id
+)
+
+153 
 sim_
 ->
 	`PushEvít
@@ -3881,15 +4101,25 @@ g
 id
 );
 
-140  
+155 
+sim_
+->
+	`PushF™outEvít
+(
+g
+->
+id
+);
+
+157  
 åue
 ;
 
-141 
+158 
 	}
 }
 
-143 
+160 
 boﬁ
  
 	gAçg
@@ -3897,13 +4127,13 @@ boﬁ
 	$Im∂y
 () {
 
-144  
+161  
 sim_
 ->
 	`EvítDrivíSim
 ();
 
-145 
+162 
 	}
 }
 
@@ -3995,71 +4225,75 @@ Açg
 boﬁ
  
 Tpg
-();
+(
+P©ã∫
+& 
+p
+);
 
-44 
+43 
 	g¥Ÿe˘ed
 :
 
-45 
+44 
 öô
 ();
 
-46 
+45 
 boﬁ
  
 Fau…A˘iv©e
 ();
 
-47 
+46 
 boﬁ
  
 Backåa˚
 ();
 
-48 
+47 
 boﬁ
  
 Im∂y
 ();
 
-50 
+49 
 Cúcuô
  *
 	gcú_
 ;
 
-51 
+50 
 Simuœt‹
  *
 	gsim_
 ;
 
-53 
+52 
 size_t
  
 	gback_åack_limô
 ;
 
-54 
+53 
 size_t
  
 	gback_åack_cou¡
 ;
 
-56 
+55 
 Fau…
  *
 	gèrgë_Áu…_
 ;
 
-58 
+57 
 Obje˘ive
  
 	gcuºít_obj_
 ;
 
-61 
+60 
 ölöe
  
 	gAçg
@@ -4075,25 +4309,25 @@ Fau…
 f
 ) {
 
-62 
+61 
 cú_
  = 
 cú
 ;
 
-63 
+62 
 èrgë_Áu…_
  = 
 f
 ;
 
-64 
+63 
 back_åack_limô
  = 
 _MAX_BACK_TRACK_LIMIT_
 ;
 
-66 
+65 
 sim_
  = 
 √w
@@ -4105,11 +4339,11 @@ cú_
 èrgë_Áu…_
 );
 
-67 
+66 
 	}
 }
 
-69 
+68 
 ölöe
  
 	gAçg
@@ -4117,13 +4351,145 @@ cú_
 	$Açg
 () {
 
-70 
+69 
 dñëe
  
 sim_
 ;
 
-71 
+70 
+	}
+}
+
+	@core/src/atpg_mgr.cpp
+
+19 
+	~"©pg_mgr.h
+"
+
+21 
+usög
+ 
+«me•a˚
+ 
+	g°d
+;
+
+23 
+usög
+ 
+«me•a˚
+ 
+	gC‹eNs
+;
+
+25 
+boﬁ
+ 
+	gAçgMgr
+::
+	$Run
+() {
+
+26 
+size_t
+ 
+n
+=0;Ç<
+f_mgr
+->
+	`gëFau…Num
+();Ç++) {
+
+27 
+Açg
+ *
+©pg
+ = 
+√w
+ 
+	`Açg
+(
+cú
+, 
+f_mgr
+->
+	`gëFau…
+(
+n
+));
+
+28 
+P©ã∫
+ 
+p
+;
+
+29 if(!
+©pg
+->
+	`Tpg
+(
+p
+)) {
+
+31 
+size_t
+ 
+n
+=0;Ç<
+p
+.
+µi
+.
+	`size
+();Ç++)
+
+32 
+cout
+ << (Ë
+p
+.
+µi
+[
+n
+] << " ";
+
+33 
+size_t
+ 
+n
+=0;Ç<
+p
+.
+pi
+.
+	`size
+();Ç++)
+
+34 
+cout
+ << (Ë
+p
+.
+pi
+[
+n
+] << " ";
+
+35 
+cout
+ << "\n\n";
+
+38 
+©pgs_
+.
+	`push_back
+(
+©pg
+);
+
+40 
 	}
 }
 
@@ -4176,28 +4542,34 @@ AçgMgr
 ();
 
 15 
+boﬁ
+ 
+Run
+();
+
+17 
 Cúcuô
  *
 	gcú
 ;
 
-17 
+19 
 Fau…Mgr
  *
 	gf_mgr
 ;
 
-19 
+21 
 	g¥iv©e
 :
 
-20 
+22 
 AçgVec
  
 ©pgs_
 ;
 
-23 
+25 
 ölöe
  
 	gAçgMgr
@@ -4205,23 +4577,23 @@ AçgVec
 	$AçgMgr
 () {
 
-24 
+26 
 cú
  = 
 NULL
 ;
 
-26 
+28 
 f_mgr
  = 
 NULL
 ;
 
-28 
+30 
 	}
 }
 
-30 
+32 
 ölöe
  
 	gAçgMgr
@@ -4229,19 +4601,37 @@ NULL
 	$AçgMgr
 () {
 
-32 if(
+34 if(
 cú
 Ë
 dñëe
  cir;
 
-33 if(
+35 if(
 f_mgr
 Ë
 dñëe
  f_mgr;
 
-34 
+36 
+size_t
+ 
+i
+=0; i<
+©pgs_
+.
+	`size
+(); i++)
+
+37 
+dñëe
+ 
+©pgs_
+[
+i
+];
+
+38 
 	}
 }
 
@@ -4522,10 +4912,8 @@ j
 =0; j<=
 g
 ->
-fis
-.
-	`size
-(); j++) {
+nfi
+; j++) {
 
 21 
 	`AddFau…
@@ -4620,13 +5008,13 @@ Fau…
 (
 fgid
 , 
-VÆue
- 
-fv
-, 
 size_t
  
 Â
+, 
+VÆue
+ 
+fv
 );
 
 20 ~
@@ -4768,13 +5156,13 @@ Fau…
 (
 fgid
 , 
-VÆue
- 
-fv
-, 
 size_t
  
 Â
+, 
+VÆue
+ 
+fv
 ) {
 
 51 
@@ -4784,15 +5172,15 @@ fgid
 ;
 
 52 
-fvÆ
- = 
-fv
-;
-
-53 
 Âid
  = 
 Â
+;
+
+53 
+fvÆ
+ = 
+fv
 ;
 
 55 
@@ -5348,10 +5736,16 @@ VÆue
 39 
 VÆue
  
+	g˘r_vÆue
+;
+
+40 
+VÆue
+ 
 	gouçut_˘r_vÆue
 ;
 
-41 
+42 
 vútuÆ
  
 VÆue
@@ -5359,7 +5753,7 @@ VÆue
 GoodEvÆ
 () const = 0;
 
-45 ˛as†
+46 ˛as†
 	cAndG©e
  : 
 public
@@ -5367,11 +5761,11 @@ public
 G©e
  {
 
-46 
+47 
 public
 :
 
-47 
+48 
 AndG©e
 (): 
 G©e
@@ -5379,23 +5773,29 @@ G©e
 GATE_AND
 ) {
 
-48 
-ouçut_˘r_vÆue
+49 
+˘r_vÆue
  = 
 L
 ;
 
-50 ~
+50 
+	gouçut_˘r_vÆue
+ = 
+L
+;
+
+52 ~
 AndG©e
 () {}
 
-51 
+53 
 VÆue
  
 GoodEvÆ
 () const;
 
-54 ˛as†
+56 ˛as†
 	cOrG©e
  : 
 public
@@ -5403,11 +5803,11 @@ public
 G©e
  {
 
-55 
+57 
 public
 :
 
-56 
+58 
 OrG©e
 (): 
 G©e
@@ -5415,23 +5815,29 @@ G©e
 GATE_OR
 ) {
 
-57 
-ouçut_˘r_vÆue
+59 
+˘r_vÆue
  = 
 H
 ;
 
-59 ~
+60 
+	gouçut_˘r_vÆue
+ = 
+H
+;
+
+62 ~
 OrG©e
 () {}
 
-60 
+63 
 VÆue
  
 GoodEvÆ
 () const;
 
-63 ˛as†
+66 ˛as†
 	cN™dG©e
  : 
 public
@@ -5439,11 +5845,11 @@ public
 G©e
  {
 
-64 
+67 
 public
 :
 
-65 
+68 
 N™dG©e
 (): 
 G©e
@@ -5451,23 +5857,29 @@ G©e
 GATE_NAND
 ) {
 
-66 
-ouçut_˘r_vÆue
+69 
+˘r_vÆue
+ = 
+L
+;
+
+70 
+	gouçut_˘r_vÆue
  = 
 H
 ;
 
-68 ~
+72 ~
 N™dG©e
 () {}
 
-69 
+73 
 VÆue
  
 GoodEvÆ
 () const;
 
-72 ˛as†
+76 ˛as†
 	cN‹G©e
  : 
 public
@@ -5475,11 +5887,11 @@ public
 G©e
  {
 
-73 
+77 
 public
 :
 
-74 
+78 
 N‹G©e
 (): 
 G©e
@@ -5487,23 +5899,29 @@ G©e
 GATE_NOR
 ) {
 
-75 
-ouçut_˘r_vÆue
+79 
+˘r_vÆue
+ = 
+H
+;
+
+80 
+	gouçut_˘r_vÆue
  = 
 L
 ;
 
-77 ~
+82 ~
 N‹G©e
 () {}
 
-78 
+83 
 VÆue
  
 GoodEvÆ
 () const;
 
-81 ˛as†
+86 ˛as†
 	cNŸG©e
  : 
 public
@@ -5511,11 +5929,11 @@ public
 G©e
  {
 
-82 
+87 
 public
 :
 
-83 
+88 
 NŸG©e
 (): 
 G©e
@@ -5523,17 +5941,17 @@ G©e
 GATE_NOT
 ) {}
 
-84 ~
+89 ~
 NŸG©e
 () {}
 
-85 
+90 
 VÆue
  
 GoodEvÆ
 () const;
 
-88 ˛as†
+93 ˛as†
 	cPiG©e
  : 
 public
@@ -5541,11 +5959,11 @@ public
 G©e
  {
 
-89 
+94 
 public
 :
 
-90 
+95 
 PiG©e
 (): 
 G©e
@@ -5553,17 +5971,17 @@ G©e
 GATE_PI
 ) {}
 
-91 ~
+96 ~
 PiG©e
 () {}
 
-92 
+97 
 VÆue
  
 GoodEvÆ
 () const;
 
-95 ˛as†
+100 ˛as†
 	cPoG©e
  : 
 public
@@ -5571,11 +5989,11 @@ public
 G©e
  {
 
-96 
+101 
 public
 :
 
-97 
+102 
 PoG©e
 (): 
 G©e
@@ -5583,17 +6001,17 @@ G©e
 GATE_PO
 ) {}
 
-98 ~
+103 ~
 PoG©e
 () {}
 
-99 
+104 
 VÆue
  
 GoodEvÆ
 () const;
 
-102 ˛as†
+107 ˛as†
 	cPpiG©e
  : 
 public
@@ -5601,11 +6019,11 @@ public
 G©e
  {
 
-103 
+108 
 public
 :
 
-104 
+109 
 PpiG©e
 (): 
 G©e
@@ -5613,17 +6031,17 @@ G©e
 GATE_PPI
 ) {}
 
-105 ~
+110 ~
 PpiG©e
 () {}
 
-106 
+111 
 VÆue
  
 GoodEvÆ
 () const;
 
-109 ˛as†
+114 ˛as†
 	cPpoG©e
  : 
 public
@@ -5631,11 +6049,11 @@ public
 G©e
  {
 
-110 
+115 
 public
 :
 
-111 
+116 
 PpoG©e
 (): 
 G©e
@@ -5643,17 +6061,17 @@ G©e
 GATE_PPO
 ) {}
 
-112 ~
+117 ~
 PpoG©e
 () {}
 
-113 
+118 
 VÆue
  
 GoodEvÆ
 () const;
 
-116 
+121 
 ölöe
  
 	gG©e
@@ -5665,29 +6083,35 @@ G©eTy≥
 typ
 ) {
 
-117 
+122 
 ty≥
  = 
 typ
 ;
 
-118 
+123 
 vÆ
  = 
 X
 ;
 
-120 
+125 
+˘r_vÆue
+ = 
+X
+;
+
+126 
 ouçut_˘r_vÆue
  = 
 X
 ;
 
-121 
+127 
 	}
 }
 
-123 
+129 
 ölöe
  
 	gG©e
@@ -5695,7 +6119,7 @@ X
 	$G©e
 () {
 
-124 
+130 
 	}
 }
 
@@ -6795,6 +7219,74 @@ X
 	}
 }
 
+	@core/src/pattern.h
+
+19 #i‚de‡
+_CORE_PATTERN_H_
+
+
+20 
+	#_CORE_PATTERN_H_
+
+
+	)
+
+22 
+	~"Áu….h
+"
+
+23 
+	~"cúcuô.h
+"
+
+25 
+«me•a˚
+ 
+	gC‹eNs
+ {
+
+27 
+	g°d
+::
+	tve˘‹
+<
+	tVÆue
+> 
+	tVÆueVec
+;
+
+29 ˛as†
+	cP©ã∫
+ {
+
+30 
+	gpublic
+:
+
+35 
+VÆueVec
+ 
+pi
+;
+
+36 
+VÆueVec
+ 
+	gµi
+;
+
+37 
+VÆueVec
+ 
+	gpo
+;
+
+38 
+VÆueVec
+ 
+	gµo
+;
+
 	@core/src/simulator.cpp
 
 1 
@@ -6875,9 +7367,17 @@ v
 
 14 
 v
- = 
+ = (
 g
 ->
+id
+==
+èrgë_Áu…
+->
+fg©e_id
+)?
+	`Fau…EvÆ
+(g):g->
 	`GoodEvÆ
 ();
 
@@ -6953,7 +7453,53 @@ lvl
 	}
 }
 
-30 
+30 
+	gSimuœt‹
+::
+	$PushF™outEvít
+(
+gid
+) {
+
+31 
+G©e
+ *
+g
+ = 
+cú_
+->
+g©es
+[
+gid
+];
+
+32 
+size_t
+ 
+n
+=0;Ç<
+g
+->
+nfo
+;Ç++)
+
+33 
+	`PushEvít
+(
+g
+->
+fos
+[
+n
+]->
+id
+);
+
+34 
+	}
+}
+
+36 
 VÆue
  
 	gSimuœt‹
@@ -6965,13 +7511,13 @@ G©e
 g
 ) const {
 
-31 i‡(
+37 i‡(
 èrgë_Áu…
 ->
 Âid
 ==0) {
 
-32 
+38 
 VÆue
  
 v
@@ -6981,7 +7527,7 @@ g
 	`GoodEvÆ
 ();
 
-33 if(
+39 if(
 v
 ==
 L
@@ -6993,7 +7539,7 @@ fvÆ
 B
 ) v = B;
 
-34 if(
+40 if(
 v
 ==
 H
@@ -7005,11 +7551,11 @@ fvÆ
 D
 ) v = D;
 
-35  
+41  
 v
 ;
 
-38 
+44 
 size_t
  
 Â
@@ -7019,7 +7565,7 @@ size_t
 Âid
 ;
 
-39 
+45 
 VÆue
  
 v
@@ -7029,11 +7575,11 @@ g
 fis
 [
 Â
-]->
+-1]->
 vÆ
 ;
 
-40 if(
+46 if(
 v
 ==
 L
@@ -7045,7 +7591,7 @@ fvÆ
 B
 ) v = B;
 
-41 if(
+47 if(
 v
 ==
 H
@@ -7057,7 +7603,7 @@ fvÆ
 D
 ) v = D;
 
-43 
+49 
 ve˘‹
 <
 VÆue
@@ -7069,7 +7615,7 @@ vs
 v
 );
 
-44 
+50 
 size_t
  
 n
@@ -7079,91 +7625,165 @@ g
 nfi
 ;Ç++)
 
-45 if(
+51 if(
 n
 !=
 Â
 -1)
 
-46 
+52 
 vs
 .
 	`push_back
 (
 g
 ->
+fis
+[
+n
+]->
 vÆ
 );
 
-48 
+54 
 g
 ->
 ty≥
 ) {
 
-49 
+55 
 GATE_NOT
 :
 
-50  
+56  
 	`EvÆNŸ
 (
 v
 );
 
-52 
+58 
 GATE_AND
 :
 
-53  
+59  
 	`EvÆAndN
 (
 vs
 );
 
-55 
+61 
 GATE_OR
 :
 
-56  
+62  
 	`EvÆOrN
 (
 vs
 );
 
-58 
+64 
 GATE_NAND
 :
 
-59  
+65  
 	`EvÆN™dN
 (
 vs
 );
 
-61 
+67 
 GATE_NOR
 :
 
-62  
+68  
 	`EvÆN‹N
 (
 vs
 );
 
-64 
+70 
 GATE_PO
 :
 
-65 
+71 
 GATE_PPO
 :
 
-66  
+72  
 v
 ;
 
-70 
+76 
+	}
+}
+
+78 
+	gSimuœt‹
+::
+	$GëPiP©ã∫
+(
+P©ã∫
+& 
+p
+) {
+
+79 
+size_t
+ 
+n
+=0;Ç<
+cú_
+->
+≈i
+;Ç++)
+
+80 
+p
+.
+pi
+.
+	`push_back
+(
+cú_
+->
+g©es
+[cú_->
+pis
+[
+n
+]]->
+vÆ
+);
+
+81 
+size_t
+ 
+n
+=0;Ç<
+cú_
+->
+≈pi
+;Ç++)
+
+82 
+p
+.
+µi
+.
+	`push_back
+(
+cú_
+->
+g©es
+[cú_->
+µis
+[
+n
+]]->
+vÆ
+);
+
+83 
 	}
 }
 
@@ -7184,28 +7804,24 @@ _CORE_SIMULATOR_H_
 >
 
 6 
-	~"Áu….h
+	~"∑âîn.h
 "
 
-7 
-	~"cúcuô.h
-"
-
-9 
+8 
 «me•a˚
  
 	gC‹eNs
  {
 
-11 ˛as†
+10 ˛as†
 	cSimuœt‹
  {
 
-12 
+11 
 	gpublic
 :
 
-13 
+12 
 Simuœt‹
 (
 Cúcuô
@@ -7217,27 +7833,53 @@ Fau…
 ·¨gë
 );
 
-14 ~
+13 ~
 Simuœt‹
 ();
 
-16 
+15 
+Inô
+();
+
+17 
 boﬁ
  
 EvítDrivíSim
 ();
 
-17 
+18 
+PushF™outEvít
+(
+gid
+);
+
+19 
 PushEvít
 (
 gid
 );
 
-19 
+21 
+GëPiP©ã∫
+(
+P©ã∫
+& 
+p
+);
+
+22 
+SëP©ã∫ToPi
+(
+P©ã∫
+& 
+p
+);
+
+24 
 	g¥iv©e
 :
 
-20 
+25 
 VÆue
  
 Fau…EvÆ
@@ -7247,19 +7889,19 @@ G©e
 g
 ) const;
 
-22 
+27 
 Cúcuô
  *
 	gcú_
 ;
 
-23 
+28 
 Fau…
  *
 	gèrgë_Áu…
 ;
 
-25 
+30 
 	g°d
 ::
 queue
@@ -7267,7 +7909,7 @@ queue
 evíts_
 ;
 
-28 
+33 
 ölöe
  
 	gSimuœt‹
@@ -7283,19 +7925,19 @@ Fau…
 ·¨gë
 ) {
 
-29 
+34 
 cú_
  = 
 cú
 ;
 
-30 
+35 
 èrgë_Áu…
  = 
 ·¨gë
 ;
 
-32 
+37 
 evíts_
  = 
 √w
@@ -7309,11 +7951,11 @@ cú_
 ¡Ÿlvl
 ];
 
-33 
+38 
 	}
 }
 
-35 
+40 
 ölöe
  
 	gSimuœt‹
@@ -7321,13 +7963,47 @@ cú_
 	$Simuœt‹
 () {
 
-36 
+41 
 dñëe
  [] 
 evíts_
 ;
 
-37 
+42 
+	}
+}
+
+44 
+ölöe
+ 
+	gSimuœt‹
+::
+	$Inô
+() {
+
+45 
+size_t
+ 
+n
+=0;Ç<
+cú_
+->
+¡Ÿg©e
+;Ç++)
+
+46 
+cú_
+->
+g©es
+[
+n
+]->
+vÆ
+ = 
+X
+;
+
+47 
 	}
 }
 
@@ -9549,7 +10225,7 @@ cú
 	`size
 ()-1]->
 	`gëLevñ
-();
+() + 1;
 
 38 
 size_t
@@ -9602,7 +10278,7 @@ c
 ()) {
 
 48 
-CELL_AND
+CELL_NOT
 :
 
 49 
@@ -9610,7 +10286,7 @@ g
  = 
 √w
  
-AndG©e
+NŸG©e
 ;
 
 50 
@@ -9618,7 +10294,7 @@ logic_˙t
 ++;
 
 52 
-CELL_OR
+CELL_AND
 :
 
 53 
@@ -9626,7 +10302,7 @@ g
  = 
 √w
  
-OrG©e
+AndG©e
 ;
 
 54 
@@ -9634,7 +10310,7 @@ logic_˙t
 ++;
 
 56 
-CELL_NAND
+CELL_OR
 :
 
 57 
@@ -9642,7 +10318,7 @@ g
  = 
 √w
  
-N™dG©e
+OrG©e
 ;
 
 58 
@@ -9650,7 +10326,7 @@ logic_˙t
 ++;
 
 60 
-CELL_NOR
+CELL_NAND
 :
 
 61 
@@ -9658,7 +10334,7 @@ g
  = 
 √w
  
-N‹G©e
+N™dG©e
 ;
 
 62 
@@ -9666,7 +10342,7 @@ logic_˙t
 ++;
 
 64 
-CELL_PI
+CELL_NOR
 :
 
 65 
@@ -9674,10 +10350,26 @@ g
  = 
 √w
  
-PiG©e
+N‹G©e
 ;
 
 66 
+logic_˙t
+++;
+
+68 
+CELL_PI
+:
+
+69 
+g
+ = 
+√w
+ 
+PiG©e
+;
+
+70 
 cú
 ->
 pis
@@ -9687,15 +10379,15 @@ pis
 n
 );
 
-67 
+71 
 pi_˙t
 ++;
 
-69 
+73 
 CELL_PPI
 :
 
-70 
+74 
 g
  = 
 √w
@@ -9703,7 +10395,7 @@ g
 PpiG©e
 ;
 
-71 
+75 
 cú
 ->
 µis
@@ -9713,15 +10405,15 @@ cú
 n
 );
 
-72 
+76 
 µi_˙t
 ++;
 
-74 
+78 
 CELL_PO
 :
 
-75 
+79 
 g
  = 
 √w
@@ -9729,7 +10421,7 @@ g
 PoG©e
 ;
 
-76 
+80 
 cú
 ->
 pos
@@ -9739,15 +10431,15 @@ pos
 n
 );
 
-77 
+81 
 po_˙t
 ++;
 
-79 
+83 
 CELL_PPO
 :
 
-80 
+84 
 g
  = 
 √w
@@ -9755,7 +10447,7 @@ g
 PpoG©e
 ;
 
-81 
+85 
 cú
 ->
 µos
@@ -9765,7 +10457,7 @@ cú
 n
 );
 
-87 
+91 
 g
 ->
 id
@@ -9773,7 +10465,7 @@ id
 n
 ;
 
-88 
+92 
 g
 ->
 lvl
@@ -9783,7 +10475,7 @@ c
 	`gëLevñ
 ();
 
-90 
+94 
 cú
 ->
 g©es
@@ -9793,7 +10485,7 @@ g©es
 g
 );
 
-91 
+95 
 c
 ->
 	`£tG©e
@@ -9801,7 +10493,7 @@ c
 g
 );
 
-94 
+98 
 cú
 ->
 ≈i
@@ -9809,7 +10501,7 @@ cú
 pi_˙t
 ;
 
-95 
+99 
 cú
 ->
 ≈pi
@@ -9817,7 +10509,7 @@ cú
 µi_˙t
 ;
 
-96 
+100 
 cú
 ->
 ≈o
@@ -9825,7 +10517,7 @@ cú
 po_˙t
 ;
 
-97 
+101 
 cú
 ->
 ∆ogic
@@ -9833,7 +10525,7 @@ cú
 logic_˙t
 ;
 
-99 
+103 
 cú
 ->
 ¡Ÿg©e
@@ -9843,7 +10535,7 @@ cú
 	`size
 ();
 
-101 
+105 
 size_t
  
 n
@@ -9853,7 +10545,7 @@ n
 	`size
 ();Ç++) {
 
-102 
+106 
 Cñl
  *
 c
@@ -9863,7 +10555,7 @@ c
 n
 ];
 
-103 
+107 
 G©e
  *
 g
@@ -9875,7 +10567,7 @@ n
 	`gëG©e
 ();
 
-105 
+109 
 CñlVec
  
 Ánös
@@ -9883,7 +10575,7 @@ CñlVec
 Ánouts
 ;
 
-106 
+110 
 c
 ->
 	`gëF™öCñl
@@ -9891,7 +10583,7 @@ c
 Ánös
 );
 
-107 
+111 
 size_t
  
 i
@@ -9901,7 +10593,7 @@ c
 	`gëOutNëNum
 (); i++) {
 
-108 
+112 
 c
 ->
 	`gëF™outCñl
@@ -9911,46 +10603,12 @@ i
 Ánouts
 );
 
-111 
-size_t
- 
-i
-=0; i<
-Ánös
-.
-	`size
-(); i++)
-
-112 
-g
-->
-fis
-.
-	`push_back
-(
-Ánös
-[
-i
-]->
-	`gëG©e
-());
-
-113 
-g
-->
-nfi
- = g->
-fis
-.
-	`size
-();
-
 115 
 size_t
  
 i
 =0; i<
-Ánouts
+Ánös
 .
 	`size
 (); i++)
@@ -9958,11 +10616,11 @@ i
 116 
 g
 ->
-fos
+fis
 .
 	`push_back
 (
-Ánouts
+Ánös
 [
 i
 ]->
@@ -9972,6 +10630,40 @@ i
 117 
 g
 ->
+nfi
+ = g->
+fis
+.
+	`size
+();
+
+119 
+size_t
+ 
+i
+=0; i<
+Ánouts
+.
+	`size
+(); i++)
+
+120 
+g
+->
+fos
+.
+	`push_back
+(
+Ánouts
+[
+i
+]->
+	`gëG©e
+());
+
+121 
+g
+->
 nfo
  = g->
 fos
@@ -9979,15 +10671,15 @@ fos
 	`size
 ();
 
-120  
+124  
 åue
 ;
 
-121 
+125 
 	}
 }
 
-123 
+127 
 	gNëli°
 ::
 	$addModuÀ
@@ -9995,11 +10687,11 @@ fos
 «me
 ) {
 
-124 if(!
+128 if(!
 suc˚ss_
 ) ;
 
-125 if(
+129 if(
 	`gëModuÀ
 (
 	`°rög
@@ -10007,13 +10699,13 @@ suc˚ss_
 «me
 ))) {
 
-126 
+130 
 	`Ârötf
 (
 °dîr
 , "**ERROR Netlist::addModule(): ");
 
-127 
+131 
 	`Ârötf
 (
 °dîr
@@ -10021,13 +10713,13 @@ suc˚ss_
 «me
 );
 
-129 
+133 
 suc˚ss_
  = 
 Ál£
 ;
 
-133 
+137 
 cuºít_
  = 
 √w
@@ -10039,7 +10731,7 @@ cuºít_
 «me
 ));
 
-134 
+138 
 moduÀ_m≠_
 [
 	`°rög
@@ -10049,17 +10741,17 @@ moduÀ_m≠_
 cuºít_
 ;
 
-135 
+139 
 t›_
  = 
 cuºít_
 ;
 
-136 
+140 
 	}
 }
 
-138 
+142 
 	gNëli°
 ::
 	$addP‹ts
@@ -10069,15 +10761,15 @@ NameLi°
 p‹ts
 ) {
 
-139 if(!
+143 if(!
 suc˚ss_
 ) ;
 
-140 if(!
+144 if(!
 p‹ts
 ) ;
 
-142 
+146 
 NameLi°
  *
 p‹t
@@ -10087,11 +10779,11 @@ p‹ts
 hód
 ;
 
-143 
+147 
 p‹t
 ) {
 
-144 if(
+148 if(
 cuºít_
 ->
 	`gëP‹t
@@ -10103,13 +10795,13 @@ p‹t
 «me
 ))) {
 
-145 
+149 
 °rög
  
 moduÀ«me
 ;
 
-146 
+150 
 cuºít_
 ->
 	`gëName
@@ -10117,13 +10809,13 @@ cuºít_
 moduÀ«me
 );
 
-147 
+151 
 	`Ârötf
 (
 °dîr
 , "**ERROR Netlist::addPorts():Öort ");
 
-148 
+152 
 	`Ârötf
 (
 °dîr
@@ -10137,19 +10829,19 @@ p‹t
 «me
 );
 
-149 
+153 
 	`Ârötf
 (
 °dîr
 , "alreadyÉxists\n");
 
-151 
+155 
 suc˚ss_
  = 
 Ál£
 ;
 
-154 
+158 
 P‹t
  *
 p
@@ -10165,7 +10857,7 @@ p‹t
 «me
 ));
 
-155 
+159 
 cuºít_
 ->
 	`addP‹t
@@ -10173,17 +10865,17 @@ cuºít_
 p
 );
 
-156 
+160 
 p‹t
  =Ö‹t->
 √xt
 ;
 
-158 
+162 
 	}
 }
 
-160 
+164 
 	gNëli°
 ::
 	$addI≈uts
@@ -10193,15 +10885,15 @@ NameLi°
 ös
 ) {
 
-161 if(!
+165 if(!
 suc˚ss_
 ) ;
 
-162 if(!
+166 if(!
 ös
 ) ;
 
-164 
+168 
 NameLi°
  *
 öput
@@ -10211,11 +10903,11 @@ NameLi°
 hód
 ;
 
-165 
+169 
 öput
 ) {
 
-166 if(
+170 if(
 cuºít_
 ->
 	`gëNë
@@ -10227,13 +10919,13 @@ cuºít_
 «me
 ))) {
 
-167 
+171 
 °rög
  
 moduÀ«me
 ;
 
-168 
+172 
 cuºít_
 ->
 	`gëName
@@ -10241,13 +10933,13 @@ cuºít_
 moduÀ«me
 );
 
-169 
+173 
 	`Ârötf
 (
 °dîr
 , "**ERROR Netlist::addInputs(): input ");
 
-170 
+174 
 	`Ârötf
 (
 °dîr
@@ -10261,19 +10953,19 @@ moduÀ«me
 «me
 );
 
-171 
+175 
 	`Ârötf
 (
 °dîr
 , "netálreadyÉxists\n");
 
-172 
+176 
 suc˚ss_
  = 
 Ál£
 ;
 
-175 
+179 
 Në
  *
 n
@@ -10289,7 +10981,7 @@ n
 «me
 ));
 
-176 
+180 
 cuºít_
 ->
 	`addNë
@@ -10297,7 +10989,7 @@ cuºít_
 n
 );
 
-177 
+181 
 	`addCñl
 (
 NULL
@@ -10309,7 +11001,7 @@ NULL
 CELL_PI
 );
 
-179 
+183 
 P‹t
  *
 p
@@ -10325,17 +11017,17 @@ cuºít_
 «me
 ));
 
-180 if(!
+184 if(!
 p
 ) {
 
-181 
+185 
 	`Ârötf
 (
 °dîr
 , "**ERROR Netlist::addInputs(): ");
 
-182 
+186 
 	`Ârötf
 (
 °dîr
@@ -10345,13 +11037,13 @@ p
 «me
 );
 
-183 
+187 
 suc˚ss_
  = 
 Ál£
 ;
 
-186 
+190 
 p
 ->
 	`£tTy≥
@@ -10359,17 +11051,17 @@ p
 PORT_INPUT
 );
 
-188 
+192 
 öput
  = i≈ut->
 √xt
 ;
 
-190 
+194 
 	}
 }
 
-192 
+196 
 	gNëli°
 ::
 	$addOuçuts
@@ -10379,15 +11071,15 @@ NameLi°
 outs
 ) {
 
-193 if(!
+197 if(!
 suc˚ss_
 ) ;
 
-194 if(!
+198 if(!
 outs
 ) ;
 
-196 
+200 
 NameLi°
  *
 ouçut
@@ -10397,11 +11089,11 @@ outs
 hód
 ;
 
-197 
+201 
 ouçut
 ) {
 
-198 if(
+202 if(
 cuºít_
 ->
 	`gëNë
@@ -10413,13 +11105,13 @@ ouçut
 «me
 ))) {
 
-199 
+203 
 °rög
  
 moduÀ«me
 ;
 
-200 
+204 
 cuºít_
 ->
 	`gëName
@@ -10427,13 +11119,13 @@ cuºít_
 moduÀ«me
 );
 
-201 
+205 
 	`Ârötf
 (
 °dîr
 , "**ERROR Netlist::addOutputs(): output ");
 
-202 
+206 
 	`Ârötf
 (
 °dîr
@@ -10447,19 +11139,19 @@ ouçut
 «me
 );
 
-203 
+207 
 	`Ârötf
 (
 °dîr
 , "netálreadyÉxists\n");
 
-204 
+208 
 suc˚ss_
  = 
 Ál£
 ;
 
-207 
+211 
 Në
  *
 n
@@ -10475,7 +11167,7 @@ ouçut
 «me
 ));
 
-208 
+212 
 cuºít_
 ->
 	`addNë
@@ -10483,7 +11175,7 @@ cuºít_
 n
 );
 
-209 
+213 
 	`addCñl
 (
 NULL
@@ -10495,7 +11187,7 @@ ouçut
 CELL_PO
 );
 
-211 
+215 
 P‹t
  *
 p
@@ -10511,17 +11203,17 @@ ouçut
 «me
 ));
 
-212 if(!
+216 if(!
 p
 ) {
 
-213 
+217 
 	`Ârötf
 (
 °dîr
 , "**ERROR Netlist::addOutputs(): ");
 
-214 
+218 
 	`Ârötf
 (
 °dîr
@@ -10531,13 +11223,13 @@ ouçut
 «me
 );
 
-215 
+219 
 suc˚ss_
  = 
 Ál£
 ;
 
-218 
+222 
 p
 ->
 	`£tTy≥
@@ -10545,17 +11237,17 @@ p
 PORT_OUTPUT
 );
 
-220 
+224 
 ouçut
  = ouçut->
 √xt
 ;
 
-222 
+226 
 	}
 }
 
-224 
+228 
 	gNëli°
 ::
 	$addNës
@@ -10565,15 +11257,15 @@ NameLi°
 √ts
 ) {
 
-225 if(!
+229 if(!
 suc˚ss_
 ) ;
 
-226 if(!
+230 if(!
 √ts
 ) ;
 
-228 
+232 
 NameLi°
  *
 √t
@@ -10583,11 +11275,11 @@ NameLi°
 hód
 ;
 
-229 
+233 
 √t
 ) {
 
-230 if(
+234 if(
 cuºít_
 ->
 	`gëNë
@@ -10599,13 +11291,13 @@ cuºít_
 «me
 ))) {
 
-231 
+235 
 	`Ârötf
 (
 °dîr
 , "**ERROR Netlist::addNet(): ");
 
-232 
+236 
 	`Ârötf
 (
 °dîr
@@ -10615,13 +11307,13 @@ cuºít_
 «me
 );
 
-233 
+237 
 suc˚ss_
  = 
 Ál£
 ;
 
-236 
+240 
 Në
  *
 n
@@ -10637,7 +11329,7 @@ n
 «me
 ));
 
-237 
+241 
 cuºít_
 ->
 	`addNë
@@ -10645,17 +11337,17 @@ cuºít_
 n
 );
 
-238 
+242 
 √t
  =Çë->
 √xt
 ;
 
-240 
+244 
 	}
 }
 
-242 
+246 
 	gNëli°
 ::
 	$addCñl
@@ -10663,23 +11355,23 @@ n
 ty≥nm
 ,
 
-243 c⁄° * c⁄° 
+247 c⁄° * c⁄° 
 «me
 ,
 
-244 
+248 
 NameLi°
  * c⁄° 
 √ts
 ,
 
-245 
+249 
 CñlTy≥
  
 ty≥
 ) {
 
-247 if(
+251 if(
 cuºít_
 ->
 	`gëCñl
@@ -10689,13 +11381,13 @@ cuºít_
 «me
 ))) {
 
-248 
+252 
 	`Ârötf
 (
 °dîr
 , "**ERROR Netlist::addCell(): ");
 
-249 
+253 
 	`Ârötf
 (
 °dîr
@@ -10703,33 +11395,33 @@ cuºít_
 «me
 );
 
-250 
+254 
 suc˚ss_
  = 
 Ál£
 ;
 
-254 
+258 
 Në
  *
 n
 ;
 
-255 
+259 
 Cñl
  *
 c
 ;
 
-256 
+260 
 ty≥
 ) {
 
-257 
+261 
 CELL_PI
 : {
 
-258 
+262 
 c
  = 
 √w
@@ -10743,7 +11435,7 @@ c
 ty≥
 );
 
-259 
+263 
 n
  = 
 cuºít_
@@ -10755,7 +11447,7 @@ cuºít_
 «me
 ));
 
-260 
+264 
 n
 ->
 	`£tInCñl
@@ -10763,7 +11455,7 @@ n
 c
 );
 
-261 
+265 
 c
 ->
 	`addOutNë
@@ -10771,11 +11463,11 @@ c
 n
 ); }
 
-263 
+267 
 CELL_PO
 : {
 
-264 
+268 
 c
  = 
 √w
@@ -10789,7 +11481,7 @@ c
 ty≥
 );
 
-265 
+269 
 n
  = 
 cuºít_
@@ -10801,7 +11493,7 @@ cuºít_
 «me
 ));
 
-266 
+270 
 n
 ->
 	`addOutCñl
@@ -10809,7 +11501,7 @@ n
 c
 );
 
-267 
+271 
 c
 ->
 	`addInNë
@@ -10817,33 +11509,33 @@ c
 n
 ); }
 
-269 
+273 
 CELL_DFF
 : {
 
-270 if(!
+274 if(!
 √ts
 ) {
 
-271 
+275 
 	`Ârötf
 (
 °dîr
 , "**ERROR Netlist::addCell(): ");
 
-272 
+276 
 	`Ârötf
 (
 °dîr
 , "emptyÇetÜist\n");
 
-273 
+277 
 suc˚ss_
  = 
 Ál£
 ;
 
-276 
+280 
 NameLi°
  *
 √t
@@ -10853,7 +11545,7 @@ NameLi°
 hód
 ;
 
-277 
+281 
 n
  = 
 cuºít_
@@ -10867,17 +11559,17 @@ cuºít_
 «me
 ));
 
-278 if(!
+282 if(!
 n
 ) {
 
-279 
+283 
 	`Ârötf
 (
 °dîr
 , "**ERROR Netlist::addCell(): ");
 
-280 
+284 
 	`Ârötf
 (
 °dîr
@@ -10887,13 +11579,13 @@ n
 «me
 );
 
-281 
+285 
 suc˚ss_
  = 
 Ál£
 ;
 
-284 
+288 
 c
  = 
 √w
@@ -10907,7 +11599,7 @@ c
 CELL_PPI
 );
 
-285 
+289 
 n
 ->
 	`£tInCñl
@@ -10915,7 +11607,7 @@ n
 c
 );
 
-286 
+290 
 c
 ->
 	`addOutNë
@@ -10923,7 +11615,7 @@ c
 n
 );
 
-287 
+291 
 cuºít_
 ->
 	`addCñl
@@ -10931,13 +11623,13 @@ cuºít_
 c
 );
 
-288 
+292 
 √t
  =Çë->
 √xt
 ;
 
-289 
+293 
 n
  = 
 cuºít_
@@ -10951,17 +11643,17 @@ cuºít_
 «me
 ));
 
-290 if(!
+294 if(!
 n
 ) {
 
-291 
+295 
 	`Ârötf
 (
 °dîr
 , "**ERROR Netlist::addCell(): ");
 
-292 
+296 
 	`Ârötf
 (
 °dîr
@@ -10971,13 +11663,13 @@ n
 «me
 );
 
-293 
+297 
 suc˚ss_
  = 
 Ál£
 ;
 
-296 
+300 
 c
  = 
 √w
@@ -10991,7 +11683,7 @@ c
 CELL_PPO
 );
 
-297 
+301 
 n
 ->
 	`addOutCñl
@@ -10999,7 +11691,7 @@ n
 c
 );
 
-298 
+302 
 c
 ->
 	`addInNë
@@ -11007,29 +11699,29 @@ c
 n
 ); }
 
-301 if(!
+305 if(!
 √ts
 ) {
 
-302 
+306 
 	`Ârötf
 (
 °dîr
 , "**ERROR Netlist::addCell(): ");
 
-303 
+307 
 	`Ârötf
 (
 °dîr
 , "emptyÇetÜist\n");
 
-304 
+308 
 suc˚ss_
  = 
 Ál£
 ;
 
-307 
+311 
 c
  = 
 √w
@@ -11043,7 +11735,7 @@ c
 ty≥
 );
 
-308 
+312 
 NameLi°
  *
 √t
@@ -11053,7 +11745,7 @@ NameLi°
 hód
 ;
 
-309 
+313 
 n
  = 
 cuºít_
@@ -11067,17 +11759,17 @@ cuºít_
 «me
 ));
 
-310 if(!
+314 if(!
 n
 ) {
 
-311 
+315 
 	`Ârötf
 (
 °dîr
 , "**ERROR Netlist::addCell(): ");
 
-312 
+316 
 	`Ârötf
 (
 °dîr
@@ -11087,13 +11779,13 @@ n
 «me
 );
 
-313 
+317 
 suc˚ss_
  = 
 Ál£
 ;
 
-316 
+320 
 n
 ->
 	`£tInCñl
@@ -11101,7 +11793,7 @@ n
 c
 );
 
-317 
+321 
 c
 ->
 	`addOutNë
@@ -11109,17 +11801,17 @@ c
 n
 );
 
-318 
+322 
 √t
  =Çë->
 √xt
 ;
 
-319 
+323 
 √t
 ) {
 
-320 
+324 
 n
  = 
 cuºít_
@@ -11133,17 +11825,17 @@ cuºít_
 «me
 ));
 
-321 if(!
+325 if(!
 n
 ) {
 
-322 
+326 
 	`Ârötf
 (
 °dîr
 , "**ERROR Netlist::addCell(): ");
 
-323 
+327 
 	`Ârötf
 (
 °dîr
@@ -11153,13 +11845,13 @@ n
 «me
 );
 
-324 
+328 
 suc˚ss_
  = 
 Ál£
 ;
 
-327 
+331 
 n
 ->
 	`addOutCñl
@@ -11167,7 +11859,7 @@ n
 c
 );
 
-328 
+332 
 c
 ->
 	`addInNë
@@ -11175,13 +11867,13 @@ c
 n
 );
 
-329 
+333 
 √t
  =Çë->
 √xt
 ;
 
-333 
+337 
 cuºít_
 ->
 	`addCñl
@@ -11189,11 +11881,11 @@ cuºít_
 c
 );
 
-334 
+338 
 	}
 }
 
-336 
+340 
 boﬁ
  
 myG©eComp
@@ -11201,7 +11893,7 @@ myG©eComp
 Cñl
 *, Cell*);
 
-337 
+341 
 	gNëli°
 ::
 	$Àvñize
@@ -11211,7 +11903,7 @@ CñlVec
 ˚Œs
 ) {
 
-338 
+342 
 queue
 <
 Cñl
@@ -11219,7 +11911,7 @@ Cñl
 q_˚Œs
 ;
 
-339 
+343 
 size_t
  
 i
@@ -11229,7 +11921,7 @@ t›_
 	`gëCñlNum
 (); i++) {
 
-340 
+344 
 Cñl
  *
 c
@@ -11241,7 +11933,7 @@ t›_
 i
 );
 
-341 if(
+345 if(
 c
 ->
 	`gëTy≥
@@ -11251,13 +11943,13 @@ CELL_PI
 CELL_PPI
 ) {
 
-342 
+346 
 c
 ->
 	`£tLevñ
 (0);
 
-343 
+347 
 q_˚Œs
 .
 	`push
@@ -11265,7 +11957,7 @@ q_˚Œs
 c
 );
 
-345 
+349 
 ˚Œs
 .
 	`push_back
@@ -11273,19 +11965,19 @@ c
 c
 );
 
-348 
+352 
 CñlVec
  
 Ánouts
 ;
 
-349 !
+353 !
 q_˚Œs
 .
 	`em±y
 ()) {
 
-350 
+354 
 Cñl
  *
 c
@@ -11295,19 +11987,19 @@ q_˚Œs
 	`‰⁄t
 ();
 
-351 
+355 
 q_˚Œs
 .
 	`p›
 ();
 
-353 
+357 
 Ánouts
 .
 	`˛ór
 ();
 
-354 
+358 
 size_t
  
 i
@@ -11317,7 +12009,7 @@ c
 	`gëOutNëNum
 (); i++)
 
-355 
+359 
 c
 ->
 	`gëF™outCñl
@@ -11327,7 +12019,7 @@ i
 Ánouts
 );
 
-357 
+361 
 size_t
  
 i
@@ -11337,7 +12029,7 @@ i
 	`size
 (); i++) {
 
-358 
+362 
 Cñl
  *
 fo
@@ -11347,7 +12039,7 @@ fo
 i
 ];
 
-360 
+364 
 q_˚Œs
 .
 	`push
@@ -11355,7 +12047,7 @@ q_˚Œs
 fo
 );
 
-361 if(
+365 if(
 fo
 ->
 	`gëLevñ
@@ -11365,7 +12057,7 @@ c
 	`£tLevñ
 (c->getLevel()+1);
 
-364 
+368 
 °d
 ::
 	`s‹t
@@ -11379,11 +12071,11 @@ c
 myG©eComp
 );
 
-365 
+369 
 	}
 }
 
-367 
+371 
 boﬁ
  
 	$myG©eComp
@@ -11395,7 +12087,7 @@ c1
 c2
 ) {
 
-368  (
+372  (
 c1
 ->
 	`gëLevñ
@@ -11403,7 +12095,7 @@ c1
 c2
 ->getLevel());
 
-369 
+373 
 	}
 }
 
@@ -11898,8 +12590,8 @@ dñëe
 .
 1
 /usr/include
-26
-529
+28
+570
 atpg/src/atpg_cmd.cpp
 atpg/src/atpg_cmd.h
 atpg/src/main.cpp
@@ -11911,6 +12603,7 @@ cmd/src/opt_mgr.cpp
 cmd/src/opt_mgr.h
 core/src/atpg.cpp
 core/src/atpg.h
+core/src/atpg_mgr.cpp
 core/src/atpg_mgr.h
 core/src/circuit.h
 core/src/decision_tree.h
@@ -11920,6 +12613,7 @@ core/src/gate.cpp
 core/src/gate.h
 core/src/logic.h
 core/src/logic_test.cpp
+core/src/pattern.h
 core/src/simulator.cpp
 core/src/simulator.h
 interface/src/module.h

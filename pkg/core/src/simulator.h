@@ -3,8 +3,6 @@
 
 #include <queue> 
 
-//#include "fault.h"
-//#include "circuit.h" 
 #include "pattern.h"
 
 namespace CoreNs { 

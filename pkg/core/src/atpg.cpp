@@ -23,7 +23,7 @@ using namespace std;
 
 using namespace CoreNs; 
 
-bool Atpg::Tpg() { 
+bool Atpg::Tpg(Pattern& p) { 
     init(); 
 
     AtpgStatus status = DECISION; 
@@ -47,6 +47,8 @@ bool Atpg::Tpg() {
                 string sa = (target_fault_->fval==D)?"SA0":"SA1";
                 cout << ", #SA=  " << sa;  
                 cout << ", #OUT= " << (unsigned) fv << endl; 
+
+                sim_->GetPiPattern(p); 
                 return false; 
             }
             break; 
@@ -108,9 +110,9 @@ bool Atpg::Backtrace() {
     Value objv = current_obj_.second; 
     while (!(g->type==GATE_PI || g->type==GATE_PPI)) {  
         if(g->output_ctr_value==X) { //NOT, TODO: XOR, XNOR  
-            g = g->fis[0]; 
-            //if(g->type==GATE_NOT) 
+            if(g->type==GATE_NOT) 
                 objv = EvalNot(objv); 
+            g = g->fis[0]; 
             continue; 
         }
         
@@ -139,10 +141,11 @@ bool Atpg::Backtrace() {
                 }
             }
         } 
-        g = gnext; 
 
         if(g->type==GATE_NAND || g->type==GATE_NOR) 
             objv = EvalNot(objv); 
+
+        g = gnext; 
     }
 
     //TODO: do check conflict. 
