@@ -36,14 +36,12 @@ MODE_$(MODE)_LD_PATHS = $(LIB_TOP)/$(MODE)
 PKGS = atpg cmd interface core 
 
 PKG_atpg_MAINS = main.cpp
+## mains below for testing 
 #PKG_interface_MAINS = netlist_test.cpp
 #PKG_core_MAINS = logic_test.cpp
 
 PKG_atpg_DEP = cmd interface 
-PKG_atpg_LD_LIBS = cmd interface core
-
 PKG_interface_DEP = core
-PKG_interface_LD_LIBS = core
 
 ### main functions ##########################################################
 # MAIN_<PKG>/<MAIN>_BIN                  - binary name
@@ -55,6 +53,9 @@ PKG_interface_LD_LIBS = core
 # MAIN_<PKG>/<MAIN>_MODE_<MODE>_LD_FLAGS - link flags for MODE
 #############################################################################
 MAIN_atpg/main.cpp_BIN = atpg
+MAIN_atpg/main.cpp_LD_LIBS = cmd interface core
+
+## bins below for testing 
 #MAIN_interface/netlist_test.cpp = nl_test
 #MAIN_core/logic_test.cpp = logic_test
 

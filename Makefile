@@ -16,7 +16,7 @@ include macro.mk
 .SECONDARY : $(SECS)
 
 
-build : $(STA_OBJS) $(TOP_BINS)
+build : $(STA_OBJS) $(TOP_BINS) 
 	@echo -n ""
 
 
@@ -56,8 +56,6 @@ distclean :
 	$(AT)rm -Rf $(TMP_TOP)
 	@echo "    RM library"
 	$(AT)rm -Rf $(LIB_TOP)
-	@echo "    RM include"
-	$(AT)rm -Rf $(INC_TOP)
 	@echo "    RM binaries"
 	$(AT)rm -Rf $(BIN_TOP)
 	$(AT)rm -f  $(RM_BINS)
