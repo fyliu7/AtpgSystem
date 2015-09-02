@@ -21,6 +21,12 @@
 ./interface/src/netlist.cpp
 ./interface/src/netlist.h
 ./interface/src/module.h
+./cli/src/charDef.h
+./cli/src/cmdParser.h
+./cli/src/cli_test.cpp
+./cli/src/vt100.h
+./cli/src/charDef.cpp
+./cli/src/cmdReader.cpp
 ./atpg/src/setup_cmd.h
 ./atpg/src/setup_cmd.cpp
 ./atpg/src/atpg_cmd.h

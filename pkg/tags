@@ -5,6 +5,23 @@
 !_TAG_PROGRAM_URL	http://ctags.sourceforge.net	/official site/
 !_TAG_PROGRAM_VERSION	5.6	//
 AB	core/src/fault.h	/^    enum    Status { UD = 0, DT, AU, RE, AB }; $/;"	e	enum:CoreNs::Fault::Status
+ANSI_BLACK	cli/src/vt100.h	/^const char *const ANSI_BLACK  = "\\033[30m";$/;"	v
+ANSI_BLUE	cli/src/vt100.h	/^const char *const ANSI_BLUE   = "\\033[34m";$/;"	v
+ANSI_CYAN	cli/src/vt100.h	/^const char *const ANSI_CYAN   = "\\033[36m";$/;"	v
+ANSI_GREEN	cli/src/vt100.h	/^const char *const ANSI_GREEN  = "\\033[32m";$/;"	v
+ANSI_PURPLE	cli/src/vt100.h	/^const char *const ANSI_PURPLE = "\\033[35m";$/;"	v
+ANSI_RED	cli/src/vt100.h	/^const char *const ANSI_RED    = "\\033[31m";$/;"	v
+ANSI_RESET	cli/src/vt100.h	/^const char *const ANSI_RESET  = "\\033[0m";$/;"	v
+ANSI_WHITE	cli/src/vt100.h	/^const char *const ANSI_WHITE  = "\\033[37m";$/;"	v
+ANSI_YELLOW	cli/src/vt100.h	/^const char *const ANSI_YELLOW = "\\033[33m";$/;"	v
+ARROW_DOWN_KEY	cli/src/charDef.h	/^   ARROW_DOWN_KEY   = TA_ARROW_DOWN_KEY,$/;"	e	enum:Cli::ParseChar
+ARROW_KEY_BEGIN	cli/src/charDef.h	/^   ARROW_KEY_BEGIN  = TA_ARROW_KEY_BEGIN,$/;"	e	enum:Cli::ParseChar
+ARROW_KEY_END	cli/src/charDef.h	/^   ARROW_KEY_END    = TA_ARROW_KEY_END,$/;"	e	enum:Cli::ParseChar
+ARROW_KEY_FLAG	cli/src/charDef.h	/^   ARROW_KEY_FLAG   = TA_ARROW_KEY_FLAG,$/;"	e	enum:Cli::ParseChar
+ARROW_KEY_INT	cli/src/charDef.h	/^   ARROW_KEY_INT    = TA_ARROW_KEY_INT,$/;"	e	enum:Cli::ParseChar
+ARROW_LEFT_KEY	cli/src/charDef.h	/^   ARROW_LEFT_KEY   = TA_ARROW_LEFT_KEY,$/;"	e	enum:Cli::ParseChar
+ARROW_RIGHT_KEY	cli/src/charDef.h	/^   ARROW_RIGHT_KEY  = TA_ARROW_RIGHT_KEY,$/;"	e	enum:Cli::ParseChar
+ARROW_UP_KEY	cli/src/charDef.h	/^   ARROW_UP_KEY     = TA_ARROW_UP_KEY,$/;"	e	enum:Cli::ParseChar
 AU	core/src/fault.h	/^    enum    Status { UD = 0, DT, AU, RE, AB }; $/;"	e	enum:CoreNs::Fault::Status
 AddAllFaults	core/src/fault.cpp	/^void FaultMgr::AddAllFaults(Circuit *cir) { $/;"	f	class:FaultMgr
 AddFault	core/src/fault.cpp	/^void FaultMgr::AddFault(Gate *g, Value v) { $/;"	f	class:FaultMgr
@@ -27,6 +44,9 @@ AtpgVec	core/src/atpg_mgr.h	/^typedef std::vector<Atpg*>  AtpgVec; $/;"	t	namesp
 B	core/src/logic.h	/^const Value     B       = 4;$/;"	v
 BACKTRACE	core/src/atpg.h	/^                      BACKTRACE, $/;"	e	enum:CoreNs::Atpg::AtpgStatus
 BACKTRACK	core/src/atpg.h	/^                      BACKTRACK,  $/;"	e	enum:CoreNs::Atpg::AtpgStatus
+BACK_SPACE_CHAR	cli/src/charDef.h	/^   BACK_SPACE_CHAR  = TA_BACK_SPACE_CHAR,$/;"	e	enum:Cli::ParseChar
+BACK_SPACE_KEY	cli/src/charDef.h	/^   BACK_SPACE_KEY   = TA_BACK_SPACE_KEY,$/;"	e	enum:Cli::ParseChar
+BEEP_CHAR	cli/src/charDef.h	/^   BEEP_CHAR        = TA_BEEP_CHAR,$/;"	e	enum:Cli::ParseChar
 BYTE_SIZE	core/src/logic.h	/^const size_t BYTE_SIZE  = 8;$/;"	v
 BackTrack	core/src/atpg.cpp	/^bool Atpg::BackTrack() { $/;"	f	class:Atpg
 Backtrace	core/src/atpg.cpp	/^bool Atpg::Backtrace() { $/;"	f	class:Atpg
@@ -53,6 +73,10 @@ CellMap	interface/src/module.h	/^typedef std::map<std::string, Cell *> CellMap; 
 CellType	interface/src/module.h	/^enum CellType { CELL_MODINST = 0, $/;"	g	namespace:IntfNs
 CellVec	interface/src/module.h	/^typedef std::vector<Cell *> CellVec; $/;"	t	namespace:IntfNs
 Circuit	core/src/circuit.h	/^class Circuit { $/;"	c	namespace:CoreNs
+Cli	cli/src/charDef.cpp	/^namespace Cli { $/;"	n	file:
+Cli	cli/src/charDef.h	/^namespace Cli { $/;"	n
+Cli	cli/src/cmdParser.h	/^namespace Cli { $/;"	n
+Cli	cli/src/vt100.h	/^namespace Cli { $/;"	n
 Cmd	cmd/src/cmd.h	/^class Cmd { $/;"	c	namespace:CmdNs
 Cmd	cmd/src/cmd.h	/^inline Cmd::Cmd(const std::string &name, const std::string &msg) { $/;"	f	class:CmdNs::Cmd
 CmdMap	cmd/src/cmd.h	/^typedef std::map<std::string, Cmd *>                    CmdMap; $/;"	t	namespace:CmdNs
@@ -60,6 +84,8 @@ CmdMapIter	cmd/src/cmd.h	/^typedef CmdMap::iterator                             
 CmdMgr	cmd/src/cmd.h	/^class CmdMgr { $/;"	c	namespace:CmdNs
 CmdNs	cmd/src/cmd.h	/^namespace CmdNs { $/;"	n
 CmdNs	cmd/src/opt_mgr.h	/^namespace CmdNs { $/;"	n
+CmdParser	cli/src/cmdParser.h	/^   CmdParser() : _readBufPtr(_readBuf), _readBufEnd(_readBuf),$/;"	f	class:Cli::CmdParser
+CmdParser	cli/src/cmdParser.h	/^class CmdParser$/;"	c	namespace:Cli
 CoreNs	core/src/atpg.h	/^namespace CoreNs { $/;"	n
 CoreNs	core/src/atpg_mgr.h	/^namespace CoreNs { $/;"	n
 CoreNs	core/src/circuit.h	/^namespace CoreNs { $/;"	n
@@ -72,7 +98,10 @@ CoreNs	core/src/simulator.h	/^namespace CoreNs { $/;"	n
 D	core/src/logic.h	/^const Value     D       = 3;$/;"	v
 DDrive	core/src/atpg.cpp	/^bool Atpg::DDrive() {$/;"	f	class:Atpg
 DECISION	core/src/atpg.h	/^                      DECISION, $/;"	e	enum:CoreNs::Atpg::AtpgStatus
+DELETE_KEY	cli/src/charDef.h	/^   DELETE_KEY       = TA_DELETE_KEY,$/;"	e	enum:Cli::ParseChar
 DT	core/src/fault.h	/^    enum    Status { UD = 0, DT, AU, RE, AB }; $/;"	e	enum:CoreNs::Fault::Status
+END_KEY	cli/src/charDef.h	/^   END_KEY          = TA_END_KEY,$/;"	e	enum:Cli::ParseChar
+ESC_KEY	cli/src/charDef.h	/^   ESC_KEY          = TA_ESC_KEY,         \/\/ Not printable; used for combo keys$/;"	e	enum:Cli::ParseChar
 EXIT	cmd/src/cmd.h	/^    enum    Result { EXIT = -1, SUCCESS, FAIL, NOT_EXIST, NOP };$/;"	e	enum:CmdNs::CmdMgr::Result
 EXIT	core/src/atpg.h	/^                      EXIT }; $/;"	e	enum:CoreNs::Atpg::AtpgStatus
 EvalAndN	core/src/logic.h	/^inline Value EvalAndN(size_t n...) {$/;"	f	namespace:CoreNs
@@ -121,7 +150,10 @@ GoodEval	core/src/gate.cpp	/^Value PoGate::GoodEval() const { $/;"	f	class:PoGat
 GoodEval	core/src/gate.cpp	/^Value PpiGate::GoodEval() const { $/;"	f	class:PpiGate
 GoodEval	core/src/gate.cpp	/^Value PpoGate::GoodEval() const { $/;"	f	class:PpoGate
 H	core/src/logic.h	/^const Value     H       = 1;$/;"	v
+HOME_KEY	cli/src/charDef.h	/^   HOME_KEY         = TA_HOME_KEY,$/;"	e	enum:Cli::ParseChar
 IMPLY_AND_CHECK	core/src/atpg.h	/^    enum AtpgStatus { IMPLY_AND_CHECK = 0, $/;"	e	enum:CoreNs::Atpg::AtpgStatus
+INPUT_END_KEY	cli/src/charDef.h	/^   INPUT_END_KEY    = TA_INPUT_END_KEY,   \/\/ ctrl-d$/;"	e	enum:Cli::ParseChar
+INSERT_KEY	cli/src/charDef.h	/^   INSERT_KEY       = TA_INSERT_KEY,$/;"	e	enum:Cli::ParseChar
 IdVec	core/src/circuit.h	/^typedef std::vector<int> IdVec;  $/;"	t	namespace:CoreNs
 Imply	core/src/atpg.cpp	/^bool Atpg::Imply() { $/;"	f	class:Atpg
 Init	core/src/simulator.h	/^inline void Simulator::Init() { $/;"	f	class:CoreNs::Simulator
@@ -131,6 +163,13 @@ IntfNs	interface/src/netlist.y	/^IntfNs::Netlist *nl; $/;"	l
 IsFaultAtPo	core/src/simulator.cpp	/^bool Simulator::IsFaultAtPo() const { $/;"	f	class:Simulator
 IsGutOutputAtX	core/src/simulator.h	/^inline bool Simulator::IsGutOutputAtX() const { $/;"	f	class:CoreNs::Simulator
 L	core/src/logic.h	/^const Value     L       = 0;$/;"	v
+LINE_BEGIN_KEY	cli/src/charDef.h	/^   LINE_BEGIN_KEY   = TA_LINE_BEGIN_KEY,  \/\/ ctrl-a$/;"	e	enum:Cli::ParseChar
+LINE_END_KEY	cli/src/charDef.h	/^   LINE_END_KEY     = TA_LINE_END_KEY,    \/\/ ctrl-e$/;"	e	enum:Cli::ParseChar
+MOD_KEY_BEGIN	cli/src/charDef.h	/^   MOD_KEY_BEGIN    = TA_MOD_KEY_BEGIN,$/;"	e	enum:Cli::ParseChar
+MOD_KEY_DUMMY	cli/src/charDef.h	/^   MOD_KEY_DUMMY    = TA_MOD_KEY_DUMMY,$/;"	e	enum:Cli::ParseChar
+MOD_KEY_END	cli/src/charDef.h	/^   MOD_KEY_END      = TA_MOD_KEY_END,$/;"	e	enum:Cli::ParseChar
+MOD_KEY_FLAG	cli/src/charDef.h	/^   MOD_KEY_FLAG     = TA_MOD_KEY_FLAG,$/;"	e	enum:Cli::ParseChar
+MOD_KEY_INT	cli/src/charDef.h	/^   MOD_KEY_INT      = TA_MOD_KEY_INT,$/;"	e	enum:Cli::ParseChar
 Module	interface/src/module.h	/^class Module { $/;"	c	namespace:IntfNs
 Module	interface/src/module.h	/^inline Module::Module(const std::string& name) {$/;"	f	class:IntfNs::Module
 ModuleMap	interface/src/netlist.h	/^typedef std::map<std::string, Module *> ModuleMap; $/;"	t	namespace:IntfNs
@@ -138,6 +177,7 @@ MultiMap	cmd/src/opt_mgr.h	/^typedef std::map<std::string, TCLAP::MultiArg<std::
 MultiMapIter	cmd/src/opt_mgr.h	/^typedef MultiMap::iterator                          MultiMapIter; $/;"	t	namespace:CmdNs
 NA	core/src/gate.h	/^enum GateType { NA = -1,  $/;"	e	enum:CoreNs::GateType
 NAME_LEN_MAX	interface/src/netlist.h	/^const int NAME_LEN_MAX = 256; $/;"	v
+NEWLINE_KEY	cli/src/charDef.h	/^   NEWLINE_KEY      = TA_NEWLINE_KEY,     \/\/ enter('\\n') or ctrl-m$/;"	e	enum:Cli::ParseChar
 NOP	cmd/src/cmd.h	/^    enum    Result { EXIT = -1, SUCCESS, FAIL, NOT_EXIST, NOP };$/;"	e	enum:CmdNs::CmdMgr::Result
 NOT_EXIST	cmd/src/cmd.h	/^    enum    Result { EXIT = -1, SUCCESS, FAIL, NOT_EXIST, NOP };$/;"	e	enum:CmdNs::CmdMgr::Result
 NameList	interface/src/netlist.h	/^struct NameList { $/;"	s	namespace:IntfNs
@@ -167,10 +207,15 @@ OrGate	core/src/gate.h	/^class OrGate : public Gate { $/;"	c	namespace:CoreNs
 OrMap	core/src/logic.h	/^const Value OrMap[5][5] = { $/;"	v
 PARA_H	core/src/logic.h	/^const ParaValue PARA_H  = ~PARA_L;$/;"	v
 PARA_L	core/src/logic.h	/^const ParaValue PARA_L  = 0;$/;"	v
+PARSE_CHAR_END	cli/src/charDef.h	/^   PARSE_CHAR_END$/;"	e	enum:Cli::ParseChar
+PG_DOWN_KEY	cli/src/charDef.h	/^   PG_DOWN_KEY      = TA_PG_DOWN_KEY,$/;"	e	enum:Cli::ParseChar
+PG_OFFSET	cli/src/cmdParser.h	35;"	d
+PG_UP_KEY	cli/src/charDef.h	/^   PG_UP_KEY        = TA_PG_UP_KEY,$/;"	e	enum:Cli::ParseChar
 PORT_INPUT	interface/src/module.h	/^                PORT_INPUT, PORT_OUTPUT}; $/;"	e	enum:IntfNs::PortType
 PORT_NA	interface/src/module.h	/^enum PortType { PORT_NA = -1, $/;"	e	enum:IntfNs::PortType
 PORT_OUTPUT	interface/src/module.h	/^                PORT_INPUT, PORT_OUTPUT}; $/;"	e	enum:IntfNs::PortType
 ParaValue	core/src/logic.h	/^typedef unsigned long  ParaValue;$/;"	t	namespace:CoreNs
+ParseChar	cli/src/charDef.h	/^enum ParseChar$/;"	g	namespace:Cli
 PatVec	core/src/pattern.h	/^typedef std::vector<Pattern *> PatVec; $/;"	t	namespace:CoreNs
 Pattern	core/src/pattern.h	/^class Pattern { $/;"	c	namespace:CoreNs
 PatternMgr	core/src/pattern.h	/^class PatternMgr { $/;"	c	namespace:CoreNs
@@ -192,6 +237,7 @@ Print5Value	core/src/logic.h	/^inline void Print5Value(Value v) { $/;"	f	namespa
 PushEvent	core/src/simulator.cpp	/^void Simulator::PushEvent(int gid) { $/;"	f	class:Simulator
 PushFanoutEvent	core/src/simulator.cpp	/^void Simulator::PushFanoutEvent(int gid) {$/;"	f	class:Simulator
 RE	core/src/fault.h	/^    enum    Status { UD = 0, DT, AU, RE, AB }; $/;"	e	enum:CoreNs::Fault::Status
+READ_BUF_SIZE	cli/src/cmdParser.h	33;"	d
 ReadNetlistCmd	atpg/src/setup_cmd.cpp	/^ReadNetlistCmd::ReadNetlistCmd(const string &name, $/;"	f	class:ReadNetlistCmd
 ReadNetlistCmd	atpg/src/setup_cmd.h	/^class ReadNetlistCmd : public CmdNs::Cmd { $/;"	c	namespace:AtpgNs
 ReportCellCmd	atpg/src/setup_cmd.cpp	/^ReportCellCmd::ReportCellCmd(const string &name, $/;"	f	class:ReportCellCmd
@@ -210,14 +256,87 @@ SetBitVal	core/src/logic.h	/^inline void SetBitVal(ParaValue &pv, bool value ,in
 Simulator	core/src/simulator.h	/^class Simulator { $/;"	c	namespace:CoreNs
 Simulator	core/src/simulator.h	/^inline Simulator::Simulator(Circuit *cir, Fault *ftarget) { $/;"	f	class:CoreNs::Simulator
 Status	core/src/fault.h	/^    enum    Status { UD = 0, DT, AU, RE, AB }; $/;"	g	class:CoreNs::Fault
+TAB_KEY	cli/src/charDef.h	/^   TAB_KEY          = TA_TAB_KEY,         \/\/ tab('\\t') or Ctrl-i$/;"	e	enum:Cli::ParseChar
+TAB_POSITION	cli/src/cmdParser.h	34;"	d
+TA_ARROW_DOWN_KEY	cli/src/charDef.h	31;"	d
+TA_ARROW_KEY_BEGIN	cli/src/charDef.h	34;"	d
+TA_ARROW_KEY_END	cli/src/charDef.h	35;"	d
+TA_ARROW_KEY_FLAG	cli/src/charDef.h	28;"	d
+TA_ARROW_KEY_INT	cli/src/charDef.h	29;"	d
+TA_ARROW_LEFT_KEY	cli/src/charDef.h	33;"	d
+TA_ARROW_RIGHT_KEY	cli/src/charDef.h	32;"	d
+TA_ARROW_UP_KEY	cli/src/charDef.h	30;"	d
+TA_BACK_SPACE_CHAR	cli/src/charDef.h	49;"	d
+TA_BACK_SPACE_KEY	cli/src/charDef.h	27;"	d
+TA_BEEP_CHAR	cli/src/charDef.h	48;"	d
+TA_DELETE_KEY	cli/src/charDef.h	40;"	d
+TA_END_KEY	cli/src/charDef.h	41;"	d
+TA_ESC_KEY	cli/src/charDef.h	26;"	d
+TA_HOME_KEY	cli/src/charDef.h	38;"	d
+TA_INPUT_END_KEY	cli/src/charDef.h	23;"	d
+TA_INSERT_KEY	cli/src/charDef.h	39;"	d
+TA_LINE_BEGIN_KEY	cli/src/charDef.h	21;"	d
+TA_LINE_END_KEY	cli/src/charDef.h	22;"	d
+TA_MOD_KEY_BEGIN	cli/src/charDef.h	44;"	d
+TA_MOD_KEY_DUMMY	cli/src/charDef.h	46;"	d
+TA_MOD_KEY_END	cli/src/charDef.h	45;"	d
+TA_MOD_KEY_FLAG	cli/src/charDef.h	36;"	d
+TA_MOD_KEY_INT	cli/src/charDef.h	37;"	d
+TA_NEWLINE_KEY	cli/src/charDef.h	25;"	d
+TA_PG_DOWN_KEY	cli/src/charDef.h	43;"	d
+TA_PG_UP_KEY	cli/src/charDef.h	42;"	d
+TA_TAB_KEY	cli/src/charDef.h	24;"	d
+TA_UNDEFINED_KEY	cli/src/charDef.h	47;"	d
 Tpg	core/src/atpg.cpp	/^bool Atpg::Tpg() { $/;"	f	class:Atpg
 UD	core/src/fault.h	/^    enum    Status { UD = 0, DT, AU, RE, AB }; $/;"	e	enum:CoreNs::Fault::Status
+UNDEFINED_KEY	cli/src/charDef.h	/^   UNDEFINED_KEY    = TA_UNDEFINED_KEY,$/;"	e	enum:Cli::ParseChar
+VT100_ARM_OFF	cli/src/vt100.h	/^const char *const VT100_ARM_OFF  = "\\033[?8h"; \/\/ unset auto-repeat mode$/;"	v
+VT100_ARM_ON	cli/src/vt100.h	/^const char *const VT100_ARM_ON   = "\\033[?8h"; \/\/ set auto-repeat mode$/;"	v
+VT100_AWM_OFF	cli/src/vt100.h	/^const char *const VT100_AWM_OFF  = "\\033[?7h"; \/\/ unset auto-wrap mode$/;"	v
+VT100_AWM_ON	cli/src/vt100.h	/^const char *const VT100_AWM_ON   = "\\033[?7h"; \/\/ set auto-wrap mode$/;"	v
+VT100_CKM_APP	cli/src/vt100.h	/^const char *const VT100_CKM_APP  = "\\033[?1h"; \/\/ set cursor key to app$/;"	v
+VT100_CKM_CSR	cli/src/vt100.h	/^const char *const VT100_CKM_CSR  = "\\033[?1h"; \/\/ set cursor key to cursor$/;"	v
+VT100_COLM_132	cli/src/vt100.h	/^const char *const VT100_COLM_132 = "\\033[?3h"; \/\/ set column to 132$/;"	v
+VT100_COLM_80	cli/src/vt100.h	/^const char *const VT100_COLM_80  = "\\033[?3h"; \/\/ set column to 80$/;"	v
+VT100_CSRB	cli/src/vt100.h	/^const char *const VT100_CSRB     = "\\033[1D";  \/\/ move cursor back 1 col$/;"	v
+VT100_CSRD	cli/src/vt100.h	/^const char *const VT100_CSRD     = "\\033[1B";  \/\/ move cursor down 1 row$/;"	v
+VT100_CSRF	cli/src/vt100.h	/^const char *const VT100_CSRF     = "\\033[1C";  \/\/ move cursor right 1 col$/;"	v
+VT100_CSRL	cli/src/vt100.h	/^const char *const VT100_CSRL     = "\\033E";    \/\/ move to next line$/;"	v
+VT100_CSRR	cli/src/vt100.h	/^const char *const VT100_CSRR     = "\\0338";    \/\/ restore cursor position$/;"	v
+VT100_CSRS	cli/src/vt100.h	/^const char *const VT100_CSRS     = "\\0337";    \/\/ save cursor position$/;"	v
+VT100_CSRU	cli/src/vt100.h	/^const char *const VT100_CSRU     = "\\033[1A";  \/\/ move cursor up 1 row$/;"	v
+VT100_ERSD	cli/src/vt100.h	/^const char *const VT100_ERSD     = "\\033[J";   \/\/ erase down$/;"	v
+VT100_ERSEOL	cli/src/vt100.h	/^const char *const VT100_ERSEOL   = "\\033[K";   \/\/ erase end of line$/;"	v
+VT100_ERSL	cli/src/vt100.h	/^const char *const VT100_ERSL     = "\\033[2K";  \/\/ erase entire line$/;"	v
+VT100_ERSS	cli/src/vt100.h	/^const char *const VT100_ERSS     = "\\033[2J";  \/\/ erase screen$/;"	v
+VT100_ERSSOL	cli/src/vt100.h	/^const char *const VT100_ERSSOL   = "\\033[1K";  \/\/ erase start of line$/;"	v
+VT100_ERSU	cli/src/vt100.h	/^const char *const VT100_ERSU     = "\\033[1J";  \/\/ erase up$/;"	v
+VT100_INLM_OFF	cli/src/vt100.h	/^const char *const VT100_INLM_OFF = "\\033[?9h"; \/\/ unset interlacing mode$/;"	v
+VT100_INLM_ON	cli/src/vt100.h	/^const char *const VT100_INLM_ON  = "\\033[?9h"; \/\/ set interlacing mode$/;"	v
+VT100_LM_LF	cli/src/vt100.h	/^const char *const VT100_LM_LF    = "\\033[20h"; \/\/ set line feed mode$/;"	v
+VT100_LM_NL	cli/src/vt100.h	/^const char *const VT100_LM_NL    = "\\033[20h"; \/\/ set new line mode$/;"	v
+VT100_OM_ABS	cli/src/vt100.h	/^const char *const VT100_OM_ABS   = "\\033[?6h"; \/\/ set origin to absolute$/;"	v
+VT100_OM_REL	cli/src/vt100.h	/^const char *const VT100_OM_REL   = "\\033[?6h"; \/\/ set origin to relative$/;"	v
+VT100_SCLM_JP	cli/src/vt100.h	/^const char *const VT100_SCLM_JP  = "\\033[?4h"; \/\/ set jump scrolling$/;"	v
+VT100_SCLM_SM	cli/src/vt100.h	/^const char *const VT100_SCLM_SM  = "\\033[?4h"; \/\/ set smooth scrolling$/;"	v
+VT100_SCNM_NOR	cli/src/vt100.h	/^const char *const VT100_SCNM_NOR = "\\033[?5h"; \/\/ set screen normal$/;"	v
+VT100_SCNM_REV	cli/src/vt100.h	/^const char *const VT100_SCNM_REV = "\\033[?5h"; \/\/ set screen reverse$/;"	v
+VT100_SCRD	cli/src/vt100.h	/^const char *const VT100_SCRD     = "\\033M";    \/\/ scroll window dn 1 line$/;"	v
+VT100_SCRE	cli/src/vt100.h	/^const char *const VT100_SCRE     = "\\033[r";   \/\/ scroll entire window$/;"	v
+VT100_SCRU	cli/src/vt100.h	/^const char *const VT100_SCRU     = "\\033D";    \/\/ scroll window up 1 line$/;"	v
+VT100_TABCLR	cli/src/vt100.h	/^const char *const VT100_TABCLR   = "\\033[g";   \/\/ clear tab$/;"	v
+VT100_TABCLRA	cli/src/vt100.h	/^const char *const VT100_TABCLRA  = "\\033[3g";  \/\/ clear all tab$/;"	v
+VT100_TABSET	cli/src/vt100.h	/^const char *const VT100_TABSET   = "\\033H";    \/\/ set tab$/;"	v
+VT100_VT52M	cli/src/vt100.h	/^const char *const VT100_VT52M    = "\\033[?1h"; \/\/ set VT52$/;"	v
 Value	core/src/logic.h	/^typedef unsigned char  Value;$/;"	t	namespace:CoreNs
 ValueVec	core/src/pattern.h	/^typedef std::vector<Value> ValueVec; $/;"	t	namespace:CoreNs
 WORD_SIZE	core/src/logic.h	/^const size_t WORD_SIZE  = sizeof(ParaValue) * BYTE_SIZE;$/;"	v
 X	core/src/logic.h	/^const Value     X       = 2;$/;"	v
 _ATPG_ATPG_CMD_H_	atpg/src/atpg_cmd.h	2;"	d
 _ATPG_SETUP_CMD_H_	atpg/src/setup_cmd.h	2;"	d
+_CLI_CHAR_DEF_H_	cli/src/charDef.h	9;"	d
+_CLI_CMD_PARSER_H_	cli/src/cmdParser.h	9;"	d
+_CLI_VT100_H_	cli/src/vt100.h	14;"	d
 _CMD_CMD_H_	cmd/src/cmd.h	2;"	d
 _CMD_OPT_MGR_H_	cmd/src/opt_mgr.h	2;"	d
 _CORE_ATPG_H_	core/src/atpg.h	20;"	d
@@ -232,8 +351,16 @@ _CORE_SIMULATOR_H_	core/src/simulator.h	2;"	d
 _INTF_MODULE_H_	interface/src/module.h	2;"	d
 _INTF_NETLIST_H_	interface/src/netlist.h	2;"	d
 _MAX_BACK_TRACK_LIMIT_	core/src/atpg.h	22;"	d
+_dofile	cli/src/cmdParser.h	/^   ifstream  _dofile;$/;"	m	class:Cli::CmdParser
+_history	cli/src/cmdParser.h	/^   vector<string>   _history;        \/\/ oldest:_history[0],latest:_hist.back()$/;"	m	class:Cli::CmdParser
+_historyIdx	cli/src/cmdParser.h	/^   int              _historyIdx;     \/\/ (1) Position to insert history string$/;"	m	class:Cli::CmdParser
+_readBuf	cli/src/cmdParser.h	/^   char      _readBuf[READ_BUF_SIZE];\/\/ save the current line input$/;"	m	class:Cli::CmdParser
+_readBufEnd	cli/src/cmdParser.h	/^   char*     _readBufEnd;            \/\/ end of string position of _readBuf$/;"	m	class:Cli::CmdParser
+_readBufPtr	cli/src/cmdParser.h	/^   char*     _readBufPtr;            \/\/ point to the cursor position$/;"	m	class:Cli::CmdParser
+_tempCmdStored	cli/src/cmdParser.h	/^   bool      _tempCmdStored;         \/\/ When up\/pgUp is pressed, current line$/;"	m	class:Cli::CmdParser
 addCell	interface/src/module.h	/^inline void Module::addCell(Cell * const c) {$/;"	f	class:IntfNs::Module
 addCell	interface/src/netlist.cpp	/^void Netlist::addCell(const char * const typenm, $/;"	f	class:Netlist
+addHistory	cli/src/cmdReader.cpp	/^CmdParser::addHistory()$/;"	f	class:CmdParser
 addInNet	interface/src/module.h	/^inline void Cell::addInNet(Net *n) {$/;"	f	class:IntfNs::Cell
 addInputs	interface/src/netlist.cpp	/^void Netlist::addInputs(NameList * const ins) {$/;"	f	class:Netlist
 addModule	interface/src/netlist.cpp	/^void Netlist::addModule(const char * const name) {$/;"	f	class:Netlist
@@ -258,6 +385,7 @@ build	interface/src/netlist.cpp	/^bool Netlist::build(Circuit* cir) {$/;"	f	clas
 cat_map_	cmd/src/cmd.h	/^    CatMap  cat_map_; $/;"	m	class:CmdNs::CmdMgr
 cell_map_	interface/src/module.h	/^    CellMap cell_map_; $/;"	m	class:IntfNs::Module
 cells	interface/src/netlist.h	/^    CellVec cells; $/;"	m	class:IntfNs::Netlist
+checkChar	cli/src/charDef.cpp	/^checkChar(char ch, istream& istr)$/;"	f	namespace:Cli
 cir	core/src/atpg_mgr.h	/^    Circuit     *cir; $/;"	m	class:CoreNs::AtpgMgr
 cir_	core/src/atpg.h	/^    Circuit   *cir_; $/;"	m	class:CoreNs::Atpg
 cir_	core/src/simulator.h	/^    Circuit         *cir_; $/;"	m	class:CoreNs::Simulator
@@ -269,6 +397,8 @@ cmd_map_	cmd/src/cmd.h	/^    CmdMap  cmd_map_; $/;"	m	class:CmdNs::CmdMgr
 ctr_value	core/src/gate.h	/^    Value         ctr_value; $/;"	m	class:CoreNs::Gate
 current_	interface/src/netlist.h	/^    Module *current_; $/;"	m	class:IntfNs::Netlist
 current_obj_	core/src/atpg.h	/^    Objective current_obj_; $/;"	m	class:CoreNs::Atpg
+deleteChar	cli/src/cmdReader.cpp	/^CmdParser::deleteChar()$/;"	f	class:CmdParser
+deleteLine	cli/src/cmdReader.cpp	/^CmdParser::deleteLine()$/;"	f	class:CmdParser
 events_	core/src/simulator.h	/^    std::queue<int> *events_; $/;"	m	class:CoreNs::Simulator
 exec	cmd/src/cmd.cpp	/^bool Cmd::exec(vector<string> &args) { $/;"	f	class:Cmd
 f_mgr	core/src/atpg_mgr.h	/^    FaultMgr    *f_mgr; $/;"	m	class:CoreNs::AtpgMgr
@@ -326,15 +456,22 @@ in_net_	interface/src/module.h	/^    Net *in_net_; $/;"	m	class:IntfNs::Port
 in_nets_	interface/src/module.h	/^    NetVec in_nets_; $/;"	m	class:IntfNs::Cell
 in_port_	interface/src/module.h	/^    Port *in_port_; $/;"	m	class:IntfNs::Net
 init	core/src/atpg.cpp	/^void Atpg::init() { $/;"	f	class:Atpg
+insertChar	cli/src/cmdReader.cpp	/^CmdParser::insertChar(char ch, int rep)$/;"	f	class:CmdParser
 levelize	interface/src/netlist.cpp	/^void Netlist::levelize(CellVec& cells) {$/;"	f	class:Netlist
 lvl	core/src/gate.h	/^    int           lvl; $/;"	m	class:CoreNs::Gate
 lvl_	interface/src/module.h	/^    int lvl_;$/;"	m	class:IntfNs::Cell
 main	atpg/src/main.cpp	/^int main(int argc, char **argv) { $/;"	f
+main	cli/src/cli_test.cpp	/^main(int argc, char** argv)$/;"	f
 main	core/src/logic_test.cpp	/^int main() {$/;"	f
 main	interface/src/netlist_test.cpp	/^int main(int argc, char **argv) {$/;"	f
 module_map_	interface/src/netlist.h	/^    ModuleMap module_map_; $/;"	m	class:IntfNs::Netlist
+moveBufPtr	cli/src/cmdReader.cpp	/^CmdParser::moveBufPtr(char* const ptr)$/;"	f	class:CmdParser
+moveToHistory	cli/src/cmdReader.cpp	/^CmdParser::moveToHistory(int index)$/;"	f	class:CmdParser
 multi_map_	cmd/src/opt_mgr.h	/^    MultiMap        multi_map_; $/;"	m	class:CmdNs::OptMgr
 myGateComp	interface/src/netlist.cpp	/^bool myGateComp(Cell* c1, Cell* c2) {$/;"	f
+mybeep	cli/src/charDef.cpp	/^void mybeep()$/;"	f	namespace:Cli
+myexit	cli/src/cli_test.cpp	/^myexit()$/;"	f	file:
+mygetc	cli/src/charDef.cpp	/^char mygetc(istream& istr)$/;"	f	namespace:Cli
 name	interface/src/netlist.h	/^    char name[NAME_LEN_MAX]; $/;"	m	struct:IntfNs::NameList
 name_	cmd/src/opt_mgr.h	/^    std::string     name_; $/;"	m	class:CmdNs::OptMgr
 name_	interface/src/module.h	/^    std::string name_; $/;"	m	class:IntfNs::Cell
@@ -364,6 +501,7 @@ nppi	core/src/circuit.h	/^    size_t  nppi; $/;"	m	class:CoreNs::Circuit
 nppi	core/src/pattern.h	/^    size_t nppi; $/;"	m	class:CoreNs::PatternMgr
 ntotgate	core/src/circuit.h	/^    size_t  ntotgate; $/;"	m	class:CoreNs::Circuit
 ntotlvl	core/src/circuit.h	/^    size_t  ntotlvl; $/;"	m	class:CoreNs::Circuit
+openDofile	cli/src/cmdParser.h	/^   bool openDofile(const char* dof) {$/;"	f	class:Cli::CmdParser
 opt_	cmd/src/opt_mgr.h	/^    TCLAP::CmdLine  *opt_; $/;"	m	class:CmdNs::OptMgr
 opt_map_	cmd/src/opt_mgr.h	/^    OptMap          opt_map_; $/;"	m	class:CmdNs::OptMgr
 opt_mgr_	cmd/src/cmd.h	/^    OptMgr              *opt_mgr_; $/;"	m	class:CmdNs::Cmd
@@ -390,9 +528,16 @@ ppis	core/src/circuit.h	/^    IdVec   ppis; $/;"	m	class:CoreNs::Circuit
 ppo	core/src/pattern.h	/^    ValueVec ppo; $/;"	m	class:CoreNs::Pattern
 ppo_order	core/src/pattern.h	/^    IdVec ppo_order; $/;"	m	class:CoreNs::PatternMgr
 ppos	core/src/circuit.h	/^    IdVec   ppos;  $/;"	m	class:CoreNs::Circuit
+printPrompt	cli/src/cmdParser.h	/^   void printPrompt() const { cout << "atpg> "; }$/;"	f	class:Cli::CmdParser
+readCmd	cli/src/cmdReader.cpp	/^CmdParser::readCmd()$/;"	f	class:CmdParser
+readCmdInt	cli/src/cmdReader.cpp	/^CmdParser::readCmdInt(istream& istr)$/;"	f	class:CmdParser
 regArg	cmd/src/opt_mgr.cpp	/^bool OptMgr::regArg(const string    &name, $/;"	f	class:OptMgr
 regOpt	cmd/src/opt_mgr.cpp	/^bool OptMgr::regOpt(const string    &name, $/;"	f	class:OptMgr
 reportGate	atpg/src/atpg_cmd.cpp	/^void ReportGateCmd::reportGate() const { $/;"	f	class:ReportGateCmd
+resetBufAndPrintPrompt	cli/src/cmdParser.h	/^   void resetBufAndPrintPrompt() {$/;"	f	class:Cli::CmdParser
+reset_keypress	cli/src/charDef.cpp	/^static void reset_keypress(void)$/;"	f	namespace:Cli	file:
+retrieveHistory	cli/src/cmdReader.cpp	/^CmdParser::retrieveHistory()$/;"	f	class:CmdParser
+returnCh	cli/src/charDef.cpp	/^returnCh(int ch)$/;"	f	namespace:Cli
 run	atpg/src/atpg_cmd.cpp	/^bool AddFaultCmd::run() {$/;"	f	class:AddFaultCmd
 run	atpg/src/atpg_cmd.cpp	/^bool BuildCircuitCmd::run() { $/;"	f	class:BuildCircuitCmd
 run	atpg/src/atpg_cmd.cpp	/^bool ReportGateCmd::run() { $/;"	f	class:ReportGateCmd
@@ -405,9 +550,12 @@ setInCell	interface/src/module.h	/^inline void Net::setInCell(Cell *c) {$/;"	f	c
 setLevel	interface/src/module.h	/^inline void Cell::setLevel(int lvl) {$/;"	f	class:IntfNs::Cell
 setName	cmd/src/opt_mgr.h	/^inline void OptMgr::setName(const std::string &name) { $/;"	f	class:CmdNs::OptMgr
 setType	interface/src/module.h	/^inline void Port::setType(PortType type) {$/;"	f	class:IntfNs::Port
+set_keypress	cli/src/charDef.cpp	/^static void set_keypress(void)$/;"	f	namespace:Cli	file:
 sim_	core/src/atpg.h	/^    Simulator *sim_; $/;"	m	class:CoreNs::Atpg
 status	core/src/fault.h	/^    Status  status; $/;"	m	class:CoreNs::Fault
+stored_settings	cli/src/charDef.cpp	/^static struct termios stored_settings;$/;"	v	typeref:struct:Cli::termios	file:
 success_	interface/src/netlist.h	/^    bool success_; $/;"	m	class:IntfNs::Netlist
+taTestOnly	cli/src/cmdParser.h	/^   void taTestOnly() {}$/;"	f	class:Cli::CmdParser
 target_fault_	core/src/atpg.h	/^    Fault     *target_fault_; $/;"	m	class:CoreNs::Atpg
 target_fault_	core/src/simulator.h	/^    Fault           *target_fault_; $/;"	m	class:CoreNs::Simulator
 top_	interface/src/netlist.h	/^    Module *top_; $/;"	m	class:IntfNs::Netlist
@@ -415,6 +563,7 @@ type	core/src/gate.h	/^    GateType      type; $/;"	m	class:CoreNs::Gate
 type_	interface/src/module.h	/^    CellType type_; $/;"	m	class:IntfNs::Cell
 type_	interface/src/module.h	/^    PortType type_; $/;"	m	class:IntfNs::Port
 type_name_	interface/src/module.h	/^    std::string type_name_; $/;"	m	class:IntfNs::Cell
+usage	cli/src/cli_test.cpp	/^usage()$/;"	f	file:
 val	core/src/gate.h	/^    Value         val; $/;"	m	class:CoreNs::Gate
 ~AddFaultCmd	atpg/src/atpg_cmd.cpp	/^AddFaultCmd::~AddFaultCmd() {}  $/;"	f	class:AddFaultCmd
 ~AndGate	core/src/gate.h	/^          ~AndGate() {}$/;"	f	class:CoreNs::AndGate
@@ -424,6 +573,7 @@ val	core/src/gate.h	/^    Value         val; $/;"	m	class:CoreNs::Gate
 ~Cell	interface/src/module.h	/^inline Cell::~Cell(){$/;"	f	class:IntfNs::Cell
 ~Circuit	core/src/circuit.h	/^inline Circuit::~Circuit() { $/;"	f	class:CoreNs::Circuit
 ~Cmd	cmd/src/cmd.h	/^inline Cmd::~Cmd() { $/;"	f	class:CmdNs::Cmd
+~CmdParser	cli/src/cmdParser.h	/^   virtual ~CmdParser() {}$/;"	f	class:Cli::CmdParser
 ~Fault	core/src/fault.h	/^inline Fault::~Fault() { $/;"	f	class:CoreNs::Fault
 ~FaultMgr	core/src/fault.h	/^inline FaultMgr::~FaultMgr() { $/;"	f	class:CoreNs::FaultMgr
 ~Gate	core/src/gate.h	/^inline Gate::~Gate() { $/;"	f	class:CoreNs::Gate

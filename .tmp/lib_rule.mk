@@ -1,4 +1,4 @@
-$(LIB_TOP)/$(MODE)/libcore.a : $(call get_ar_objs,$(call get_dep_pkgs,$(LIB_core_PKGS)))
+$(LIB_TOP)/$(MODE)/libcli.a : $(call get_ar_objs,$(call get_dep_pkgs,$(LIB_cli_PKGS)))
 	@if [ ! -d $(dir $@) ]; then \
 		mkdir -p $(dir $@); \
 	fi
@@ -17,6 +17,15 @@ $(LIB_TOP)/$(MODE)/libcmd.a : $(call get_ar_objs,$(call get_dep_pkgs,$(LIB_cmd_P
 	$(AT)$(RANLIB) $@
 
 $(LIB_TOP)/$(MODE)/libinterface.a : $(call get_ar_objs,$(call get_dep_pkgs,$(LIB_interface_PKGS)))
+	@if [ ! -d $(dir $@) ]; then \
+		mkdir -p $(dir $@); \
+	fi
+	$(AT)rm -f $@
+	@echo "    AR $(notdir $@) $(PRT_MODE)"
+	$(AT)$(AR) $(AR_FLAGS) $@ $^
+	$(AT)$(RANLIB) $@
+
+$(LIB_TOP)/$(MODE)/libcore.a : $(call get_ar_objs,$(call get_dep_pkgs,$(LIB_core_PKGS)))
 	@if [ ! -d $(dir $@) ]; then \
 		mkdir -p $(dir $@); \
 	fi
