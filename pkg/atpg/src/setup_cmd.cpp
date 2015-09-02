@@ -29,7 +29,12 @@ ReadNetlistCmd::~ReadNetlistCmd() {}
 bool ReadNetlistCmd::run() { 
     string nl_fname = opt_mgr_->getVal("nl_file"); 
     
-    nl_->parse(nl_fname, string()); //TODO
+    if(!nl_->parse(nl_fname, string())) { 
+        //TODO; 
+        cerr << "Parsing netlist file failed...\n"; 
+        exit(-1); 
+    }; //TODO
+
     //cout << "  netlist info. \n"; 
     //cout << "    #ports:\t\t"; 
     //cout << nl_->getTop()->getPortNum() << endl; 

@@ -27,6 +27,8 @@ public:
     Module* getModule(const std::string& name) const; 
     Module* getTop() const; 
 
+    void clearModule(); 
+
     void addModule(const char * const name); 
     void addPorts(NameList * const ports); 
     void addInputs(NameList * const ins); 
@@ -37,6 +39,8 @@ public:
                  NameList * const nets, 
                  CellType type = CELL_MODINST);  
     
+    CellVec cells; 
+
 protected:  
     void levelize(CellVec& cells);  
 
@@ -54,9 +58,7 @@ inline Netlist::Netlist() {
 }
 
 inline Netlist::~Netlist() {
-    ModuleMap::iterator it = module_map_.begin(); 
-    for (; it!=module_map_.end(); ++it)  
-        delete it->second; 
+    clearModule(); 
 } 
 
 inline Module *Netlist::getModule(const std::string& name) const { 
@@ -66,6 +68,14 @@ inline Module *Netlist::getModule(const std::string& name) const {
 
 inline Module *Netlist::getTop() const { 
     return top_; 
+}
+
+inline void Netlist::clearModule() { 
+    ModuleMap::iterator it = module_map_.begin(); 
+    for (; it!=module_map_.end(); ++it)  
+        delete it->second; 
+
+    top_ = NULL; 
 }
 
 }; //IntfNs

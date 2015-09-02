@@ -38,7 +38,9 @@ public:
         Atpg(Circuit *cir, Fault* f); 
         ~Atpg(); 
 
-        bool Tpg(Pattern& p); 
+    bool Tpg(); 
+
+    void GetPattern(Pattern& p) const; 
 
 protected: 
     void init(); 

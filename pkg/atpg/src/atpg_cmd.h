@@ -79,7 +79,21 @@ private:
     
     IntfNs::Netlist *nl_; 
     CoreNs::AtpgMgr *atpg_mgr_; 
-}; 
+}; //RunAtpgCmd
+
+class ReportPatCmd : public CmdNs::Cmd { 
+public: 
+            ReportPatCmd(const std::string &name, 
+                          const std::string &msg, 
+                          IntfNs::Netlist *nl, 
+                          CoreNs::AtpgMgr *atpg_mgr); 
+            ~ReportPatCmd(); 
+private: 
+    bool    run(); 
+
+    IntfNs::Netlist *nl_; 
+    CoreNs::AtpgMgr *atpg_mgr_; 
+}; //ReportPatCmd
 
 }; //AtpgNs
 

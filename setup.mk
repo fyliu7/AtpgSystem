@@ -36,8 +36,8 @@ MODE_$(MODE)_LD_PATHS = $(LIB_TOP)/$(MODE)
 PKGS = atpg cmd interface core 
 
 PKG_atpg_MAINS = main.cpp
-PKG_interface_MAINS = netlist_test.cpp
-PKG_core_MAINS = logic_test.cpp
+#PKG_interface_MAINS = netlist_test.cpp
+#PKG_core_MAINS = logic_test.cpp
 
 PKG_atpg_DEP = cmd interface 
 PKG_atpg_LD_LIBS = cmd interface core

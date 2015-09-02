@@ -8,12 +8,12 @@ int netlistline = 1;
 %}
 
 NAME    [^ #(),;=\t\n]+ 
-COMMENT "//"[^\n]*\n 
+COMMENT "//".*
 
-%option noyywrap 
+%option nounput noyywrap  
 
 %%
-"//".*      ; 
+{COMMENT}   ; 
 
 "module"    { return MODULE;    }
 "endmodule" { return ENDMODULE; }

@@ -31,7 +31,7 @@ bool Netlist::parse(const string& filename, const string& top) {
 }
 
 bool Netlist::build(Circuit* cir) {
-    CellVec cells; 
+    //CellVec cells; 
     levelize(cells); 
     cir->ntotlvl = cells[cells.size()-1]->getLevel() + 1; 
     

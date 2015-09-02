@@ -23,10 +23,17 @@ using namespace std;
 using namespace CoreNs; 
 
 bool AtpgMgr::Run() { 
+    if(!pat_mgr) pat_mgr = new PatternMgr(cir); 
+
     for(size_t n=0; n<f_mgr->getFaultNum(); n++) { 
         Atpg *atpg = new Atpg(cir, f_mgr->getFault(n)); 
-        Pattern p; 
-        if(!atpg->Tpg(p)) { 
+        if(atpg->Tpg()) { 
+            Pattern *p = new Pattern; 
+            atpg->GetPattern(*p); 
+
+            pat_mgr->pats.push_back(p); 
+        }
+        else { 
             //TODO 
             cout << "*** BACKTRACK NEEDED!! \n";  
         }

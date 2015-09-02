@@ -73,6 +73,39 @@ const Value NorMap[5][5] = {
 //        { D, B, X, L, H }
 //     };
 
+inline void Print3Value(Value v) { 
+    switch(v) { 
+    case L: 
+    case B: 
+        std::cout << "0"; 
+        break; 
+    case H: 
+    case D: 
+        std::cout << "1"; 
+        break; 
+    case X: 
+        std::cout << "X"; 
+        break; 
+    }
+}
+
+inline void Print5Value(Value v) { 
+    switch(v) { 
+    case L: 
+    case H: 
+        std::cout << (unsigned) v; 
+        break; 
+    case X: 
+        std::cout << "X"; 
+        break; 
+    case D: 
+        std::cout << "D"; 
+        break; 
+    case B:
+        std::cout << "B"; 
+        break; 
+    }
+}
 
 inline bool GetBitVal(ParaValue pv,  int pos) {
 	ParaValue mask = 0x01;

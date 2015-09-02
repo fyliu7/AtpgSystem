@@ -23,7 +23,7 @@ using namespace std;
 
 using namespace CoreNs; 
 
-bool Atpg::Tpg(Pattern& p) { 
+bool Atpg::Tpg() { 
     init(); 
 
     AtpgStatus status = DECISION; 
@@ -70,6 +70,10 @@ bool Atpg::Tpg(Pattern& p) {
 
     return true; 
 } 
+
+void Atpg::GetPattern(Pattern& p) const { 
+    sim_->GetPiPattern(p); 
+}
 
 void Atpg::init() { 
     back_track_count = 0; 

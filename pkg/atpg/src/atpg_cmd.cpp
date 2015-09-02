@@ -153,4 +153,68 @@ bool RunAtpgCmd::run() {
         atpg_mgr_->f_mgr->AddAllFaults(atpg_mgr_->cir); 
     }
     atpg_mgr_->Run(); 
+
+    return true;  
+}
+
+ReportPatCmd::ReportPatCmd(const string &name, 
+                             const string &msg, 
+                             Netlist *nl, 
+                             AtpgMgr *atpg_mgr) : Cmd(name, msg) { 
+
+    nl_ = nl; 
+    atpg_mgr_ = atpg_mgr; 
+}
+
+ReportPatCmd::~ReportPatCmd() { 
+}
+
+bool ReportPatCmd::run() { 
+    if(!atpg_mgr_->pat_mgr) { 
+        //TODO 
+        return false; 
+    }
+
+    string nm; 
+    for (size_t n=0; n<atpg_mgr_->pat_mgr->npi; n++) {  
+        nl_->cells[atpg_mgr_->pat_mgr->pi_order[n]]->getName(nm); 
+        cout << nm << " "; 
+    }
+    cout << "|\n"; 
+
+    for (size_t n=0; n<atpg_mgr_->pat_mgr->nppi; n++) { 
+        nl_->cells[atpg_mgr_->pat_mgr->ppi_order[n]]->getName(nm); 
+        cout << nm << " "; 
+    }
+    cout << "|\n"; 
+    
+    for (size_t n=0; n<atpg_mgr_->pat_mgr->npo; n++) { 
+        nl_->cells[atpg_mgr_->pat_mgr->po_order[n]]->getName(nm); 
+        cout << nm << " "; 
+    }
+    cout << "\n"; 
+
+    cout << "BASIC_SCAN\n"; 
+    cout << "_num_of_pattern_" << atpg_mgr_->pat_mgr->pats.size() << endl; 
+    for(size_t i=0; i<atpg_mgr_->pat_mgr->pats.size(); i++) { 
+        Pattern *p = atpg_mgr_->pat_mgr->pats[i]; 
+        //cout << "_pattern_" << i+1 << " "; 
+        for(size_t j=0; j<p->pi.size(); j++) 
+            Print3Value(p->pi[j]); 
+        //cout << " | "; 
+        //cout << " | "; 
+        for(size_t j=0; j<p->ppi.size(); j++) 
+            Print3Value(p->ppi[j]); 
+        //cout << " | "; 
+        //cout << " | "; 
+        //for(size_t j=0; j<atpg_mgr_->pat_mgr->npo; j++) 
+        //    cout << "X"; 
+        //cout << " | "; 
+        //cout << " | "; 
+        //for(size_t j=0; j<atpg_mgr_->pat_mgr->nppi; j++) 
+        //    cout << "X"; 
+        cout << endl; 
+    }
+
+    return true; 
 }

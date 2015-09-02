@@ -1,4 +1,4 @@
-cscope 15 $HOME/Documents/atpg/pkg -q 0000000488 0000053898
+cscope 15 $HOME/Documents/atpg/pkg -q 0000000510 0000058694
 	@atpg/src/atpg_cmd.cpp
 
 1 
@@ -683,7 +683,319 @@ cú
 	`Run
 ();
 
-156 
+157  
+åue
+;
+
+158 
+	}
+}
+
+160 
+	gRï‹tP©Cmd
+::
+	$Rï‹tP©Cmd
+(c⁄° 
+°rög
+ &
+«me
+,
+
+161 c⁄° 
+°rög
+ &
+msg
+,
+
+162 
+Nëli°
+ *
+∆
+,
+
+163 
+AçgMgr
+ *
+©pg_mgr
+Ë: 
+	$Cmd
+(
+«me
+, 
+msg
+) {
+
+165 
+∆_
+ = 
+∆
+;
+
+166 
+©pg_mgr_
+ = 
+©pg_mgr
+;
+
+167 
+	}
+}
+
+169 
+	gRï‹tP©Cmd
+::~
+	$Rï‹tP©Cmd
+() {
+
+170 
+	}
+}
+
+172 
+boﬁ
+ 
+Rï‹tP©Cmd
+::
+	$run
+() {
+
+173 if(!
+©pg_mgr_
+->
+∑t_mgr
+) {
+
+175  
+Ál£
+;
+
+178 
+°rög
+ 
+nm
+;
+
+179 
+size_t
+ 
+n
+=0;Ç<
+©pg_mgr_
+->
+∑t_mgr
+->
+≈i
+;Ç++) {
+
+180 
+∆_
+->
+˚Œs
+[
+©pg_mgr_
+->
+∑t_mgr
+->
+pi_‹dî
+[
+n
+]]->
+	`gëName
+(
+nm
+);
+
+181 
+cout
+ << 
+nm
+ << " ";
+
+183 
+cout
+ << "|\n";
+
+185 
+size_t
+ 
+n
+=0;Ç<
+©pg_mgr_
+->
+∑t_mgr
+->
+≈pi
+;Ç++) {
+
+186 
+∆_
+->
+˚Œs
+[
+©pg_mgr_
+->
+∑t_mgr
+->
+µi_‹dî
+[
+n
+]]->
+	`gëName
+(
+nm
+);
+
+187 
+cout
+ << 
+nm
+ << " ";
+
+189 
+cout
+ << "|\n";
+
+191 
+size_t
+ 
+n
+=0;Ç<
+©pg_mgr_
+->
+∑t_mgr
+->
+≈o
+;Ç++) {
+
+192 
+∆_
+->
+˚Œs
+[
+©pg_mgr_
+->
+∑t_mgr
+->
+po_‹dî
+[
+n
+]]->
+	`gëName
+(
+nm
+);
+
+193 
+cout
+ << 
+nm
+ << " ";
+
+195 
+cout
+ << "\n";
+
+197 
+cout
+ << "BASIC_SCAN\n";
+
+198 
+cout
+ << "_num_of_∑âîn_" << 
+©pg_mgr_
+->
+∑t_mgr
+->
+∑ts
+.
+	`size
+(Ë<< 
+ídl
+;
+
+199 
+size_t
+ 
+i
+=0; i<
+©pg_mgr_
+->
+∑t_mgr
+->
+∑ts
+.
+	`size
+(); i++) {
+
+200 
+P©ã∫
+ *
+p
+ = 
+©pg_mgr_
+->
+∑t_mgr
+->
+∑ts
+[
+i
+];
+
+202 
+size_t
+ 
+j
+=0; j<
+p
+->
+pi
+.
+	`size
+(); j++)
+
+203 
+	`Pröt3VÆue
+(
+p
+->
+pi
+[
+j
+]);
+
+206 
+size_t
+ 
+j
+=0; j<
+p
+->
+µi
+.
+	`size
+(); j++)
+
+207 
+	`Pröt3VÆue
+(
+p
+->
+µi
+[
+j
+]);
+
+216 
+cout
+ << 
+ídl
+;
+
+219  
+åue
+;
+
+220 
 	}
 }
 
@@ -1115,6 +1427,84 @@ AçgMgr
 ©pg_mgr_
 ;
 
+84 ˛as†
+	cRï‹tP©Cmd
+ : 
+public
+ 
+CmdNs
+::
+Cmd
+ {
+
+85 
+public
+:
+
+86 
+Rï‹tP©Cmd
+(c⁄° 
+°d
+::
+°rög
+ &
+«me
+,
+
+87 c⁄° 
+°d
+::
+°rög
+ &
+msg
+,
+
+88 
+I¡fNs
+::
+Nëli°
+ *
+∆
+,
+
+89 
+C‹eNs
+::
+AçgMgr
+ *
+©pg_mgr
+);
+
+90 ~
+Rï‹tP©Cmd
+();
+
+91 
+	g¥iv©e
+:
+
+92 
+boﬁ
+ 
+run
+();
+
+94 
+	gI¡fNs
+::
+Nëli°
+ *
+∆_
+;
+
+95 
+	gC‹eNs
+::
+AçgMgr
+ *
+©pg_mgr_
+;
+
 	@atpg/src/main.cpp
 
 1 
@@ -1203,16 +1593,6 @@ BuûdCúcuôCmd
 mgr
 );
 
-18 
-Rï‹tG©eCmd
- 
-	`cmdR±G
-("ªp‹t_g©e", "ªp‹àg©e(sËöf‹m©i⁄", &
-∆
-, &
-mgr
-);
-
 19 
 AddFau…Cmd
  
@@ -1233,7 +1613,17 @@ RunAçgCmd
 mgr
 );
 
-22 
+21 
+Rï‹tP©Cmd
+ 
+	`cmdR±P
+("ªp‹t_∑âîn", "ªp‹à∑âîn(s)", &
+∆
+, &
+mgr
+);
+
+23 
 ve˘‹
 <
 °rög
@@ -1241,7 +1631,7 @@ ve˘‹
 ¨gsRdNl
 ;
 
-24 
+25 
 ve˘‹
 <
 °rög
@@ -1249,15 +1639,7 @@ ve˘‹
 ¨gsBC
 ;
 
-25 
-ve˘‹
-<
-°rög
-> 
-¨gsR±G
-;
-
-26 
+27 
 ve˘‹
 <
 °rög
@@ -1265,7 +1647,7 @@ ve˘‹
 ¨gsAddF
 ;
 
-27 
+28 
 ve˘‹
 <
 °rög
@@ -1273,13 +1655,21 @@ ve˘‹
 ¨gsRunA
 ;
 
-29 
+29 
+ve˘‹
+<
+°rög
+> 
+¨gsR±P
+;
+
+31 
 i
 =0; i<
 ¨gc
 ; i++)
 
-30 
+32 
 ¨gsRdNl
 .
 	`push_back
@@ -1291,7 +1681,7 @@ i
 i
 ]));
 
-31 
+33 
 ¨gsBC
 .
 	`push_back
@@ -1299,15 +1689,7 @@ i
 	`°rög
 ("build_cir"));
 
-33 
-¨gsR±G
-.
-	`push_back
-(
-	`°rög
-("report_gate"));
-
-34 
+36 
 ¨gsAddF
 .
 	`push_back
@@ -1315,7 +1697,7 @@ i
 	`°rög
 ("add_fault"));
 
-35 
+37 
 ¨gsAddF
 .
 	`push_back
@@ -1323,7 +1705,7 @@ i
 	`°rög
 ("--all"));
 
-36 
+38 
 ¨gsRunA
 .
 	`push_back
@@ -1331,7 +1713,15 @@ i
 	`°rög
 ("run_atpg"));
 
-38 
+39 
+¨gsR±P
+.
+	`push_back
+(
+	`°rög
+("report_pattern"));
+
+41 
 cmdRdNl
 .
 	`exec
@@ -1339,7 +1729,7 @@ cmdRdNl
 ¨gsRdNl
 );
 
-40 
+43 
 cmdBC
 .
 	`exec
@@ -1347,15 +1737,7 @@ cmdBC
 ¨gsBC
 );
 
-41 
-cmdR±G
-.
-	`exec
-(
-¨gsR±G
-);
-
-42 
+45 
 cmdAddF
 .
 	`exec
@@ -1363,7 +1745,7 @@ cmdAddF
 ¨gsAddF
 );
 
-43 
+46 
 cmdRunA
 .
 	`exec
@@ -1371,7 +1753,15 @@ cmdRunA
 ¨gsRunA
 );
 
-46 
+47 
+cmdR±P
+.
+	`exec
+(
+¨gsR±P
+);
+
+50 
 	}
 }
 
@@ -1511,7 +1901,7 @@ RódNëli°Cmd
 	`gëVÆ
 ("nl_file");
 
-32 
+32 if(!
 ∆_
 ->
 	`∑r£
@@ -1519,17 +1909,25 @@ RódNëli°Cmd
 ∆_‚ame
 , 
 	`°rög
-());
+())) {
 
-41  
+34 
+˚º
+ << "ParsingÇetlist file failed...\n";
+
+35 
+	`exô
+(-1);
+
+46  
 åue
 ;
 
-42 
+47 
 	}
 }
 
-44 
+49 
 	gRï‹tCñlCmd
 ::
 	$Rï‹tCñlCmd
@@ -1539,13 +1937,13 @@ RódNëli°Cmd
 «me
 ,
 
-45 c⁄° 
+50 c⁄° 
 °rög
  &
 msg
 ,
 
-46 
+51 
 Nëli°
  *
 ∆
@@ -1557,31 +1955,31 @@ Nëli°
 msg
 ) {
 
-48 
+53 
 ∆_
  = 
 ∆
 ;
 
-49 
+54 
 åy
  {
 
-50 
+55 
 ›t_mgr_
 ->
 	`ªgArg
 ("cell",
 
-54 
+59 
 Ál£
 ,
 
-55 
+60 
 åue
 );
 
-58 
+63 
 	`ˇtch
  (
 ArgEx˚±i⁄
@@ -1589,15 +1987,15 @@ ArgEx˚±i⁄
 e
 ) {
 
-60 
+65 
 	`exô
 (1);
 
-62 
+67 
 	}
 }
 
-64 
+69 
 	gRï‹tCñlCmd
 ::~
 	$Rï‹tCñlCmd
@@ -1605,7 +2003,7 @@ e
 	}
 }
 
-65 
+70 
 boﬁ
  
 Rï‹tCñlCmd
@@ -1613,17 +2011,17 @@ Rï‹tCñlCmd
 	$run
 () {
 
-66 if(!
+71 if(!
 ∆_
 ->
 	`gëT›
 ()) {
 
-68  
+73  
 Ál£
 ;
 
-73 
+78 
 size_t
  
 n
@@ -1635,13 +2033,13 @@ n
 	`gëCñlNum
 ();Ç++) {
 
-74 
+79 
 °rög
  
 nm
 ;
 
-75 
+80 
 Cñl
  *
 c
@@ -1655,11 +2053,11 @@ c
 n
 );
 
-77 
+82 
 cout
  << "Cell ";
 
-78 
+83 
 c
 ->
 	`gëName
@@ -1667,13 +2065,13 @@ c
 nm
 );
 
-79 
+84 
 cout
  << 
 nm
  << "Åype(";
 
-80 
+85 
 cout
  << 
 c
@@ -1681,7 +2079,7 @@ c
 	`gëTy≥
 () << ")\n";
 
-82 
+87 
 CñlVec
  
 Ánös
@@ -1689,7 +2087,7 @@ CñlVec
 Ánouts
 ;
 
-83 
+88 
 c
 ->
 	`gëF™öCñl
@@ -1697,7 +2095,7 @@ c
 Ánös
 );
 
-84 
+89 
 size_t
  
 i
@@ -1707,7 +2105,7 @@ c
 	`gëOutNëNum
 (); i++) {
 
-85 
+90 
 c
 ->
 	`gëF™outCñl
@@ -1717,7 +2115,7 @@ i
 Ánouts
 );
 
-88 
+93 
 cout
  << "fi[" << 
 Ánös
@@ -1725,7 +2123,7 @@ cout
 	`size
 () << "] ";
 
-89 
+94 
 size_t
  
 i
@@ -1735,7 +2133,7 @@ i
 	`size
 (); i++) {
 
-90 
+95 
 Ánös
 [
 i
@@ -1745,19 +2143,19 @@ i
 nm
 );
 
-91 
+96 
 cout
  << 
 nm
  << " ";
 
-93 
+98 
 cout
  << 
 ídl
 ;
 
-95 
+100 
 cout
  << "fo[" << 
 Ánouts
@@ -1765,7 +2163,7 @@ cout
 	`size
 () << "] ";
 
-96 
+101 
 size_t
  
 i
@@ -1775,7 +2173,7 @@ i
 	`size
 (); i++) {
 
-97 
+102 
 Ánouts
 [
 i
@@ -1785,29 +2183,29 @@ i
 nm
 );
 
-98 
+103 
 cout
  << 
 nm
  << " ";
 
-100 
+105 
 cout
  << 
 ídl
 ;
 
-101 
+106 
 cout
  << 
 ídl
 ;
 
-104  
+109  
 åue
 ;
 
-105 
+110 
 	}
 }
 
@@ -3475,11 +3873,7 @@ boﬁ
 	gAçg
 ::
 	$Tpg
-(
-P©ã∫
-& 
-p
-) {
+() {
 
 27 
 	`öô
@@ -3505,111 +3899,151 @@ EXIT
 
 32 
 IMPLY_AND_CHECK
-:
+: {
 
-33 if(
-	`Im∂y
-())
-
-34 
+33 
 °©us
  = 
 DECISION
 ;
 
-36 
-DECISION
-: {
+34 if(!
+	`Im∂y
+()) {
 
-37 
+35 
+°©us
+ = 
+BACKTRACK
+;
+
+38 if(
+sim_
+->
+	`IsFau…AtPo
+()Ë 
+åue
+;
+
+40 if(
+sim_
+->
+	`IsGutOuçutAtX
+()) ;
+
+42 
 VÆue
  
 fv
  = 
-cú_
+sim_
 ->
-g©es
-[
-èrgë_Áu…_
-->
-fg©e_id
-]->
-vÆ
-;
+	`GëGutVÆ
+();
 
-38 if(
+43 if(
 fv
-==
-X
+!=
+D
+ && fv!=
+B
 ) {
 
-39 
+44 
+°©us
+ = 
+BACKTRACK
+;
+
+49 
+DECISION
+:
+
+50 if(
+sim_
+->
+	`IsGutOuçutAtX
+()) {
+
+51 
 	`Fau…A˘iv©e
 ();
 
-40 
+52 
 °©us
  = 
 BACKTRACE
 ;
 
-42 if(
-fv
-==
-D
- || fv==
-B
-Ë 
+55 if(!
+	`DDrive
+()Ë
+°©us
+ = 
+BACKTRACK
+;
+
+56 
+°©us
+ = 
+BACKTRACE
+;
+
+59 
+BACKTRACE
+:
+
+60 
+°©us
+ = 
+IMPLY_AND_CHECK
+;
+
+61 if(!
+	`Backåa˚
+())
+
+62 
+°©us
+ = 
+BACKTRACK
+;
+
+64 
+BACKTRACK
+:
+
+65 if(!
+	`BackTøck
+()Ë 
+Ál£
+;
+
+66 
+°©us
+ = 
+IMPLY_AND_CHECK
+;
+
+71  
 åue
 ;
 
-44 
-cout
- << "***Fault Activation Failed: #GID= ";
+72 
+	}
+}
 
-45 
-cout
- << 
-èrgë_Áu…_
-->
-fg©e_id
-;
+74 
+	gAçg
+::
+	$GëP©ã∫
+(
+P©ã∫
+& 
+p
+) const {
 
-46 
-cout
- << ", #PID" << 
-èrgë_Áu…_
-->
-Âid
-;
-
-47 
-°rög
- 
-ß
- = (
-èrgë_Áu…_
-->
-fvÆ
-==
-D
-)?"SA0":"SA1";
-
-48 
-cout
- << ", #SA " << 
-ß
-;
-
-49 
-cout
- << ", #OUT" << (Ë
-fv
- << 
-ídl
-;
-
-51 
+75 
 sim_
 ->
 	`GëPiP©ã∫
@@ -3617,57 +4051,49 @@ sim_
 p
 );
 
-52  
-Ál£
-;
-
-56 
-BACKTRACE
-:
-
-57 if(
-	`Backåa˚
-())
-
-58 
-°©us
- = 
-IMPLY_AND_CHECK
-;
-
-60 
-BACKTRACK
-:
-
-66  
-åue
-;
-
-67 
+76 
 	}
 }
 
-69 
+78 
 	gAçg
 ::
 	$öô
 () {
 
-70 
+79 
 back_åack_cou¡
  = 0;
 
-72 
+81 
 sim_
 ->
 	`Inô
 ();
 
-73 
+82 
 	}
 }
 
-75 
+84 
+boﬁ
+ 
+	gAçg
+::
+	$Im∂y
+() {
+
+85  
+sim_
+->
+	`EvítDrivíSim
+();
+
+86 
+	}
+}
+
+88 
 boﬁ
  
 	gAçg
@@ -3675,7 +4101,7 @@ boﬁ
 	$Fau…A˘iv©e
 () {
 
-76 
+89 
 G©e
  *
 fg
@@ -3689,7 +4115,7 @@ g©es
 fg©e_id
 ];
 
-77 
+90 
 size_t
  
 Â
@@ -3699,7 +4125,7 @@ size_t
 Âid
 ;
 
-78 
+91 
 VÆue
  
 fv
@@ -3709,11 +4135,11 @@ fv
 fvÆ
 ;
 
-80 if(()
+93 if(
 Â
 ) {
 
-81 
+94 
 VÆue
  
 v
@@ -3727,13 +4153,13 @@ fis
 vÆ
 ;
 
-82 if(
+95 if(
 v
 ==
 X
 ) {
 
-83 
+96 
 VÆue
  
 objv
@@ -3747,7 +4173,7 @@ H
 L
 ;
 
-84 
+97 
 cuºít_obj_
 .
 fú°
@@ -3761,7 +4187,7 @@ fis
 id
 ;
 
-85 
+98 
 cuºít_obj_
 .
 £c⁄d
@@ -3769,11 +4195,11 @@ cuºít_obj_
 objv
 ;
 
-86  
+99  
 åue
 ;
 
-90 
+103 
 VÆue
  
 objv
@@ -3782,10 +4208,10 @@ objv
 (
 fg
 ->
-˘r_vÆue
+ouçut_˘r_vÆue
 );
 
-93 if(
+106 if(
 objv
 ==
 X
@@ -3793,7 +4219,7 @@ X
 åue
 ;
 
-94 
+107 
 cuºít_obj_
 .
 fú°
@@ -3803,7 +4229,7 @@ fg
 id
 ;
 
-95 
+108 
 cuºít_obj_
 .
 £c⁄d
@@ -3811,11 +4237,11 @@ cuºít_obj_
 objv
 ;
 
-96  
+109  
 åue
 ;
 
-101 
+114 
 VÆue
  
 objv
@@ -3829,7 +4255,7 @@ H
 L
 ;
 
-102 
+115 
 cuºít_obj_
 .
 fú°
@@ -3839,7 +4265,7 @@ fg
 id
 ;
 
-103 
+116 
 cuºít_obj_
 .
 £c⁄d
@@ -3847,15 +4273,127 @@ cuºít_obj_
 objv
 ;
 
-104  
+117  
 åue
 ;
 
-106 
+119 
 	}
 }
 
-108 
+121 
+boﬁ
+ 
+	gAçg
+::
+	$DDrive
+() {
+
+122 
+G©eVec
+ 
+d‰⁄t
+;
+
+123 
+sim_
+->
+	`GëDFr⁄tõr
+(
+d‰⁄t
+);
+
+125 if(
+d‰⁄t
+.
+	`size
+()==0Ë 
+Ál£
+;
+
+127 
+G©e
+ *
+gt›r›
+ = 
+NULL
+;
+
+128 
+ob£rv
+ = 
+INT_MIN
+;
+
+129 
+size_t
+ 
+i
+=0; i<
+d‰⁄t
+.
+	`size
+(); i++)
+
+130 if(
+d‰⁄t
+[
+i
+]->
+lvl
+>
+ob£rv
+) {
+
+131 
+gt›r›
+ = 
+d‰⁄t
+[
+i
+];
+
+132 
+ob£rv
+ = 
+d‰⁄t
+[
+i
+]->
+lvl
+;
+
+135 
+cuºít_obj_
+.
+fú°
+ = 
+gt›r›
+->
+id
+;
+
+136 
+cuºít_obj_
+.
+£c⁄d
+ = 
+	`EvÆNŸ
+(
+gt›r›
+->
+ouçut_˘r_vÆue
+);
+
+138  
+åue
+;
+
+139 
+	}
+}
+
+141 
 boﬁ
  
 	gAçg
@@ -3863,7 +4401,7 @@ boﬁ
 	$Backåa˚
 () {
 
-109 
+142 
 G©e
  *
 g
@@ -3877,7 +4415,7 @@ cuºít_obj_
 fú°
 ];
 
-110 
+143 
 VÆue
  
 objv
@@ -3887,7 +4425,7 @@ cuºít_obj_
 £c⁄d
 ;
 
-111 !(
+144 !(
 g
 ->
 ty≥
@@ -3897,7 +4435,7 @@ GATE_PI
 GATE_PPI
 )) {
 
-112 if(
+145 if(
 g
 ->
 ouçut_˘r_vÆue
@@ -3905,19 +4443,27 @@ ouçut_˘r_vÆue
 X
 ) {
 
-113 
+146 if(
 g
- = g->
-fis
-[0];
+->
+ty≥
+==
+GATE_NOT
+)
 
-115 
+147 
 objv
  = 
 	`EvÆNŸ
 (objv);
 
-119 
+148 
+g
+ = g->
+fis
+[0];
+
+152 
 G©e
  *
 g√xt
@@ -3925,7 +4471,7 @@ g√xt
 NULL
 ;
 
-120 i‡(
+153 i‡(
 objv
 ==
 g
@@ -3933,13 +4479,13 @@ g
 ouçut_˘r_vÆue
 ) {
 
-124 
+157 
 ˘r_ablûôy
  = 
 INT_MAX
 ;
 
-125 
+158 
 size_t
  
 n
@@ -3949,7 +4495,7 @@ g
 nfi
 ;Ç++) {
 
-126 if(
+159 if(
 g
 ->
 fis
@@ -3965,7 +4511,7 @@ lvl
 ˘r_ablûôy
 ) {
 
-127 
+160 
 g√xt
  = 
 g
@@ -3975,7 +4521,7 @@ fis
 n
 ];
 
-128 
+161 
 ˘r_ablûôy
  = 
 g
@@ -3987,7 +4533,7 @@ n
 lvl
 ;
 
-132 i‡(
+165 i‡(
 objv
 ==
 	`EvÆNŸ
@@ -3997,13 +4543,13 @@ g
 ouçut_˘r_vÆue
 )) {
 
-136 
+169 
 ˘r_öablûôy
  = 
 INT_MIN
 ;
 
-137 
+170 
 size_t
  
 n
@@ -4013,7 +4559,7 @@ g
 nfi
 ;Ç++) {
 
-138 if(
+171 if(
 g
 ->
 fis
@@ -4029,7 +4575,7 @@ lvl
 ˘r_öablûôy
 ) {
 
-139 
+172 
 g√xt
  = 
 g
@@ -4039,7 +4585,7 @@ fis
 n
 ];
 
-140 
+173 
 ˘r_öablûôy
  = 
 g
@@ -4051,13 +4597,7 @@ n
 lvl
 ;
 
-144 
-g
- = 
-g√xt
-;
-
-146 if(
+178 if(
 g
 ->
 ty≥
@@ -4067,13 +4607,19 @@ GATE_NAND
 GATE_NOR
 )
 
-147 
+179 
 objv
  = 
 	`EvÆNŸ
 (objv);
 
-151 
+181 
+g
+ = 
+g√xt
+;
+
+185 
 g
 ->
 vÆ
@@ -4081,7 +4627,7 @@ vÆ
 objv
 ;
 
-152 if(
+186 if(
 èrgë_Áu…_
 ->
 fg©e_id
@@ -4091,7 +4637,7 @@ g
 id
 )
 
-153 
+187 
 sim_
 ->
 	`PushEvít
@@ -4101,7 +4647,7 @@ g
 id
 );
 
-155 
+189 
 sim_
 ->
 	`PushF™outEvít
@@ -4111,29 +4657,27 @@ g
 id
 );
 
-157  
+191  
 åue
 ;
 
-158 
+192 
 	}
 }
 
-160 
+194 
 boﬁ
  
 	gAçg
 ::
-	$Im∂y
+	$BackTøck
 () {
 
-161  
-sim_
-->
-	`EvítDrivíSim
-();
+197  
+Ál£
+;
 
-162 
+198 
 	}
 }
 
@@ -4225,30 +4769,22 @@ Açg
 boﬁ
  
 Tpg
+();
+
+43 
+GëP©ã∫
 (
 P©ã∫
 & 
 p
-);
+) const;
 
-43 
+45 
 	g¥Ÿe˘ed
 :
 
-44 
+46 
 öô
-();
-
-45 
-boﬁ
- 
-Fau…A˘iv©e
-();
-
-46 
-boﬁ
- 
-Backåa˚
 ();
 
 47 
@@ -4257,43 +4793,67 @@ boﬁ
 Im∂y
 ();
 
+48 
+boﬁ
+ 
+Fau…A˘iv©e
+();
+
 49 
+boﬁ
+ 
+DDrive
+();
+
+50 
+boﬁ
+ 
+Backåa˚
+();
+
+51 
+boﬁ
+ 
+BackTøck
+();
+
+53 
 Cúcuô
  *
 	gcú_
 ;
 
-50 
+54 
 Simuœt‹
  *
 	gsim_
 ;
 
-52 
+56 
 size_t
  
 	gback_åack_limô
 ;
 
-53 
+57 
 size_t
  
 	gback_åack_cou¡
 ;
 
-55 
+59 
 Fau…
  *
 	gèrgë_Áu…_
 ;
 
-57 
+61 
 Obje˘ive
  
 	gcuºít_obj_
 ;
 
-60 
+64 
 ölöe
  
 	gAçg
@@ -4309,25 +4869,25 @@ Fau…
 f
 ) {
 
-61 
+65 
 cú_
  = 
 cú
 ;
 
-62 
+66 
 èrgë_Áu…_
  = 
 f
 ;
 
-63 
+67 
 back_åack_limô
  = 
 _MAX_BACK_TRACK_LIMIT_
 ;
 
-65 
+69 
 sim_
  = 
 √w
@@ -4339,11 +4899,11 @@ cú_
 èrgë_Áu…_
 );
 
-66 
+70 
 	}
 }
 
-68 
+72 
 ölöe
  
 	gAçg
@@ -4351,13 +4911,13 @@ cú_
 	$Açg
 () {
 
-69 
+73 
 dñëe
  
 sim_
 ;
 
-70 
+74 
 	}
 }
 
@@ -4391,7 +4951,17 @@ boﬁ
 	$Run
 () {
 
-26 
+26 if(!
+∑t_mgr
+Ë∑t_mg∏
+√w
+ 
+	`P©ã∫Mgr
+(
+cú
+);
+
+28 
 size_t
  
 n
@@ -4401,7 +4971,7 @@ f_mgr
 	`gëFau…Num
 ();Ç++) {
 
-27 
+29 
 Açg
  *
 ©pg
@@ -4419,69 +4989,43 @@ f_mgr
 n
 ));
 
-28 
-P©ã∫
- 
-p
-;
-
-29 if(!
+30 if(
 ©pg
 ->
 	`Tpg
-(
-p
-)) {
+()) {
 
-31 
-size_t
- 
-n
-=0;Ç<
+31 
+P©ã∫
+ *
 p
-.
-µi
-.
-	`size
-();Ç++)
+ = 
+√w
+ Pattern;
 
 32 
-cout
- << (Ë
+©pg
+->
+	`GëP©ã∫
+(*
 p
-.
-µi
-[
-n
-] << " ";
-
-33 
-size_t
- 
-n
-=0;Ç<
-p
-.
-pi
-.
-	`size
-();Ç++)
+);
 
 34 
-cout
- << (Ë
-p
+∑t_mgr
+->
+∑ts
 .
-pi
-[
-n
-] << " ";
-
-35 
-cout
- << "\n\n";
+	`push_back
+(
+p
+);
 
 38 
+cout
+ << "*** BACKTRACK NEEDED!! \n";
+
+40 
 ©pgs_
 .
 	`push_back
@@ -4489,7 +5033,7 @@ cout
 ©pg
 );
 
-40 
+42 
 	}
 }
 
@@ -4559,17 +5103,23 @@ Fau…Mgr
 	gf_mgr
 ;
 
-21 
+20 
+P©ã∫Mgr
+ *
+	g∑t_mgr
+;
+
+22 
 	g¥iv©e
 :
 
-22 
+23 
 AçgVec
  
 ©pgs_
 ;
 
-25 
+26 
 ölöe
  
 	gAçgMgr
@@ -4577,23 +5127,29 @@ AçgVec
 	$AçgMgr
 () {
 
-26 
+27 
 cú
  = 
 NULL
 ;
 
-28 
+29 
 f_mgr
  = 
 NULL
 ;
 
 30 
+∑t_mgr
+ = 
+NULL
+;
+
+31 
 	}
 }
 
-32 
+33 
 ölöe
  
 	gAçgMgr
@@ -4601,19 +5157,25 @@ NULL
 	$AçgMgr
 () {
 
-34 if(
+35 if(
 cú
 Ë
 dñëe
  cir;
 
-35 if(
+37 if(
 f_mgr
 Ë
 dñëe
  f_mgr;
 
-36 
+38 if(
+∑t_mgr
+Ë
+dñëe
+Öat_mgr;
+
+40 
 size_t
  
 i
@@ -4623,7 +5185,7 @@ i
 	`size
 (); i++)
 
-37 
+41 
 dñëe
  
 ©pgs_
@@ -4631,7 +5193,7 @@ dñëe
 i
 ];
 
-38 
+42 
 	}
 }
 
@@ -6417,7 +6979,119 @@ L
 X
 , L, D }
 
-77 
+76 
+ölöe
+ 
+Pröt3VÆue
+(
+VÆue
+ 
+v
+) {
+
+77 
+	gv
+) {
+
+78 
+	gL
+:
+
+79 
+B
+:
+
+80 
+°d
+::
+cout
+ << "0";
+
+82 
+	gH
+:
+
+83 
+D
+:
+
+84 
+°d
+::
+cout
+ << "1";
+
+86 
+	gX
+:
+
+87 
+°d
+::
+cout
+ << "X";
+
+92 
+ölöe
+ 
+Pröt5VÆue
+(
+VÆue
+ 
+v
+) {
+
+93 
+	gv
+) {
+
+94 
+	gL
+:
+
+95 
+H
+:
+
+96 
+°d
+::
+cout
+ << (Ë
+v
+;
+
+98 
+	gX
+:
+
+99 
+°d
+::
+cout
+ << "X";
+
+101 
+	gD
+:
+
+102 
+°d
+::
+cout
+ << "D";
+
+104 
+	gB
+:
+
+105 
+°d
+::
+cout
+ << "B";
+
+110 
 ölöe
  
 boﬁ
@@ -6431,25 +7105,25 @@ pv
 pos
 ) {
 
-78 
+111 
 P¨aVÆue
  
 	gmask
  = 0x01;
 
-79 
+112 
 	gmask
  <<
 pos
 ;
 
-80  
+113  
 	gpv
  & 
 	gmask
 ;
 
-83 
+116 
 ölöe
  
 SëBôVÆ
@@ -6465,19 +7139,19 @@ vÆue
 pos
 ) {
 
-84 
+117 
 P¨aVÆue
  
 	gmask
  = 0x01;
 
-85 
+118 
 	gmask
  <<
 pos
 ;
 
-86 i‡(
+119 i‡(
 	gvÆue
 Ë
 	gpv
@@ -6485,13 +7159,13 @@ pos
 mask
 ;
 
-87 
+120 
 	gpv
  &~
 mask
 ;
 
-90 
+123 
 ölöe
  
 VÆue
@@ -6501,13 +7175,13 @@ EvÆNŸ
 v
 ){
 
-91  
+124  
 	gNŸM≠
 [
 v
 ];
 
-94 
+127 
 ölöe
  
 VÆue
@@ -6519,13 +7193,13 @@ size_t
 n
 ...) {
 
-95 i‡(
+128 i‡(
 	gn
 <2Ë 
 	gX
 ;
 
-97 
+130 
 VÆue
  
 	gªt
@@ -6533,13 +7207,13 @@ VÆue
 X
 ;
 
-98 
+131 
 va_li°
  
 	gvÆs
 ;
 
-99 
+132 
 va_°¨t
 (
 vÆs
@@ -6547,7 +7221,7 @@ vÆs
 n
 );
 
-101 
+134 
 VÆue
  
 	gvÆ1
@@ -6557,7 +7231,7 @@ va_¨g
 vÆs
 , );
 
-102 
+135 
 VÆue
  
 	gvÆ2
@@ -6567,7 +7241,7 @@ va_¨g
 vÆs
 , );
 
-103 
+136 
 	gªt
  = 
 AndM≠
@@ -6577,7 +7251,7 @@ vÆ1
 vÆ2
 ];
 
-104 
+137 
 size_t
  
 	gi
@@ -6585,7 +7259,7 @@ size_t
 	gn
 ; i++) {
 
-105 
+138 
 VÆue
  
 	gvÆ1
@@ -6595,7 +7269,7 @@ va_¨g
 vÆs
 , );
 
-106 
+139 
 	gªt
  = 
 AndM≠
@@ -6605,17 +7279,17 @@ AndM≠
 vÆ1
 ];
 
-108 
+141 
 va_íd
 (
 vÆs
 );
 
-109  
+142  
 	gªt
 ;
 
-112 
+145 
 ölöe
  
 VÆue
@@ -6627,242 +7301,48 @@ size_t
 n
 ...) {
 
-113 i‡(
+146 i‡(
 	gn
 <2Ë 
 	gX
 ;
 
-115 
+148 
 VÆue
  
 	gªt
  = 
 X
-;
-
-116 
-va_li°
- 
-	gvÆs
-;
-
-117 
-va_°¨t
-(
-vÆs
-, 
-n
-);
-
-119 
-VÆue
- 
-	gvÆ1
- = (Ë
-va_¨g
-(
-vÆs
-, );
-
-120 
-VÆue
- 
-	gvÆ2
- = (Ë
-va_¨g
-(
-vÆs
-, );
-
-121 
-	gªt
- = 
-OrM≠
-[
-vÆ1
-][
-vÆ2
-];
-
-122 
-size_t
- 
-	gi
-=2; i<
-	gn
-; i++) {
-
-123 
-VÆue
- 
-	gvÆ1
- = (Ë
-va_¨g
-(
-vÆs
-, );
-
-124 
-	gªt
- = 
-OrM≠
-[
-ªt
-][
-vÆ1
-];
-
-126  
-	gªt
-;
-
-129 
-ölöe
- 
-VÆue
- 
-EvÆN™dN
-(
-size_t
- 
-n
-...) {
-
-130 i‡(
-	gn
-<2Ë 
-	gX
-;
-
-132 
-VÆue
- 
-	gªt
- = 
-X
-;
-
-133 
-va_li°
- 
-	gvÆs
-;
-
-134 
-va_°¨t
-(
-vÆs
-, 
-n
-);
-
-136 
-VÆue
- 
-	gvÆ1
- = (Ë
-va_¨g
-(
-vÆs
-, );
-
-137 
-VÆue
- 
-	gvÆ2
- = (Ë
-va_¨g
-(
-vÆs
-, );
-
-138 
-	gªt
- = 
-N™dM≠
-[
-vÆ1
-][
-vÆ2
-];
-
-139 
-size_t
- 
-	gi
-=2; i<
-	gn
-; i++) {
-
-140 
-VÆue
- 
-	gvÆ1
- = (Ë
-va_¨g
-(
-vÆs
-, );
-
-141 
-	gªt
- = 
-N™dM≠
-[
-ªt
-][
-vÆ1
-];
-
-143  
-	gªt
-;
-
-146 
-ölöe
- 
-VÆue
- 
-EvÆN‹N
-(
-size_t
- 
-n
-...) {
-
-147 i‡(
-	gn
-<2Ë 
-	gX
 ;
 
 149 
-VÆue
- 
-	gªt
- = 
-X
-;
-
-150 
 va_li°
  
 	gvÆs
 ;
 
-151 
+150 
 va_°¨t
 (
 vÆs
 , 
 n
 );
+
+152 
+VÆue
+ 
+	gvÆ1
+ = (Ë
+va_¨g
+(
+vÆs
+, );
 
 153 
 VÆue
  
-	gvÆ1
+	gvÆ2
  = (Ë
 va_¨g
 (
@@ -6870,26 +7350,16 @@ vÆs
 , );
 
 154 
-VÆue
- 
-	gvÆ2
- = (Ë
-va_¨g
-(
-vÆs
-, );
-
-155 
 	gªt
  = 
-N‹M≠
+OrM≠
 [
 vÆ1
 ][
 vÆ2
 ];
 
-156 
+155 
 size_t
  
 	gi
@@ -6897,7 +7367,7 @@ size_t
 	gn
 ; i++) {
 
-157 
+156 
 VÆue
  
 	gvÆ1
@@ -6907,7 +7377,211 @@ va_¨g
 vÆs
 , );
 
-158 
+157 
+	gªt
+ = 
+OrM≠
+[
+ªt
+][
+vÆ1
+];
+
+159  
+	gªt
+;
+
+162 
+ölöe
+ 
+VÆue
+ 
+EvÆN™dN
+(
+size_t
+ 
+n
+...) {
+
+163 i‡(
+	gn
+<2Ë 
+	gX
+;
+
+165 
+VÆue
+ 
+	gªt
+ = 
+X
+;
+
+166 
+va_li°
+ 
+	gvÆs
+;
+
+167 
+va_°¨t
+(
+vÆs
+, 
+n
+);
+
+169 
+VÆue
+ 
+	gvÆ1
+ = (Ë
+va_¨g
+(
+vÆs
+, );
+
+170 
+VÆue
+ 
+	gvÆ2
+ = (Ë
+va_¨g
+(
+vÆs
+, );
+
+171 
+	gªt
+ = 
+N™dM≠
+[
+vÆ1
+][
+vÆ2
+];
+
+172 
+size_t
+ 
+	gi
+=2; i<
+	gn
+; i++) {
+
+173 
+VÆue
+ 
+	gvÆ1
+ = (Ë
+va_¨g
+(
+vÆs
+, );
+
+174 
+	gªt
+ = 
+N™dM≠
+[
+ªt
+][
+vÆ1
+];
+
+176  
+	gªt
+;
+
+179 
+ölöe
+ 
+VÆue
+ 
+EvÆN‹N
+(
+size_t
+ 
+n
+...) {
+
+180 i‡(
+	gn
+<2Ë 
+	gX
+;
+
+182 
+VÆue
+ 
+	gªt
+ = 
+X
+;
+
+183 
+va_li°
+ 
+	gvÆs
+;
+
+184 
+va_°¨t
+(
+vÆs
+, 
+n
+);
+
+186 
+VÆue
+ 
+	gvÆ1
+ = (Ë
+va_¨g
+(
+vÆs
+, );
+
+187 
+VÆue
+ 
+	gvÆ2
+ = (Ë
+va_¨g
+(
+vÆs
+, );
+
+188 
+	gªt
+ = 
+N‹M≠
+[
+vÆ1
+][
+vÆ2
+];
+
+189 
+size_t
+ 
+	gi
+=2; i<
+	gn
+; i++) {
+
+190 
+VÆue
+ 
+	gvÆ1
+ = (Ë
+va_¨g
+(
+vÆs
+, );
+
+191 
 	gªt
  = 
 N‹M≠
@@ -6917,11 +7591,11 @@ N‹M≠
 vÆ1
 ];
 
-160  
+193  
 	gªt
 ;
 
-163 
+196 
 ölöe
  
 VÆue
@@ -6935,7 +7609,7 @@ ve˘‹
 vÆs
 ) {
 
-164 if(
+197 if(
 vÆs
 .
 size
@@ -6943,7 +7617,7 @@ size
 X
 ;
 
-166 
+199 
 VÆue
  
 	gªt
@@ -6953,7 +7627,7 @@ AndM≠
 vÆs
 [0]][vals[1]];
 
-167 
+200 
 size_t
  
 	gn
@@ -6963,7 +7637,7 @@ size_t
 size
 ();Ç++)
 
-168 
+201 
 	gªt
  = 
 AndM≠
@@ -6975,11 +7649,11 @@ vÆs
 n
 ]];
 
-170  
+203  
 	gªt
 ;
 
-173 
+206 
 ölöe
  
 VÆue
@@ -6993,7 +7667,7 @@ ve˘‹
 vÆs
 ) {
 
-174 if(
+207 if(
 vÆs
 .
 size
@@ -7001,7 +7675,7 @@ size
 X
 ;
 
-176 
+209 
 VÆue
  
 	gªt
@@ -7011,7 +7685,7 @@ OrM≠
 vÆs
 [0]][vals[1]];
 
-177 
+210 
 size_t
  
 	gn
@@ -7021,7 +7695,7 @@ size_t
 size
 ();Ç++)
 
-178 
+211 
 	gªt
  = 
 OrM≠
@@ -7033,11 +7707,11 @@ vÆs
 n
 ]];
 
-180  
+213  
 	gªt
 ;
 
-183 
+216 
 ölöe
  
 VÆue
@@ -7051,7 +7725,7 @@ ve˘‹
 vÆs
 ) {
 
-184 if(
+217 if(
 vÆs
 .
 size
@@ -7059,7 +7733,7 @@ size
 X
 ;
 
-186 
+219 
 VÆue
  
 	gªt
@@ -7069,7 +7743,7 @@ N™dM≠
 vÆs
 [0]][vals[1]];
 
-187 
+220 
 size_t
  
 	gn
@@ -7079,7 +7753,7 @@ size_t
 size
 ();Ç++)
 
-188 
+221 
 	gªt
  = 
 N™dM≠
@@ -7091,11 +7765,11 @@ vÆs
 n
 ]];
 
-190  
+223  
 	gªt
 ;
 
-193 
+226 
 ölöe
  
 VÆue
@@ -7109,7 +7783,7 @@ ve˘‹
 vÆs
 ) {
 
-194 if(
+227 if(
 vÆs
 .
 size
@@ -7117,7 +7791,7 @@ size
 X
 ;
 
-196 
+229 
 VÆue
  
 	gªt
@@ -7127,7 +7801,7 @@ N‹M≠
 vÆs
 [0]][vals[1]];
 
-197 
+230 
 size_t
  
 	gn
@@ -7137,7 +7811,7 @@ size_t
 size
 ();Ç++)
 
-198 
+231 
 	gªt
  = 
 N‹M≠
@@ -7149,7 +7823,7 @@ vÆs
 n
 ]];
 
-200  
+233  
 	gªt
 ;
 
@@ -7245,7 +7919,13 @@ _CORE_PATTERN_H_
 	gC‹eNs
  {
 
-27 
+27 
+˛ass
+ 
+	gP©ã∫
+;
+
+29 
 	g°d
 ::
 	tve˘‹
@@ -7255,37 +7935,211 @@ _CORE_PATTERN_H_
 	tVÆueVec
 ;
 
-29 ˛as†
+30 
+	g°d
+::
+	tve˘‹
+<
+	tP©ã∫
+ *> 
+	tP©Vec
+;
+
+32 ˛as†
 	cP©ã∫
  {
 
-30 
+33 
 	gpublic
 :
 
-35 
+38 
 VÆueVec
  
 pi
 ;
 
-36 
+39 
 VÆueVec
  
 	gµi
 ;
 
-37 
+40 
 VÆueVec
  
 	gpo
 ;
 
-38 
+41 
 VÆueVec
  
 	gµo
 ;
+
+45 ˛as†
+	cP©ã∫Mgr
+ {
+
+46 
+	gpublic
+:
+
+47 
+P©ã∫Mgr
+(
+Cúcuô
+ *
+cú
+);
+
+48 ~
+P©ã∫Mgr
+();
+
+50 
+size_t
+ 
+	g≈i
+;
+
+51 
+size_t
+ 
+	g≈pi
+;
+
+52 
+size_t
+ 
+	g≈o
+;
+
+54 
+IdVec
+ 
+	gpi_‹dî
+;
+
+55 
+IdVec
+ 
+	gµi_‹dî
+;
+
+56 
+IdVec
+ 
+	gpo_‹dî
+;
+
+57 
+IdVec
+ 
+	gµo_‹dî
+;
+
+59 
+P©Vec
+ 
+	g∑ts
+;
+
+62 
+ölöe
+ 
+	gP©ã∫Mgr
+::
+	$P©ã∫Mgr
+(
+Cúcuô
+ *
+cú
+) {
+
+63 
+≈i
+ = 
+cú
+->npi;
+
+64 
+≈pi
+ = 
+cú
+->nppi;
+
+65 
+≈o
+ = 
+cú
+->npo;
+
+67 
+pi_‹dî
+ = 
+cú
+->
+pis
+;
+
+68 
+µi_‹dî
+ = 
+cú
+->
+µis
+;
+
+69 
+po_‹dî
+ = 
+cú
+->
+pos
+;
+
+70 
+µo_‹dî
+ = 
+cú
+->
+µos
+;
+
+71 
+	}
+}
+
+73 
+ölöe
+ 
+	gP©ã∫Mgr
+::~
+	$P©ã∫Mgr
+() {
+
+74 
+size_t
+ 
+i
+=0; i<
+∑ts
+.
+	`size
+(); i++)
+
+75 
+dñëe
+ 
+∑ts
+[
+i
+];
+
+76 
+	}
+}
 
 	@core/src/simulator.cpp
 
@@ -7372,7 +8226,7 @@ g
 ->
 id
 ==
-èrgë_Áu…
+èrgë_Áu…_
 ->
 fg©e_id
 )?
@@ -7499,225 +8353,181 @@ id
 	}
 }
 
-36 
-VÆue
- 
+36 
 	gSimuœt‹
 ::
-	$Fau…EvÆ
+	$GëDFr⁄tõr
 (
-G©e
-* 
-g
+G©eVec
+& 
+df
 ) const {
 
-37 i‡(
-èrgë_Áu…
-->
-Âid
-==0) {
-
-38 
-VÆue
- 
-v
- = 
-g
-->
-	`GoodEvÆ
-();
-
-39 if(
-v
-==
-L
-&&
-èrgë_Áu…
-->
-fvÆ
-==
-B
-) v = B;
-
-40 if(
-v
-==
-H
-&&
-èrgë_Áu…
-->
-fvÆ
-==
-D
-) v = D;
-
-41  
-v
-;
-
-44 
-size_t
- 
-Â
- = 
-èrgë_Áu…
-->
-Âid
-;
-
-45 
-VÆue
- 
-v
- = 
-g
-->
-fis
-[
-Â
--1]->
-vÆ
-;
-
-46 if(
-v
-==
-L
-&&
-èrgë_Áu…
-->
-fvÆ
-==
-B
-) v = B;
-
-47 if(
-v
-==
-H
-&&
-èrgë_Áu…
-->
-fvÆ
-==
-D
-) v = D;
-
-49 
-ve˘‹
-<
-VÆue
-> 
-vs
-; vs.
-	`push_back
-(
-v
-);
-
-50 
+37 
 size_t
  
 n
 =0;Ç<
+cú_
+->
+¡Ÿg©e
+;Ç++) {
+
+38 
+G©e
+ *
+g
+ = 
+cú_
+->
+g©es
+[
+n
+];
+
+39 if(
+g
+->
+vÆ
+!=
+X
+) ;
+
+41 
+size_t
+ 
+i
+=0; i<
 g
 ->
 nfi
-;Ç++)
+; i++) {
 
-51 if(
-n
-!=
-Â
--1)
-
-52 
-vs
-.
-	`push_back
-(
+42 if(
 g
 ->
 fis
 [
-n
+i
 ]->
 vÆ
-);
+==
+D
+ ||
 
-54 
+43 
 g
 ->
-ty≥
+fis
+[
+i
+]->
+vÆ
+==
+B
 ) {
 
-55 
-GATE_NOT
-:
-
-56  
-	`EvÆNŸ
+45 
+df
+.
+	`push_back
 (
-v
+g
 );
 
-58 
-GATE_AND
-:
-
-59  
-	`EvÆAndN
-(
-vs
-);
-
-61 
-GATE_OR
-:
-
-62  
-	`EvÆOrN
-(
-vs
-);
-
-64 
-GATE_NAND
-:
-
-65  
-	`EvÆN™dN
-(
-vs
-);
-
-67 
-GATE_NOR
-:
-
-68  
-	`EvÆN‹N
-(
-vs
-);
-
-70 
-GATE_PO
-:
-
-71 
-GATE_PPO
-:
-
-72  
-v
-;
-
-76 
+50 
 	}
 }
 
-78 
+52 
+boﬁ
+ 
+	gSimuœt‹
+::
+	$IsFau…AtPo
+() const {
+
+53 
+size_t
+ 
+n
+=0;Ç<
+cú_
+->
+≈o
+;Ç++) {
+
+54 
+VÆue
+ 
+v
+ = 
+cú_
+->
+g©es
+[cú_->
+pos
+[
+n
+]]->
+vÆ
+;
+
+55 if(
+v
+==
+D
+ || v==
+B
+Ë 
+åue
+;
+
+58 
+size_t
+ 
+n
+=0;Ç<
+cú_
+->
+≈pi
+;Ç++) {
+
+59 
+VÆue
+ 
+v
+ = 
+cú_
+->
+g©es
+[cú_->
+µos
+[
+n
+]]->
+vÆ
+;
+
+60 if(
+v
+==
+D
+ || v==
+B
+Ë 
+åue
+;
+
+62  
+Ál£
+;
+
+63 
+	}
+}
+
+65 
 	gSimuœt‹
 ::
 	$GëPiP©ã∫
@@ -7725,9 +8535,9 @@ v
 P©ã∫
 & 
 p
-) {
+) const {
 
-79 
+66 
 size_t
  
 n
@@ -7737,7 +8547,7 @@ cú_
 ≈i
 ;Ç++)
 
-80 
+67 
 p
 .
 pi
@@ -7755,7 +8565,7 @@ n
 vÆ
 );
 
-81 
+68 
 size_t
  
 n
@@ -7765,7 +8575,7 @@ cú_
 ≈pi
 ;Ç++)
 
-82 
+69 
 p
 .
 µi
@@ -7783,7 +8593,225 @@ n
 vÆ
 );
 
-83 
+70 
+	}
+}
+
+72 
+VÆue
+ 
+	gSimuœt‹
+::
+	$Fau…EvÆ
+(
+G©e
+* 
+g
+) const {
+
+73 i‡(
+èrgë_Áu…_
+->
+Âid
+==0) {
+
+74 
+VÆue
+ 
+v
+ = 
+g
+->
+	`GoodEvÆ
+();
+
+75 if(
+v
+==
+L
+&&
+èrgë_Áu…_
+->
+fvÆ
+==
+B
+) v = B;
+
+76 if(
+v
+==
+H
+&&
+èrgë_Áu…_
+->
+fvÆ
+==
+D
+) v = D;
+
+77  
+v
+;
+
+80 
+size_t
+ 
+Â
+ = 
+èrgë_Áu…_
+->
+Âid
+;
+
+81 
+VÆue
+ 
+v
+ = 
+g
+->
+fis
+[
+Â
+-1]->
+vÆ
+;
+
+82 if(
+v
+==
+L
+&&
+èrgë_Áu…_
+->
+fvÆ
+==
+B
+) v = B;
+
+83 if(
+v
+==
+H
+&&
+èrgë_Áu…_
+->
+fvÆ
+==
+D
+) v = D;
+
+85 
+ve˘‹
+<
+VÆue
+> 
+vs
+; vs.
+	`push_back
+(
+v
+);
+
+86 
+size_t
+ 
+n
+=0;Ç<
+g
+->
+nfi
+;Ç++)
+
+87 if(
+n
+!=
+Â
+-1)
+
+88 
+vs
+.
+	`push_back
+(
+g
+->
+fis
+[
+n
+]->
+vÆ
+);
+
+90 
+g
+->
+ty≥
+) {
+
+91 
+GATE_NOT
+:
+
+92  
+	`EvÆNŸ
+(
+v
+);
+
+94 
+GATE_AND
+:
+
+95  
+	`EvÆAndN
+(
+vs
+);
+
+97 
+GATE_OR
+:
+
+98  
+	`EvÆOrN
+(
+vs
+);
+
+100 
+GATE_NAND
+:
+
+101  
+	`EvÆN™dN
+(
+vs
+);
+
+103 
+GATE_NOR
+:
+
+104  
+	`EvÆN‹N
+(
+vs
+);
+
+106 
+GATE_PO
+:
+
+107 
+GATE_PPO
+:
+
+108  
+v
+;
+
+112 
 	}
 }
 
@@ -7859,15 +8887,41 @@ PushEvít
 gid
 );
 
-21 
+21 
+VÆue
+ 
+GëGutVÆ
+() const;
+
+22 
+boﬁ
+ 
+IsGutOuçutAtX
+() const;
+
+24 
+GëDFr⁄tõr
+(
+G©eVec
+& 
+df
+) const;
+
+26 
+boﬁ
+ 
+IsFau…AtPo
+() const;
+
+28 
 GëPiP©ã∫
 (
 P©ã∫
 & 
 p
-);
+) const;
 
-22 
+29 
 SëP©ã∫ToPi
 (
 P©ã∫
@@ -7875,11 +8929,11 @@ P©ã∫
 p
 );
 
-24 
+31 
 	g¥iv©e
 :
 
-25 
+32 
 VÆue
  
 Fau…EvÆ
@@ -7889,19 +8943,19 @@ G©e
 g
 ) const;
 
-27 
+34 
 Cúcuô
  *
 	gcú_
 ;
 
-28 
+35 
 Fau…
  *
-	gèrgë_Áu…
+	gèrgë_Áu…_
 ;
 
-30 
+37 
 	g°d
 ::
 queue
@@ -7909,7 +8963,7 @@ queue
 evíts_
 ;
 
-33 
+40 
 ölöe
  
 	gSimuœt‹
@@ -7925,19 +8979,19 @@ Fau…
 ·¨gë
 ) {
 
-34 
+41 
 cú_
  = 
 cú
 ;
 
-35 
-èrgë_Áu…
+42 
+èrgë_Áu…_
  = 
 ·¨gë
 ;
 
-37 
+44 
 evíts_
  = 
 √w
@@ -7951,11 +9005,11 @@ cú_
 ¡Ÿlvl
 ];
 
-38 
+45 
 	}
 }
 
-40 
+47 
 ölöe
  
 	gSimuœt‹
@@ -7963,17 +9017,17 @@ cú_
 	$Simuœt‹
 () {
 
-41 
+48 
 dñëe
  [] 
 evíts_
 ;
 
-42 
+49 
 	}
 }
 
-44 
+51 
 ölöe
  
 	gSimuœt‹
@@ -7981,7 +9035,7 @@ evíts_
 	$Inô
 () {
 
-45 
+52 
 size_t
  
 n
@@ -7991,7 +9045,7 @@ cú_
 ¡Ÿg©e
 ;Ç++)
 
-46 
+53 
 cú_
 ->
 g©es
@@ -8003,7 +9057,69 @@ vÆ
 X
 ;
 
-47 
+54 
+	}
+}
+
+56 
+ölöe
+ 
+boﬁ
+ 
+	gSimuœt‹
+::
+	$IsGutOuçutAtX
+() const {
+
+57 
+VÆue
+ 
+fv
+ = 
+cú_
+->
+g©es
+[
+èrgë_Áu…_
+->
+fg©e_id
+]->
+vÆ
+;
+
+58  
+fv
+==
+X
+;
+
+59 
+	}
+}
+
+61 
+ölöe
+ 
+VÆue
+ 
+	gSimuœt‹
+::
+	$GëGutVÆ
+() const {
+
+62  
+cú_
+->
+g©es
+[
+èrgë_Áu…_
+->
+fg©e_id
+]->
+vÆ
+;
+
+63 
 	}
 }
 
@@ -10203,12 +11319,6 @@ Cúcuô
 cú
 ) {
 
-34 
-CñlVec
- 
-˚Œs
-;
-
 35 
 	`Àvñize
 (
@@ -12222,12 +13332,16 @@ gëT›
 () const;
 
 30 
+˛órModuÀ
+();
+
+32 
 addModuÀ
 (c⁄° * c⁄° 
 «me
 );
 
-31 
+33 
 addP‹ts
 (
 NameLi°
@@ -12235,7 +13349,7 @@ NameLi°
 p‹ts
 );
 
-32 
+34 
 addI≈uts
 (
 NameLi°
@@ -12243,7 +13357,7 @@ NameLi°
 ös
 );
 
-33 
+35 
 addOuçuts
 (
 NameLi°
@@ -12251,7 +13365,7 @@ NameLi°
 outs
 );
 
-34 
+36 
 addNës
 (
 NameLi°
@@ -12259,23 +13373,23 @@ NameLi°
 √ts
 );
 
-35 
+37 
 addCñl
 (c⁄° * c⁄° 
 ty≥nm
 ,
 
-36 c⁄° * c⁄° 
+38 c⁄° * c⁄° 
 «me
 ,
 
-37 
+39 
 NameLi°
  * c⁄° 
 √ts
 ,
 
-38 
+40 
 CñlTy≥
  
 ty≥
@@ -12283,11 +13397,17 @@ ty≥
 CELL_MODINST
 );
 
-40 
+42 
+CñlVec
+ 
+	g˚Œs
+;
+
+44 
 	g¥Ÿe˘ed
 :
 
-41 
+45 
 Àvñize
 (
 CñlVec
@@ -12295,7 +13415,7 @@ CñlVec
 ˚Œs
 );
 
-43 
+47 
 	g°d
 ::
 °rög
@@ -12303,31 +13423,31 @@ CñlVec
 «me_
 ;
 
-45 
+49 
 ModuÀ
  *
 	gt›_
 ;
 
-46 
+50 
 ModuÀ
  *
 	gcuºít_
 ;
 
-48 
+52 
 boﬁ
  
 	gsuc˚ss_
 ;
 
-50 
+54 
 ModuÀM≠
  
 	gmoduÀ_m≠_
 ;
 
-53 
+57 
 ölöe
  
 	gNëli°
@@ -12335,11 +13455,11 @@ ModuÀM≠
 	$Nëli°
 () {
 
-54 
+58 
 	}
 }
 
-56 
+60 
 ölöe
  
 Nëli°
@@ -12347,39 +13467,15 @@ Nëli°
 	$Nëli°
 () {
 
-57 
-ModuÀM≠
-::
-ôî©‹
- 
-ô
- = 
-moduÀ_m≠_
-.
-	`begö
+61 
+	`˛órModuÀ
 ();
 
-58 ; 
-ô
-!=
-moduÀ_m≠_
-.
-	`íd
-(); ++it)
-
-59 
-dñëe
- 
-ô
-->
-£c⁄d
-;
-
-60 
+62 
 	}
 }
 
-62 
+64 
 ölöe
  
 ModuÀ
@@ -12395,7 +13491,7 @@ gëModuÀ
 «me
 ) const {
 
-63 
+65 
 ModuÀM≠
 ::
 c⁄°_ôî©‹
@@ -12409,7 +13505,7 @@ föd
 «me
 );
 
-64  (
+66  (
 	gô
  =
 moduÀ_m≠_
@@ -12423,7 +13519,7 @@ NULL
 £c⁄d
 ;
 
-67 
+69 
 ölöe
  
 ModuÀ
@@ -12433,11 +13529,57 @@ ModuÀ
 	$gëT›
 () const {
 
-68  
+70  
 t›_
 ;
 
-69 
+71 
+	}
+}
+
+73 
+ölöe
+ 
+	gNëli°
+::
+	$˛órModuÀ
+() {
+
+74 
+ModuÀM≠
+::
+ôî©‹
+ 
+ô
+ = 
+moduÀ_m≠_
+.
+	`begö
+();
+
+75 ; 
+ô
+!=
+moduÀ_m≠_
+.
+	`íd
+(); ++it)
+
+76 
+dñëe
+ 
+ô
+->
+£c⁄d
+;
+
+78 
+t›_
+ = 
+NULL
+;
+
+79 
 	}
 }
 
