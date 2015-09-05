@@ -41,7 +41,8 @@ PKG_atpg_MAINS = main.cpp
 #PKG_core_MAINS = logic_test.cpp
 PKG_cli_MAINS = cli_test.cpp
 
-PKG_atpg_DEP = cmd interface 
+PKG_atpg_DEP = cli interface 
+PKG_cli_DEP = cmd 
 PKG_interface_DEP = core
 
 ### main functions ##########################################################
@@ -54,12 +55,13 @@ PKG_interface_DEP = core
 # MAIN_<PKG>/<MAIN>_MODE_<MODE>_LD_FLAGS - link flags for MODE
 #############################################################################
 MAIN_atpg/main.cpp_BIN = atpg
-MAIN_atpg/main.cpp_LD_LIBS = cmd interface core
+MAIN_atpg/main.cpp_LD_LIBS = cli cmd interface core
 
 ## bins below for testing 
 #MAIN_interface/netlist_test.cpp = nl_test
 #MAIN_core/logic_test.cpp = logic_test
 MAIN_cli/cli_test.cpp_BIN = cli_test 
+MAIN_cli/cli_test.cpp_LD_LIBS = cmd
 
 ### libraries ###############################################################
 # STA_LIBS        - static archived libraries

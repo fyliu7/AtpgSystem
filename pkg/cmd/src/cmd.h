@@ -30,7 +30,7 @@ protected:
 
 class CmdMgr { 
 public: 
-            CmdMgr(); 
+            CmdMgr();  
             ~CmdMgr(); 
  
     enum    Result { EXIT = -1, SUCCESS, FAIL, NOT_EXIST, NOP };
@@ -38,13 +38,18 @@ public:
     bool    regCmd(const std::string &cat, Cmd *cmd); 
 
     Cmd     *getCmd(const std::string &name) const; 
-    void    getMatchedCmd(const std::string &cmdStr, CmdVec& ret) const; 
+    void    getMatchCmds(const std::string &cmdStr, CmdVec& ret) const; 
+
+    void    setExit(); 
 
     Result  exec(const std::string &cmdStr);     
 
 private:  
     CatMapIter  getCat(const std::string &cat); 
-    Cmd         *parseCmd(const std::string &cmdStr); 
+    Cmd         *parseCmd(const std::string &cmdStr, 
+                          std::vector<std::string> &ret); 
+
+    bool        is_exit_; 
 
     CatMap      cat_map_; 
     CmdMap      cmd_map_; 
@@ -56,6 +61,20 @@ inline Cmd::Cmd(const std::string &name, const std::string &msg) {
 
 inline Cmd::~Cmd() { 
     delete opt_mgr_; 
+}
+
+inline CmdMgr::CmdMgr() {
+    is_exit_ = false; 
+}
+
+inline CmdMgr::~CmdMgr() {
+    CmdMapIter it = cmd_map_.begin(); 
+
+    for(; it!=cmd_map_.end(); it++) 
+        delete it->second; 
+}
+inline void CmdMgr::setExit() { 
+    is_exit_ = true; 
 }
 
 inline std::string Cmd::getName() const { 

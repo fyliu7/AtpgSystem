@@ -1,4 +1,4 @@
-cscope 15 $HOME/GitHub/AtpgSystem/pkg -q 0000002400 0000216120
+cscope 15 $HOME/GitHub/AtpgSystem/pkg -q 0000002426 0000221272
 	@atpg/src/atpg_cmd.cpp
 
 1 
@@ -1508,14 +1508,18 @@ AçgMgr
 	@atpg/src/main.cpp
 
 1 
+	~"˛i/§c/sys_cmd.h
+"
+
+3 
 	~"£tup_cmd.h
 "
 
-2 
+4 
 	~"©pg_cmd.h
 "
 
-4 
+6 
 usög
  
 «me•a˚
@@ -1523,28 +1527,12 @@ usög
 	g°d
 ;
 
-6 
-usög
- 
-«me•a˚
- 
-	gAçgNs
-;
-
 7 
 usög
  
 «me•a˚
  
-	gCmdNs
-;
-
-8 
-usög
- 
-«me•a˚
- 
-	gI¡fNs
+	gTCLAP
 ;
 
 9 
@@ -1552,10 +1540,104 @@ usög
  
 «me•a˚
  
+	gAçgNs
+;
+
+10 
+usög
+ 
+«me•a˚
+ 
+	gCli
+;
+
+11 
+usög
+ 
+«me•a˚
+ 
+	gCmdNs
+;
+
+12 
+usög
+ 
+«me•a˚
+ 
+	gI¡fNs
+;
+
+13 
+usög
+ 
+«me•a˚
+ 
 	gC‹eNs
 ;
 
-11 
+15 
+O±Mgr
+ *
+	gmyO±Mgr
+;
+
+16 
+CmdMgr
+ *
+	gmyCmdMgr
+;
+
+17 
+AçgMgr
+ *
+	gmyAçgMgr
+;
+
+18 
+Nëli°
+ *
+	gmyNl
+;
+
+20 
+CmdP¨£r
+ *
+	g˛i
+;
+
+22 
+myInô
+(c⁄° 
+°rög
+ &
+«me
+,
+
+23 c⁄° 
+°rög
+ &
+msg
+);
+
+24 
+myInôCmd
+();
+
+25 
+myExec
+(
+¨gc
+, **
+¨gv
+);
+
+26 
+myExô
+(
+°©us
+);
+
+30 
 	$maö
 (
 ¨gc
@@ -1563,205 +1645,421 @@ usög
 ¨gv
 ) {
 
-13 
-AçgMgr
- 
-mgr
-;
-
-14 
-Nëli°
- 
-∆
-;
-
-15 
-RódNëli°Cmd
- 
-	`cmdRdNl
-("©pg", "ªad g©e-ÀvñÇëli° fûe", &
-∆
-);
-
-16 
-BuûdCúcuôCmd
- 
-	`cmdBC
-("buûd_cú", "buûd cúcuô", &
-∆
-, &
-mgr
-);
-
-19 
-AddFau…Cmd
- 
-	`cmdAddF
-("add_Áu…", "addÅ¨gë fau…(s)", &
-∆
-, &
-mgr
-);
-
-20 
-RunAçgCmd
- 
-	`cmdRunA
-("run_©pg", "ru¿©pgÖro˚ss", &
-∆
-, &
-mgr
-);
-
-21 
-Rï‹tP©Cmd
- 
-	`cmdR±P
-("ªp‹t_∑âîn", "ªp‹à∑âîn(s)", &
-∆
-, &
-mgr
-);
-
-23 
-ve˘‹
-<
-°rög
-> 
-¨gsRdNl
-;
-
-25 
-ve˘‹
-<
-°rög
-> 
-¨gsBC
-;
-
-27 
-ve˘‹
-<
-°rög
-> 
-¨gsAddF
-;
-
-28 
-ve˘‹
-<
-°rög
-> 
-¨gsRunA
-;
-
-29 
-ve˘‹
-<
-°rög
-> 
-¨gsR±P
-;
-
-31 
-i
-=0; i<
-¨gc
-; i++)
+31 
+	`myInô
+("atpg", "atpgÅool mainÖrocess");
 
 32 
-¨gsRdNl
-.
-	`push_back
+	`myExec
 (
-	`°rög
-(
+¨gc
+, 
 ¨gv
-[
-i
-]));
+);
 
-33 
-¨gsBC
-.
-	`push_back
-(
-	`°rög
-("build_cir"));
+34 
+	}
+}
 
-36 
-¨gsAddF
-.
-	`push_back
-(
-	`°rög
-("add_fault"));
+36 
+	$myInô
+(c⁄° 
+°rög
+ &
+«me
+,
 
-37 
-¨gsAddF
-.
-	`push_back
-(
-	`°rög
-("--all"));
-
-38 
-¨gsRunA
-.
-	`push_back
-(
-	`°rög
-("run_atpg"));
+37 c⁄° 
+°rög
+ &
+msg
+) {
 
 39 
-¨gsR±P
-.
-	`push_back
+myO±Mgr
+ = 
+√w
+ 
+	`O±Mgr
 (
-	`°rög
-("report_pattern"));
+«me
+, 
+msg
+);
 
 41 
-cmdRdNl
-.
-	`exec
-(
-¨gsRdNl
-);
+åy
+ {
 
-43 
-cmdBC
-.
-	`exec
-(
-¨gsBC
-);
-
-45 
-cmdAddF
-.
-	`exec
-(
-¨gsAddF
-);
+42 
+myO±Mgr
+->
+	`ªgArg
+("file",
 
 46 
-cmdRunA
-.
-	`exec
-(
-¨gsRunA
+Ál£
 );
 
-47 
-cmdR±P
-.
-	`exec
-(
-¨gsR±P
-);
+48 
+	`ˇtch
+ (
+ArgEx˚±i⁄
+ &
+e
+) {
 
 50 
+	`myExô
+(1);
+
+53 
+myCmdMgr
+ = 
+√w
+ 
+CmdMgr
+;
+
+54 
+myNl
+ = 
+√w
+ 
+Nëli°
+;
+
+55 
+myAçgMgr
+ = 
+√w
+ 
+AçgMgr
+;
+
+57 
+˛i
+ = 
+√w
+ 
+	`CmdP¨£r
+(
+myCmdMgr
+);
+
+59 
+	`myInôCmd
+();
+
+60 
+	}
+}
+
+62 
+	$myInôCmd
+() {
+
+64 
+Cmd
+ *
+sysExôCmd
+ = 
+√w
+ 
+	`SysExôCmd
+("exô", "exôÅhê¥ogøm", 
+˛i
+);
+
+66 
+myCmdMgr
+->
+	`ªgCmd
+("SYSTEM", 
+sysExôCmd
+);
+
+69 
+Cmd
+ *
+ªadNëli°Cmd
+ = 
+√w
+ 
+	`RódNëli°Cmd
+("ªad_√éi°", "ªad g©e-ÀvñÇëli° fûe", 
+myNl
+);
+
+70 
+Cmd
+ *
+ªp‹tCñlCmd
+ = 
+√w
+ 
+	`Rï‹tCñlCmd
+("ªp‹t_˚Œ", "ªp‹à˚Œ(sËöf‹m©i⁄", 
+myNl
+);
+
+72 
+myCmdMgr
+->
+	`ªgCmd
+("SETUP", 
+ªadNëli°Cmd
+);
+
+73 
+myCmdMgr
+->
+	`ªgCmd
+("SETUP", 
+ªp‹tCñlCmd
+);
+
+76 
+Cmd
+ *
+buûdCúcuôCmd
+ = 
+√w
+ 
+	`BuûdCúcuôCmd
+("buûd_cú", "buûd cúcuô", 
+myNl
+, 
+myAçgMgr
+);
+
+77 
+Cmd
+ *
+ªp‹tG©eCmd
+ = 
+√w
+ 
+	`Rï‹tG©eCmd
+("ªp‹t_g©e", "ªp‹àg©e(sËöf‹m©i⁄", 
+myNl
+, 
+myAçgMgr
+);
+
+78 
+Cmd
+ *
+addFau…Cmd
+ = 
+√w
+ 
+	`AddFau…Cmd
+("add_Áu…", "addÅ¨gë fau…(s)", 
+myNl
+, 
+myAçgMgr
+);
+
+79 
+Cmd
+ *
+runAçgCmd
+ = 
+√w
+ 
+	`RunAçgCmd
+("run_©pg", "ru¿©pgÖro˚ss", 
+myNl
+, 
+myAçgMgr
+);
+
+80 
+Cmd
+ *
+ªp‹tP©Cmd
+ = 
+√w
+ 
+	`Rï‹tP©Cmd
+("ªp‹t_∑âîn", "ªp‹à∑âîn(s)", 
+myNl
+, 
+myAçgMgr
+);
+
+82 
+myCmdMgr
+->
+	`ªgCmd
+("ATPG", 
+buûdCúcuôCmd
+);
+
+83 
+myCmdMgr
+->
+	`ªgCmd
+("ATPG", 
+ªp‹tG©eCmd
+);
+
+84 
+myCmdMgr
+->
+	`ªgCmd
+("ATPG", 
+addFau…Cmd
+);
+
+85 
+myCmdMgr
+->
+	`ªgCmd
+("ATPG", 
+runAçgCmd
+);
+
+86 
+myCmdMgr
+->
+	`ªgCmd
+("ATPG", 
+ªp‹tP©Cmd
+);
+
+87 
+	}
+}
+
+89 
+	$myExec
+(
+¨gc
+, **
+¨gv
+) {
+
+90 
+åy
+ {
+
+91 
+myO±Mgr
+->
+	`∑r£
+(
+¨gc
+, 
+¨gv
+);
+
+92 
+°rög
+ 
+fûe
+ = 
+myO±Mgr
+->
+	`gëVÆ
+("file");
+
+94 if(!
+fûe
+.
+	`em±y
+()) {
+
+95 if(!
+˛i
+->
+	`›íDofûe
+(
+fûe
+.
+	`c_°r
+())) {
+
+96 
+˚º
+ << "Eº‹: c⁄nŸ o≥¿fûê\"" << 
+fûe
+ << "\"!!\n";
+
+97 
+	`myExô
+(1);
+
+101 
+˛i
+->
+	`ªadCmd
+();
+
+102 
+cout
+ << 
+ídl
+;
+
+105 
+	`myExô
+(0);
+
+107 
+	`ˇtch
+ (
+ArgEx˚±i⁄
+ &
+e
+) {
+
+109 
+	`myExô
+(1);
+
+111 
+	}
+}
+
+113 
+	$myExô
+(
+°©us
+) {
+
+114 
+dñëe
+ 
+myO±Mgr
+;
+
+115 
+dñëe
+ 
+myCmdMgr
+;
+
+116 
+dñëe
+ 
+myNl
+;
+
+117 
+dñëe
+ 
+myAçgMgr
+;
+
+119 
+	`exô
+(
+°©us
+);
+
+120 
 	}
 }
 
@@ -3422,40 +3720,48 @@ usög
  
 «me•a˚
  
+	gCmdNs
+;
+
+15 
+usög
+ 
+«me•a˚
+ 
 	gCli
 ;
 
-17 
+18 
 	$ußge
 ()
 
-19 
+20 
 cout
  << "Ußge: cmdRódî [ -fûê< doFûê> ]" << 
 ídl
 ;
 
-20 
+21 
 	}
 }
 
-23 
+24 
 	$myexô
 ()
 
-25 
+26 
 	`ußge
 ();
 
-26 
+27 
 	`exô
 (-1);
 
-27 
+28 
 	}
 }
 
-30 
+31 
 	$maö
 (
 ¨gc
@@ -3463,29 +3769,37 @@ cout
 ¨gv
 )
 
-32 
-CmdP¨£r
+33 
+CmdMgr
  
-cmd
+cmdMgr
 ;
 
-33 
+34 
+CmdP¨£r
+ 
+	`cmd
+(&
+cmdMgr
+);
+
+35 
 if°ªam
  
 dof
 ;
 
-35 i‡(
+37 i‡(
 ¨gc
  == 3) {
 
-36 i‡(
+38 i‡(
 	`°rcmp
 (
 ¨gv
 [1], "-file") == 0) {
 
-37 i‡(!
+39 i‡(!
 cmd
 .
 	`›íDofûe
@@ -3493,53 +3807,53 @@ cmd
 ¨gv
 [2])) {
 
-38 
+40 
 ˚º
  << "Eº‹: c™nŸ o≥¿fûê\"" << 
 ¨gv
 [2] << "\"!!\n";
 
-39 
+41 
 	`myexô
 ();
 
-43 
+45 
 ˚º
  << "Eº‹: unknow¿¨gumíà\"" << 
 ¨gv
 [1] << "\"!!\n";
 
-44 
+46 
 	`myexô
 ();
 
-47 i‡(
+49 i‡(
 ¨gc
  != 1) {
 
-48 
+50 
 ˚º
  << "Eº‹: iŒegÆÇumbî o‡¨gumíà(" << 
 ¨gc
  << ")!!\n";
 
-49 
+51 
 	`myexô
 ();
 
-52 
+54 
 cmd
 .
 	`ªadCmd
 ();
 
-53 
+55 
 cout
  << 
 ídl
 ;
 
-56 
+58 
 	}
 }
 
@@ -3572,14 +3886,18 @@ _CLI_CMD_PARSER_H_
 >
 
 16 
+	~"cmd/§c/cmd.h
+"
+
+18 
 	~"vt100.h
 "
 
-17 
+19 
 	~"ch¨Def.h
 "
 
-19 
+21 
 usög
  
 «me•a˚
@@ -3587,41 +3905,53 @@ usög
 	g°d
 ;
 
-29 
+23 
+usög
+ 
+«me•a˚
+ 
+	gCmdNs
+;
+
+33 
 «me•a˚
  
 	gCli
  {
 
-31 ˛as†
+35 ˛as†
 	cCmdP¨£r
 
 
-33 
+37 
 	#READ_BUF_SIZE
  65536
 
 	)
 
-34 
+38 
 	#TAB_POSITION
  8
 
 	)
 
-35 
+39 
 	#PG_OFFSET
  10
 
 	)
 
-37 
+41 
 	gpublic
 :
 
-38 
+42 
 CmdP¨£r
-(Ë: 
+(
+CmdMgr
+* 
+cmdMgr
+Ë: 
 _ªadBufPå
 (
 _ªadBuf
@@ -3629,21 +3959,25 @@ _ªadBuf
 _ªadBufEnd
 (_readBuf),
 
-39 
+43 
 _hi°‹yIdx
 (0), 
 _ãmpCmdSt‹ed
 (
 Ál£
-) {}
+Ë{ 
+	g_cmdMgr
+ = 
+cmdMgr
+; }
 
-40 
+44 
 	gvútuÆ
  ~
 CmdP¨£r
 () {}
 
-42 
+46 
 boﬁ
  
 ›íDofûe
@@ -3651,7 +3985,7 @@ boﬁ
 dof
 ) {
 
-43 
+47 
 	g_dofûe
 .
 ›í
@@ -3661,19 +3995,25 @@ dof
 is_›í
 (); }
 
-45 
+49 
 ªadCmd
 ();
 
-47 
+51 
+CmdMgr
+ *
+gëCmdMgr
+() const;
+
+53 
 	g¥iv©e
 :
 
-49 
+55 
 ª£tBufAndPrötProm±
 () {
 
-50 
+56 
 _ªadBufPå
  = 
 _ªadBufEnd
@@ -3681,89 +4021,107 @@ _ªadBufEnd
 _ªadBuf
 ;
 
-51 *
+57 *
 	g_ªadBufPå
  = 0;
 
-52 
+58 
 ¥ötProm±
 ();
 
-54 
+60 
 ªadCmdI¡
 (
 i°ªam
 &);
 
-55 
+61 
 ¥ötProm±
 (Ëc⁄° { 
 	gcout
  << "atpg> "; }
 
-56 
+62 
 boﬁ
  
 moveBufPå
 (* const);
 
-57 
+63 
 boﬁ
  
 dñëeCh¨
 ();
 
-58 
+64 
 ö£πCh¨
 (, = 1);
 
-59 
+65 
 dñëeLöe
 ();
 
-60 
+66 
 moveToHi°‹y
 (
 ödex
 );
 
-61 
+67 
+boﬁ
+ 
+execLöe
+();
+
+68 
 addHi°‹y
 ();
 
-62 
+69 
 ªåõveHi°‹y
 ();
 
-63 #ifde‡
+70 
+boﬁ
+ 
+autoCom∂ëe
+();
+
+71 #ifde‡
 TA_KB_SETTING
 
 
-64 
+72 
 èTe°O∆y
 () {}
 
-68 
+76 
+CmdMgr
+* 
+	g_cmdMgr
+;
+
+78 
 if°ªam
  
 	g_dofûe
 ;
 
-69 
+79 
 	g_ªadBuf
 [
 READ_BUF_SIZE
 ];
 
-71 * 
+81 * 
 	g_ªadBufPå
 ;
 
-73 * 
+83 * 
 	g_ªadBufEnd
 ;
 
-75 
+85 
 	gve˘‹
 <
 	g°rög
@@ -3771,15 +4129,33 @@ READ_BUF_SIZE
 	g_hi°‹y
 ;
 
-76 
+86 
 	g_hi°‹yIdx
 ;
 
-80 
+90 
 boﬁ
  
 	g_ãmpCmdSt‹ed
 ;
+
+96 
+ölöe
+ 
+CmdMgr
+ *
+	gCmdP¨£r
+::
+	$gëCmdMgr
+() const {
+
+97  
+_cmdMgr
+;
+
+98 
+	}
+}
 
 	@cli/src/cmdReader.cpp
 
@@ -3808,20 +4184,28 @@ usög
  
 «me•a˚
  
+	gCmdNs
+;
+
+15 
+usög
+ 
+«me•a˚
+ 
 	gCli
 ;
 
-19 
+20 
 mybìp
 ();
 
-20 
+21 
 mygëc
 (
 i°ªam
 &);
 
-21 
+22 
 P¨£Ch¨
  
 checkCh¨
@@ -3829,41 +4213,41 @@ checkCh¨
 i°ªam
 &);
 
-28 
+29 
 	gCmdP¨£r
 ::
 	$ªadCmd
 ()
 
-30 i‡(
+31 i‡(
 _dofûe
 .
 	`is_›í
 ()) {
 
-31 
+32 
 	`ªadCmdI¡
 (
 _dofûe
 );
 
-32 
+33 
 _dofûe
 .
 	`˛o£
 ();
 
-35 
+36 
 	`ªadCmdI¡
 (
 cö
 );
 
-36 
+37 
 	}
 }
 
-39 
+40 
 	gCmdP¨£r
 ::
 	$ªadCmdI¡
@@ -3873,11 +4257,11 @@ i°ªam
 i°r
 )
 
-41 
+42 
 	`ª£tBufAndPrötProm±
 ();
 
-45 
+46 
 ch
  = 
 	`mygëc
@@ -3885,7 +4269,7 @@ ch
 i°r
 );
 
-46 
+47 
 P¨£Ch¨
  
 pch
@@ -3897,21 +4281,21 @@ ch
 i°r
 );
 
-47 i‡(
+48 i‡(
 pch
  =
 INPUT_END_KEY
 ) ;
 
-48 
+49 
 pch
 ) {
 
-49 
+50 
 LINE_BEGIN_KEY
  :
 
-50 
+51 
 HOME_KEY
  : 
 	`moveBufPå
@@ -3919,11 +4303,11 @@ HOME_KEY
 _ªadBuf
 ); ;
 
-51 
+52 
 LINE_END_KEY
  :
 
-52 
+53 
 END_KEY
  : 
 	`moveBufPå
@@ -3931,43 +4315,45 @@ END_KEY
 _ªadBufEnd
 ); ;
 
-53 
+54 
 BACK_SPACE_KEY
  :
 
-54 
+55 
 	`moveBufPå
 (
 _ªadBufPå
  - 1);
 
-55 
+56 
 	`dñëeCh¨
 ();
 
-57 
+58 
 DELETE_KEY
  : 
 	`dñëeCh¨
 (); ;
 
-58 
+59 
 NEWLINE_KEY
  : 
+cout
+ << (NEWLINE_KEY);
+
+60 if(!
+	`execLöe
+()) ;
+
+61 
 	`addHi°‹y
 ();
 
-59 
-cout
- << (
-NEWLINE_KEY
-);
-
-60 
+62 
 	`¥ötProm±
 (); ;
 
-61 
+63 
 ARROW_UP_KEY
  : 
 	`moveToHi°‹y
@@ -3975,7 +4361,7 @@ ARROW_UP_KEY
 _hi°‹yIdx
  - 1); ;
 
-65 
+64 
 ARROW_DOWN_KEY
  : 
 	`moveToHi°‹y
@@ -3983,27 +4369,27 @@ ARROW_DOWN_KEY
 _hi°‹yIdx
  + 1); ;
 
-70 
+65 
 ARROW_RIGHT_KEY
 :
 
-71 
+66 
 	`moveBufPå
 (
 _ªadBufPå
  + 1);;
 
-72 
+67 
 ARROW_LEFT_KEY
  :
 
-73 
+68 
 	`moveBufPå
 (
 _ªadBufPå
  - 1);;
 
-74 
+69 
 PG_UP_KEY
  : 
 	`moveToHi°‹y
@@ -4013,7 +4399,7 @@ _hi°‹yIdx
 PG_OFFSET
 ); ;
 
-75 
+70 
 PG_DOWN_KEY
  : 
 	`moveToHi°‹y
@@ -4023,45 +4409,47 @@ _hi°‹yIdx
 PG_OFFSET
 ); ;
 
-76 
+71 
 TAB_KEY
- : 
-cout
- << '\t'; ;
+ : if(!
+	`autoCom∂ëe
+()Ë
+	`mybìp
+(); ;
 
-77 
+72 
 INSERT_KEY
  :
 
-78 
+73 
 UNDEFINED_KEY
 : 
 	`mybìp
 (); ;
 
-80 
+75 
 	`ö£πCh¨
 ((
 pch
 )); ;
 
-82 #ifde‡
+77 #ifde‡
 TA_KB_SETTING
 
 
-83 
+78 
 	`èTe°O∆y
 ();
 
-86 
+81 
 	}
 }
 
-101 
+96 
 boﬁ
 
 
-102 
+97 
 	gCmdP¨£r
 ::
 	$moveBufPå
@@ -4069,7 +4457,7 @@ boﬁ
 ±r
 )
 
-105 if(
+99 if(
 ±r
  > 
 _ªadBufEnd
@@ -4077,89 +4465,89 @@ _ªadBufEnd
 _ªadBuf
 )
 
-107 
+101 
 	`mybìp
 ();
 
-108  
+102  
 Ál£
 ;
 
-112 
+106 
 _ªadBufPå
  > 
 ±r
 )
 
-114 
+108 
 cout
  << 
 VT100_CSRB
 ;
 
-115 
+109 
 _ªadBufPå
 --;
 
-117 
+111 
 _ªadBufPå
  < 
 ±r
 )
 
-119 
+113 
 cout
  << 
 VT100_CSRF
 ;
 
-120 
+114 
 _ªadBufPå
 ++;
 
-122  
+116  
 åue
 ;
 
-124 
+118 
 	}
 }
 
-146 
+140 
 boﬁ
 
 
-147 
+141 
 	gCmdP¨£r
 ::
 	$dñëeCh¨
 ()
 
-150 if(
+143 if(
 _ªadBufPå
  =
 _ªadBufEnd
 )
 
-152 
+145 
 	`mybìp
 ();
 
-153  
+146  
 Ál£
 ;
 
-155 *
+148 *
 ﬁd±r
 ;
 
-156 
+149 
 ﬁd±r
  = 
 _ªadBufPå
 ;
 
-157 
+150 
 i
  = ()(
 ﬁd±r
@@ -4169,13 +4557,13 @@ _ªadBuf
 _ªadBufEnd
  - _readBuf); i++)
 
-159 
+152 
 _ªadBuf
 [
 i
 ] = _readBuf[i+1];
 
-160 
+153 
 cout
  << 
 _ªadBuf
@@ -4183,39 +4571,39 @@ _ªadBuf
 i
 ];
 
-161 
+154 
 _ªadBufPå
 ++;
 
-163 
+156 
 cout
  << " ";
 
-164 
+157 
 _ªadBuf
 [()(
 _ªadBufEnd
  - _readBuf)]=0;
 
-165 
+158 
 	`moveBufPå
 (
 ﬁd±r
 );
 
-166 
+159 
 _ªadBufEnd
 --;
 
-167  
+160  
 åue
 ;
 
-168 
+161 
 	}
 }
 
-186 
+179 
 	gCmdP¨£r
 ::
 	$ö£πCh¨
@@ -4225,17 +4613,17 @@ ch
 ªp
 )
 
-189 
+181 
 _ªadBufEnd
 ++;
 
-190 
+182 
 cout
  << 
 ch
 ;
 
-191 
+183 
 i
  =()(
 _ªadBufEnd
@@ -4245,13 +4633,13 @@ _ªadBuf
 _ªadBufPå
  - _readBuf); i--)
 
-192 
+184 
 _ªadBuf
 [
 i
 ] = _readBuf[i-1];
 
-193 
+185 
 _ªadBuf
 [()(
 _ªadBufPå
@@ -4259,17 +4647,17 @@ _ªadBufPå
 ch
 ;
 
-194 
+186 
 _ªadBufPå
 ++;
 
-195 
+187 
 cout
  << 
 VT100_CSRS
 ;
 
-196 
+188 
 i
  =()(
 _ªadBufPå
@@ -4279,7 +4667,7 @@ _ªadBuf
 _ªadBufEnd
  - _readBuf); i++)
 
-197 
+189 
 cout
  << 
 _ªadBuf
@@ -4287,49 +4675,49 @@ _ªadBuf
 i
 ];
 
-198 
+190 
 cout
  << 
 VT100_CSRR
 ;
 
-201 
+193 
 	}
 }
 
-219 
+211 
 	gCmdP¨£r
 ::
 	$dñëeLöe
 ()
 
-222 
+213 
 	`moveBufPå
 (
 _ªadBufEnd
 );
 
-223 
+214 
 _ªadBuf
  !
 _ªadBufEnd
 )
 
-225 
+216 
 	`moveBufPå
 (
 _ªadBufPå
  -1);
 
-226 
+217 
 	`dñëeCh¨
 ();
 
-228 
+219 
 	}
 }
 
-251 
+242 
 	gCmdP¨£r
 ::
 	$moveToHi°‹y
@@ -4337,7 +4725,7 @@ _ªadBufPå
 ödex
 )
 
-254 if(
+244 if(
 _hi°‹yIdx
  =
 _hi°‹y
@@ -4345,13 +4733,13 @@ _hi°‹y
 	`size
 ())
 
-256 
+246 
 _ãmpCmdSt‹ed
  = 
 åue
 ;
 
-257 
+247 
 °rög
  
 	`°rög_cuºít
@@ -4361,7 +4749,7 @@ _ªadBuf
 _ªadBufEnd
  - _readBuf));
 
-258 
+248 
 _hi°‹y
 .
 	`push_back
@@ -4369,29 +4757,29 @@ _hi°‹y
 °rög_cuºít
 );
 
-260 if(
+250 if(
 ödex
  < 
 _hi°‹yIdx
 )
 
-262 if(
+252 if(
 _hi°‹yIdx
  == 0)
 
-266 if(
+256 if(
 ödex
  < 0)
 
-267 
+257 
 ödex
  = 0;
 
-270 
+260 
 	`dñëeLöe
 ();
 
-271 
+261 
 cout
  << 
 _hi°‹y
@@ -4399,7 +4787,7 @@ _hi°‹y
 ödex
 ];
 
-272 
+262 
 	`°r˝y
 (
 _ªadBuf
@@ -4411,7 +4799,7 @@ _hi°‹y
 	`c_°r
 ());
 
-273 
+263 
 _ªadBufEnd
  = 
 _ªadBuf
@@ -4423,25 +4811,25 @@ _hi°‹y
 	`Àngth
 ();
 
-274 
+264 
 _ªadBufPå
  = 
 _ªadBufEnd
 ;
 
-275 
+265 
 _hi°‹yIdx
  = 
 ödex
 ;
 
-278 if(
+268 if(
 ödex
  > 
 _hi°‹yIdx
 )
 
-280 if(
+270 if(
 ödex
  >
 _hi°‹y
@@ -4449,7 +4837,7 @@ _hi°‹y
 	`size
 ())
 
-281 
+271 
 ödex
  = 
 _hi°‹y
@@ -4457,7 +4845,7 @@ _hi°‹y
 	`size
 () - 1;
 
-282 if(
+272 if(
 _hi°‹yIdx
  =
 _hi°‹y
@@ -4465,11 +4853,11 @@ _hi°‹y
 	`size
 () - 1)
 
-284 
+274 
 	`dñëeLöe
 ();
 
-285 
+275 
 cout
  << 
 _hi°‹y
@@ -4477,7 +4865,7 @@ _hi°‹y
 	`back
 ();
 
-287 if(
+277 if(
 ödex
  >
 _hi°‹y
@@ -4485,7 +4873,7 @@ _hi°‹y
 	`size
 ())
 
-288 
+278 
 ödex
  = 
 _hi°‹y
@@ -4493,11 +4881,11 @@ _hi°‹y
 	`size
 () - 1;
 
-291 
+281 
 	`dñëeLöe
 ();
 
-292 
+282 
 cout
  << 
 _hi°‹y
@@ -4505,7 +4893,7 @@ _hi°‹y
 ödex
 ];
 
-293 
+283 
 	`°r˝y
 (
 _ªadBuf
@@ -4517,7 +4905,7 @@ _hi°‹y
 	`c_°r
 ());
 
-294 
+284 
 _ªadBufEnd
  = 
 _ªadBuf
@@ -4529,35 +4917,35 @@ _hi°‹y
 	`Àngth
 ();
 
-295 
+285 
 _ªadBufPå
  = 
 _ªadBufEnd
 ;
 
-296 
+286 
 _hi°‹yIdx
  = 
 ödex
 ;
 
-302 
+292 
 	}
 }
 
-318 
+308 
 	gCmdP¨£r
 ::
 	$addHi°‹y
 ()
 
-321 if(
+310 if(
 _ªadBuf
  =
 _ªadBufEnd
 )
 
-327 
+316 
 °rög
  
 	`°rög_cuºít
@@ -4567,19 +4955,19 @@ _ªadBuf
 _ªadBufEnd
  - _readBuf));
 
-328 if(
+317 if(
 _ãmpCmdSt‹ed
  =
 åue
 )
 
-329 
+318 
 _hi°‹y
 .
 	`p›_back
 ();
 
-330 
+319 
 _hi°‹y
 .
 	`push_back
@@ -4587,7 +4975,7 @@ _hi°‹y
 °rög_cuºít
 );
 
-331 
+320 
 _hi°‹yIdx
  = 
 _hi°‹y
@@ -4595,7 +4983,7 @@ _hi°‹y
 	`size
 ();
 
-333 
+322 
 i
 =0; i <()(
 _ªadBufEnd
@@ -4603,49 +4991,49 @@ _ªadBufEnd
 _ªadBuf
 ); i++)
 
-334 
+323 
 _ªadBuf
 [
 i
 ] = 0;
 
-335 
+324 
 _ªadBufEnd
  = 
 _ªadBuf
 ;
 
-336 
+325 
 _ªadBufPå
  = 
 _ªadBuf
 ;
 
-337 *
+326 *
 _ªadBufEnd
  = 0;
 
-338 
+327 
 _ãmpCmdSt‹ed
  = 
 Ál£
 ;
 
-340 
+329 
 	}
 }
 
-349 
+338 
 	gCmdP¨£r
 ::
 	$ªåõveHi°‹y
 ()
 
-351 
+340 
 	`dñëeLöe
 ();
 
-352 
+341 
 	`°r˝y
 (
 _ªadBuf
@@ -4657,13 +5045,13 @@ _hi°‹yIdx
 	`c_°r
 ());
 
-353 
+342 
 cout
  << 
 _ªadBuf
 ;
 
-354 
+343 
 _ªadBufPå
  = 
 _ªadBufEnd
@@ -4677,9 +5065,285 @@ _hi°‹yIdx
 	`size
 ();
 
-355 
+344 
 	}
 }
+
+346 
+boﬁ
+
+
+347 
+	gCmdP¨£r
+::
+	$execLöe
+() {
+
+349 if(
+_ªadBuf
+ =
+_ªadBufEnd
+)
+
+350  
+CmdMgr
+::
+NOP
+;
+
+352 
+°rög
+ 
+	`cmdSå
+(
+_ªadBuf
+, 
+_ªadBufEnd
+ - _readBuf);
+
+354 
+CmdMgr
+::
+Resu…
+ 
+ªs
+ = 
+_cmdMgr
+->
+	`exec
+(
+cmdSå
+);
+
+355 if(
+ªs
+==
+CmdMgr
+::
+EXIT
+Ë 
+Ál£
+;
+
+356 if(
+ªs
+==
+CmdMgr
+::
+NOT_EXIST
+)
+
+357 
+cout
+ << "**Error CmdParser::execLine(): commandÇot found\n";
+
+359  
+åue
+;
+
+360 
+	}
+}
+
+362 
+boﬁ
+
+
+363 
+	gCmdP¨£r
+::
+	$autoCom∂ëe
+() {
+
+366  
+Ál£
+;
+
+367 
+	}
+}
+
+	@cli/src/sys_cmd.cpp
+
+19 
+	~"sys_cmd.h
+"
+
+21 
+usög
+ 
+«me•a˚
+ 
+	g°d
+;
+
+23 
+usög
+ 
+«me•a˚
+ 
+	gCli
+;
+
+24 
+usög
+ 
+«me•a˚
+ 
+	gCmdNs
+;
+
+26 
+	gSysExôCmd
+::
+	$SysExôCmd
+(c⁄° 
+°rög
+ &
+«me
+,
+
+27 c⁄° 
+°rög
+ &
+msg
+,
+
+28 
+CmdP¨£r
+ *
+˛i
+Ë: 
+	$Cmd
+(
+«me
+, 
+msg
+) {
+
+30 
+˛i_
+ = 
+˛i
+;
+
+31 
+	}
+}
+
+33 
+	gSysExôCmd
+::~
+	$SysExôCmd
+() {
+
+34 
+	}
+}
+
+36 
+boﬁ
+ 
+SysExôCmd
+::
+	$run
+() {
+
+37 
+˛i_
+->
+	`gëCmdMgr
+()->
+	`£tExô
+();
+
+39  
+åue
+;
+
+40 
+	}
+}
+
+	@cli/src/sys_cmd.h
+
+19 #i‚de‡
+_CLI_SYS_CMD_H_
+
+
+20 
+	#_CLI_SYS_CMD_H_
+
+
+	)
+
+22 
+	~"cmdP¨£r.h
+"
+
+24 
+«me•a˚
+ 
+	gCli
+ {
+
+26 ˛as†
+	cSysExôCmd
+ : 
+public
+ 
+CmdNs
+::
+Cmd
+ {
+
+27 
+public
+:
+
+28 
+SysExôCmd
+(c⁄° 
+°d
+::
+°rög
+ &
+«me
+,
+
+29 c⁄° 
+°d
+::
+°rög
+ &
+msg
+,
+
+30 
+CmdP¨£r
+ *
+˛i
+);
+
+31 ~
+SysExôCmd
+();
+
+32 
+	g¥iv©e
+:
+
+33 
+boﬁ
+ 
+run
+();
+
+35 
+CmdP¨£r
+ *
+	g˛i_
+;
 
 	@cli/src/vt100.h
 
@@ -4990,18 +5654,30 @@ _CMD_CMD_H_
 10 
 	g°d
 ::
+	t£t
+<
+	t°d
+::
+	t°rög
+> 
+	tC©ag‹y
+;
+
+11 
+	g°d
+::
 	tm≠
 <
 	t°d
 ::
 	t°rög
-, std::
-	t£t
-<°d::°rög> > 
+, 
+	tC©ag‹y
+> 
 	tC©M≠
 ;
 
-11 
+12 
 	g°d
 ::
 	tm≠
@@ -5015,7 +5691,17 @@ _CMD_CMD_H_
 	tCmdM≠
 ;
 
-12 
+13 
+	g°d
+::
+	tve˘‹
+<
+	tCmd
+ *> 
+	tCmdVec
+;
+
+14 
 	gC©M≠
 ::
 	tôî©‹
@@ -5023,7 +5709,7 @@ _CMD_CMD_H_
 	tC©M≠Iãr
 ;
 
-13 
+15 
 	gCmdM≠
 ::
 	tôî©‹
@@ -5031,15 +5717,15 @@ _CMD_CMD_H_
 	tCmdM≠Iãr
 ;
 
-15 ˛as†
+17 ˛as†
 	cCmd
  {
 
-16 
+18 
 	gpublic
 :
 
-17 
+19 
 Cmd
 (c⁄° 
 °d
@@ -5049,7 +5735,7 @@ Cmd
 «me
 ,
 
-18 c⁄° 
+20 c⁄° 
 °d
 ::
 °rög
@@ -5057,13 +5743,13 @@ Cmd
 msg
 );
 
-19 
+21 
 	gvútuÆ
  ~
 Cmd
 ();
 
-21 
+23 
 boﬁ
  
 exec
@@ -5077,7 +5763,7 @@ ve˘‹
 ¨gs
 );
 
-22 
+24 
 	g°d
 ::
 °rög
@@ -5085,17 +5771,17 @@ ve˘‹
 gëName
 () const;
 
-24 
+26 
 O±Mgr
  *
 	g›t_mgr_
 ;
 
-25 
+27 
 	g¥Ÿe˘ed
 :
 
-26 
+28 
 vútuÆ
  
 boﬁ
@@ -5103,23 +5789,23 @@ boﬁ
 run
 () = 0;
 
-29 ˛as†
+31 ˛as†
 	cCmdMgr
  {
 
-30 
+32 
 	gpublic
 :
 
-31 
+33 
 CmdMgr
 ();
 
-32 ~
+34 ~
 CmdMgr
 ();
 
-34 
+36 
 	eResu…
  { 
 	gEXIT
@@ -5133,7 +5819,7 @@ CmdMgr
 	gNOP
  };
 
-36 
+38 
 boﬁ
  
 ªgCmd
@@ -5145,13 +5831,13 @@ boﬁ
 ˇt
 , 
 Cmd
- * c⁄° 
+ *
 cmd
 );
 
-37 
+40 
 Cmd
-* 
+ *
 gëCmd
 (c⁄° 
 °d
@@ -5161,7 +5847,25 @@ gëCmd
 «me
 ) const;
 
-39 
+41 
+gëM©chedCmd
+(c⁄° 
+°d
+::
+°rög
+ &
+cmdSå
+, 
+CmdVec
+& 
+ªt
+) const;
+
+43 
+£tExô
+();
+
+45 
 Resu…
  
 exec
@@ -5173,23 +5877,63 @@ exec
 cmdSå
 );
 
-41 
+47 
 	g¥iv©e
 :
 
-42 
-C©M≠
+48 
+C©M≠Iãr
  
-ˇt_m≠_
+gëC©
+(c⁄° 
+°d
+::
+°rög
+ &
+ˇt
+);
+
+49 
+Cmd
+ *
+∑r£Cmd
+(c⁄° 
+°d
+::
+°rög
+ &
+cmdSå
+,
+
+50 
+°d
+::
+ve˘‹
+<°d::
+°rög
+> &
+ªt
+);
+
+52 
+boﬁ
+ 
+	gis_exô_
 ;
 
-43 
+54 
+C©M≠
+ 
+	gˇt_m≠_
+;
+
+55 
 CmdM≠
  
 	gcmd_m≠_
 ;
 
-46 
+58 
 ölöe
  
 	gCmd
@@ -5205,7 +5949,7 @@ Cmd
 msg
 ) {
 
-47 
+59 
 ›t_mgr_
  = 
 √w
@@ -5217,7 +5961,7 @@ O±Mgr
 msg
 );
 
-50 
+62 
 ölöe
  
 	gCmd
@@ -5225,17 +5969,91 @@ msg
 	$Cmd
 () {
 
-51 
+63 
 dñëe
  
 ›t_mgr_
 ;
 
-52 
+64 
 	}
 }
 
-54 
+66 
+ölöe
+ 
+	gCmdMgr
+::
+	$CmdMgr
+() {
+
+67 
+is_exô_
+ = 
+Ál£
+;
+
+68 
+	}
+}
+
+70 
+ölöe
+ 
+	gCmdMgr
+::~
+	$CmdMgr
+() {
+
+71 
+CmdM≠Iãr
+ 
+ô
+ = 
+cmd_m≠_
+.
+	`begö
+();
+
+73 ; 
+ô
+!=
+cmd_m≠_
+.
+	`íd
+(); it++)
+
+74 
+dñëe
+ 
+ô
+->
+£c⁄d
+;
+
+75 
+	}
+}
+
+76 
+ölöe
+ 
+	gCmdMgr
+::
+	$£tExô
+() {
+
+77 
+is_exô_
+ = 
+åue
+;
+
+78 
+	}
+}
+
+80 
 ölöe
  
 	g°d
@@ -5247,15 +6065,335 @@ Cmd
 	$gëName
 () const {
 
-55  
+81  
 ›t_mgr_
 ->
 	`gëName
 ();
 
-56 
+82 
 	}
 }
+
+	@cmd/src/cmd_mgr.cpp
+
+19 
+	~"cmd.h
+"
+
+21 
+usög
+ 
+«me•a˚
+ 
+	g°d
+;
+
+23 
+usög
+ 
+«me•a˚
+ 
+	gCmdNs
+;
+
+25 
+boﬁ
+ 
+	gCmdMgr
+::
+	$ªgCmd
+(c⁄° 
+°rög
+ &
+ˇt
+, 
+Cmd
+ *
+cmd
+) {
+
+26 
+C©M≠Iãr
+ 
+ôî
+ = 
+	`gëC©
+(
+ˇt
+);
+
+27 
+∑ú
+<
+C©ag‹y
+::
+ôî©‹
+, 
+boﬁ
+> 
+ªt
+;
+
+29 
+ªt
+ = (
+ôî
+->
+£c⁄d
+).
+	`ö£π
+(
+cmd
+->
+	`gëName
+());
+
+30 if(!
+ªt
+.
+£c⁄d
+Ë 
+Ál£
+;
+
+32 
+cmd_m≠_
+.
+	`ö£π
+(
+∑ú
+<
+°rög
+, 
+Cmd
+ *>(
+cmd
+->
+	`gëName
+(), cmd));
+
+33  
+åue
+;
+
+34 
+	}
+}
+
+36 
+Cmd
+ *
+	gCmdMgr
+::
+gëCmd
+(c⁄° 
+°d
+::
+°rög
+& 
+«me
+) const {
+
+37 
+CmdM≠
+::
+c⁄°_ôî©‹
+ 
+ôî
+ = 
+cmd_m≠_
+.
+föd
+(
+«me
+);
+
+39  (
+	gôî
+!=
+cmd_m≠_
+.
+íd
+())?(
+ôî
+->
+£c⁄d
+):
+NULL
+;
+
+42 
+	gCmdMgr
+::
+Resu…
+ 
+CmdMgr
+::
+	$exec
+(c⁄° 
+°rög
+ &
+cmdSå
+) {
+
+43 
+Resu…
+ 
+ªs
+ = 
+NOP
+;
+
+45 
+ve˘‹
+<
+°rög
+> 
+¨gs
+;
+
+46 
+Cmd
+ *
+cmd
+ = 
+	`∑r£Cmd
+(
+cmdSå
+, 
+¨gs
+);
+
+48 if(!
+cmd
+Ë 
+NOT_EXIST
+;
+
+49 
+ªs
+ = (
+cmd
+->
+	`exec
+(
+¨gs
+))?
+SUCCESS
+:
+FAIL
+;
+
+50 if(
+is_exô_
+Ë 
+EXIT
+;
+
+52  
+ªs
+;
+
+53 
+	}
+}
+
+55 
+C©M≠Iãr
+ 
+	gCmdMgr
+::
+	$gëC©
+(c⁄° 
+°rög
+ &
+ˇt
+) {
+
+56 
+∑ú
+<
+C©M≠Iãr
+, 
+boﬁ
+> 
+ªt
+;
+
+58 
+ªt
+ = 
+ˇt_m≠_
+.
+	`ö£π
+(
+∑ú
+<
+°rög
+, 
+C©ag‹y
+>(
+ˇt
+, 
+	`C©ag‹y
+()));
+
+60  
+ªt
+.
+fú°
+;
+
+61 
+	}
+}
+
+63 
+Cmd
+ *
+	gCmdMgr
+::
+∑r£Cmd
+(c⁄° 
+°rög
+ &
+cmdSå
+,
+
+64 
+ve˘‹
+<
+°rög
+> &
+ªt
+) {
+
+66 
+°rög
+ 
+	gcmdl
+ = 
+cmdSå
+;
+
+69 
+	gªt
+.
+ö£π
+(
+ªt
+.
+begö
+(), 
+cmdl
+);
+
+71  
+gëCmd
+(
+cmdl
+);
 
 	@cmd/src/opt_mgr.cpp
 
@@ -5743,7 +6881,31 @@ ve˘‹
 ¨gs
 );
 
-100 
+100 
+	gO±Mgr
+::
+	$∑r£
+(
+¨gc
+, **
+¨gv
+) {
+
+101 
+›t_
+->
+	`∑r£
+(
+¨gc
+, 
+¨gv
+);
+
+102 
+	}
+}
+
+104 
 °rög
  
 	gO±Mgr
@@ -5755,7 +6917,7 @@ ve˘‹
 «me
 ) const {
 
-101 
+105 
 ArgM≠
 ::
 c⁄°_ôî©‹
@@ -5769,7 +6931,7 @@ c⁄°_ôî©‹
 «me
 );
 
-102 if(
+106 if(
 ô
 !=
 ¨g_m≠_
@@ -5777,7 +6939,7 @@ c⁄°_ôî©‹
 	`íd
 ()) {
 
-103  
+107  
 ô
 ->
 £c⁄d
@@ -5785,11 +6947,11 @@ c⁄°_ôî©‹
 	`gëVÆue
 ();
 
-109 
+113 
 	}
 }
 
-111 c⁄° 
+115 c⁄° 
 	gve˘‹
 <
 	g°rög
@@ -5803,7 +6965,7 @@ c⁄°_ôî©‹
 «me
 ) const {
 
-112 
+116 
 Mu…iM≠
 ::
 c⁄°_ôî©‹
@@ -5817,7 +6979,7 @@ mu…i_m≠_
 «me
 );
 
-113 if(
+117 if(
 ô
 !=
 mu…i_m≠_
@@ -5825,7 +6987,7 @@ mu…i_m≠_
 	`íd
 ()) {
 
-114  &(
+118  &(
 ô
 ->
 £c⁄d
@@ -5833,15 +6995,15 @@ mu…i_m≠_
 	`gëVÆue
 ());
 
-118  
+122  
 NULL
 ;
 
-121 
+125 
 	}
 }
 
-123 
+127 
 boﬁ
  
 	gO±Mgr
@@ -5853,7 +7015,7 @@ boﬁ
 «me
 ) const {
 
-124 
+128 
 O±M≠
 ::
 c⁄°_ôî©‹
@@ -5867,7 +7029,7 @@ c⁄°_ôî©‹
 «me
 );
 
-125 if(
+129 if(
 ô
 !=
 ›t_m≠_
@@ -5875,7 +7037,7 @@ c⁄°_ôî©‹
 	`íd
 ()) {
 
-126  
+130  
 ô
 ->
 £c⁄d
@@ -5883,11 +7045,11 @@ c⁄°_ôî©‹
 	`gëVÆue
 ();
 
-130  
+134  
 Ál£
 ;
 
-133 
+137 
 	}
 }
 
@@ -6199,11 +7361,19 @@ ve˘‹
 ¨gs
 );
 
-50 
+49 
+∑r£
+(
+¨gc
+, **
+¨gv
+);
+
+51 
 	g¥iv©e
 :
 
-51 
+52 
 °d
 ::
 °rög
@@ -6211,7 +7381,7 @@ ve˘‹
 «me_
 ;
 
-53 
+54 
 	gTCLAP
 ::
 CmdLöe
@@ -6219,37 +7389,37 @@ CmdLöe
 ›t_
 ;
 
-54 
+55 
 ArgM≠
  
 	g¨g_m≠_
 ;
 
-55 
+56 
 Mu…iM≠
  
 	gmu…i_m≠_
 ;
 
-56 
+57 
 O±M≠
  
 	g›t_m≠_
 ;
 
-58 
+59 
 NameSë
  
 	g«me_£t_
 ;
 
-59 
+60 
 NameSë
  
 	gÊag_£t_
 ;
 
-62 
+63 
 ölöe
  
 	gO±Mgr
@@ -6263,7 +7433,7 @@ O±Mgr
 «me
 ,
 
-63 c⁄° 
+64 c⁄° 
 °d
 ::
 °rög
@@ -6271,13 +7441,13 @@ O±Mgr
 msg
 ) {
 
-64 
+65 
 «me_
  = 
 «me
 ;
 
-65 
+66 
 	g›t_
  = 
 √w
@@ -6289,7 +7459,7 @@ CmdLöe
 msg
 );
 
-68 
+69 
 ölöe
  
 	gO±Mgr
@@ -6297,17 +7467,17 @@ msg
 	$O±Mgr
 () {
 
-69 
+70 
 dñëe
  
 ›t_
 ;
 
-70 
+71 
 	}
 }
 
-72 
+73 
 ölöe
  
 	g°d
@@ -6319,15 +7489,15 @@ O±Mgr
 	$gëName
 () const {
 
-73  
+74  
 «me_
 ;
 
-74 
+75 
 	}
 }
 
-76 
+77 
 ölöe
  
 	gO±Mgr
@@ -6341,13 +7511,13 @@ O±Mgr
 «me
 ) {
 
-77 
+78 
 «me_
  = 
 «me
 ;
 
-80 
+81 
 ölöe
  
 	g°d
@@ -6359,13 +7529,13 @@ O±Mgr
 	$gëMsg
 () const {
 
-81  
+82  
 ›t_
 ->
 	`gëMesßge
 ();
 
-82 
+83 
 	}
 }
 
@@ -42002,8 +43172,8 @@ _IOC_SIZESHIFT
 .
 1
 /usr/include
-78
-1874
+81
+1932
 atpg/src/atpg_cmd.cpp
 atpg/src/atpg_cmd.h
 atpg/src/main.cpp
@@ -42014,9 +43184,12 @@ cli/src/charDef.h
 cli/src/cli_test.cpp
 cli/src/cmdParser.h
 cli/src/cmdReader.cpp
+cli/src/sys_cmd.cpp
+cli/src/sys_cmd.h
 cli/src/vt100.h
 cmd/src/cmd.cpp
 cmd/src/cmd.h
+cmd/src/cmd_mgr.cpp
 cmd/src/opt_mgr.cpp
 cmd/src/opt_mgr.h
 core/src/atpg.cpp

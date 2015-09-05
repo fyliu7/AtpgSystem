@@ -11,6 +11,7 @@
 
 using namespace std;
 
+using namespace CmdNs; 
 using namespace Cli; 
 
 //----------------------------------------------------------------------
@@ -44,36 +45,30 @@ CmdParser::readCmdInt(istream& istr)
 
       char ch = mygetc(istr);
       ParseChar pch = checkChar(ch, istr);
-      if (pch == INPUT_END_KEY) break;
+      //if (pch == INPUT_END_KEY) break;
       switch (pch) {
          case LINE_BEGIN_KEY :
          case HOME_KEY       : moveBufPtr(_readBuf); break;
          case LINE_END_KEY   :
          case END_KEY        : moveBufPtr(_readBufEnd); break;
-         case BACK_SPACE_KEY : /* TODO */
+         case BACK_SPACE_KEY : 
                                moveBufPtr(_readBufPtr - 1);
                                deleteChar();
                                break; 
          case DELETE_KEY     : deleteChar(); break;
-         case NEWLINE_KEY    : addHistory();
-                               cout << char(NEWLINE_KEY);
+         case NEWLINE_KEY    : cout << char(NEWLINE_KEY);
+                               if(!execLine()) return; // execute command 
+                               addHistory();
                                printPrompt(); break;
          case ARROW_UP_KEY   : moveToHistory(_historyIdx - 1); break;
-                               //deleteLine(); break;                                                  //deleteline ok  
-                               //deleteChar();break;                                                   //delete ok
-                               //moveBufPtr(_readBuf); break;                                          //home ok
          case ARROW_DOWN_KEY : moveToHistory(_historyIdx + 1); break;
-                               //moveBufPtr(_readBufPtr - 1);                                          //backspace ok
-                               //deleteChar();                                                         //backspace ok
-                               //break;                                                                //backspace ok
-                               //moveBufPtr(_readBufEnd); break;                                       //end ok
-         case ARROW_RIGHT_KEY: /* TODO */
-                               moveBufPtr(_readBufPtr + 1);break;                                      //arrow_right new ok
-         case ARROW_LEFT_KEY : /* TODO */
-                               moveBufPtr(_readBufPtr - 1);break;                                      //arrow_left new ok
+         case ARROW_RIGHT_KEY: 
+                               moveBufPtr(_readBufPtr + 1);break;                                     
+         case ARROW_LEFT_KEY : 
+                               moveBufPtr(_readBufPtr - 1);break;                                      
          case PG_UP_KEY      : moveToHistory(_historyIdx - PG_OFFSET); break;
          case PG_DOWN_KEY    : moveToHistory(_historyIdx + PG_OFFSET); break;
-         case TAB_KEY        : /* TODO */ cout << '\t';/*_readBufPtr = _readBufPtr + ;_readBufEnd = _readBufEnd + ;*/ break;
+         case TAB_KEY        : if(!autoComplete()) mybeep(); break;
          case INSERT_KEY     : // not yet supported; fall through to UNDEFINE
          case UNDEFINED_KEY:   mybeep(); break;
          default:  // printable character
@@ -101,7 +96,6 @@ CmdParser::readCmdInt(istream& istr)
 bool
 CmdParser::moveBufPtr(char* const ptr)
 {
-   // TODO...
   if(ptr > _readBufEnd || ptr < _readBuf)
   {
   	mybeep();
@@ -146,7 +140,6 @@ CmdParser::moveBufPtr(char* const ptr)
 bool
 CmdParser::deleteChar()
 {
-   // TODO..
    if(_readBufPtr == _readBufEnd)
    {
      mybeep();
@@ -185,7 +178,6 @@ CmdParser::deleteChar()
 void
 CmdParser::insertChar(char ch, int rep)
 {
-   // TODO...
    _readBufEnd++;
    cout << ch;
    for(int i =(int)(_readBufEnd - _readBuf - 1); i >(int)(_readBufPtr - _readBuf); i--)
@@ -218,7 +210,6 @@ CmdParser::insertChar(char ch, int rep)
 void
 CmdParser::deleteLine()
 {
-   // TODO...
    moveBufPtr(_readBufEnd);
    while(_readBuf != _readBufEnd)
    {
@@ -250,7 +241,6 @@ CmdParser::deleteLine()
 void
 CmdParser::moveToHistory(int index)
 {
-   // TODO... 
    if(_historyIdx == _history.size())
    {
    	_tempCmdStored = true;
@@ -305,7 +295,7 @@ CmdParser::moveToHistory(int index)
 // This function adds the string in _readBuf to the _history[_historySize]
 //
 // 1. Remove ' ' at the beginning and end of _readBuf
-// 2. 11I110f not a null string, add string to _history.
+// 2. If not a null string, add string to _history.
 //    Be sure you are adding to the right entry of _history.
 // 3. If it is a null string, don't add anything to _history.
 // 4. Make sure to clean up "temp recorded string" (added earlier by up/pgUp,
@@ -317,7 +307,6 @@ CmdParser::moveToHistory(int index)
 void
 CmdParser::addHistory()
 {
-   // TODO... 
    if(_readBuf == _readBufEnd)
    {
 
@@ -352,4 +341,28 @@ CmdParser::retrieveHistory()
    strcpy(_readBuf, _history[_historyIdx].c_str());
    cout << _readBuf;
    _readBufPtr = _readBufEnd = _readBuf + _history[_historyIdx].size();
+}
+
+bool
+CmdParser::execLine() { 
+   //TODO: Remove ' ' at the beginning and end of _readBuf
+
+   if(_readBuf == _readBufEnd) 
+        return CmdMgr::NOP; 
+
+   string cmdStr(_readBuf, _readBufEnd - _readBuf); 
+
+   CmdMgr::Result res = _cmdMgr->exec(cmdStr); 
+   if(res==CmdMgr::EXIT) return false; 
+   else if(res==CmdMgr::NOT_EXIST) 
+      cout << "**Error CmdParser::execLine(): command not found\n"; 
+
+   return true; 
+}
+
+bool 
+CmdParser::autoComplete() {
+    //TODO: implement the auto-completion functionality. 
+
+    return false; 
 }

@@ -13,10 +13,14 @@
 #include <string>
 #include <vector>
 
+#include "cmd/src/cmd.h"
+
 #include "vt100.h"
 #include "charDef.h"
 
 using namespace std;
+
+using namespace CmdNs; 
 
 //----------------------------------------------------------------------
 //    Forward Declaration
@@ -35,14 +39,16 @@ class CmdParser
 #define PG_OFFSET        10
 
 public:
-   CmdParser() : _readBufPtr(_readBuf), _readBufEnd(_readBuf),
-                 _historyIdx(0), _tempCmdStored(false) {}
+   CmdParser(CmdMgr* cmdMgr) : _readBufPtr(_readBuf), _readBufEnd(_readBuf),
+                 _historyIdx(0), _tempCmdStored(false) { _cmdMgr = cmdMgr; }
    virtual ~CmdParser() {}
 
    bool openDofile(const char* dof) {
         _dofile.open(dof); return _dofile.is_open(); }
 
    void readCmd();
+
+   CmdMgr *getCmdMgr() const; 
 
 private:
    // Private member functions
@@ -58,13 +64,17 @@ private:
    void insertChar(char, int = 1);
    void deleteLine();
    void moveToHistory(int index);
+   bool execLine(); 
    void addHistory();
    void retrieveHistory();
+   bool autoComplete(); 
    #ifdef TA_KB_SETTING
    void taTestOnly() {}
    #endif
 
    // Data members
+   CmdMgr*   _cmdMgr;                // command manager 
+
    ifstream  _dofile;
    char      _readBuf[READ_BUF_SIZE];// save the current line input
                                      // be consistent as shown on the screen
@@ -82,6 +92,10 @@ private:
                                      // _tempCmdStored will be true.
                                      // Reset to false when new command added
 };
+
+inline CmdMgr *CmdParser::getCmdMgr() const { 
+    return _cmdMgr; 
+} 
 
 }; //Cli
 

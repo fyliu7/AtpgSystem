@@ -11,6 +11,7 @@
 
 using namespace std;
 
+using namespace CmdNs; 
 using namespace Cli; 
 
 static void
@@ -29,7 +30,8 @@ myexit()
 int
 main(int argc, char** argv)
 {
-   CmdParser cmd;
+   CmdMgr cmdMgr; 
+   CmdParser cmd(&cmdMgr);
    ifstream dof;
 
    if (argc == 3) {  // -file <doFile>

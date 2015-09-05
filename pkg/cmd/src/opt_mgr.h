@@ -46,6 +46,7 @@ public:
                            bool                 val = false, 
                            const std::string    &flag = ""); 
     void            parse(std::vector<std::string> &args); 
+    void            parse(int argc, char **argv); 
 
 private: 
     std::string     name_; 

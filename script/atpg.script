@@ -1,0 +1,5 @@
+read_netlist ./netlist/s27.v
+build_cir
+add_fault --all
+run_atpg
+report_pattern

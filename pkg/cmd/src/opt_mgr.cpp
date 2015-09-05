@@ -97,6 +97,10 @@ void OptMgr::parse(vector<string> &args) {
     opt_->parse(args); 
 } 
 
+void OptMgr::parse(int argc, char **argv) {
+    opt_->parse(argc, argv); 
+} 
+
 string OptMgr::getVal(const string &name) const { 
     ArgMap::const_iterator it = arg_map_.find(name); 
     if(it!=arg_map_.end()) { 

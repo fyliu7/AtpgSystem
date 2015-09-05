@@ -65,8 +65,9 @@ CELL_PPI	interface/src/module.h	/^                CELL_PPI, CELL_PPO, $/;"	e	enu
 CELL_PPO	interface/src/module.h	/^                CELL_PPI, CELL_PPO, $/;"	e	enum:IntfNs::CellType
 CELL_XNOR	interface/src/module.h	/^                CELL_XOR, CELL_XNOR }; $/;"	e	enum:IntfNs::CellType
 CELL_XOR	interface/src/module.h	/^                CELL_XOR, CELL_XNOR }; $/;"	e	enum:IntfNs::CellType
-CatMap	cmd/src/cmd.h	/^typedef std::map<std::string, std::set<std::string> >   CatMap; $/;"	t	namespace:CmdNs
+CatMap	cmd/src/cmd.h	/^typedef std::map<std::string, Catagory>                 CatMap; $/;"	t	namespace:CmdNs
 CatMapIter	cmd/src/cmd.h	/^typedef CatMap::iterator                                CatMapIter; $/;"	t	namespace:CmdNs
+Catagory	cmd/src/cmd.h	/^typedef std::set<std::string>                           Catagory; $/;"	t	namespace:CmdNs
 Cell	interface/src/module.h	/^class Cell {$/;"	c	namespace:IntfNs
 Cell	interface/src/module.h	/^inline Cell::Cell(const std::string& name, CellType type) { $/;"	f	class:IntfNs::Cell
 CellMap	interface/src/module.h	/^typedef std::map<std::string, Cell *> CellMap;  $/;"	t	namespace:IntfNs
@@ -76,16 +77,19 @@ Circuit	core/src/circuit.h	/^class Circuit { $/;"	c	namespace:CoreNs
 Cli	cli/src/charDef.cpp	/^namespace Cli { $/;"	n	file:
 Cli	cli/src/charDef.h	/^namespace Cli { $/;"	n
 Cli	cli/src/cmdParser.h	/^namespace Cli { $/;"	n
+Cli	cli/src/sys_cmd.h	/^namespace Cli { $/;"	n
 Cli	cli/src/vt100.h	/^namespace Cli { $/;"	n
 Cmd	cmd/src/cmd.h	/^class Cmd { $/;"	c	namespace:CmdNs
 Cmd	cmd/src/cmd.h	/^inline Cmd::Cmd(const std::string &name, const std::string &msg) { $/;"	f	class:CmdNs::Cmd
 CmdMap	cmd/src/cmd.h	/^typedef std::map<std::string, Cmd *>                    CmdMap; $/;"	t	namespace:CmdNs
 CmdMapIter	cmd/src/cmd.h	/^typedef CmdMap::iterator                                CmdMapIter; $/;"	t	namespace:CmdNs
 CmdMgr	cmd/src/cmd.h	/^class CmdMgr { $/;"	c	namespace:CmdNs
+CmdMgr	cmd/src/cmd.h	/^inline CmdMgr::CmdMgr() {$/;"	f	class:CmdNs::CmdMgr
 CmdNs	cmd/src/cmd.h	/^namespace CmdNs { $/;"	n
 CmdNs	cmd/src/opt_mgr.h	/^namespace CmdNs { $/;"	n
-CmdParser	cli/src/cmdParser.h	/^   CmdParser() : _readBufPtr(_readBuf), _readBufEnd(_readBuf),$/;"	f	class:Cli::CmdParser
+CmdParser	cli/src/cmdParser.h	/^   CmdParser(CmdMgr* cmdMgr) : _readBufPtr(_readBuf), _readBufEnd(_readBuf),$/;"	f	class:Cli::CmdParser
 CmdParser	cli/src/cmdParser.h	/^class CmdParser$/;"	c	namespace:Cli
+CmdVec	cmd/src/cmd.h	/^typedef std::vector<Cmd *>                              CmdVec; $/;"	t	namespace:CmdNs
 CoreNs	core/src/atpg.h	/^namespace CoreNs { $/;"	n
 CoreNs	core/src/atpg_mgr.h	/^namespace CoreNs { $/;"	n
 CoreNs	core/src/circuit.h	/^namespace CoreNs { $/;"	n
@@ -209,7 +213,7 @@ PARA_H	core/src/logic.h	/^const ParaValue PARA_H  = ~PARA_L;$/;"	v
 PARA_L	core/src/logic.h	/^const ParaValue PARA_L  = 0;$/;"	v
 PARSE_CHAR_END	cli/src/charDef.h	/^   PARSE_CHAR_END$/;"	e	enum:Cli::ParseChar
 PG_DOWN_KEY	cli/src/charDef.h	/^   PG_DOWN_KEY      = TA_PG_DOWN_KEY,$/;"	e	enum:Cli::ParseChar
-PG_OFFSET	cli/src/cmdParser.h	35;"	d
+PG_OFFSET	cli/src/cmdParser.h	39;"	d
 PG_UP_KEY	cli/src/charDef.h	/^   PG_UP_KEY        = TA_PG_UP_KEY,$/;"	e	enum:Cli::ParseChar
 PORT_INPUT	interface/src/module.h	/^                PORT_INPUT, PORT_OUTPUT}; $/;"	e	enum:IntfNs::PortType
 PORT_NA	interface/src/module.h	/^enum PortType { PORT_NA = -1, $/;"	e	enum:IntfNs::PortType
@@ -237,7 +241,7 @@ Print5Value	core/src/logic.h	/^inline void Print5Value(Value v) { $/;"	f	namespa
 PushEvent	core/src/simulator.cpp	/^void Simulator::PushEvent(int gid) { $/;"	f	class:Simulator
 PushFanoutEvent	core/src/simulator.cpp	/^void Simulator::PushFanoutEvent(int gid) {$/;"	f	class:Simulator
 RE	core/src/fault.h	/^    enum    Status { UD = 0, DT, AU, RE, AB }; $/;"	e	enum:CoreNs::Fault::Status
-READ_BUF_SIZE	cli/src/cmdParser.h	33;"	d
+READ_BUF_SIZE	cli/src/cmdParser.h	37;"	d
 ReadNetlistCmd	atpg/src/setup_cmd.cpp	/^ReadNetlistCmd::ReadNetlistCmd(const string &name, $/;"	f	class:ReadNetlistCmd
 ReadNetlistCmd	atpg/src/setup_cmd.h	/^class ReadNetlistCmd : public CmdNs::Cmd { $/;"	c	namespace:AtpgNs
 ReportCellCmd	atpg/src/setup_cmd.cpp	/^ReportCellCmd::ReportCellCmd(const string &name, $/;"	f	class:ReportCellCmd
@@ -256,8 +260,10 @@ SetBitVal	core/src/logic.h	/^inline void SetBitVal(ParaValue &pv, bool value ,in
 Simulator	core/src/simulator.h	/^class Simulator { $/;"	c	namespace:CoreNs
 Simulator	core/src/simulator.h	/^inline Simulator::Simulator(Circuit *cir, Fault *ftarget) { $/;"	f	class:CoreNs::Simulator
 Status	core/src/fault.h	/^    enum    Status { UD = 0, DT, AU, RE, AB }; $/;"	g	class:CoreNs::Fault
+SysExitCmd	cli/src/sys_cmd.cpp	/^SysExitCmd::SysExitCmd(const string &name, $/;"	f	class:SysExitCmd
+SysExitCmd	cli/src/sys_cmd.h	/^class SysExitCmd : public CmdNs::Cmd { $/;"	c	namespace:Cli
 TAB_KEY	cli/src/charDef.h	/^   TAB_KEY          = TA_TAB_KEY,         \/\/ tab('\\t') or Ctrl-i$/;"	e	enum:Cli::ParseChar
-TAB_POSITION	cli/src/cmdParser.h	34;"	d
+TAB_POSITION	cli/src/cmdParser.h	38;"	d
 TA_ARROW_DOWN_KEY	cli/src/charDef.h	31;"	d
 TA_ARROW_KEY_BEGIN	cli/src/charDef.h	34;"	d
 TA_ARROW_KEY_END	cli/src/charDef.h	35;"	d
@@ -336,6 +342,7 @@ _ATPG_ATPG_CMD_H_	atpg/src/atpg_cmd.h	2;"	d
 _ATPG_SETUP_CMD_H_	atpg/src/setup_cmd.h	2;"	d
 _CLI_CHAR_DEF_H_	cli/src/charDef.h	9;"	d
 _CLI_CMD_PARSER_H_	cli/src/cmdParser.h	9;"	d
+_CLI_SYS_CMD_H_	cli/src/sys_cmd.h	20;"	d
 _CLI_VT100_H_	cli/src/vt100.h	14;"	d
 _CMD_CMD_H_	cmd/src/cmd.h	2;"	d
 _CMD_OPT_MGR_H_	cmd/src/opt_mgr.h	2;"	d
@@ -351,6 +358,7 @@ _CORE_SIMULATOR_H_	core/src/simulator.h	2;"	d
 _INTF_MODULE_H_	interface/src/module.h	2;"	d
 _INTF_NETLIST_H_	interface/src/netlist.h	2;"	d
 _MAX_BACK_TRACK_LIMIT_	core/src/atpg.h	22;"	d
+_cmdMgr	cli/src/cmdParser.h	/^   CmdMgr*   _cmdMgr;                \/\/ command manager $/;"	m	class:Cli::CmdParser
 _dofile	cli/src/cmdParser.h	/^   ifstream  _dofile;$/;"	m	class:Cli::CmdParser
 _history	cli/src/cmdParser.h	/^   vector<string>   _history;        \/\/ oldest:_history[0],latest:_hist.back()$/;"	m	class:Cli::CmdParser
 _historyIdx	cli/src/cmdParser.h	/^   int              _historyIdx;     \/\/ (1) Position to insert history string$/;"	m	class:Cli::CmdParser
@@ -379,10 +387,11 @@ atpg_mgr_	atpg/src/atpg_cmd.h	/^    CoreNs::AtpgMgr *atpg_mgr_; $/;"	m	class:Atp
 atpg_mgr_	atpg/src/atpg_cmd.h	/^    CoreNs::AtpgMgr *atpg_mgr_; $/;"	m	class:AtpgNs::ReportPatCmd
 atpg_mgr_	atpg/src/atpg_cmd.h	/^    CoreNs::AtpgMgr *atpg_mgr_; $/;"	m	class:AtpgNs::RunAtpgCmd
 atpgs_	core/src/atpg_mgr.h	/^    AtpgVec     atpgs_; $/;"	m	class:CoreNs::AtpgMgr
+autoComplete	cli/src/cmdReader.cpp	/^CmdParser::autoComplete() {$/;"	f	class:CmdParser
 back_track_count	core/src/atpg.h	/^    size_t    back_track_count;$/;"	m	class:CoreNs::Atpg
 back_track_limit	core/src/atpg.h	/^    size_t    back_track_limit;$/;"	m	class:CoreNs::Atpg
 build	interface/src/netlist.cpp	/^bool Netlist::build(Circuit* cir) {$/;"	f	class:Netlist
-cat_map_	cmd/src/cmd.h	/^    CatMap  cat_map_; $/;"	m	class:CmdNs::CmdMgr
+cat_map_	cmd/src/cmd.h	/^    CatMap      cat_map_; $/;"	m	class:CmdNs::CmdMgr
 cell_map_	interface/src/module.h	/^    CellMap cell_map_; $/;"	m	class:IntfNs::Module
 cells	interface/src/netlist.h	/^    CellVec cells; $/;"	m	class:IntfNs::Netlist
 checkChar	cli/src/charDef.cpp	/^checkChar(char ch, istream& istr)$/;"	f	namespace:Cli
@@ -393,7 +402,9 @@ clearCells	interface/src/module.h	/^inline void Module::clearCells() {$/;"	f	cla
 clearModule	interface/src/netlist.h	/^inline void Netlist::clearModule() { $/;"	f	class:IntfNs::Netlist
 clearNets	interface/src/module.h	/^inline void Module::clearNets() {$/;"	f	class:IntfNs::Module
 clearPorts	interface/src/module.h	/^inline void Module::clearPorts() {$/;"	f	class:IntfNs::Module
-cmd_map_	cmd/src/cmd.h	/^    CmdMap  cmd_map_; $/;"	m	class:CmdNs::CmdMgr
+cli	atpg/src/main.cpp	/^CmdParser   *cli; $/;"	v
+cli_	cli/src/sys_cmd.h	/^    CmdParser   *cli_; $/;"	m	class:Cli::SysExitCmd
+cmd_map_	cmd/src/cmd.h	/^    CmdMap      cmd_map_; $/;"	m	class:CmdNs::CmdMgr
 ctr_value	core/src/gate.h	/^    Value         ctr_value; $/;"	m	class:CoreNs::Gate
 current_	interface/src/netlist.h	/^    Module *current_; $/;"	m	class:IntfNs::Netlist
 current_obj_	core/src/atpg.h	/^    Objective current_obj_; $/;"	m	class:CoreNs::Atpg
@@ -401,6 +412,8 @@ deleteChar	cli/src/cmdReader.cpp	/^CmdParser::deleteChar()$/;"	f	class:CmdParser
 deleteLine	cli/src/cmdReader.cpp	/^CmdParser::deleteLine()$/;"	f	class:CmdParser
 events_	core/src/simulator.h	/^    std::queue<int> *events_; $/;"	m	class:CoreNs::Simulator
 exec	cmd/src/cmd.cpp	/^bool Cmd::exec(vector<string> &args) { $/;"	f	class:Cmd
+exec	cmd/src/cmd_mgr.cpp	/^CmdMgr::Result CmdMgr::exec(const string &cmdStr) { $/;"	f	class:CmdMgr
+execLine	cli/src/cmdReader.cpp	/^CmdParser::execLine() { $/;"	f	class:CmdParser
 f_mgr	core/src/atpg_mgr.h	/^    FaultMgr    *f_mgr; $/;"	m	class:CoreNs::AtpgMgr
 faults_	core/src/fault.h	/^    FaultVec faults_; $/;"	m	class:CoreNs::FaultMgr
 fgate_id	core/src/fault.h	/^    int     fgate_id; $/;"	m	class:CoreNs::Fault
@@ -413,9 +426,12 @@ fpid	core/src/fault.h	/^    size_t  fpid; $/;"	m	class:CoreNs::Fault
 fval	core/src/fault.h	/^    Value   fval; $/;"	m	class:CoreNs::Fault
 gate_	interface/src/module.h	/^    CoreNs::Gate *gate_;$/;"	m	class:IntfNs::Cell
 gates	core/src/circuit.h	/^    GateVec gates; $/;"	m	class:CoreNs::Circuit
+getCat	cmd/src/cmd_mgr.cpp	/^CatMapIter CmdMgr::getCat(const string &cat) { $/;"	f	class:CmdMgr
 getCell	interface/src/module.h	/^inline Cell *Module::getCell(const size_t& n) const {$/;"	f	class:IntfNs::Module
 getCell	interface/src/module.h	/^inline Cell *Module::getCell(const std::string& name) const { $/;"	f	class:IntfNs::Module
 getCellNum	interface/src/module.h	/^inline size_t Module::getCellNum() const {$/;"	f	class:IntfNs::Module
+getCmd	cmd/src/cmd_mgr.cpp	/^Cmd *CmdMgr::getCmd(const std::string& name) const { $/;"	f	class:CmdMgr
+getCmdMgr	cli/src/cmdParser.h	/^inline CmdMgr *CmdParser::getCmdMgr() const { $/;"	f	class:Cli::CmdParser
 getFaninCell	interface/src/module.h	/^inline void Cell::getFaninCell(CellVec& ret) const { $/;"	f	class:IntfNs::Cell
 getFanoutCell	interface/src/module.h	/^inline bool Cell::getFanoutCell(const size_t& n, CellVec& ret) const { $/;"	f	class:IntfNs::Cell
 getFault	core/src/fault.h	/^inline Fault *FaultMgr::getFault(size_t n) const { $/;"	f	class:CoreNs::FaultMgr
@@ -457,6 +473,7 @@ in_nets_	interface/src/module.h	/^    NetVec in_nets_; $/;"	m	class:IntfNs::Cell
 in_port_	interface/src/module.h	/^    Port *in_port_; $/;"	m	class:IntfNs::Net
 init	core/src/atpg.cpp	/^void Atpg::init() { $/;"	f	class:Atpg
 insertChar	cli/src/cmdReader.cpp	/^CmdParser::insertChar(char ch, int rep)$/;"	f	class:CmdParser
+is_exit_	cmd/src/cmd.h	/^    bool        is_exit_; $/;"	m	class:CmdNs::CmdMgr
 levelize	interface/src/netlist.cpp	/^void Netlist::levelize(CellVec& cells) {$/;"	f	class:Netlist
 lvl	core/src/gate.h	/^    int           lvl; $/;"	m	class:CoreNs::Gate
 lvl_	interface/src/module.h	/^    int lvl_;$/;"	m	class:IntfNs::Cell
@@ -468,7 +485,14 @@ module_map_	interface/src/netlist.h	/^    ModuleMap module_map_; $/;"	m	class:In
 moveBufPtr	cli/src/cmdReader.cpp	/^CmdParser::moveBufPtr(char* const ptr)$/;"	f	class:CmdParser
 moveToHistory	cli/src/cmdReader.cpp	/^CmdParser::moveToHistory(int index)$/;"	f	class:CmdParser
 multi_map_	cmd/src/opt_mgr.h	/^    MultiMap        multi_map_; $/;"	m	class:CmdNs::OptMgr
+myAtpgMgr	atpg/src/main.cpp	/^AtpgMgr     *myAtpgMgr; $/;"	v
+myCmdMgr	atpg/src/main.cpp	/^CmdMgr      *myCmdMgr; $/;"	v
+myExec	atpg/src/main.cpp	/^void myExec(int argc, char **argv) { $/;"	f
+myExit	atpg/src/main.cpp	/^void myExit(int status) { $/;"	f
 myGateComp	interface/src/netlist.cpp	/^bool myGateComp(Cell* c1, Cell* c2) {$/;"	f
+myInit	atpg/src/main.cpp	/^void myInit(const string &name, $/;"	f
+myInitCmd	atpg/src/main.cpp	/^void myInitCmd() {$/;"	f
+myNl	atpg/src/main.cpp	/^Netlist     *myNl; $/;"	v
 mybeep	cli/src/charDef.cpp	/^void mybeep()$/;"	f	namespace:Cli
 myexit	cli/src/cli_test.cpp	/^myexit()$/;"	f	file:
 mygetc	cli/src/charDef.cpp	/^char mygetc(istream& istr)$/;"	f	namespace:Cli
@@ -510,8 +534,10 @@ out_net_	interface/src/module.h	/^    Net *out_net_; $/;"	m	class:IntfNs::Port
 out_nets_	interface/src/module.h	/^    NetVec out_nets_; $/;"	m	class:IntfNs::Cell
 out_ports_	interface/src/module.h	/^    PortVec out_ports_; $/;"	m	class:IntfNs::Net
 output_ctr_value	core/src/gate.h	/^    Value         output_ctr_value; $/;"	m	class:CoreNs::Gate
+parse	cmd/src/opt_mgr.cpp	/^void OptMgr::parse(int argc, char **argv) {$/;"	f	class:OptMgr
 parse	cmd/src/opt_mgr.cpp	/^void OptMgr::parse(vector<string> &args) {$/;"	f	class:OptMgr
 parse	interface/src/netlist.cpp	/^bool Netlist::parse(const string& filename, const string& top) {$/;"	f	class:Netlist
+parseCmd	cmd/src/cmd_mgr.cpp	/^Cmd *CmdMgr::parseCmd(const string &cmdStr, $/;"	f	class:CmdMgr
 pat_mgr	core/src/atpg_mgr.h	/^    PatternMgr  *pat_mgr; $/;"	m	class:CoreNs::AtpgMgr
 pats	core/src/pattern.h	/^    PatVec pats; $/;"	m	class:CoreNs::PatternMgr
 pi	core/src/pattern.h	/^    ValueVec pi; $/;"	m	class:CoreNs::Pattern
@@ -532,6 +558,7 @@ printPrompt	cli/src/cmdParser.h	/^   void printPrompt() const { cout << "atpg> "
 readCmd	cli/src/cmdReader.cpp	/^CmdParser::readCmd()$/;"	f	class:CmdParser
 readCmdInt	cli/src/cmdReader.cpp	/^CmdParser::readCmdInt(istream& istr)$/;"	f	class:CmdParser
 regArg	cmd/src/opt_mgr.cpp	/^bool OptMgr::regArg(const string    &name, $/;"	f	class:OptMgr
+regCmd	cmd/src/cmd_mgr.cpp	/^bool CmdMgr::regCmd(const string &cat, Cmd *cmd) { $/;"	f	class:CmdMgr
 regOpt	cmd/src/opt_mgr.cpp	/^bool OptMgr::regOpt(const string    &name, $/;"	f	class:OptMgr
 reportGate	atpg/src/atpg_cmd.cpp	/^void ReportGateCmd::reportGate() const { $/;"	f	class:ReportGateCmd
 resetBufAndPrintPrompt	cli/src/cmdParser.h	/^   void resetBufAndPrintPrompt() {$/;"	f	class:Cli::CmdParser
@@ -545,6 +572,8 @@ run	atpg/src/atpg_cmd.cpp	/^bool ReportPatCmd::run() { $/;"	f	class:ReportPatCmd
 run	atpg/src/atpg_cmd.cpp	/^bool RunAtpgCmd::run() { $/;"	f	class:RunAtpgCmd
 run	atpg/src/setup_cmd.cpp	/^bool ReadNetlistCmd::run() { $/;"	f	class:ReadNetlistCmd
 run	atpg/src/setup_cmd.cpp	/^bool ReportCellCmd::run() { $/;"	f	class:ReportCellCmd
+run	cli/src/sys_cmd.cpp	/^bool SysExitCmd::run() { $/;"	f	class:SysExitCmd
+setExit	cmd/src/cmd.h	/^inline void CmdMgr::setExit() { $/;"	f	class:CmdNs::CmdMgr
 setGate	interface/src/module.h	/^inline void Cell::setGate(CoreNs::Gate* g) { $/;"	f	class:IntfNs::Cell
 setInCell	interface/src/module.h	/^inline void Net::setInCell(Cell *c) {$/;"	f	class:IntfNs::Net
 setLevel	interface/src/module.h	/^inline void Cell::setLevel(int lvl) {$/;"	f	class:IntfNs::Cell
@@ -573,6 +602,7 @@ val	core/src/gate.h	/^    Value         val; $/;"	m	class:CoreNs::Gate
 ~Cell	interface/src/module.h	/^inline Cell::~Cell(){$/;"	f	class:IntfNs::Cell
 ~Circuit	core/src/circuit.h	/^inline Circuit::~Circuit() { $/;"	f	class:CoreNs::Circuit
 ~Cmd	cmd/src/cmd.h	/^inline Cmd::~Cmd() { $/;"	f	class:CmdNs::Cmd
+~CmdMgr	cmd/src/cmd.h	/^inline CmdMgr::~CmdMgr() {$/;"	f	class:CmdNs::CmdMgr
 ~CmdParser	cli/src/cmdParser.h	/^   virtual ~CmdParser() {}$/;"	f	class:Cli::CmdParser
 ~Fault	core/src/fault.h	/^inline Fault::~Fault() { $/;"	f	class:CoreNs::Fault
 ~FaultMgr	core/src/fault.h	/^inline FaultMgr::~FaultMgr() { $/;"	f	class:CoreNs::FaultMgr
@@ -596,3 +626,4 @@ val	core/src/gate.h	/^    Value         val; $/;"	m	class:CoreNs::Gate
 ~ReportPatCmd	atpg/src/atpg_cmd.cpp	/^ReportPatCmd::~ReportPatCmd() { $/;"	f	class:ReportPatCmd
 ~RunAtpgCmd	atpg/src/atpg_cmd.cpp	/^RunAtpgCmd::~RunAtpgCmd() { $/;"	f	class:RunAtpgCmd
 ~Simulator	core/src/simulator.h	/^inline Simulator::~Simulator() { $/;"	f	class:CoreNs::Simulator
+~SysExitCmd	cli/src/sys_cmd.cpp	/^SysExitCmd::~SysExitCmd() {$/;"	f	class:SysExitCmd

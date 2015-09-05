@@ -39,9 +39,21 @@ Cmd *CmdMgr::getCmd(const std::string& name) const {
     return (iter!=cmd_map_.end())?(iter->second):NULL;
 }
 
-CmdMgr::Result CmdMgr::exec(const string &cmdStr) { 
+void CmdMgr::getMatchCmds(const std::string &cmdStr, CmdVec& ret) const { 
     //TODO
-    return NOP; 
+} 
+
+CmdMgr::Result CmdMgr::exec(const string &cmdStr) { 
+    Result res = NOP; 
+
+    vector<string> args; 
+    Cmd *cmd = parseCmd(cmdStr, args); 
+
+    if(!cmd) return NOT_EXIST; 
+    res = (cmd->exec(args))?SUCCESS:FAIL; 
+    if(is_exit_) return EXIT; 
+
+    return res; 
 }
 
 CatMapIter CmdMgr::getCat(const string &cat) { 
@@ -52,7 +64,15 @@ CatMapIter CmdMgr::getCat(const string &cat) {
     return ret.first; 
 }
 
-Cmd *CmdMgr::parseCmd(const string &cmdStr) { 
-    //TODO 
-    return NULL; 
+Cmd *CmdMgr::parseCmd(const string &cmdStr, 
+                      vector<string> &ret) { 
+
+    string cmdl = cmdStr; 
+    //TODO: tokenize the string "cmdl" into 
+    //      command & argument(s), and assign 
+    //      the command string to the "cmdl". 
+
+    ret.insert(ret.begin(), cmdl); 
+
+    return getCmd(cmdl); 
 } 
