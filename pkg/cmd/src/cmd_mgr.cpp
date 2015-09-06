@@ -72,7 +72,17 @@ Cmd *CmdMgr::parseCmd(const string &cmdStr,
     //      command & argument(s), and assign 
     //      the command string to the "cmdl". 
 
-    ret.insert(ret.begin(), cmdl); 
+    string delim = " "; 
+    size_t curr_pos; 
+    size_t next_pos = -1; 
+    do { 
+        curr_pos = next_pos + 1; 
+        next_pos = cmdl.find_first_of(delim, curr_pos); 
+        ret.push_back(cmdl.substr(curr_pos, next_pos-curr_pos)); 
+    } while (next_pos!=string::npos); 
+
+    //ret.insert(ret.begin(), cmdl); 
+    cmdl = ret[0]; 
 
     return getCmd(cmdl); 
 } 

@@ -45,7 +45,7 @@ CmdParser::readCmdInt(istream& istr)
 
       char ch = mygetc(istr);
       ParseChar pch = checkChar(ch, istr);
-      //if (pch == INPUT_END_KEY) break;
+      if (pch == INPUT_END_KEY) break;
       switch (pch) {
          case LINE_BEGIN_KEY :
          case HOME_KEY       : moveBufPtr(_readBuf); break;

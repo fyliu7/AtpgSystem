@@ -76,12 +76,14 @@ void myInitCmd() {
     Cmd *buildCircuitCmd = new BuildCircuitCmd("build_cir", "build circuit", myNl, myAtpgMgr); 
     Cmd *reportGateCmd = new ReportGateCmd("report_gate", "report gate(s) information", myNl, myAtpgMgr); 
     Cmd *addFaultCmd = new AddFaultCmd("add_fault", "add target fault(s)", myNl, myAtpgMgr); 
+    Cmd *reportFaultCmd = new ReportFaultCmd("report_fault", "report fault(s) information", myNl, myAtpgMgr); 
     Cmd *runAtpgCmd = new RunAtpgCmd("run_atpg", "run atpg process", myNl, myAtpgMgr); 
     Cmd *reportPatCmd = new ReportPatCmd("report_pattern", "report pattern(s)", myNl, myAtpgMgr); 
 
     myCmdMgr->regCmd("ATPG", buildCircuitCmd); 
     myCmdMgr->regCmd("ATPG", reportGateCmd); 
     myCmdMgr->regCmd("ATPG", addFaultCmd); 
+    myCmdMgr->regCmd("ATPG", reportFaultCmd); 
     myCmdMgr->regCmd("ATPG", runAtpgCmd); 
     myCmdMgr->regCmd("ATPG", reportPatCmd); 
 }

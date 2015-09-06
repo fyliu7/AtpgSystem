@@ -130,6 +130,60 @@ bool AddFaultCmd::run() {
     return false; 
 }  
 
+ReportFaultCmd::ReportFaultCmd(const string &name, 
+                                 const string &msg, 
+                                 Netlist *nl, 
+                                 AtpgMgr *atpg_mgr) : Cmd(name, msg){
+
+    nl_ = nl; 
+    atpg_mgr_ = atpg_mgr; 
+
+    try { 
+        opt_mgr_->regArg("fault", 
+                         "fault(s) to be reported", 
+                         "fault(s)", 
+                         "", 
+                         false, 
+                         true); 
+    } 
+    catch (ArgException &e) { 
+        //TODO
+        exit(1); 
+    }
+} 
+
+ReportFaultCmd::~ReportFaultCmd() { 
+}
+
+bool ReportFaultCmd::run() { 
+    if(!atpg_mgr_->f_mgr) { 
+        //TODO
+        return false; 
+    }
+
+    //TODO: print specific fault 
+    repFault(); 
+
+    return true; 
+}
+
+void ReportFaultCmd::repFault() {
+    for(size_t n=0; n<atpg_mgr_->f_mgr->getFaultNum(); n++) { 
+        Fault *f = atpg_mgr_->f_mgr->getFault(n); 
+        Gate *g = atpg_mgr_->cir->gates[f->fgate_id]; 
+
+        string fnm; nl_->cells[g->id]->getName(fnm); 
+        if(!f->fpid) cout << fnm;  
+        else {
+            string faninnm; nl_->cells[g->fis[f->fpid-1]->id]->getName(faninnm); 
+            cout << faninnm << "->" << fnm; 
+        }
+
+        char val = (f->fval==D)?'0':'1'; 
+        cout << " /" << val << endl; 
+    }
+}
+
 RunAtpgCmd::RunAtpgCmd(const string &name, 
                        const string &msg, 
                        Netlist *nl, 
