@@ -32,6 +32,7 @@ bool AtpgMgr::Run() {
             atpg->GetPattern(*p); 
 
             pat_mgr->pats.push_back(p); 
+            f_mgr->getFault(n)->status = Fault::DT; 
         }
         else { 
             //TODO 

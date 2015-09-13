@@ -351,6 +351,7 @@ CmdParser::execLine() {
         return CmdMgr::NOP; 
 
    string cmdStr(_readBuf, _readBufEnd - _readBuf); 
+   cmdStr.assign(cmdStr.begin()+cmdStr.find_first_not_of(' '), cmdStr.begin()+cmdStr.find_last_not_of(' ')+1); 
 
    CmdMgr::Result res = _cmdMgr->exec(cmdStr); 
    if(res==CmdMgr::EXIT) return false; 

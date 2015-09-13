@@ -77,7 +77,7 @@ public:
 private: 
     bool    run();  
 
-    void    repFault(); 
+    void    repFault(CoreNs::Fault::Status status); 
 
     IntfNs::Netlist *nl_; 
     CoreNs::AtpgMgr *atpg_mgr_; 

@@ -13,7 +13,7 @@ typedef std::vector<Fault *> FaultVec;
 class Fault { 
 public: 
 
-    enum    Status { UD = 0, DT, AU, RE, AB }; 
+    enum    Status { NA = -1, UD, DT, AU, RE, AB }; 
 
             Fault(); 
             Fault(int fgid, size_t fp, Value fv); 

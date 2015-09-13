@@ -145,6 +145,13 @@ ReportFaultCmd::ReportFaultCmd(const string &name,
                          "", 
                          false, 
                          true); 
+
+        opt_mgr_->regArg("status", 
+                         "fault(s) under specified status reported", 
+                         "status", 
+                         "s", 
+                         false, 
+                         false); 
     } 
     catch (ArgException &e) { 
         //TODO
@@ -161,21 +168,40 @@ bool ReportFaultCmd::run() {
         return false; 
     }
 
+    string st = opt_mgr_->getVal("status"); 
+    Fault::Status sta = Fault::NA; 
+    if(!st.empty()) { 
+        if (st=="UD") sta = Fault::UD; 
+        else if (st=="DT") sta = Fault::DT; 
+        //TODO
+    } 
+
     //TODO: print specific fault 
-    repFault(); 
+    repFault(sta); 
 
     return true; 
 }
 
-void ReportFaultCmd::repFault() {
+void ReportFaultCmd::repFault(Fault::Status status) {
     for(size_t n=0; n<atpg_mgr_->f_mgr->getFaultNum(); n++) { 
         Fault *f = atpg_mgr_->f_mgr->getFault(n); 
-        Gate *g = atpg_mgr_->cir->gates[f->fgate_id]; 
+        if(status!=Fault::NA && status!=f->status) continue; 
+        //Gate *g = atpg_mgr_->cir->gates[f->fgate_id]; 
+        Cell *c = nl_->cells[atpg_mgr_->cir->gates[f->fgate_id]->id]; 
 
-        string fnm; nl_->cells[g->id]->getName(fnm); 
-        if(!f->fpid) cout << fnm;  
+        
+        //string fnm; nl_->cells[g->id]->getName(fnm); 
+        string fnm; 
+        if(c->getType()==CELL_PO || c->getType()==CELL_PPO) { 
+            c->getInNet(0)->getName(fnm); 
+            fnm = fnm + "_PO"; 
+        }
+        else c->getOutNet(0)->getName(fnm); 
+        if(!f->fpid) { 
+            cout << fnm;  
+        }
         else {
-            string faninnm; nl_->cells[g->fis[f->fpid-1]->id]->getName(faninnm); 
+            string faninnm; c->getInNet(f->fpid-1)->getName(faninnm); 
             cout << faninnm << "->" << fnm; 
         }
 
@@ -237,7 +263,7 @@ bool ReportPatCmd::run() {
     cout << "|\n"; 
 
     for (size_t n=0; n<atpg_mgr_->pat_mgr->nppi; n++) { 
-        nl_->cells[atpg_mgr_->pat_mgr->ppi_order[n]]->getName(nm); 
+        nl_->cells[atpg_mgr_->pat_mgr->ppi_order[n]]->getOutNet(0)->getName(nm); 
         cout << nm << " "; 
     }
     cout << "|\n"; 
@@ -246,27 +272,28 @@ bool ReportPatCmd::run() {
         nl_->cells[atpg_mgr_->pat_mgr->po_order[n]]->getName(nm); 
         cout << nm << " "; 
     }
-    cout << "\n"; 
+    cout << "|\n"; 
+
 
     cout << "BASIC_SCAN\n"; 
     cout << "_num_of_pattern_" << atpg_mgr_->pat_mgr->pats.size() << endl; 
     for(size_t i=0; i<atpg_mgr_->pat_mgr->pats.size(); i++) { 
         Pattern *p = atpg_mgr_->pat_mgr->pats[i]; 
-        //cout << "_pattern_" << i+1 << " "; 
+        cout << "_pattern_" << i+1 << " "; 
         for(size_t j=0; j<p->pi.size(); j++) 
             Print3Value(p->pi[j]); 
-        //cout << " | "; 
-        //cout << " | "; 
+        cout << " | "; 
+        cout << " | "; 
         for(size_t j=0; j<p->ppi.size(); j++) 
             Print3Value(p->ppi[j]); 
-        //cout << " | "; 
-        //cout << " | "; 
-        //for(size_t j=0; j<atpg_mgr_->pat_mgr->npo; j++) 
-        //    cout << "X"; 
-        //cout << " | "; 
-        //cout << " | "; 
-        //for(size_t j=0; j<atpg_mgr_->pat_mgr->nppi; j++) 
-        //    cout << "X"; 
+        cout << " | "; 
+        cout << " | "; 
+        for(size_t j=0; j<atpg_mgr_->pat_mgr->npo; j++) 
+            cout << "X"; 
+        cout << " | "; 
+        cout << " | "; 
+        for(size_t j=0; j<atpg_mgr_->pat_mgr->nppi; j++) 
+            cout << "X"; 
         cout << endl; 
     }
 
