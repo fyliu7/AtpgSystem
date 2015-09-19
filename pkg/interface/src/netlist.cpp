@@ -289,6 +289,13 @@ void Netlist::addCell(const char * const typenm,
             n->setInCell(c); 
             c->addOutNet(n); 
             current_->addCell(c); 
+
+            //******************************
+            //  this section primary for debugging 
+            //******************************
+            string nm = string(net->name); 
+            //******************************
+
             net = net->next; //PPO net
             n = current_->getNet(string(net->name)); 
             if(!n) { 
@@ -297,7 +304,8 @@ void Netlist::addCell(const char * const typenm,
                 success_ = false; 
                 return; 
             }
-            c = new Cell(string(name)+string("_O"), CELL_PPO); 
+            //c = new Cell(string(name)+string("_O"), CELL_PPO); 
+            c = new Cell(string("U_")+nm, CELL_PPO); 
             n->addOutCell(c); 
             c->addInNet(n); }
         break; 

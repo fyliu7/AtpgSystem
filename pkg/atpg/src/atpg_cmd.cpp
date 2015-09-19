@@ -189,24 +189,42 @@ void ReportFaultCmd::repFault(Fault::Status status) {
         //Gate *g = atpg_mgr_->cir->gates[f->fgate_id]; 
         Cell *c = nl_->cells[atpg_mgr_->cir->gates[f->fgate_id]->id]; 
 
+        string type = (f->fval==D)?"SA0":"SA1"; 
+        cout << type << " "; 
         
         //string fnm; nl_->cells[g->id]->getName(fnm); 
         string fnm; 
-        if(c->getType()==CELL_PO || c->getType()==CELL_PPO) { 
+        if(c->getType()==CELL_PO) { 
             c->getInNet(0)->getName(fnm); 
-            fnm = fnm + "_PO"; 
+            cout << fnm << endl; 
+            continue; 
         }
-        else c->getOutNet(0)->getName(fnm); 
+        else if(c->getType()==CELL_PPO) { 
+            c->getName(fnm); 
+            cout << fnm << "/D" << endl;  
+            continue; 
+        }
+        else { 
+            c->getOutNet(0)->getName(fnm); 
+
+            if(c->getType()==CELL_PI) { 
+                cout << fnm << endl;  
+                continue; 
+            }
+            else if(c->getType()==CELL_PPI) { 
+                cout << "U_" << fnm << "/Q" << endl;  
+                continue; 
+            }
+        }
         if(!f->fpid) { 
-            cout << fnm;  
+            cout << "U_" << fnm << "/Y";  
         }
         else {
             string faninnm; c->getInNet(f->fpid-1)->getName(faninnm); 
-            cout << faninnm << "->" << fnm; 
+            cout << "U_" << fnm << "/" << (char)('A'+f->fpid-1);  
         }
 
-        char val = (f->fval==D)?'0':'1'; 
-        cout << " /" << val << endl; 
+        cout << endl; 
     }
 }
 
