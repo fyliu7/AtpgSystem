@@ -39,8 +39,36 @@ Cmd *CmdMgr::getCmd(const std::string& name) const {
     return (iter!=cmd_map_.end())?(iter->second):NULL;
 }
 
-void CmdMgr::getMatchCmds(const std::string &cmdStr, CmdVec& ret) const { 
+//void CmdMgr::getMatchCmds(const std::string &cmdStr, CmdVec& ret) const {
+void CmdMgr::getMatchCmds(const std::string &cmdStr, vector<string>& ret) const {	
     //TODO
+	for (CmdMap::const_iterator it = cmd_map_.begin(); it!=cmd_map_.end(); ++it){
+		if(!cmdStr.compare(0,cmdStr.size()-1,it->first,0,cmdStr.size()-1)){
+			ret.push_back(it->first);
+		}	
+	}
+	
+//test	
+/*	CmdMap::const_iterator itbegin = cmd_map_.begin();
+	CmdMap::const_iterator itend = cmd_map_.end();
+	if(itbegin==itend){
+	ret.push_back("match1");
+	ret.push_back("match2");
+	ret.push_back("match3");
+	ret.push_back("match4");
+	ret.push_back("match5");
+	ret.push_back("match6");
+	ret.push_back("match7");
+	ret.push_back("match8");
+	ret.push_back("match9");
+	ret.push_back("match10");
+	}*/
+	
+/*	int time=0;
+	for(CmdMap::const_iterator it= cmd_map_.begin();time < 5; it++){
+	std::cout << time;
+	time++;
+	}*/
 } 
 
 CmdMgr::Result CmdMgr::exec(const string &cmdStr) { 
@@ -68,10 +96,7 @@ Cmd *CmdMgr::parseCmd(const string &cmdStr,
                       vector<string> &ret) { 
 
     string cmdl = cmdStr; 
-    //TODO: tokenize the string "cmdl" into 
-    //      command & argument(s), and assign 
-    //      the command string to the "cmdl". 
-
+	
     string delim = " "; 
     size_t curr_pos; 
     size_t next_pos = -1; 

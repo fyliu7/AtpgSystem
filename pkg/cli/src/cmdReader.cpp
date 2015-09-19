@@ -345,7 +345,6 @@ CmdParser::retrieveHistory()
 
 bool
 CmdParser::execLine() { 
-   //TODO: Remove ' ' at the beginning and end of _readBuf
 
    if(_readBuf == _readBufEnd) 
         return CmdMgr::NOP; 
@@ -357,13 +356,44 @@ CmdParser::execLine() {
    if(res==CmdMgr::EXIT) return false; 
    else if(res==CmdMgr::NOT_EXIST) 
       cout << "**Error CmdParser::execLine(): command not found\n"; 
-
+  
    return true; 
 }
 
 bool 
 CmdParser::autoComplete() {
-    //TODO: implement the auto-completion functionality. 
+    //TODO: implement the auto-completion functionality.
+	string strcompare(_readBuf,(int)(_readBufEnd - _readBuf));
+	strcompare.assign(strcompare.begin()+strcompare.find_first_not_of(' '), strcompare.begin()+strcompare.find_last_not_of(' ')+1);
+	strcompare.assign(strcompare.begin()+strcompare.find_last_of(' ')+1, strcompare.end());
+	vector<string> ret;
+	CmdMgr callmatchcmds; 
+	callmatchcmds.getMatchCmds(strcompare,ret);
+	
+	if(ret.size()==0){
+		cout << "erro";
+	}	
+	else if(ret.size()==1){
+		string strcout;
+		strcout.assign(strcout.begin()+strcompare.size(),ret[0].end());
+		char *cstr_ret = new char [strcout.length()+1];
+		strcpy(cstr_ret, strcout.c_str());
+		for(int i=0; i< strcout.length()+1 ; i++){
+			insertChar(cstr_ret[i]);
+		}
+	}
+	else{
+		for(int i=0; i < ret.size(); i++){
+			if(i%7==0)
+				cout << endl;
+			cout << setw(15) << ret[i];
 
+		}
+		cout << VT100_CSRL;
+		cout << "atpg> ";
+		for(int i=0; i< (int)(_readBufEnd - _readBuf); i++){
+			cout << _readBuf[i];
+		}		
+	}	
     return false; 
 }
