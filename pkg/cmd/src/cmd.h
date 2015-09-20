@@ -38,8 +38,8 @@ public:
     bool    regCmd(const std::string &cat, Cmd *cmd); 
 
     Cmd     *getCmd(const std::string &name) const; 
-    void    getMatchCmds(const std::string &cmdStr, CmdVec& ret) const; 
-
+//    void    getMatchCmds(const std::string &cmdStr, CmdVec& ret) const; 
+	void    getMatchCmds(const std::string &cmdStr, std::vector<std::string>& ret) const;
     void    setExit(); 
 
     Result  exec(const std::string &cmdStr);     
